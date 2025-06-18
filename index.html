@@ -54,7 +54,509 @@
 
 
 
+<style>
+       
 
+        .image-gallery {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+            padding: 0 20px;
+
+
+
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-rows: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+                padding: 5px;
+            }
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .image-gallery__col {
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+            transition: all ease 0.4s;
+        }
+
+        .image-gallery__col::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--vs-theme-color);
+            z-index: 2;
+            border-radius: 20px;
+            opacity: 0.7;
+            transform-origin: center;
+            transform: scaleY(0);
+            visibility: hidden;
+            transition: all ease 0.4s;
+        }
+
+        .image-gallery__col img {
+            transition: all ease 0.4s;
+            transform: scale(1);
+        }
+
+        .image-gallery__col--popup {
+            --icon-size: 116px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--vs-theme-color);
+            font-size: clamp(1.125rem, 0.85rem + 1.38vw, 2.5rem);
+            position: absolute;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            z-index: 4;
+            opacity: 0.9;
+            visibility: hidden;
+            transition: all ease 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery__col--popup {
+                --icon-size: 50px;
+            }
+        }
+
+        .image-gallery__col:hover::before {
+            transform: scaleY(1);
+            visibility: visible;
+            transition: all ease 0.4s;
+        }
+
+        .image-gallery__col:hover .image-gallery__col--popup {
+            transform: translate(-50%, -50%) scale(1);
+            visibility: visible;
+            opacity: 0.9;
+            transition: all ease 0.4s;
+        }
+
+        .image-gallery__col--popup:hover {
+            background-color: var(--vs-theme-color2);
+            color: var(--bg-color);
+        }
+
+        .image-gallery__col:hover img {
+            transform: scale(1.2);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        .image-gallery__one {
+            grid-area: 1 / 1 / 3 / 2;
+        }
+
+        .image-gallery__two {
+            grid-area: 1/2/2/3;
+        }
+
+        .image-gallery__three {
+            grid-area: 2/2/3/3;
+        }
+
+        .image-gallery__four {
+            grid-area: 1 / 3 / 3 / 4;
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery__one {
+                grid-area: 1 / 1 / 3 / 3;
+            }
+            .image-gallery__two {
+                grid-area: 3 / 1 / 5 / 3;
+            }
+            .image-gallery__three {
+                grid-area: 3 / 3 / 5 / 5;
+            }
+            .image-gallery__four {
+                grid-area: 1 / 3 / 3 / 5;
+            }
+        }
+
+        /* Modal Styles - Fixed z-index */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--bg-color);
+            border: 2px solid var(--vs-theme-color);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin-bottom: 700px;
+        }
+
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--vs-theme-color);
+            padding-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--vs-theme-color);
+        }
+
+        .close {
+            color: var(--vs-theme-color);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .close:hover {
+            color: var(--vs-theme-color2);
+        }
+
+        .game-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .game-mode-card {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border: 2px solid var(--vs-theme-color);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .game-mode-card:hover::before {
+            left: 100%;
+        }
+
+        .game-mode-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--vs-theme-color2);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .game-mode-icon {
+            font-size: 3rem;
+            color: var(--vs-theme-color);
+            margin-bottom: 15px;
+        }
+
+        .game-mode-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .game-mode-description {
+            color: #cccccc;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .game-mode-players {
+            background-color: var(--vs-theme-color);
+            color: var(--bg-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Game Pool Styles */
+        .game-pool {
+            display: none;
+        }
+
+        .game-pool.show {
+            display: block;
+        }
+
+        .back-button {
+            background-color: transparent;
+            border: 2px solid var(--vs-theme-color);
+            color: var(--vs-theme-color);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .back-button:hover {
+            background-color: var(--vs-theme-color);
+            color: var(--bg-color);
+        }
+
+        .pool-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Pool Card Styles - Renamed to avoid conflicts */
+        .pool-item {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border: 2px solid var(--vs-theme-color);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .pool-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+        }
+
+        .pool-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--vs-theme-color), var(--vs-theme-color2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--bg-color);
+            flex-shrink: 0;
+        }
+
+        .pool-details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .pool-info {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .pool-fee {
+            text-align: center;
+        }
+
+        .pool-fee-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .pool-fee-amount {
+            background-color: var(--vs-theme-color);
+            color: var(--bg-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .pool-winning {
+            text-align: center;
+        }
+
+        .pool-winning-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .pool-winning-amount {
+            color: var(--vs-primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .pool-join-btn {
+            background-color: var(--vs-primary);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .pool-join-btn:hover {
+            background-color: var(--vs-theme-color);
+            transform: translateY(-2px);
+        }
+
+        .about-ele1,
+        .about-ele2 {
+            position: absolute;
+            z-index: -1;
+        }
+
+        .about-ele1 {
+            top: 67px;
+            left: 101px;
+            animation: spin 20s infinite linear;
+        }
+
+        .about-ele2 {
+            bottom: 350px;
+            right: 40px;
+            animation: spin 20s infinite linear;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Non-clickable cards styling */
+        .image-gallery__two,
+        .image-gallery__three {
+            pointer-events: auto;
+        }
+
+        .image-gallery__two .image-gallery__col--popup,
+        .image-gallery__three .image-gallery__col--popup {
+            display: none;
+        }
+
+        /* Below section simulation */
+        .below-section {
+            background-color: #111;
+            padding: 50px 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .below-section h2 {
+            color: var(--vs-theme-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .below-section p {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .pool-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .pool-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .pool-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .pool-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
    
 </head>
 
@@ -563,15 +1065,15 @@
                           <div class="vs-hero__bar"></div>
                           <div class="vs-hero__bar"></div>
                         </div>
-                        <span>India's Pro Gaming</span>
+                        <span>India's Best Gaming </span>
                       </div>
-                      <h1 class="vs-hero__title"><span class="vs-hero__title--highlight"> Arena</span>
+                      <h1 class="vs-hero__title"><span class="vs-hero__title--highlight">Platfom</span>
                          <img class="vs-hero__title--img" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/gun.png?v=1750162538" alt="roda" style="height: 110px; ">
                       </h1>
-                      <h3 class="vs-hero__text">Colab has the best pro <span>players</span></h3>
+                      <h3 class="vs-hero__text">The Esports Arena Where Legends Are  <span>Earned.</span></h3>
                       <div class="vs-hero__buttons" aria-hidden="true">
                         <a href="#" class="vs-btn vs-btn--style2" tabindex="-1">
-                          view more
+                          view Pro
                           <span class="vs-btn__inner">
                                                 <span class="vs-btn__blobs">
                                                     <span class="vs-btn__blob"></span>
@@ -591,11 +1093,29 @@
                             </defs>
                           </svg>
                         </a>
-                        <a href="https://www.youtube.com/watch?v=zX-jSCDsJ8E" class="vs-hero__play play-btn popup-video" tabindex="-1">
+                        <!-- <a href="https://www.youtube.com/watch?v=zX-jSCDsJ8E" class="vs-hero__play play-btn popup-video" tabindex="-1">
                           <i class="fa-solid fa-play"></i>
-                        </a>
-                        <a class="vs-hero__link" href="about.html" tabindex="-1">
-                          see history
+                        </a> -->
+                       <a href="#" class="vs-btn vs-btn--style2" tabindex="-1" style="margin-left: 20px;">
+                          view Casual
+                          <span class="vs-btn__inner">
+                                                <span class="vs-btn__blobs">
+                                                    <span class="vs-btn__blob"></span>
+                          <span class="vs-btn__blob"></span>
+                          <span class="vs-btn__blob"></span>
+                          <span class="vs-btn__blob"></span>
+                          </span>
+                          </span>
+                          <svg class="vs-btn__animation" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                            <defs>
+                              <filter>
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo">
+                                </feColorMatrix>
+                                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+                              </filter>
+                            </defs>
+                          </svg>
                         </a>
                       </div>
                     </div>
@@ -787,12 +1307,12 @@
                             </span>
                   <h2 class="title-style__big title-anime__title">
                     <img src="assets/img/svg/svg-section-icon.svg" alt="svg section icon">
-                    Best <span>Esports</span>
-                    Game List
+                 Colab     <span>Esports</span>
+
                   </h2>
                   <p class="about__text">
                     <img src="assets/img/svg/svg-flag-icon.svg" alt="svg-flag-icon" class="about__text--icon">
-                    Top Play To Earn Tokens <span>by Market</span>
+                    Where Every Kill Counts, and Every <span>Win Pays.</span>
                   </p>
                   <a href="#" class="vs-btn vs-btn--style2" tabindex="-1">
                     play now
@@ -841,9 +1361,9 @@
                   </div>
                   <div class="creator-item__content">
                     <h3 class="creator-item__title">
-                      <a class="creator-item__title--link" href="single-match.html">registration</a>
+                      <a class="creator-item__title--link" href="single-match.html">Free to Win Model</a>
                     </h3>
-                    <p class="creator-item__text">Leverage Challenger mode's deep game integration close</p>
+                    <p class="creator-item__text">Play 1v1 or 5v5 for free & win real cash – pure skill, no luck.</p>
                   </div>
                   <span class="creator-item__number">01</span>
                 </div>
@@ -863,9 +1383,9 @@
                   </div>
                   <div class="creator-item__content">
                     <h3 class="creator-item__title">
-                      <a class="creator-item__title--link" href="single-match.html">Publisher</a>
+                      <a class="creator-item__title--link" href="single-match.html">Dual Game Modes</a>
                     </h3>
-                    <p class="creator-item__text">Leverage Challenger mode's deep game integration close</p>
+                    <p class="creator-item__text">Free-to-Play hourly contests & Pro paid tournaments </p>
                   </div>
                   <span class="creator-item__number">02</span>
                 </div>
@@ -883,9 +1403,9 @@
                   </div>
                   <div class="creator-item__content">
                     <h3 class="creator-item__title">
-                      <a class="creator-item__title--link" href="single-match.html">big community</a>
+                      <a class="creator-item__title--link" href="single-match.html">XP-Based Leaderboards</a>
                     </h3>
-                    <p class="creator-item__text">Leverage Challenger mode's deep game integration close</p>
+                    <p class="creator-item__text">Earn XP for every move </p>
                   </div>
                   <span class="creator-item__number">03</span>
                 </div>
@@ -894,8 +1414,8 @@
           </div>
         </div>
 
-
-        <div class="image-gallery">
+<!-- pro and casual section -->
+        <!-- <div class="image-gallery">
           <div class="image-gallery__col image-gallery__one wow animate__fadeInUp" data-wow-delay="0.25s">
             <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options.png?v=1750165817" alt="image gallery">
             <a href="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options.png?v=1750165817" class="image-gallery__col--popup popup-image">
@@ -920,10 +1440,94 @@
               <i class="fa-solid fa-plus"></i>
             </a>
           </div>
+        </div> -->
+
+ <div class="main-container">
+        <div class="container">
+            <div class="image-gallery">
+                <div class="image-gallery__col image-gallery__one" onclick="openModal('gameModal')">
+                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options.png?v=1750165817" alt="image gallery">
+                    <div class="image-gallery__col--popup">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                </div>
+                
+                <div class="image-gallery__col image-gallery__two">
+                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/pro_11.png?v=1750167124" alt="image gallery">
+                </div>
+                
+                <div class="image-gallery__col image-gallery__three">
+                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/casual_11.png?v=1750167125" alt="image gallery">
+                </div>
+                
+                <div class="image-gallery__col image-gallery__four" onclick="openModal('gameModal')">
+                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options_2.png?v=1750165818" alt="image gallery">
+                    <div class="image-gallery__col--popup">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative elements -->
+            <div class="about-ele1">
+                <i class="fa-solid fa-gear" style="color: var(--vs-theme-color); font-size: 2rem; opacity: 0.3;"></i>
+            </div>
+            <div class="about-ele2">
+                <i class="fa-solid fa-star" style="color: var(--vs-theme-color); font-size: 1.5rem; opacity: 0.3;"></i>
+            </div>
         </div>
+       
+    </div>
 
+    <!-- Game Mode Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Choose Game Mode</h2>
+                <span class="close" onclick="closeModal('gameModal')">&times;</span>
+            </div>
+            
+            <!-- Game Mode Selection -->
+            <div id="gameModeSelection" class="game-modes">
+                <div class="game-mode-card" onclick="showGamePool('1v1')">
+                    <div class="game-mode-icon">
+                        <i class="fa-solid fa-user-friends"></i>
+                    </div>
+                    <div class="game-mode-title">1v1 Mode</div>
+                    <div class="game-mode-description">
+                        Face off against a single opponent in intense one-on-one battles. Perfect for competitive players who want to test their skills.
+                    </div>
+                    <div class="game-mode-players">2 Players</div>
+                </div>
+                
+                <div class="game-mode-card" onclick="showGamePool('5v5')">
+                    <div class="game-mode-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="game-mode-title">5v5 Mode</div>
+                    <div class="game-mode-description">
+                        Team up with 4 other players and battle against another team of 5. Strategic teamwork and coordination are key to victory.
+                    </div>
+                    <div class="game-mode-players">10 Players</div>
+                </div>
+            </div>
 
+            <!-- Game Pool -->
+            <div id="gamePool" class="game-pool">
+                <button class="back-button" onclick="showGameModes()">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Game Modes
+                </button>
+                
+                <div class="modal-header">
+                    <h2 id="poolTitle" class="modal-title">1v1 Game Pool</h2>
+                </div>
 
+                <div class="pool-list" id="poolList">
+                    <!-- Games will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
       </section>
       <!-- Twin Section End -->
@@ -1246,16 +1850,16 @@
       </section> -->
       <!-- Team Area End -->
       <!-- Video Area Start -->
-      <section class="video video--layout2 z-index-common wow animate__fadeInUp" data-wow-delay="0.25s">
-        <div class="video__bg z-index-common">
+      <section class="video video--layout2 z-index-common wow animate__fadeInUp" data-wow-delay="0.25s" >
+        <div class="video__bg z-index-common" >
           <div data-vs-gsap-parallax-speed="5" data-vs-gsap-parallax-zoom>
-            <img class="video__img" src="assets/img/video/video-bg-1-2.jpg" alt="roda">
+            <img class="video__img" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/video_cover_2.jpg?v=1750232106" alt="roda">
           </div>
           <div class="video__content">
             <div class="container">
               <div class="row justify-content-center wow animate__fadeInUp" data-wow-delay="0.65s">
                 <div class="col-auto">
-                  <a href="https://www.youtube.com/watch?v=zX-jSCDsJ8E" class="play-btn video__play--btn popup-video">
+                  <a href="https://www.youtube.com/embed/Td7R4m5p73s" class="play-btn video__play--btn popup-video">
                     <i class="fa-solid fa-play"></i>
                     <svg width="107" height="107" viewBox="0 0 107 107" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle opacity="0.8" cx="53.5" cy="53.5" r="49.5" fill="none" stroke="white" stroke-width="8" stroke-dasharray="3 3" />
@@ -1263,7 +1867,7 @@
                   </a>
                   <h2 class="video__title">LIVE STREAMS</h2>
                   <a href="#" class="vs-btn vs-btn--style2" tabindex="-1">
-                    view Twitch
+                    view 
                     <span class="vs-btn__inner">
                                     <span class="vs-btn__blobs">
                                         <span class="vs-btn__blob"></span>
@@ -1639,7 +2243,104 @@
 
 
 
-   
+  <script>
+        const games1v1 = [
+            { id: 1, entryFee: "₹50", winning: "₹90" },
+            { id: 2, entryFee: "₹100", winning: "₹180" },
+            { id: 3, entryFee: "₹25", winning: "₹45" },
+            { id: 4, entryFee: "₹75", winning: "₹135" },
+            { id: 5, entryFee: "₹200", winning: "₹360" }
+        ];
+
+        const games5v5 = [
+            { id: 6, entryFee: "₹250", winning: "₹1200" },
+            { id: 7, entryFee: "₹500", winning: "₹2400" },
+            { id: 8, entryFee: "₹150", winning: "₹720" },
+            { id: 9, entryFee: "₹300", winning: "₹1440" },
+            { id: 10, entryFee: "₹1000", winning: "₹4800" }
+        ];
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            showGameModes();
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showGameModes() {
+            document.getElementById('gameModeSelection').style.display = 'grid';
+            document.getElementById('gamePool').classList.remove('show');
+        }
+
+        function showGamePool(mode) {
+            document.getElementById('gameModeSelection').style.display = 'none';
+            document.getElementById('gamePool').classList.add('show');
+            document.getElementById('poolTitle').textContent = `${mode} Game Pool`;
+            
+            const games = mode === '1v1' ? games1v1 : games5v5;
+            populatePoolList(games);
+        }
+
+        function populatePoolList(games) {
+            const poolList = document.getElementById('poolList');
+            poolList.innerHTML = '';
+
+            games.forEach((game, index) => {
+                const poolItem = createPoolItem(game, index + 1);
+                poolList.appendChild(poolItem);
+            });
+        }
+
+        function createPoolItem(game, number) {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'pool-item';
+            
+            itemDiv.innerHTML = `
+                <div class="pool-number">${number}</div>
+                <div class="pool-details">
+                    <div class="pool-info">
+                        <div class="pool-fee">
+                            <div class="pool-fee-label">Entry Fee</div>
+                            <div class="pool-fee-amount">${game.entryFee}</div>
+                        </div>
+                        <div class="pool-winning">
+                            <div class="pool-winning-label">Winning</div>
+                            <div class="pool-winning-amount">${game.winning}</div>
+                        </div>
+                    </div>
+                    <button class="pool-join-btn" onclick="joinGame(${game.id})">Join Game</button>
+                </div>
+            `;
+            
+            return itemDiv;
+        }
+
+        function joinGame(gameId) {
+            alert(`Joining game ${gameId}! Redirecting to payment...`);
+            console.log(`Joined game with ID: ${gameId}`);
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                closeModal('gameModal');
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal('gameModal');
+            }
+        });
+    </script>
 </body>
 
 </html>
