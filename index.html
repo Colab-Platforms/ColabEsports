@@ -628,9 +628,9 @@
 
       /* Profile Picture Trigger */
       .profile-trigger {
-        position: fixed;
+        /* position: fixed;
         top: 20px;
-        right: 20px;
+        right: 20px; */
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -981,6 +981,10 @@
               ></path>
             </svg>
           </button>
+          <!-- Profile Picture Trigger -->
+<!-- <div class="profile-trigger" onclick="openSidemenu()">
+  <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/avtar.jpg?v=1750160660" alt="Profile Picture">
+</div> -->
           <button class="sideCartToggler" type="button">
             <svg
               width="21"
@@ -1006,7 +1010,7 @@
                 fill="white"
               ></path>
             </svg>
-            <span>0 Cash</span>
+            <span>0 Cashh</span>
           </button>
           <button class="sideMenuToggler" type="button">
             <svg
@@ -1726,6 +1730,10 @@
                     </svg>
                     <span>0 Cash</span>
                   </button>
+                  <!-- Profile Picture Trigger -->
+<!-- <div class="profile-trigger" onclick="openSidemenu()">
+  <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/avtar.jpg?v=1750160660" alt="Player Picture">
+</div> -->
                   <button class="sideMenuToggler d-none d-md-flex">
                     <svg
                       width="36"
@@ -3480,6 +3488,72 @@
         All Js File
     ============================== -->
     <!-- Jquery -->
+
+    <script>
+      function openSidemenu() {
+        const sidemenu = document.getElementById("sidemenuWrapper");
+        sidemenu.classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSidemenu() {
+        const sidemenu = document.getElementById("sidemenuWrapper");
+        sidemenu.classList.remove("show");
+        document.body.style.overflow = "auto";
+      }
+
+      function handleLogin() {
+        alert("Login functionality would be implemented here");
+        console.log("Login clicked");
+      }
+
+      function handleSignup() {
+        alert("Sign up functionality would be implemented here");
+        console.log("Sign up clicked");
+      }
+
+      function handleWallet() {
+        alert("Wallet functionality would be implemented here");
+        console.log("Wallet clicked");
+        closeSidemenu();
+      }
+
+      function handleKYC() {
+        alert("KYC verification functionality would be implemented here");
+        console.log("KYC clicked");
+        closeSidemenu();
+      }
+
+      function handleSubscription(event) {
+        event.preventDefault();
+        const email = document.getElementById("email-subscription").value;
+        alert(`Subscription request for: ${email}`);
+        console.log("Subscription for:", email);
+        document.getElementById("email-subscription").value = "";
+      }
+
+      // Close sidemenu when clicking outside
+      document.addEventListener("click", function (event) {
+        const sidemenu = document.getElementById("sidemenuWrapper");
+        const profileTrigger = document.querySelector(".profile-trigger");
+
+        if (
+          sidemenu.classList.contains("show") &&
+          !sidemenu.contains(event.target) &&
+          !profileTrigger.contains(event.target)
+        ) {
+          closeSidemenu();
+        }
+      });
+
+      // Close sidemenu with Escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeSidemenu();
+        }
+      });
+    </script>
+
     <script src="assets/js/vendor/jquery-7.1.1.slim.min.js"></script>
     <!-- Slick Slider -->
     <script src="assets/js/slick.min.js"></script>
@@ -3609,70 +3683,7 @@
       });
     </script>
 
-    <script>
-      function openSidemenu() {
-        const sidemenu = document.getElementById("sidemenuWrapper");
-        sidemenu.classList.add("show");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeSidemenu() {
-        const sidemenu = document.getElementById("sidemenuWrapper");
-        sidemenu.classList.remove("show");
-        document.body.style.overflow = "auto";
-      }
-
-      function handleLogin() {
-        alert("Login functionality would be implemented here");
-        console.log("Login clicked");
-      }
-
-      function handleSignup() {
-        alert("Sign up functionality would be implemented here");
-        console.log("Sign up clicked");
-      }
-
-      function handleWallet() {
-        alert("Wallet functionality would be implemented here");
-        console.log("Wallet clicked");
-        closeSidemenu();
-      }
-
-      function handleKYC() {
-        alert("KYC verification functionality would be implemented here");
-        console.log("KYC clicked");
-        closeSidemenu();
-      }
-
-      function handleSubscription(event) {
-        event.preventDefault();
-        const email = document.getElementById("email-subscription").value;
-        alert(`Subscription request for: ${email}`);
-        console.log("Subscription for:", email);
-        document.getElementById("email-subscription").value = "";
-      }
-
-      // Close sidemenu when clicking outside
-      document.addEventListener("click", function (event) {
-        const sidemenu = document.getElementById("sidemenuWrapper");
-        const profileTrigger = document.querySelector(".profile-trigger");
-
-        if (
-          sidemenu.classList.contains("show") &&
-          !sidemenu.contains(event.target) &&
-          !profileTrigger.contains(event.target)
-        ) {
-          closeSidemenu();
-        }
-      });
-
-      // Close sidemenu with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          closeSidemenu();
-        }
-      });
-    </script>
+    
 
     
   </body>
