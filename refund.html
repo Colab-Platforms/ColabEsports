@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>ColabEsports - Gaming Store & eCommerce HTML5 Template | Refund Policy</title>
+  <title>ColabEsports - Gaming Store  | Refund Policy</title>
   <meta name="author" content="vecuro">
   <meta name="description" content="Roda - Gaming Store & eCommerce HTML5 Template">
   <meta name="keywords" content="Roda - Gaming Store & eCommerce HTML5 Template">
@@ -237,6 +237,311 @@
         font-size: 20px;
       }
     }
+
+
+
+   
+    /* Profile Picture Trigger */
+      .profile-trigger {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid var(--vs-theme-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        z-index: 1000;
+      }
+
+      .profile-trigger:hover {
+        border-color: var(--vs-theme-color2);
+        transform: scale(1.1);
+      }
+
+      .profile-trigger img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Sidemenu Styles */
+      .sidemenu-wrapper {
+        position: fixed;
+        z-index: 999999;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .sidemenu-content {
+        --sidebarPosition: 400px;
+        background-color: var(--vs-theme-color);
+        width: var(--sidebarPosition);
+        margin-left: auto;
+        padding: 40px 30px 30px 30px;
+        height: 100%;
+        overflow-y: auto;
+        position: relative;
+        right: calc(-1 * var(--sidebarPosition));
+        cursor: auto;
+        transform-origin: right;
+        transition: right 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show .sidemenu-content {
+        right: 0;
+      }
+
+      @media (max-width: 768px) {
+        .sidemenu-content {
+          --sidebarPosition: 300px;
+          padding: 20px 15px;
+        }
+      }
+
+      /* Scrollbar Styles */
+      .sidemenu-content::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px var(--bg-color);
+        border-radius: 0px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-thumb {
+        background: var(--bg-color);
+        border-radius: 10px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-thumb:hover {
+        background: var(--vs-theme-color2);
+      }
+
+      .sidemenu-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .closeButton {
+        display: inline-block;
+        border: none;
+        color: var(--bg-color);
+        background-color: transparent;
+        font-size: 40px;
+        padding: 0;
+        border-radius: 50%;
+        transform: rotate(0);
+        transition: all ease 0.4s;
+        font-family: var(--title-font);
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .closeButton:hover {
+        color: var(--white-color);
+        transform: rotate(180deg);
+      }
+
+      .sidemenu-hr {
+        height: 4px;
+        border-top: 1px solid var(--bg-color);
+        border-bottom: 1px solid var(--bg-color);
+        opacity: 1;
+        margin: 30px 0 35px;
+      }
+
+      .sidemenu-inner {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 150px);
+        justify-content: space-between;
+      }
+
+      /* Profile Menu Options */
+      .profile-menu {
+        margin-bottom: 40px;
+      }
+
+      .menu-option {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--bg-color);
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .menu-option:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        transform: translateX(-5px);
+      }
+
+      .menu-option i {
+        font-size: 20px;
+        width: 25px;
+        text-align: center;
+      }
+
+      .auth-options {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .auth-btn {
+        flex: 1;
+        padding: 12px 20px;
+        border: 2px solid var(--bg-color);
+        background-color: transparent;
+        color: var(--bg-color);
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+
+      .auth-btn:hover {
+        background-color: var(--bg-color);
+        color: var(--vs-theme-color);
+      }
+
+      .auth-btn.primary {
+        background-color: var(--bg-color);
+        color: var(--vs-theme-color);
+      }
+
+      .auth-btn.primary:hover {
+        background-color: transparent;
+        color: var(--bg-color);
+      }
+
+      /* Subscription Section */
+      .subscription-section {
+        margin-top: auto;
+      }
+
+      .sidemenu-subtitle {
+        font-size: 1.1rem;
+        color: var(--bg-color);
+        letter-spacing: 0.2px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .email-subscription__form {
+        background-color: var(--bg-color);
+        border-radius: 10px;
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+
+      .email-subscription__input {
+        flex: 1;
+        color: var(--body-color);
+        font-family: var(--title-font);
+        padding: 12px 20px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+
+      .email-subscription__input::placeholder {
+        color: var(--body-color);
+      }
+
+      .email-subscription__btn {
+        background-color: var(--bg-color);
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .email-subscription__btn:hover svg path {
+        fill: var(--vs-theme-color);
+      }
+
+      .sidemenu-text {
+        color: var(--bg-color);
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--title-font);
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+
+      /* Demo Content */
+      .demo-content {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .demo-content h1 {
+        color: var(--vs-theme-color);
+        margin-bottom: 20px;
+      }
+
+      .demo-content p {
+        color: var(--body-color);
+        margin-bottom: 30px;
+      }
+
+      /* Animation Classes */
+      .sidemenu-item {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show .sidemenu-item {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+  
   </style>
 </head>
 
@@ -296,17 +601,17 @@
         <ul>
           <li class="menu-item-has-children">
             <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="index.html">HOME</a>
-            <ul class="sub-menu">
+            <!-- <ul class="sub-menu">
               <li><a href="index.html">Home 01</a></li>
               <li><a href="index-2.html">Home 02</a></li>
               <li><a href="index-3.html">Home 03</a></li>
-            </ul>
+            </ul> -->
           </li>
           <li>
             <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="about.html">About</a>
           </li>
           <li class="menu-item-has-children mega-menu-wrap">
-            <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="javascript:void(0)">Pages</a>
+            <!-- <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="javascript:void(0)">Pages</a>
             <ul class="mega-menu">
               <li><a href="javascript:void(0)">Page List 1</a>
                 <ul>
@@ -347,9 +652,9 @@
                   <li><a href="404.html">404 Page</a></li>
                 </ul>
               </li>
-            </ul>
+            </ul> -->
           </li>
-          <li class="menu-item-has-children">
+          <!-- <li class="menu-item-has-children">
             <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="shop.html">shop</a>
             <ul class="sub-menu">
               <li><a href="shop.html">Main Shop</a></li>
@@ -357,13 +662,13 @@
               <li><a href="shop-nft.html">NFT Shop</a></li>
               <li><a href="nft-shop.html">NFT Details</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="menu-item-has-children">
             <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="blog.html">blog</a>
-            <ul class="sub-menu">
+            <!-- <ul class="sub-menu">
               <li><a href="blog.html">Blog</a></li>
               <li><a href="blog-details.html">Blog Details</a></li>
-            </ul>
+            </ul> -->
           </li>
           <li>
             <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="contact.html">contact</a>
@@ -374,14 +679,13 @@
         <div class="sidemenu-contact style2">
           <ul>
             <li>
-              <a href="tel:+95552247849" class="sidemenu-link">+9 555 224 7849</a>
+              <a href="tel:+95552247849" class="sidemenu-link">+91 xxxxxxxxxx</a>
             </li>
             <li>
-              <a href="mailto:info@luxrio.com" class="sidemenu-link">info@luxrio.com</a>
+              <a href="mailto:info@luxrio.com" class="sidemenu-link">colabesports@gmail.com</a>
             </li>
             <li>
-              <a href="index.html">munich
-                Expresswa 70 Germany, TX 7859</a>
+              <a href="index.html">xxxxx xxxxxx xxxxxxx</a>
             </li>
           </ul>
         </div>
@@ -396,7 +700,7 @@
             </button>
           </div>
         </form>
-        <p class="sidemenu-text text-start">Copyright © 2024 <a class="vs-theme-color" href="index.html">roda</a>. All rights reserved.
+        <p class="sidemenu-text text-start">Copyright © 2025 <a class="vs-theme-color" href="index.html">Colabesports</a>. All rights reserved.
         </p>
         <div class="footer-social">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -410,59 +714,93 @@
   <!--==============================
 		Offcanvas
 	============================== -->
-  <div class="sidemenu-wrapper">
-    <div class="sidemenu-content">
-      <div class="sidemenu-logo sidemenu-item">
-        <a href="index.html"><img src="assets/img/logo-black.svg" alt="Roda" class="logo"></a>
-        <button class="closeButton sideMenuCls">X</button>
-      </div>
-      <hr class="sidemenu-hr sidemenu-item">
-      <div class="sidemenu-inner">
-        <div class="sidemenu-body">
-          <h3 class="sidemenu-title sidemenu-item">We Were Here
-            on Steam</h3>
-          <h4 class="sidemenu-subtitle sidemenu-item">CONTACT US</h4>
-          <div class="sidemenu-contact">
-            <ul>
-              <li class="sidemenu-item">
-                <a href="tel:+95552247849" class="sidemenu-link">+9 555 224 7849</a>
-              </li>
-              <li class="sidemenu-item">
-                <a href="mailto:info@luxrio.com" class="sidemenu-link">info@luxrio.com</a>
-              </li>
-              <li class="sidemenu-item">
-                <a href="index.html">munich
-                  Expresswa 70 Germany, TX 7859</a>
-              </li>
-            </ul>
-          </div>
-          <h4 class="sidemenu-subtitle style2 text-uppercase sidemenu-item">Subscribe</h4>
-          <form class="email-subscription__form sidemenu-item">
-            <input id="email-subscription2" class="email-subscription__input" type="email" placeholder="Get News & Updates" required="">
-            <div class="email-subscription__right">
-              <button type="submit" class="vs-btn email-subscription__btn">
-                <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19.4104 13.157L3.26296 22.242C1.6968 23.1219 -0.142003 21.6027 0.473289 19.9355L3.57409 11.5003L0.473289 3.06498C-0.142003 1.39434 1.6968 -0.121493 3.26296 0.75845L19.4104 9.84339C20.7178 10.5756 20.7144 12.4249 19.4104 13.157Z" fill="#A6D719" />
-                </svg>
+   <!-- Sidemenu -->
+    <div class="sidemenu-wrapper" id="sidemenuWrapper">
+      <div class="sidemenu-content">
+        <div class="sidemenu-logo sidemenu-item">
+          <a href="index.html">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-Black_KB.png?v=1750316527"
+              alt="Colab Esports"
+              class="logo"
+              width="105px"
+              height="auto"
+            />
+          </a>
+          <button class="closeButton" onclick="closeSidemenu()">×</button>
+        </div>
+
+        <hr class="sidemenu-hr sidemenu-item" />
+
+        <div class="sidemenu-inner">
+          <div class="sidemenu-body">
+            <!-- Authentication Options -->
+            <div class="auth-options sidemenu-item">
+              <button class="auth-btn" onclick="handleLogin()">Login</button>
+              <button class="auth-btn primary" onclick="handleSignup()">
+                Sign Up
               </button>
             </div>
-          </form>
-          <p class="sidemenu-text sidemenu-item">Subscribe dolor sitamet, consectetur adiping
-            Duis esollici tudin augue.</p>
-        </div>
-        <div class="sidemenu-footer">
-          <hr class="sidemenu-hr sidemenu-item">
-          <div class="footer-social sidemenu-item">
-            <span>follow us on :</span>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
+
+            <!-- Profile Menu Options -->
+            <div class="profile-menu">
+              <a
+                href="#"
+                class="menu-option sidemenu-item"
+                onclick="handleWallet()"
+              >
+                <i class="fas fa-wallet"></i>
+                <span>Wallet</span>
+              </a>
+
+              <a
+                href="#"
+                class="menu-option sidemenu-item"
+                onclick="handleKYC()"
+              >
+                <i class="fas fa-id-card"></i>
+                <span>KYC Verification</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Subscription Section -->
+          <div class="subscription-section">
+            <h4 class="sidemenu-subtitle sidemenu-item">Subscribe</h4>
+            <form
+              class="email-subscription__form sidemenu-item"
+              onsubmit="handleSubscription(event)"
+            >
+              <input
+                id="email-subscription"
+                class="email-subscription__input"
+                type="email"
+                placeholder="Get News & Updates"
+                required
+              />
+              <button type="submit" class="email-subscription__btn">
+                <svg
+                  width="21"
+                  height="23"
+                  viewBox="0 0 21 23"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.4104 13.157L3.26296 22.242C1.6968 23.1219 -0.142003 21.6027 0.473289 19.9355L3.57409 11.5003L0.473289 3.06498C-0.142003 1.39434 1.6968 -0.121493 3.26296 0.75845L19.4104 9.84339C20.7178 10.5756 20.7144 12.4249 19.4104 13.157Z"
+                    fill="#A6D719"
+                  />
+                </svg>
+              </button>
+            </form>
+            <p class="sidemenu-text sidemenu-item">
+              Subscribe to get the latest news and updates about gaming
+              tournaments and events.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
   <!-- ==============================
     	Popup Search Box
     ============================== -->
@@ -600,7 +938,7 @@
             <div class="col-xl-auto col-lg-auto col-md-auto col-auto">
               <div class="vs-header__logo">
                 <a class="vs-header__logo-link" href="index.html">
-                  <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-08.png?v=1749895614" alt="colabsports Logo - Gaming HTML5 Template" loading="lazy" width="185" height="auto">
+                  <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-White_KB_1.png?v=1750315800" alt="colabsports Logo - Gaming " loading="lazy" width="105" height="auto">
                 </a>
               </div>
             </div>
@@ -609,17 +947,17 @@
                 <ul>
                   <li class="menu-item-has-children">
                     <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="index.html">HOME</a>
-                    <ul class="sub-menu">
+                    <!-- <ul class="sub-menu">
                       <li><a href="index.html">Home 01</a></li>
                       <li><a href="index-2.html">Home 02</a></li>
                       <li><a href="index-3.html">Home 03</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
                   <li>
                     <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="about.html">About</a>
                   </li>
                   <li class="menu-item-has-children mega-menu-wrap">
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="javascript:void(0)">Pages</a>
+                    <!-- <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="javascript:void(0)">Pages</a>
                     <ul class="mega-menu">
                       <li><a href="javascript:void(0)">Page List 1</a>
                         <ul>
@@ -660,9 +998,9 @@
                           <li><a href="404.html">404 Page</a></li>
                         </ul>
                       </li>
-                    </ul>
+                    </ul> -->
                   </li>
-                  <li class="menu-item-has-children">
+                  <!-- <li class="menu-item-has-children">
                     <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="shop.html">shop</a>
                     <ul class="sub-menu">
                       <li><a href="shop.html">Main Shop</a></li>
@@ -670,13 +1008,13 @@
                       <li><a href="shop-nft.html">NFT Shop</a></li>
                       <li><a href="nft-shop.html">NFT Details</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                   <li class="menu-item-has-children">
                     <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="blog.html">blog</a>
-                    <ul class="sub-menu">
+                    <!-- <ul class="sub-menu">
                       <li><a href="blog.html">Blog</a></li>
                       <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
+                    </ul> -->
                   </li>
                   <li>
                     <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="contact.html">contact</a>
@@ -722,10 +1060,10 @@
 	******************************** -->
   <main class="vs-page__main">
     <!-- Breadcrumb Style -->
-    <div class="breadcumb-wrapper" data-bg-src="assets/img/bg/breadcrumb-bg-1-2.jpg">
+    <div class="breadcumb-wrapper" data-bg-src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Website_banner_1.jpg?v=1750313898">
       <div class="container">
         <div class="breadcumb-content">
-          <h1 class="breadcumb-title wow animate__fadeInUp" data-wow-delay="0.35s">Privacy Policy</h1>
+          <h1 class="breadcumb-title wow animate__fadeInUp" data-wow-delay="0.35s">Refund Policy</h1>
           <div class="breadcumb-menu-wrap">
             <ul class="breadcumb-menu wow animate__fadeInUp" data-wow-delay="0.45s">
               <li><a href="index.html">Home</a></li>
