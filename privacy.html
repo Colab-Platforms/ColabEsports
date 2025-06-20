@@ -714,7 +714,7 @@
   <!--==============================
 		Offcanvas
 	============================== -->
-  <!-- Sidemenu -->
+      <!-- Sidemenu -->
     <div class="sidemenu-wrapper" id="sidemenuWrapper">
       <div class="sidemenu-content">
         <div class="sidemenu-logo sidemenu-item">
@@ -734,41 +734,98 @@
 
         <div class="sidemenu-inner">
           <div class="sidemenu-body">
-            <!-- Authentication Options -->
-            <div class="auth-options sidemenu-item">
-              <button class="auth-btn" onclick="handleLogin()">Login</button>
-              <button class="auth-btn primary" onclick="handleSignup()">
-                Sign Up
-              </button>
+            
+            <!-- Authentication Section -->
+            <div class="auth-section sidemenu-item">
+              
+              <!-- Login Form -->
+              <div id="loginFormSide" class="auth-form-side">
+                <h3 class="auth-title">Login to Your Account</h3>
+                <form onsubmit="handleSidemenuLogin(event)" class="side-form">
+                  <div class="form-group-side">
+                    <label for="sideLoginEmail">Email Address</label>
+                    <input type="email" id="sideLoginEmail" name="email" required placeholder="Enter your email">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideLoginPassword">Password</label>
+                    <input type="password" id="sideLoginPassword" name="password" required placeholder="Enter your password">
+                  </div>
+                  <button type="submit" class="auth-btn-side primary">Login</button>
+                </form>
+                
+                <div class="auth-switch">
+                  <p>Don't have an account? <a href="#" onclick="showSideSignupForm()">Please Sign Up</a></p>
+                </div>
+              </div>
+
+              <!-- Signup Form -->
+              <div id="signupFormSide" class="auth-form-side" style="display: none;">
+                <h3 class="auth-title">Create New Account</h3>
+                <form onsubmit="handleSidemenuSignup(event)" class="side-form">
+                  <div class="form-group-side">
+                    <label for="sideSignupName">Full Name</label>
+                    <input type="text" id="sideSignupName" name="name" required placeholder="Enter your full name">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideSignupEmail">Email Address</label>
+                    <input type="email" id="sideSignupEmail" name="email" required placeholder="Enter your email">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideSignupPassword">Password</label>
+                    <input type="password" id="sideSignupPassword" name="password" required placeholder="Create a password">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideConfirmPassword">Confirm Password</label>
+                    <input type="password" id="sideConfirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                  </div>
+                  <button type="submit" class="auth-btn-side primary">Sign Up</button>
+                </form>
+                
+                <div class="auth-switch">
+                  <p>Already have an account? <a href="#" onclick="showSideLoginForm()">Login here</a></p>
+                </div>
+              </div>
+
+              <!-- Logged In State -->
+              <div id="loggedInState" class="logged-in-state" style="display: none;">
+                <div class="user-profile">
+                  <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="user-details">
+                    <h4 id="sideUserName">Welcome User!</h4>
+                    <p id="sideUserEmail">user@example.com</p>
+                  </div>
+                </div>
+                <button class="auth-btn-side logout" onclick="handleLogout()">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+              </div>
             </div>
 
             <!-- Profile Menu Options -->
-              <!-- Profile Menu Options -->
             <div class="profile-menu">
-              <!-- <a
-                href="#"
-                class="menu-option sidemenu-item"
-                onclick="handleWallet()"
-              >
-                <i class="fas fa-wallet"></i>
-                <span>Wallet</span>
-              </a> -->
-
-              <a
-                href="#"
-                class="menu-option sidemenu-item"
-                onclick="handleKYC()"
-              >
+              <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
                 <i class="fas fa-id-card"></i>
                 <span>KYC Verification</span>
               </a>
+              
+              <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
+                <i class="fas fa-wallet"></i>
+                <span>My Wallet</span>
+              </a>
+              
+              <a href="#" class="menu-option sidemenu-item" onclick="handleGameHistory()">
+                <i class="fas fa-history"></i>
+                <span>Game History</span>
+              </a> -->
             </div>
           </div>
 
           <!-- Subscription Section -->
           <div class="subscription-section">
-            <h4 class="sidemenu-subtitle sidemenu-item">Subscribe</h4>
-            <form
+            <h4 class="sidemenu-subtitle sidemenu-item">Disclaimer</h4>
+            <!-- <form
               class="email-subscription__form sidemenu-item"
               onsubmit="handleSubscription(event)"
             >
@@ -778,8 +835,8 @@
                 type="email"
                 placeholder="Get News & Updates"
                 required
-              />
-              <button type="submit" class="email-subscription__btn">
+              /> -->
+              <!-- <button type="submit" class="email-subscription__btn">
                 <svg
                   width="21"
                   height="23"
@@ -792,16 +849,20 @@
                     fill="#A6D719"
                   />
                 </svg>
-              </button>
-            </form>
+              </button> -->
+            <!-- </form> -->
             <p class="sidemenu-text sidemenu-item">
-              Subscribe to get the latest news and updates about gaming
-              tournaments and events.
-            </p>
+  By logging in or using Colab Esports, you agree to our 
+  <a href="terms.html" target="_blank">Terms & Conditions</a>, 
+  <a href="privacy" target="_blank">Privacy Policy</a>, and 
+  <a href="refund.html" target="_blank">all platform rules</a>. 
+  This is a skill-based platform. Participation involves financial risk and may be addictive. Play responsibly.
+</p>
           </div>
         </div>
       </div>
     </div>
+
   <!-- ==============================
     	Popup Search Box
     ============================== -->
