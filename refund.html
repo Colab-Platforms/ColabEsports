@@ -541,6 +541,645 @@
       .sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
         transition-delay: 0.6s;
       }
+
+
+
+      .user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 2px solid var(--vs-theme-color);
+  color: var(--vs-theme-color);
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: var(--vs-theme-color);
+  color: var(--bg-color);
+}
+
+/* Sidemenu Styles */
+.sidemenu-wrapper {
+  position: fixed;
+  z-index: 999999;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidemenu-content {
+  --sidebarPosition: 450px;
+  background-color: var(--vs-theme-color);
+  width: var(--sidebarPosition);
+  margin-left: auto;
+  padding: 40px 30px 30px 30px;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  right: calc(-1 * var(--sidebarPosition));
+  cursor: auto;
+  transform-origin: right;
+  transition: right 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-content {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .sidemenu-content {
+    --sidebarPosition: 350px;
+    padding: 20px 15px;
+  }
+}
+
+/* Scrollbar Styles */
+.sidemenu-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidemenu-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--bg-color);
+  border-radius: 0px;
+}
+
+.sidemenu-content::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border-radius: 10px;
+}
+
+.sidemenu-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vs-theme-color2);
+}
+
+.sidemenu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  display: inline-block;
+  border: none;
+  color: var(--bg-color);
+  background-color: transparent;
+  font-size: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transform: rotate(0);
+  transition: all ease 0.4s;
+  font-family: var(--title-font);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: var(--white-color);
+  transform: rotate(180deg);
+}
+
+.sidemenu-hr {
+  height: 4px;
+  border-top: 1px solid var(--bg-color);
+  border-bottom: 1px solid var(--bg-color);
+  opacity: 1;
+  margin: 30px 0 35px;
+}
+
+.sidemenu-inner {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  justify-content: space-between;
+}
+
+/* Authentication Section in Sidemenu */
+.auth-section {
+  margin-bottom: 30px;
+}
+
+.auth-form-side {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.auth-title {
+  color: var(--bg-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.side-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-side label {
+  color: var(--bg-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.form-group-side input {
+  padding: 12px 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-group-side input:focus {
+  outline: none;
+  border-color: var(--bg-color);
+  background-color: white;
+}
+
+.form-group-side input::placeholder {
+  color: #666;
+}
+
+.auth-btn-side {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.auth-btn-side.primary {
+  background-color: var(--bg-color);
+  color: var(--vs-theme-color);
+}
+
+.auth-btn-side.primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.auth-btn-side.logout {
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-btn-side.logout:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.auth-switch p {
+  color: var(--bg-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-switch a {
+  color: var(--bg-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.auth-switch a:hover {
+  color: var(--white-color);
+  border-bottom-color: var(--white-color);
+}
+
+/* Logged In State */
+.logged-in-state {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
+
+.user-profile {
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  margin-bottom: 15px;
+}
+
+.user-avatar i {
+  font-size: 3rem;
+  color: var(--bg-color);
+}
+
+.user-details h4 {
+  color: var(--bg-color);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.user-details p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Profile Menu Options */
+.profile-menu {
+  margin-bottom: 40px;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--bg-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu-option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-5px);
+}
+
+.menu-option i {
+  font-size: 20px;
+  width: 25px;
+  text-align: center;
+}
+
+/* Subscription Section */
+.subscription-section {
+  margin-top: auto;
+}
+
+.sidemenu-subtitle {
+  font-size: 1.1rem;
+  color: var(--bg-color);
+  letter-spacing: 0.2px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.email-subscription__form {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.email-subscription__input {
+  flex: 1;
+  color: var(--body-color);
+  font-family: var(--title-font);
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.email-subscription__input::placeholder {
+  color: var(--body-color);
+}
+
+.email-subscription__btn {
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.email-subscription__btn:hover svg path {
+  fill: var(--vs-theme-color);
+}
+
+.sidemenu-text {
+  color: var(--bg-color);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--title-font);
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* Animation Classes */
+.sidemenu-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+
+
+/* Games Section */
+.games-section {
+  padding: 100px 0;
+  background-color: var(--bg-color);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  font-family: var(--title-font);
+  color: var(--vs-theme-color);
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: var(--body-color);
+}
+
+
+
+.players-count {
+  background-color: var(--vs-theme-color);
+  color: var(--bg-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Leaderboard Section */
+.leaderboard-section {
+  padding: 100px 0;
+  background-color: #111;
+}
+
+.leaderboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.player-card {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border: 2px solid var(--vs-theme-color);
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(166, 215, 25, 0.3);
+}
+
+.rank-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--vs-theme-color), var(--vs-theme-color2));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--bg-color);
+  font-size: 1.2rem;
+}
+
+.player-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 20px 0 15px;
+  border: 3px solid var(--vs-theme-color);
+}
+
+.player-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.player-stats {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9rem;
+  color: var(--body-color);
+}
+
+
+/* Footer */
+.vs-footer {
+  background-color: #0a0a0a;
+  padding: 60px 0 20px;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links a {
+  color: var(--body-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--vs-theme-color);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: var(--body-color);
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--vs-theme-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  color: var(--body-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vs-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .vs-hero__text {
+    font-size: 1.2rem;
+  }
+
+  .features {
+    gap: 20px;
+  }
+
+  .feature-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .game-modes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leaderboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pool-item {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .pool-info {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-menu ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-lg-block {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .d-lg-block {
+    display: none;
+  }
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
   
   </style>
 </head>
@@ -714,7 +1353,7 @@
   <!--==============================
 		Offcanvas
 	============================== -->
-       <!-- Sidemenu -->
+    <!-- Sidemenu -->
     <div class="sidemenu-wrapper" id="sidemenuWrapper">
       <div class="sidemenu-content">
         <div class="sidemenu-logo sidemenu-item">
@@ -805,10 +1444,10 @@
 
             <!-- Profile Menu Options -->
             <div class="profile-menu">
-              <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
+              <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
                 <i class="fas fa-id-card"></i>
                 <span>KYC Verification</span>
-              </a>
+              </a> -->
               
               <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
                 <i class="fas fa-wallet"></i>
@@ -823,34 +1462,9 @@
           </div>
 
           <!-- Subscription Section -->
-          <div class="subscription-section">
-            <h4 class="sidemenu-subtitle sidemenu-item">Disclaimer</h4>
-            <!-- <form
-              class="email-subscription__form sidemenu-item"
-              onsubmit="handleSubscription(event)"
-            >
-              <input
-                id="email-subscription"
-                class="email-subscription__input"
-                type="email"
-                placeholder="Get News & Updates"
-                required
-              /> -->
-              <!-- <button type="submit" class="email-subscription__btn">
-                <svg
-                  width="21"
-                  height="23"
-                  viewBox="0 0 21 23"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M19.4104 13.157L3.26296 22.242C1.6968 23.1219 -0.142003 21.6027 0.473289 19.9355L3.57409 11.5003L0.473289 3.06498C-0.142003 1.39434 1.6968 -0.121493 3.26296 0.75845L19.4104 9.84339C20.7178 10.5756 20.7144 12.4249 19.4104 13.157Z"
-                    fill="#A6D719"
-                  />
-                </svg>
-              </button> -->
-            <!-- </form> -->
+          <div class="subscription-section" style="margin-bottom: 150px;">
+            <h4 class="sidemenu-subtitle sidemenu-item" style="padding-left: 150px;">Disclaimer</h4>
+            
             <p class="sidemenu-text sidemenu-item">
   By logging in or using Colab Esports, you agree to our 
   <a href="terms.html" target="_blank">Terms & Conditions</a>, 
@@ -859,6 +1473,28 @@
   This is a skill-based platform. Participation involves financial risk and may be addictive. Play responsibly.
 </p>
           </div>
+          <div class="vs-footer__social" style="margin-left: 180px;">
+                  
+                    <a href="https://x.com/colabesports"
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a href="https://www.instagram.com/colabesports/"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/channel/UCPq_-QWa4TcuKP7OQozotOA"
+                      ><i class="fab fa-youtube"></i
+                    ></a>
+                    <a href="https://discord.com/channels/1384163322303348947/1384163323397935217"
+                      ><i class="fab fa-discord"></i
+                    ></a>
+                    <a href="https://steamcommunity.com/profiles/76561199867149445/"
+                      ><i class="fab fa-steam"></i
+                    ></a>
+                    <a href="https://www.reddit.com/user/ColabEsports/"
+                      ><i class="fab fa-reddit-alien"></i
+                    ></a>
+                  </div>
         </div>
       </div>
     </div>
@@ -1101,12 +1737,10 @@
                   <span>0 bag</span>
                 </button> -->
                 <button class="sideMenuToggler d-none d-md-flex">
-                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.4307 36H4.16306C1.86757 36 0 34.1324 0 31.8369V23.5693C0 21.2738 1.86757 19.4062 4.16306 19.4062H12.4307C14.7262 19.4062 16.5938 21.2738 16.5938 23.5693V31.8369C16.5938 34.1324 14.7262 36 12.4307 36ZM13.7812 23.5693C13.7812 22.8246 13.1754 22.2188 12.4307 22.2188H4.16306C3.41838 22.2188 2.8125 22.8246 2.8125 23.5693V31.8369C2.8125 32.5816 3.41838 33.1875 4.16306 33.1875H12.4307C13.1754 33.1875 13.7812 32.5816 13.7812 31.8369V23.5693Z" fill="#A6D719" />
-                    <path d="M31.7812 36H23.625C21.2988 36 19.4062 34.1075 19.4062 31.7812V23.625C19.4062 21.2988 21.2988 19.4062 23.625 19.4062H31.7812C34.1075 19.4062 36 21.2988 36 23.625V31.7812C36 34.1075 34.1075 36 31.7812 36ZM33.1875 23.625C33.1875 22.8496 32.5567 22.2188 31.7812 22.2188H23.625C22.8496 22.2188 22.2188 22.8496 22.2188 23.625V31.7812C22.2188 32.5567 22.8496 33.1875 23.625 33.1875H31.7812C32.5567 33.1875 33.1875 32.5567 33.1875 31.7812V23.625Z" fill="#F6F5F5" />
-                    <path d="M12.4307 16.5938H4.16306C1.86757 16.5938 0 14.7262 0 12.4307V4.16306C0 1.86757 1.86757 0 4.16306 0H12.4307C14.7262 0 16.5938 1.86757 16.5938 4.16306V12.4307C16.5938 14.7262 14.7262 16.5938 12.4307 16.5938ZM13.7812 4.16306C13.7812 3.41838 13.1754 2.8125 12.4307 2.8125H4.16306C3.41838 2.8125 2.8125 3.41838 2.8125 4.16306V12.4307C2.8125 13.1754 3.41838 13.7812 4.16306 13.7812H12.4307C13.1754 13.7812 13.7812 13.1754 13.7812 12.4307V4.16306Z" fill="#F6F5F5" />
-                    <path d="M31.7812 16.5938H23.625C21.2988 16.5938 19.4062 14.7012 19.4062 12.375V4.21875C19.4062 1.89253 21.2988 0 23.625 0H31.7812C34.1075 0 36 1.89253 36 4.21875V12.375C36 14.7012 34.1075 16.5938 31.7812 16.5938ZM33.1875 4.21875C33.1875 3.44334 32.5567 2.8125 31.7812 2.8125H23.625C22.8496 2.8125 22.2188 3.44334 22.2188 4.21875V12.375C22.2188 13.1504 22.8496 13.7812 23.625 13.7812H31.7812C32.5567 13.7812 33.1875 13.1504 33.1875 12.375V4.21875Z" fill="#A6D719" />
-                  </svg>
+                 <svg width="50" height="50" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" />
+  <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4Z" />
+</svg>
                 </button>
                 <button class="vs-menu-toggle d-inline-flex d-lg-none"><i class="fal fa-bars"></i></button>
               </div>
