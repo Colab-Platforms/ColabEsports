@@ -1,3 +1,446 @@
+/* Sidemenu Styles */
+      .sidemenu-wrapper {
+        position: fixed;
+        z-index: 999999;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .sidemenu-content {
+        --sidebarPosition: 400px;
+        background-color: var(--vs-theme-color);
+        width: var(--sidebarPosition);
+        margin-left: auto;
+        padding: 40px 30px 30px 30px;
+        height: 100%;
+        overflow-y: auto;
+        position: relative;
+        right: calc(-1 * var(--sidebarPosition));
+        cursor: auto;
+        transform-origin: right;
+        transition: right 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show .sidemenu-content {
+        right: 0;
+      }
+
+      @media (max-width: 768px) {
+        .sidemenu-content {
+          --sidebarPosition: 300px;
+          padding: 20px 15px;
+        }
+      }
+
+      /* Scrollbar Styles */
+      .sidemenu-content::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px var(--bg-color);
+        border-radius: 0px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-thumb {
+        background: var(--bg-color);
+        border-radius: 10px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-thumb:hover {
+        background: var(--vs-theme-color2);
+      }
+
+      .sidemenu-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .closeButton {
+        display: inline-block;
+        border: none;
+        color: var(--bg-color);
+        background-color: transparent;
+        font-size: 40px;
+        padding: 0;
+        border-radius: 50%;
+        transform: rotate(0);
+        transition: all ease 0.4s;
+        font-family: var(--title-font);
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .closeButton:hover {
+        color: var(--white-color);
+        transform: rotate(180deg);
+      }
+
+      .sidemenu-hr {
+        height: 4px;
+        border-top: 1px solid var(--bg-color);
+        border-bottom: 1px solid var(--bg-color);
+        opacity: 1;
+        margin: 30px 0 35px;
+      }
+
+      .sidemenu-inner {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 150px);
+        justify-content: space-between;
+      }
+
+
+ <div class="sidemenu-wrapper" id="sidemenuWrapper">
+      <div class="sidemenu-content">
+        <div class="sidemenu-logo sidemenu-item">
+          <a href="index.html">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-Black_KB.png?v=1750316527"
+              alt="Colab Esports"
+              class="logo"
+              width="105px"
+              height="auto"
+            />
+          </a>
+          <button class="closeButton" onclick="closeSidemenu()">×</button>
+        </div>
+
+        <hr class="sidemenu-hr sidemenu-item" />
+
+        <div class="sidemenu-inner">
+          <div class="sidemenu-body">
+            
+            <!-- Authentication Section -->
+            <div class="auth-section sidemenu-item">
+              
+              <!-- Login Form -->
+              <div id="loginFormSide" class="auth-form-side">
+                <h3 class="auth-title">Login to Your Account</h3>
+                <form onsubmit="handleSidemenuLogin(event)" class="side-form">
+                  <div class="form-group-side">
+                    <label for="sideLoginEmail">Email Address</label>
+                    <input type="email" id="sideLoginEmail" name="email" required placeholder="Enter your email">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideLoginPassword">Password</label>
+                    <input type="password" id="sideLoginPassword" name="password" required placeholder="Enter your password">
+                  </div>
+                  <button type="submit" class="auth-btn-side primary">Login</button>
+                </form>
+                
+                <div class="auth-switch">
+                  <p>Don't have an account? <a href="#" onclick="showSideSignupForm()">Please Sign Up</a></p>
+                </div>
+              </div>
+
+              <!-- Signup Form -->
+              <div id="signupFormSide" class="auth-form-side" style="display: none;">
+                <h3 class="auth-title">Create New Account</h3>
+                <form onsubmit="handleSidemenuSignup(event)" class="side-form">
+                  <div class="form-group-side">
+                    <label for="sideSignupName">Full Name</label>
+                    <input type="text" id="sideSignupName" name="name" required placeholder="Enter your full name">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideSignupEmail">Email Address</label>
+                    <input type="email" id="sideSignupEmail" name="email" required placeholder="Enter your email">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideSignupPassword">Password</label>
+                    <input type="password" id="sideSignupPassword" name="password" required placeholder="Create a password">
+                  </div>
+                  <div class="form-group-side">
+                    <label for="sideConfirmPassword">Confirm Password</label>
+                    <input type="password" id="sideConfirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                  </div>
+                  <button type="submit" class="auth-btn-side primary">Sign Up</button>
+                </form>
+                
+                <div class="auth-switch">
+                  <p>Already have an account? <a href="#" onclick="showSideLoginForm()">Login here</a></p>
+                </div>
+              </div>
+
+              <!-- Logged In State -->
+              <div id="loggedInState" class="logged-in-state" style="display: none;">
+                <div class="user-profile">
+                  <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                  </div>
+                  <div class="user-details">
+                    <h4 id="sideUserName">Welcome User!</h4>
+                    <p id="sideUserEmail">user@example.com</p>
+                  </div>
+                </div>
+                <button class="auth-btn-side logout" onclick="handleLogout()">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+              </div>
+            </div>
+
+            <!-- Profile Menu Options -->
+            <div class="profile-menu">
+              <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
+                <i class="fas fa-id-card"></i>
+                <span>KYC Verification</span>
+              </a> -->
+              
+              <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
+                <i class="fas fa-wallet"></i>
+                <span>My Wallet</span>
+              </a>
+              
+              <a href="#" class="menu-option sidemenu-item" onclick="handleGameHistory()">
+                <i class="fas fa-history"></i>
+                <span>Game History</span>
+              </a> -->
+            </div>
+          </div>
+
+
+    <script>
+        // Authentication System
+class AuthSystem {
+  constructor() {
+    this.currentUser = null
+    this.users = JSON.parse(localStorage.getItem("users")) || []
+    this.init()
+  }
+
+  init() {
+    // Check if user is already logged in
+    const token = localStorage.getItem("authToken")
+    const userId = localStorage.getItem("userId")
+
+    if (token && userId) {
+      const user = this.users.find((u) => u.id === userId)
+      if (user) {
+        this.currentUser = user
+        this.updateUIForLoggedInUser()
+        this.hidePreloader()
+        return
+      }
+    }
+
+    // Show login form in sidemenu by default
+    this.hidePreloader()
+  }
+
+  updateUIForLoggedInUser() {
+    // Hide login/signup forms
+    document.getElementById("loginFormSide").style.display = "none"
+    document.getElementById("signupFormSide").style.display = "none"
+
+    // Show logged in state
+    document.getElementById("loggedInState").style.display = "block"
+
+    // Update user info in sidemenu
+    document.getElementById("sideUserName").textContent = `Welcome, ${this.currentUser.name}!`
+    document.getElementById("sideUserEmail").textContent = this.currentUser.email
+
+    // Show user info in header
+    document.getElementById("userInfo").style.display = "flex"
+    document.getElementById("userWelcome").textContent = `Welcome, ${this.currentUser.name}!`
+  }
+
+  updateUIForLoggedOutUser() {
+    // Show login form
+    document.getElementById("loginFormSide").style.display = "block"
+    document.getElementById("signupFormSide").style.display = "none"
+    document.getElementById("loggedInState").style.display = "none"
+
+    // Hide user info in header
+    document.getElementById("userInfo").style.display = "none"
+  }
+
+  hidePreloader() {
+    setTimeout(() => {
+      const preloader = document.getElementById("preloader")
+      preloader.classList.add("hidden")
+      setTimeout(() => {
+        preloader.style.display = "none"
+      }, 500)
+    }, 1000)
+  }
+
+  generateToken() {
+    return Math.random().toString(36).substr(2) + Date.now().toString(36)
+  }
+
+  generateUserId() {
+    return "user_" + Math.random().toString(36).substr(2, 9)
+  }
+
+  login(email, password) {
+    const user = this.users.find((u) => u.email === email && u.password === password)
+
+    if (user) {
+      this.currentUser = user
+      const token = this.generateToken()
+
+      // Store authentication data
+      localStorage.setItem("authToken", token)
+      localStorage.setItem("userId", user.id)
+
+      this.updateUIForLoggedInUser()
+      this.showNotification("Login successful!", "success")
+      return true
+    } else {
+      this.showNotification("Invalid email or password!", "error")
+      return false
+    }
+  }
+
+  signup(name, email, password, confirmPassword) {
+    // Validation
+    if (password !== confirmPassword) {
+      this.showNotification("Passwords do not match!", "error")
+      return false
+    }
+
+    if (password.length < 6) {
+      this.showNotification("Password must be at least 6 characters long!", "error")
+      return false
+    }
+
+    // Check if user already exists
+    if (this.users.find((u) => u.email === email)) {
+      this.showNotification("User with this email already exists!", "error")
+      return false
+    }
+
+    // Create new user
+    const newUser = {
+      id: this.generateUserId(),
+      name: name,
+      email: email,
+      password: password,
+      createdAt: new Date().toISOString(),
+    }
+
+    this.users.push(newUser)
+    localStorage.setItem("users", JSON.stringify(this.users))
+
+    this.showNotification("Account created successfully! Please login.", "success")
+    this.showSideLoginForm()
+    return true
+  }
+
+  logout() {
+    this.currentUser = null
+    localStorage.removeItem("authToken")
+    localStorage.removeItem("userId")
+
+    this.updateUIForLoggedOutUser()
+    this.showNotification("Logged out successfully!", "success")
+    closeSidemenu()
+  }
+
+  showSideLoginForm() {
+    document.getElementById("loginFormSide").style.display = "block"
+    document.getElementById("signupFormSide").style.display = "none"
+  }
+
+  showSideSignupForm() {
+    document.getElementById("loginFormSide").style.display = "none"
+    document.getElementById("signupFormSide").style.display = "block"
+  }
+
+  showNotification(message, type = "info") {
+    // Create notification element
+    const notification = document.createElement("div")
+    notification.className = `notification notification-${type}`
+    notification.innerHTML = `
+      <span>${message}</span>
+      <button onclick="this.parentElement.remove()">&times;</button>
+    `
+
+    // Add notification styles
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: ${type === "success" ? "#4CAF50" : type === "error" ? "#f44336" : "#2196F3"};
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      min-width: 300px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: slideInRight 0.3s ease-out;
+    `
+
+    // Add animation styles
+    const style = document.createElement("style")
+    style.textContent = `
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    `
+    document.head.appendChild(style)
+
+    document.body.appendChild(notification)
+
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+      if (notification.parentElement) {
+        notification.remove()
+      }
+    }, 5000)
+  }
+} 
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .image-gallery {
         display: grid;
         grid-template-rows: repeat(2, 1fr);

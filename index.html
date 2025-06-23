@@ -112,6 +112,346 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <style>
+
+/* Sidemenu Styles */
+.sidemenu-wrapper {
+  position: fixed;
+  z-index: 999999;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidemenu-content {
+  --sidebarPosition: 400px;
+  background-color: var(--vs-theme-color);
+  width: var(--sidebarPosition);
+  margin-left: auto;
+  padding: 40px 30px 30px 30px;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  right: calc(-1 * var(--sidebarPosition));
+  cursor: auto;
+  transform-origin: right;
+  transition: right 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-content {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .sidemenu-content {
+    --sidebarPosition: 300px;
+    padding: 20px 15px;
+  }
+}
+
+/* Scrollbar Styles */
+.sidemenu-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidemenu-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--bg-color);
+  border-radius: 0px;
+}
+
+.sidemenu-content::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border-radius: 10px;
+}
+
+.sidemenu-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vs-theme-color2);
+}
+
+.sidemenu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  display: inline-block;
+  border: none;
+  color: var(--bg-color);
+  background-color: transparent;
+  font-size: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transform: rotate(0);
+  transition: all ease 0.4s;
+  font-family: var(--title-font);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: var(--white-color);
+  transform: rotate(180deg);
+}
+
+.sidemenu-hr {
+  height: 4px;
+  border-top: 1px solid var(--bg-color);
+  border-bottom: 1px solid var(--bg-color);
+  opacity: 1;
+  margin: 30px 0 35px;
+}
+
+.sidemenu-inner {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  justify-content: space-between;
+}
+
+/* Authentication Section in Sidemenu */
+.auth-section {
+  margin-bottom: 30px;
+}
+
+.auth-form-side {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.auth-title {
+  color: var(--bg-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.side-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-side label {
+  color: var(--bg-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.form-group-side input {
+  padding: 12px 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-group-side input:focus {
+  outline: none;
+  border-color: var(--bg-color);
+  background-color: white;
+}
+
+.form-group-side input::placeholder {
+  color: #666;
+}
+
+.auth-btn-side {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.auth-btn-side.primary {
+  background-color: var(--bg-color);
+  color: var(--vs-theme-color);
+}
+
+.auth-btn-side.primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.auth-btn-side.logout {
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 30px;
+}
+
+.auth-btn-side.logout:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.auth-switch p {
+  color: var(--bg-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-switch a {
+  color: var(--bg-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.auth-switch a:hover {
+  color: var(--white-color);
+  border-bottom-color: var(--white-color);
+}
+
+/* Logged In State */
+.logged-in-state {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
+
+.user-profile {
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-color);
+  object-fit: cover;
+}
+
+.user-details h4 {
+  color: var(--bg-color);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.user-details p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Profile Menu Options */
+.profile-menu {
+  margin-bottom: 40px;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--bg-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu-option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-5px);
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.menu-option i {
+  font-size: 20px;
+  width: 25px;
+  text-align: center;
+}
+
+/* Animation Classes */
+.sidemenu-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+
+
+
+
+
+
+
+
+
+
       .image-gallery {
         display: grid;
         grid-template-rows: repeat(2, 1fr);
@@ -292,7 +632,7 @@
         animation: slideIn 0.3s ease-out;
         max-height: 90vh;
         overflow-y: auto;
-        margin-bottom: 700px;
+        margin-bottom: 100px;
       }
 
       @keyframes slideIn {
@@ -306,6 +646,8 @@
         }
       }
 
+
+      
       .modal-header {
         display: flex;
         justify-content: space-between;
@@ -874,7 +1216,7 @@
       .sidemenu-text {
         color: var(--bg-color);
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 100;
         font-family: var(--title-font);
         margin-bottom: 0;
         line-height: 1.4;
@@ -1589,6 +1931,34 @@
   animation: fadeIn 0.6s ease-out;
 }
 
+
+
+
+
+
+.kyc-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: black;
+  margin-left: 15px;
+}
+
+.step-icon {
+  font-size: 20px;
+  color: #555;
+}
+
+.status-icon.uploaded {
+  color: green;
+  margin-left: auto;
+  font-size: 18px;
+  color: #000;
+  margin-left: 15px;
+}
+
     </style>
   </head>
 
@@ -1787,114 +2157,143 @@
     
     <!-- Sidemenu -->
     <div class="sidemenu-wrapper" id="sidemenuWrapper">
-      <div class="sidemenu-content">
-        <div class="sidemenu-logo sidemenu-item">
-          <a href="index.html">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-Black_KB.png?v=1750316527"
-              alt="Colab Esports"
-              class="logo"
-              width="105px"
-              height="auto"
-            />
-          </a>
-          <button class="closeButton" onclick="closeSidemenu()">×</button>
-        </div>
+  <div class="sidemenu-content">
+    <div class="sidemenu-logo sidemenu-item">
+      <a href="index.html">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-Black_KB.png?v=1750316527"
+          alt="Colab Esports"
+          class="logo"
+          width="105px"
+          height="auto"
+        />
+      </a>
+      <button class="closeButton" onclick="closeSidemenu()">×</button>
+    </div>
 
-        <hr class="sidemenu-hr sidemenu-item" />
+    <hr class="sidemenu-hr sidemenu-item" />
 
-        <div class="sidemenu-inner">
-          <div class="sidemenu-body">
+    <div class="sidemenu-inner">
+      <div class="sidemenu-body">
+        
+        <!-- Authentication Section -->
+        <div class="auth-section sidemenu-item">
+          
+          <!-- Login Form -->
+          <div id="loginFormSide" class="auth-form-side">
+            <h3 class="auth-title">Login to Your Account</h3>
+            <form onsubmit="handleSidemenuLogin(event)" class="side-form">
+              <div class="form-group-side">
+                <label for="sideLoginEmail">Email Address</label>
+                <input type="email" id="sideLoginEmail" name="email" required placeholder="Enter your email">
+              </div>
+              <div class="form-group-side">
+                <label for="sideLoginPassword">Password</label>
+                <input type="password" id="sideLoginPassword" name="password" required placeholder="Enter your password">
+              </div>
+              <button type="submit" class="auth-btn-side primary">Login</button>
+            </form>
             
-            <!-- Authentication Section -->
-            <div class="auth-section sidemenu-item">
-              
-              <!-- Login Form -->
-              <div id="loginFormSide" class="auth-form-side">
-                <h3 class="auth-title">Login to Your Account</h3>
-                <form onsubmit="handleSidemenuLogin(event)" class="side-form">
-                  <div class="form-group-side">
-                    <label for="sideLoginEmail">Email Address</label>
-                    <input type="email" id="sideLoginEmail" name="email" required placeholder="Enter your email">
-                  </div>
-                  <div class="form-group-side">
-                    <label for="sideLoginPassword">Password</label>
-                    <input type="password" id="sideLoginPassword" name="password" required placeholder="Enter your password">
-                  </div>
-                  <button type="submit" class="auth-btn-side primary">Login</button>
-                </form>
-                
-                <div class="auth-switch">
-                  <p>Don't have an account? <a href="#" onclick="showSideSignupForm()">Please Sign Up</a></p>
-                </div>
-              </div>
-
-              <!-- Signup Form -->
-              <div id="signupFormSide" class="auth-form-side" style="display: none;">
-                <h3 class="auth-title">Create New Account</h3>
-                <form onsubmit="handleSidemenuSignup(event)" class="side-form">
-                  <div class="form-group-side">
-                    <label for="sideSignupName">Full Name</label>
-                    <input type="text" id="sideSignupName" name="name" required placeholder="Enter your full name">
-                  </div>
-                  <div class="form-group-side">
-                    <label for="sideSignupEmail">Email Address</label>
-                    <input type="email" id="sideSignupEmail" name="email" required placeholder="Enter your email">
-                  </div>
-                  <div class="form-group-side">
-                    <label for="sideSignupPassword">Password</label>
-                    <input type="password" id="sideSignupPassword" name="password" required placeholder="Create a password">
-                  </div>
-                  <div class="form-group-side">
-                    <label for="sideConfirmPassword">Confirm Password</label>
-                    <input type="password" id="sideConfirmPassword" name="confirmPassword" required placeholder="Confirm your password">
-                  </div>
-                  <button type="submit" class="auth-btn-side primary">Sign Up</button>
-                </form>
-                
-                <div class="auth-switch">
-                  <p>Already have an account? <a href="#" onclick="showSideLoginForm()">Login here</a></p>
-                </div>
-              </div>
-
-              <!-- Logged In State -->
-              <div id="loggedInState" class="logged-in-state" style="display: none;">
-                <div class="user-profile">
-                  <div class="user-avatar">
-                    <i class="fas fa-user-circle"></i>
-                  </div>
-                  <div class="user-details">
-                    <h4 id="sideUserName">Welcome User!</h4>
-                    <p id="sideUserEmail">user@example.com</p>
-                  </div>
-                </div>
-                <button class="auth-btn-side logout" onclick="handleLogout()">
-                  <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
-              </div>
-            </div>
-
-            <!-- Profile Menu Options -->
-            <div class="profile-menu">
-              <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
-                <i class="fas fa-id-card"></i>
-                <span>KYC Verification</span>
-              </a> -->
-              
-              <!-- <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
-                <i class="fas fa-wallet"></i>
-                <span>My Wallet</span>
-              </a>
-              
-              <a href="#" class="menu-option sidemenu-item" onclick="handleGameHistory()">
-                <i class="fas fa-history"></i>
-                <span>Game History</span>
-              </a> -->
+            <div class="auth-switch">
+              <p>Don't have an account? <a href="#" onclick="showSideSignupForm()">Please Sign Up</a></p>
             </div>
           </div>
 
-          <!-- Subscription Section -->
-          <div class="subscription-section" style="margin-bottom: 150px;">
+          <!-- Signup Form -->
+          <div id="signupFormSide" class="auth-form-side" style="display: none;">
+            <h3 class="auth-title">Create New Account</h3>
+            <form onsubmit="handleSidemenuSignup(event)" class="side-form">
+              <div class="form-group-side">
+                <label for="sideSignupName">Full Name</label>
+                <input type="text" id="sideSignupName" name="name" required placeholder="Enter your full name">
+              </div>
+              <div class="form-group-side">
+                <label for="sideSignupEmail">Email Address</label>
+                <input type="email" id="sideSignupEmail" name="email" required placeholder="Enter your email">
+              </div>
+              <div class="form-group-side">
+                <label for="sideSignupPassword">Password</label>
+                <input type="password" id="sideSignupPassword" name="password" required placeholder="Create a password">
+              </div>
+              <div class="form-group-side">
+                <label for="sideConfirmPassword">Confirm Password</label>
+                <input type="password" id="sideConfirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+              </div>
+              <button type="submit" class="auth-btn-side primary">Sign Up</button>
+            </form>
+            
+            <div class="auth-switch">
+              <p>Already have an account? <a href="#" onclick="showSideLoginForm()">Login here</a></p>
+            </div>
+          </div>
+
+          <!-- Logged In State -->
+          <div id="loggedInState" class="logged-in-state" style="display: none;">
+            <div class="user-profile">
+              <div class="user-avatar">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/avtar.jpg?v=1750160660" alt="User Avatar" id="userAvatarImg">
+              </div>
+              <div class="user-details">
+                <h4 id="sideUserName">Welcome User!</h4>
+                <p id="sideUserEmail">@username</p>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- Profile Menu Options -->
+        <div class="profile-menu" id="profileMenuOptions" style="display: none;">
+          <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
+            <i class="fas fa-wallet"></i>
+            <span>Transactions</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
+            <i class="fas fa-id-card"></i>
+            <span>KYC Verification</span>
+          </a>
+          <!-- KYC Steps Section (initially hidden) -->
+<div id="kycSteps" style="display: none; padding: 10px 20px;">
+  <div class="kyc-step" id="step-document">
+    <i class="fas fa-file-alt step-icon"></i>
+    <span>Document</span>
+    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
+  </div>
+  <div class="kyc-step" id="step-aadhar">
+    <i class="fas fa-id-card step-icon"></i>
+    <span>Aadhar</span>
+    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
+  </div>
+  <div class="kyc-step" id="step-status">
+    <i class="fas fa-tasks step-icon"></i>
+    <span>Status</span>
+    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
+  </div>
+</div>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleXP()">
+            <i class="fas fa-star"></i>
+            <span>XP Points</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleSupport()">
+            <i class="fas fa-headset"></i>
+            <span>Support</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleSettings()">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+           <button class="auth-btn-side logout" onclick="handleLogout()">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+      </div>
+
+      <!-- Rest of sidebar content (subscription section, etc.) -->
+      <div class="subscription-section" style="margin-bottom: 150px;">
             <h4 class="sidemenu-subtitle sidemenu-item" style="padding-left: 150px;">Disclaimer</h4>
             
             <p class="sidemenu-text sidemenu-item">
@@ -1927,9 +2326,10 @@
                       ><i class="fab fa-reddit-alien"></i
                     ></a>
                   </div>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
+
 
     <!-- ==============================
     	Popup Search Box
@@ -2415,105 +2815,41 @@
 
 
 
-        <section
-          class="twin-section--style2 space overflow-hidden"
-          data-bg-src="assets/img/bg/twin-section-bg-2.png"
-        >
-        
-          <div class="about">
+        <section class="twin-section--style2 space overflow-hidden">
+        <div class="about">
             <div class="container">
-              <div class="row align-items-center">
-                <div
-                  class="col-lg-5 mb-30 wow animate__fadeInUp"
-                  data-wow-delay="0.25s"
-                >
-                  <div
-                    class="title-style title-style--style2 title-anime animation-style2"
-                  >
-                    <span class="title-style__small title-anime__title">
-                      play to earn
-                      <svg
-                        width="79"
-                        height="6"
-                        viewBox="0 0 79 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 0L0 3.2L4 6H38L39.5 3.4L41.5 6H75L78.5 3.2L75 0H41.5L39.5 2.2L38 0H4Z"
-                          fill="#A6D719"
-                        ></path>
-                      </svg>
-                    </span>
-                    <h2 class="title-style__big title-anime__title">
-                      <img
-                        src="assets/img/svg/svg-section-icon.svg"
-                        alt="svg section icon"
-                      />
-                      Colab <span>Esports</span>
-                    </h2>
-                    <p class="about__text">
-                      <img
-                        src="assets/img/svg/svg-flag-icon.svg"
-                        alt="svg-flag-icon"
-                        class="about__text--icon"
-                      />
-                      Where Every Kill Counts, and Every <span>Win Pays.</span>
-                    </p>
-                    <a href="#" class="vs-btn vs-btn--style2" tabindex="-1">
-                      play now
-                      <span class="vs-btn__inner">
-                        <span class="vs-btn__blobs">
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                        </span>
-                      </span>
-                      <svg
-                        class="vs-btn__animation"
-                        xmlns="http://www.w3.org/2000/svg"
-                        version="1.1"
-                      >
-                        <defs>
-                          <filter>
-                            <feGaussianBlur
-                              in="SourceGraphic"
-                              result="blur"
-                              stdDeviation="10"
-                            ></feGaussianBlur>
-                            <feColorMatrix
-                              in="blur"
-                              type="matrix"
-                              values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7"
-                              result="goo"
-                            ></feColorMatrix>
-                            <feBlend
-                              in2="goo"
-                              in="SourceGraphic"
-                              result="mix"
-                            ></feBlend>
-                          </filter>
-                        </defs>
-                      </svg>
-                    </a>
-                  </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-30">
+                        <div class="title-style title-style--style2 title-anime animation-style2">
+                            <span class="title-style__small title-anime__title">
+                                play to earn
+                                <svg width="79" height="6" viewBox="0 0 79 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 0L0 3.2L4 6H38L39.5 3.4L41.5 6H75L78.5 3.2L75 0H41.5L39.5 2.2L38 0H4Z" fill="#A6D719"></path>
+                                </svg>
+                            </span>
+                            <h2 class="title-style__big title-anime__title">
+                                <img src="assets/img/svg/svg-section-icon.svg" alt="svg section icon" />
+                                Colab <span>Esports</span>
+                            </h2>
+                            <p class="about__text">
+                                <img src="assets/img/svg/svg-flag-icon.svg" alt="svg-flag-icon" class="about__text--icon" />
+                                Where Every Kill Counts, and Every <span>Win Pays.</span>
+                            </p>
+                            <a href="#" class="vs-btn vs-btn--style2">
+                                play now
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 mb-30">
+                        <div class="about__img">
+                            <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/block_chain_image.png?v=1750163686" alt="about right" />
+                        </div>
+                    </div>
                 </div>
-                <div
-                  class="col-lg-7 mb-30 wow animate__fadeInUp"
-                  data-wow-delay="0.45s"
-                >
-                  <div class="about__img">
-                    <img
-                      src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/block_chain_image.png?v=1750163686"
-                      alt="about right"
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-          <div class="feature space-bottom">
+        </div>
+
+        <div class="feature space-bottom">
             <div class="container">
               <div class="row">
                 <div
@@ -2606,132 +2942,79 @@
             </div>
           </div>
 
-         
-
-          <div class="main-container" id="main-container">
+        <div class="main-container" id="main-container">
             <div class="container">
-              <div class="image-gallery">
-                <div
-                  class="image-gallery__col image-gallery__one"
-                  onclick="openModal('gameModal')"
-                >
-                  <img
-                    src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options.png?v=1750165817"
-                    alt="image gallery"
-                  />
-                  <div class="image-gallery__col--popup">
-                    <i class="fa-solid fa-gamepad"></i>
-                  </div>
+                <div class="image-gallery">
+                    <div class="image-gallery__col image-gallery__one" onclick="openModal('gameModal')">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options.png?v=1750165817" alt="image gallery" />
+                        <div class="image-gallery__col--popup">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                    </div>
+
+                    <div class="image-gallery__col image-gallery__two" style="--vs-theme-color: none !important;">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/pro_11_1.png?v=1750405241" alt="image gallery" />
+                    </div>
+
+                    <div class="image-gallery__col image-gallery__three" style="--vs-theme-color: none !important;">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/casual_11_1.png?v=1750405239" alt="image gallery" />
+                    </div>
+
+                    <div class="image-gallery__col image-gallery__four" onclick="openModal('gameModal')">
+                        <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options_2.png?v=1750165818" alt="image gallery" />
+                        <div class="image-gallery__col--popup">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="image-gallery__col image-gallery__two">
-                  <img
-                    src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/pro_11_1.png?v=1750405241"
-                    alt="image gallery"
-                  />
+                <!-- Decorative elements -->
+                <div class="about-ele1">
+                    <i class="fa-solid fa-gear" style="color: var(--vs-theme-color); font-size: 2rem; opacity: 0.3;"></i>
                 </div>
-
-                <div class="image-gallery__col image-gallery__three">
-                  <img
-                    src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/casual_11_1.png?v=1750405239"
-                    alt="image gallery"
-                  />
+                <div class="about-ele2">
+                    <i class="fa-solid fa-star" style="color: var(--vs-theme-color); font-size: 1.5rem; opacity: 0.3;"></i>
                 </div>
-
-                <div
-                  class="image-gallery__col image-gallery__four"
-                  onclick="openModal('gameModal')"
-                >
-                  <img
-                    src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options_2.png?v=1750165818"
-                    alt="image gallery"
-                  />
-                  <div class="image-gallery__col--popup">
-                    <i class="fa-solid fa-gamepad"></i>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Decorative elements -->
-              <div class="about-ele1">
-                <i
-                  class="fa-solid fa-gear"
-                  style="
-                    color: var(--vs-theme-color);
-                    font-size: 2rem;
-                    opacity: 0.3;
-                  "
-                ></i>
-              </div>
-              <div class="about-ele2">
-                <i
-                  class="fa-solid fa-star"
-                  style="
-                    color: var(--vs-theme-color);
-                    font-size: 1.5rem;
-                    opacity: 0.3;
-                  "
-                ></i>
-              </div>
             </div>
-          </div>
+        </div>
 
-          <!-- Game Mode Modal -->
-          <div id="gameModal" class="modal">
+        <!-- Game Mode Modal -->
+        <div id="gameModal" class="modal">
             <div class="modal-content">
-              <div class="modal-header">
-                <h2 class="modal-title">Choose Game Mode</h2>
-                <span class="close" onclick="closeModal('gameModal')"
-                  >&times;</span
-                >
-              </div>
-
-              <!-- Game Mode Selection -->
-              <div id="gameModeSelection" class="game-modes">
-                <div class="game-mode-card" onclick="showGamePool('1v1')">
-                  <div class="game-mode-icon">
-                    <i class="fa-solid fa-user-friends"></i>
-                  </div>
-                  <div class="game-mode-title">1v1 Mode</div>
-                  <div class="game-mode-description">
-                    Face off against a single opponent in intense one-on-one
-                    battles. Perfect for competitive players who want to test
-                    their skills.
-                  </div>
-                  <div class="game-mode-players">2 Players</div>
-                </div>
-
-                <!-- <div class="game-mode-card" onclick="showGamePool('5v5')">
-                  <div class="game-mode-icon">
-                    <i class="fa-solid fa-users"></i>
-                  </div>
-                  <div class="game-mode-title">5v5 Mode</div>
-                  <div class="game-mode-description">
-                    Team up with 4 other players and battle against another team
-                    of 5. Strategic teamwork and coordination are key to
-                    victory.
-                  </div>
-                  <div class="game-mode-players">10 Players</div>
-                </div> -->
-              </div>
-
-              <!-- Game Pool -->
-              <div id="gamePool" class="game-pool">
-                <button class="back-button" onclick="showGameModes()">
-                  <i class="fa-solid fa-arrow-left"></i> Back to Game Modes
-                </button>
-
                 <div class="modal-header">
-                  <h2 id="poolTitle" class="modal-title">1v1 Game Pool</h2>
+                    <h2 class="modal-title">Choose Game Mode</h2>
+                    <span class="close" onclick="closeModal('gameModal')">&times;</span>
                 </div>
 
-                <div class="pool-list" id="poolList">
-                  <!-- Games will be populated here -->
+                <div class="modal-body">
+                    <!-- Game Mode Selection -->
+                    <div id="gameModeSelection" class="game-modes">
+                        <div class="game-mode-card" onclick="showGamePool('1v1')">
+                            <div class="game-mode-icon">
+                                <i class="fa-solid fa-user-friends"></i>
+                            </div>
+                            <div class="game-mode-title">1v1 Mode</div>
+                            <div class="game-mode-description">
+                                Face off against a single opponent in intense one-on-one battles. Perfect for competitive players who want to test their skills.
+                            </div>
+                            <div class="game-mode-players">2 Players</div>
+                        </div>
+                    </div>
+
+                    <!-- Game Pool -->
+                    <div id="gamePool" class="game-pool">
+                        <button class="back-button" onclick="showGameModes()">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Game Modes
+                        </button>
+
+                        <div class="pool-list" id="poolList">
+                            <!-- Games will be populated here -->
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </section>
+        </div>
+    </section>
         <!-- Twin Section End -->
         <!-- Game Open Registration -->
         <section class="game space space-extra-bottom z-index-common">
@@ -3189,17 +3472,17 @@
           class="video video--layout2 z-index-common wow animate__fadeInUp"
           data-wow-delay="0.25s"
         >
-          <div class="video__bg z-index-common">
-            <div data-vs-gsap-parallax-speed="5" data-vs-gsap-parallax-zoom>
+          <!-- <div class="video__bg z-index-common"> -->
+            <!-- <div data-vs-gsap-parallax-speed="5" data-vs-gsap-parallax-zoom>
               <img
                 class="video__img"
                 src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/video_cover_2.jpg?v=1750232106"
                 alt="roda"
               />
-            </div>
+            </div> -->
            
         <!-- Product Area End -->
-      </div>
+      <!-- </div> -->
       <!-- Main Layouts End -->
       <!-- Footer Start -->
       <footer
@@ -3269,8 +3552,7 @@
                           class="vs-svg-assets"
                           data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg"
                           href="contact.html"
-                          >Contact</a
-                        >
+                          >Contact</a>
                       </li>
                     </ul>
                   </nav>
@@ -3439,6 +3721,9 @@
       });
     </script>
 
+
+
+
     <script src="assets/js/vendor/jquery-7.1.1.slim.min.js"></script>
     <!-- Slick Slider -->
     <script src="assets/js/slick.min.js"></script>
@@ -3469,66 +3754,98 @@
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
 
-    <script>
-      const games1v1 = [
-        { id: 1, entryFee: "Free", winning: "₹20" },
-        { id: 2, entryFee: "Free", winning: "₹20" },
-        { id: 3, entryFee: "Free", winning: "₹20" },
-        { id: 4, entryFee: "Free", winning: "₹20"},
-        { id: 5, entryFee: "Free", winning: "₹20" },
-      ];
+     <script>
+        // Generate 24 pools with 1-hour intervals
+        function generateGames() {
+            const games = [];
+            const currentTime = Date.now();
+            
+            for (let i = 0; i < 24; i++) {
+                // Each pool starts 1 hour after the previous one
+                const startTime = currentTime + (i * 60 * 60 * 1000); // i hours from now
+                const countdown = Math.max(0, Math.floor((startTime - currentTime) / 1000) + 3600); // 1 hour duration
+                
+                games.push({
+                    id: i + 1,
+                    entryFee: "Free",
+                    winning: "20",
+                    countdown: countdown,
+                    active: i < 12 // First 12 pools are active
+                });
+            }
+            
+            return games;
+        }
 
-      const games5v5 = [
-        { id: 6, entryFee: "₹250", winning: "₹1200" },
-        { id: 7, entryFee: "₹500", winning: "₹2400" },
-        { id: 8, entryFee: "₹150", winning: "₹720" },
-        { id: 9, entryFee: "₹300", winning: "₹1440" },
-        { id: 10, entryFee: "₹1000", winning: "₹4800" },
-      ];
+        const games1v1 = generateGames();
+        let countdownIntervals = [];
 
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("show");
-        document.body.style.overflow = "hidden";
-        showGameModes();
-      }
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden";
+            showGameModes();
+        }
 
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("show");
-        document.body.style.overflow = "auto";
-      }
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove("show");
+            document.body.style.overflow = "auto";
+            
+            // Clear all countdown intervals
+            countdownIntervals.forEach(interval => clearInterval(interval));
+            countdownIntervals = [];
+        }
 
-      function showGameModes() {
-        document.getElementById("gameModeSelection").style.display = "grid";
-        document.getElementById("gamePool").classList.remove("show");
-      }
+        function showGameModes() {
+            document.getElementById("gameModeSelection").style.display = "grid";
+            document.getElementById("gamePool").classList.remove("show");
+            
+            // Update modal title
+            document.querySelector('.modal-title').textContent = "Choose Game Mode";
+        }
 
-      function showGamePool(mode) {
-        document.getElementById("gameModeSelection").style.display = "none";
-        document.getElementById("gamePool").classList.add("show");
-        document.getElementById("poolTitle").textContent = `${mode} Game Pool`;
+        function showGamePool(mode) {
+            document.getElementById("gameModeSelection").style.display = "none";
+            document.getElementById("gamePool").classList.add("show");
+            
+            // Update modal title
+            document.querySelector('.modal-title').textContent = `${mode} Game Pool`;
 
-        const games = mode === "1v1" ? games1v1 : games5v5;
-        populatePoolList(games);
-      }
+            const games = games1v1;
+            populatePoolList(games);
+        }
 
-      function populatePoolList(games) {
-        const poolList = document.getElementById("poolList");
-        poolList.innerHTML = "";
+        function populatePoolList(games) {
+            const poolList = document.getElementById("poolList");
+            poolList.innerHTML = "";
 
-        games.forEach((game, index) => {
-          const poolItem = createPoolItem(game, index + 1);
-          poolList.appendChild(poolItem);
-        });
-      }
+            // Clear existing intervals
+            countdownIntervals.forEach(interval => clearInterval(interval));
+            countdownIntervals = [];
 
-      function createPoolItem(game, number) {
-        const itemDiv = document.createElement("div");
-        itemDiv.className = "pool-item";
+            games.forEach((game, index) => {
+                const poolItem = createPoolItem(game, index + 1);
+                poolList.appendChild(poolItem);
+            });
+        }
 
-        itemDiv.innerHTML = `
-                <div class="pool-number">${number}</div>
+        function createPoolItem(game, number) {
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "pool-item";
+
+            const isDisabled = game.countdown <= 0;
+            const buttonText = isDisabled ? "ENDED" : "JOIN NOW";
+            const buttonDisabled = isDisabled ? "disabled" : "";
+
+            itemDiv.innerHTML = `
+                <div class="pool-timer">
+                    <div class="timer-display" id="timer-${game.id}">
+                        ${formatTime(game.countdown)}
+                    </div>
+                    <div class="timer-label">LEFT</div>
+                    <div class="pool-status ${game.active ? 'status-active' : 'status-inactive'}"></div>
+                </div>
                 <div class="pool-details">
                     <div class="pool-info">
                         <div class="pool-fee">
@@ -3536,511 +3853,349 @@
                             <div class="pool-fee-amount">${game.entryFee}</div>
                         </div>
                         <div class="pool-winning">
-                            <div class="pool-winning-label">Winning</div>
+                            <div class="pool-winning-label">Winnings</div>
                             <div class="pool-winning-amount">${game.winning}</div>
                         </div>
                     </div>
-                    <button class="pool-join-btn" onclick="joinGame(${game.id})">Join Game</button>
+                    <div class="pool-action">
+                        <button class="pool-join-btn" onclick="joinGame(${game.id})" ${buttonDisabled}>
+                            ${buttonText}
+                        </button>
+                        <div class="pool-sports">
+                            <div class="pool-sports-amount">02/06 spots left</div>
+                        </div>
+                    </div>
                 </div>
             `;
 
-        return itemDiv;
-      }
+            // Start countdown for this game
+            if (game.countdown > 0) {
+                startCountdown(game.id, game.countdown);
+            }
 
-      function joinGame(gameId) {
-        alert(`Joining game ${gameId}! Redirecting to payment...`);
-        console.log(`Joined game with ID: ${gameId}`);
-      }
-
-      // Close modal when clicking outside of it
-      window.onclick = function (event) {
-        const modal = document.getElementById("gameModal");
-        if (event.target === modal) {
-          closeModal("gameModal");
+            return itemDiv;
         }
-      };
 
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          closeModal("gameModal");
+        function formatTime(seconds) {
+            if (seconds <= 0) return "00:00";
+            
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+
+            if (hours > 0) {
+                return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            } else {
+                return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
         }
-      });
+
+        function startCountdown(gameId, initialSeconds) {
+            let seconds = initialSeconds;
+            const timerElement = document.getElementById(`timer-${gameId}`);
+            
+            const interval = setInterval(() => {
+                seconds--;
+                
+                if (timerElement) {
+                    timerElement.textContent = formatTime(seconds);
+                }
+                
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    // Update button to disabled state
+                    const poolItem = timerElement.closest('.pool-item');
+                    if (poolItem) {
+                        const button = poolItem.querySelector('.pool-join-btn');
+                        if (button) {
+                            button.textContent = "ENDED";
+                            button.disabled = true;
+                        }
+                    }
+                }
+            }, 1000);
+
+            countdownIntervals.push(interval);
+        }
+
+        function joinGame(gameId) {
+            alert(`Joining game ${gameId}! Redirecting to game...`);
+            console.log(`Joined game with ID: ${gameId}`);
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById("gameModal");
+            if (event.target === modal) {
+                closeModal("gameModal");
+            }
+        };
+
+        // Close modal with Escape key
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                closeModal("gameModal");
+            }
+        });
     </script>
 
     
 
     <script>
-        // Authentication System
-class AuthSystem {
-  constructor() {
-    this.currentUser = null
-    this.users = JSON.parse(localStorage.getItem("users")) || []
-    this.init()
-  }
+  // Global variables
+let isLoggedIn = false;
 
-  init() {
-    // Check if user is already logged in
-    const token = localStorage.getItem("authToken")
-    const userId = localStorage.getItem("userId")
-
-    if (token && userId) {
-      const user = this.users.find((u) => u.id === userId)
-      if (user) {
-        this.currentUser = user
-        this.updateUIForLoggedInUser()
-        this.hidePreloader()
-        return
-      }
-    }
-
-    // Show login form in sidemenu by default
-    this.hidePreloader()
-  }
-
-  updateUIForLoggedInUser() {
-    // Hide login/signup forms
-    document.getElementById("loginFormSide").style.display = "none"
-    document.getElementById("signupFormSide").style.display = "none"
-
-    // Show logged in state
-    document.getElementById("loggedInState").style.display = "block"
-
-    // Update user info in sidemenu
-    document.getElementById("sideUserName").textContent = `Welcome, ${this.currentUser.name}!`
-    document.getElementById("sideUserEmail").textContent = this.currentUser.email
-
-    // Show user info in header
-    document.getElementById("userInfo").style.display = "flex"
-    document.getElementById("userWelcome").textContent = `Welcome, ${this.currentUser.name}!`
-  }
-
-  updateUIForLoggedOutUser() {
-    // Show login form
-    document.getElementById("loginFormSide").style.display = "block"
-    document.getElementById("signupFormSide").style.display = "none"
-    document.getElementById("loggedInState").style.display = "none"
-
-    // Hide user info in header
-    document.getElementById("userInfo").style.display = "none"
-  }
-
-  hidePreloader() {
-    setTimeout(() => {
-      const preloader = document.getElementById("preloader")
-      preloader.classList.add("hidden")
-      setTimeout(() => {
-        preloader.style.display = "none"
-      }, 500)
-    }, 1000)
-  }
-
-  generateToken() {
-    return Math.random().toString(36).substr(2) + Date.now().toString(36)
-  }
-
-  generateUserId() {
-    return "user_" + Math.random().toString(36).substr(2, 9)
-  }
-
-  login(email, password) {
-    const user = this.users.find((u) => u.email === email && u.password === password)
-
-    if (user) {
-      this.currentUser = user
-      const token = this.generateToken()
-
-      // Store authentication data
-      localStorage.setItem("authToken", token)
-      localStorage.setItem("userId", user.id)
-
-      this.updateUIForLoggedInUser()
-      this.showNotification("Login successful!", "success")
-      return true
-    } else {
-      this.showNotification("Invalid email or password!", "error")
-      return false
-    }
-  }
-
-  signup(name, email, password, confirmPassword) {
-    // Validation
-    if (password !== confirmPassword) {
-      this.showNotification("Passwords do not match!", "error")
-      return false
-    }
-
-    if (password.length < 6) {
-      this.showNotification("Password must be at least 6 characters long!", "error")
-      return false
-    }
-
-    // Check if user already exists
-    if (this.users.find((u) => u.email === email)) {
-      this.showNotification("User with this email already exists!", "error")
-      return false
-    }
-
-    // Create new user
-    const newUser = {
-      id: this.generateUserId(),
-      name: name,
-      email: email,
-      password: password,
-      createdAt: new Date().toISOString(),
-    }
-
-    this.users.push(newUser)
-    localStorage.setItem("users", JSON.stringify(this.users))
-
-    this.showNotification("Account created successfully! Please login.", "success")
-    this.showSideLoginForm()
-    return true
-  }
-
-  logout() {
-    this.currentUser = null
-    localStorage.removeItem("authToken")
-    localStorage.removeItem("userId")
-
-    this.updateUIForLoggedOutUser()
-    this.showNotification("Logged out successfully!", "success")
-    closeSidemenu()
-  }
-
-  showSideLoginForm() {
-    document.getElementById("loginFormSide").style.display = "block"
-    document.getElementById("signupFormSide").style.display = "none"
-  }
-
-  showSideSignupForm() {
-    document.getElementById("loginFormSide").style.display = "none"
-    document.getElementById("signupFormSide").style.display = "block"
-  }
-
-  showNotification(message, type = "info") {
-    // Create notification element
-    const notification = document.createElement("div")
-    notification.className = `notification notification-${type}`
-    notification.innerHTML = `
-      <span>${message}</span>
-      <button onclick="this.parentElement.remove()">&times;</button>
-    `
-
-    // Add notification styles
-    notification.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: ${type === "success" ? "#4CAF50" : type === "error" ? "#f44336" : "#2196F3"};
-      color: white;
-      padding: 15px 20px;
-      border-radius: 5px;
-      z-index: 100000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      min-width: 300px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      animation: slideInRight 0.3s ease-out;
-    `
-
-    // Add animation styles
-    const style = document.createElement("style")
-    style.textContent = `
-      @keyframes slideInRight {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-    `
-    document.head.appendChild(style)
-
-    document.body.appendChild(notification)
-
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-      if (notification.parentElement) {
-        notification.remove()
-      }
-    }, 5000)
-  }
-}
-
-// Game System
-class GameSystem {
-  constructor() {
-    this.games1v1 = [
-      { id: 1, entryFee: "₹50", winning: "₹90" },
-      { id: 2, entryFee: "₹100", winning: "₹180" },
-      { id: 3, entryFee: "₹25", winning: "₹45" },
-      { id: 4, entryFee: "₹75", winning: "₹135" },
-      { id: 5, entryFee: "₹200", winning: "₹360" },
-    ]
-
-    this.games5v5 = [
-      { id: 6, entryFee: "₹250", winning: "₹1200" },
-      { id: 7, entryFee: "₹500", winning: "₹2400" },
-      { id: 8, entryFee: "₹150", winning: "₹720" },
-      { id: 9, entryFee: "₹300", winning: "₹1440" },
-      { id: 10, entryFee: "₹1000", winning: "₹4800" },
-    ]
-  }
-
-  openGamePool(mode) {
-    // Check if user is logged in
-    if (!authSystem.currentUser) {
-      authSystem.showNotification("Please login to join games!", "error")
-      openSidemenu()
-      return
-    }
-
-    const modal = document.getElementById("gamePoolModal")
-    const title = document.getElementById("gamePoolTitle")
-    const content = document.getElementById("gamePoolContent")
-
-    title.textContent = `${mode} Game Pool`
-
-    const games = mode === "1v1" ? this.games1v1 : this.games5v5
-    content.innerHTML = ""
-
-    games.forEach((game, index) => {
-      const poolItem = this.createPoolItem(game, index + 1)
-      content.appendChild(poolItem)
-    })
-
-    modal.classList.add("show")
-  }
-
-  createPoolItem(game, number) {
-    const itemDiv = document.createElement("div")
-    itemDiv.className = "pool-item"
-
-    itemDiv.innerHTML = `
-      <div class="pool-number">${number}</div>
-      <div class="pool-info">
-        <div class="pool-fee">
-          <div class="pool-fee-label">Entry Fee</div>
-          <div class="pool-fee-amount">${game.entryFee}</div>
-        </div>
-        <div class="pool-winning">
-          <div class="pool-winning-label">Winning</div>
-          <div class="pool-winning-amount">${game.winning}</div>
-        </div>
-      </div>
-      <button class="pool-join-btn" onclick="gameSystem.joinGame(${game.id})">Join Game</button>
-    `
-
-    return itemDiv
-  }
-
-  joinGame(gameId) {
-    authSystem.showNotification(`Joining game ${gameId}! Redirecting to payment...`, "success")
-    this.closeGamePoolModal()
-  }
-
-  closeGamePoolModal() {
-    document.getElementById("gamePoolModal").classList.remove("show")
-  }
-}
-
-// Initialize systems
-const authSystem = new AuthSystem()
-const gameSystem = new GameSystem()
-
-// Sidemenu Functions
+// Sidemenu functions
 function openSidemenu() {
-  document.getElementById("sidemenuWrapper").classList.add("show")
-  document.body.style.overflow = "hidden"
+  document.getElementById('sidemenuWrapper').classList.add('show');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeSidemenu() {
-  document.getElementById("sidemenuWrapper").classList.remove("show")
-  document.body.style.overflow = "auto"
+  document.getElementById('sidemenuWrapper').classList.remove('show');
+  document.body.style.overflow = 'auto';
 }
 
-// Authentication Functions for Sidemenu
-function showSideLoginForm() {
-  authSystem.showSideLoginForm()
-}
-
-function showSideSignupForm() {
-  authSystem.showSideSignupForm()
-}
-
+// Authentication functions - FIXED VERSION
 function handleSidemenuLogin(event) {
-  event.preventDefault()
-  const email = document.getElementById("sideLoginEmail").value
-  const password = document.getElementById("sideLoginPassword").value
-
-  if (authSystem.login(email, password)) {
+  event.preventDefault();
+  
+  const email = document.getElementById('sideLoginEmail').value;
+  const password = document.getElementById('sideLoginPassword').value;
+  
+  // Accept any input as valid login
+  if (email && password) {
+    // Extract username from email (part before @)
+    const username = email.split('@')[0];
+    
+    // Show logged in state
+    document.getElementById('loginFormSide').style.display = 'none';
+    document.getElementById('signupFormSide').style.display = 'none';
+    document.getElementById('loggedInState').style.display = 'block';
+    document.getElementById('profileMenuOptions').style.display = 'block';
+    
+    // Update user info
+    document.getElementById('sideUserName').textContent = username;
+    document.getElementById('sideUserEmail').textContent = '@' + username;
+    
+    isLoggedIn = true;
+    
     // Clear form
-    document.getElementById("sideLoginEmail").value = ""
-    document.getElementById("sideLoginPassword").value = ""
+    document.getElementById('sideLoginEmail').value = '';
+    document.getElementById('sideLoginPassword').value = '';
+    
+    // Show success message
+    alert('Login successful! Welcome to ColabEsports!');
+  } else {
+    alert('Please enter both email and password');
   }
 }
 
 function handleSidemenuSignup(event) {
-  event.preventDefault()
-  const name = document.getElementById("sideSignupName").value
-  const email = document.getElementById("sideSignupEmail").value
-  const password = document.getElementById("sideSignupPassword").value
-  const confirmPassword = document.getElementById("sideConfirmPassword").value
-
-  if (authSystem.signup(name, email, password, confirmPassword)) {
-    // Clear form
-    document.getElementById("sideSignupName").value = ""
-    document.getElementById("sideSignupEmail").value = ""
-    document.getElementById("sideSignupPassword").value = ""
-    document.getElementById("sideConfirmPassword").value = ""
+  event.preventDefault();
+  
+  const name = document.getElementById('sideSignupName').value;
+  const email = document.getElementById('sideSignupEmail').value;
+  const password = document.getElementById('sideSignupPassword').value;
+  const confirmPassword = document.getElementById('sideConfirmPassword').value;
+  
+  // Accept any input as valid signup
+  if (name && email && password && confirmPassword) {
+    if (password === confirmPassword) {
+      // Extract username from email (part before @)
+      const username = email.split('@')[0];
+      
+      // Show logged in state
+      document.getElementById('loginFormSide').style.display = 'none';
+      document.getElementById('signupFormSide').style.display = 'none';
+      document.getElementById('loggedInState').style.display = 'block';
+      document.getElementById('profileMenuOptions').style.display = 'block';
+      
+      // Update user info
+      document.getElementById('sideUserName').textContent = name;
+      document.getElementById('sideUserEmail').textContent = '@' + username;
+      
+      isLoggedIn = true;
+      
+      // Clear form
+      document.getElementById('sideSignupName').value = '';
+      document.getElementById('sideSignupEmail').value = '';
+      document.getElementById('sideSignupPassword').value = '';
+      document.getElementById('sideConfirmPassword').value = '';
+      
+      // Show success message
+      alert('Account created successfully! Welcome to ColabEsports!');
+    } else {
+      alert('Passwords do not match');
+    }
+  } else {
+    alert('Please fill in all fields');
   }
 }
 
 function handleLogout() {
-  authSystem.logout()
+  // Hide logged in state and profile menu
+  document.getElementById('loggedInState').style.display = 'none';
+  document.getElementById('profileMenuOptions').style.display = 'none';
+  
+  // Show login form
+  document.getElementById('loginFormSide').style.display = 'block';
+  
+  isLoggedIn = false;
+  
+  alert('Logged out successfully!');
 }
 
-// Profile Menu Functions
-function handleKYC() {
-  if (!authSystem.currentUser) {
-    authSystem.showNotification("Please login to access KYC verification!", "error")
-    return
-  }
-  authSystem.showNotification("KYC Verification coming soon!", "info")
-  closeSidemenu()
+function showSideSignupForm() {
+  document.getElementById('loginFormSide').style.display = 'none';
+  document.getElementById('signupFormSide').style.display = 'block';
 }
 
+function showSideLoginForm() {
+  document.getElementById('signupFormSide').style.display = 'none';
+  document.getElementById('loginFormSide').style.display = 'block';
+}
+
+// Profile menu handlers
 function handleWallet() {
-  if (!authSystem.currentUser) {
-    authSystem.showNotification("Please login to access wallet!", "error")
-    return
+  alert('Wallet feature - Manage your transactions and balance');
+}
+
+function handleKYC() {
+  alert('KYC Verification - Complete your identity verification');
+}
+
+function handleXP() {
+  alert('XP Points - View your experience points and achievements');
+}
+
+function handleSupport() {
+  alert('Support - Contact our customer support team');
+}
+
+function handleSettings() {
+  alert('Settings - Manage your account settings');
+}
+
+// Initialize sidebar menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const sideMenuToggler = document.querySelector('.sideMenuToggler');
+  if (sideMenuToggler) {
+    sideMenuToggler.addEventListener('click', function() {
+      openSidemenu();
+    });
   }
-  authSystem.showNotification("Wallet feature coming soon!", "info")
-  closeSidemenu()
-}
-
-function handleGameHistory() {
-  if (!authSystem.currentUser) {
-    authSystem.showNotification("Please login to view game history!", "error")
-    return
-  }
-  authSystem.showNotification("Game History feature coming soon!", "info")
-  closeSidemenu()
-}
-
-// Subscription Function
-function handleSubscription(event) {
-  event.preventDefault()
-  const email = document.getElementById("email-subscription").value
-  authSystem.showNotification("Successfully subscribed to newsletter!", "success")
-  document.getElementById("email-subscription").value = ""
-}
-
-// Game Functions
-function openGameModal() {
-  if (!authSystem.currentUser) {
-    authSystem.showNotification("Please login to play games!", "error")
-    openSidemenu()
-    return
-  }
-  authSystem.showNotification("Select a game mode to continue!", "info")
-}
-
-function openGamePool(mode) {
-  gameSystem.openGamePool(mode)
-}
-
-function closeGamePoolModal() {
-  gameSystem.closeGamePoolModal()
-}
-
-// Event Listeners
-document.addEventListener("DOMContentLoaded", () => {
-  // Smooth scrolling for navigation links
-  const links = document.querySelectorAll('a[href^="#"]')
-
-  links.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault()
-
-      const targetId = this.getAttribute("href")
-      const targetSection = document.querySelector(targetId)
-
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        })
-      }
-    })
-  })
 
   // Close sidemenu when clicking outside
-  document.getElementById("sidemenuWrapper").addEventListener("click", function (e) {
+  document.getElementById('sidemenuWrapper').addEventListener('click', function(e) {
     if (e.target === this) {
-      closeSidemenu()
+      closeSidemenu();
     }
-  })
-})
+  });
+});
 
-// Close modals when clicking outside
-window.addEventListener("click", (event) => {
-  const gamePoolModal = document.getElementById("gamePoolModal")
 
-  if (event.target === gamePoolModal) {
-    gameSystem.closeGamePoolModal()
+
+
+
+function showGamePool(mode) {
+  document.getElementById("gameModeSelection").style.display = "none";
+  document.getElementById("gamePool").classList.add("show");
+  document.querySelector('.modal-title').textContent = `${mode} Game Pool`;
+
+  // Generate sample games with ₹0 entry and ₹20 winnings
+  const poolList = document.getElementById("poolList");
+  poolList.innerHTML = "";
+
+  for (let i = 1; i <= 5; i++) {
+    const timerId = `timer-${i}`; // Unique timer ID
+
+    const poolItem = document.createElement("div");
+    poolItem.className = "pool-item";
+    poolItem.innerHTML = `
+      <div class="pool-timer">
+        <div class="timer-display" id="${timerId}">60:00</div>
+        <div class="timer-label">LEFT</div>
+      </div>
+      <div class="pool-details">
+        <div class="pool-info">
+          <div class="pool-fee">
+            <div class="pool-fee-label">Entry Fee</div>
+            <div class="pool-fee-amount">₹0</div>
+          </div>
+          <div class="pool-winning">
+            <div class="pool-winning-label">Winnings</div>
+            <div class="pool-winning-amount">₹20</div>
+          </div>
+        </div>
+        <div class="pool-action">
+          <button class="pool-join-btn" onclick="joinGame(${i})">
+            JOIN NOW
+          </button>
+        </div>
+      </div>
+    `;
+    poolList.appendChild(poolItem);
+
+    // Start 1-hour countdown (3600 seconds)
+    startCountdown(timerId, 60 * 60);
   }
-})
-
-// Close modals with Escape key
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    gameSystem.closeGamePoolModal()
-    closeSidemenu()
-  }
-})
-
-// Form validation helpers
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return re.test(email)
 }
 
-function validatePassword(password) {
-  return password.length >= 6
+// Reusable countdown function
+function startCountdown(elementId, duration) {
+  let timer = duration;
+  const display = document.getElementById(elementId);
+
+  const interval = setInterval(() => {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+
+    display.textContent = 
+      `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    if (--timer < 0) {
+      clearInterval(interval);
+      display.textContent = "00:00";
+    }
+  }, 1000);
 }
 
-// Add real-time form validation
-document.addEventListener("DOMContentLoaded", () => {
-  const emailInputs = document.querySelectorAll('input[type="email"]')
-  const passwordInputs = document.querySelectorAll('input[type="password"]')
 
-  emailInputs.forEach((input) => {
-    input.addEventListener("blur", function () {
-      if (this.value && !validateEmail(this.value)) {
-        this.style.borderColor = "#f44336"
-      } else {
-        this.style.borderColor = "rgba(0, 0, 0, 0.2)"
-      }
-    })
-  })
 
-  passwordInputs.forEach((input) => {
-    input.addEventListener("input", function () {
-      if (this.value && !validatePassword(this.value)) {
-        this.style.borderColor = "#f44336"
-      } else {
-        this.style.borderColor = "rgba(0, 0, 0, 0.2)"
-      }
-    })
-  })
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function handleKYC() {
+  const kycSteps = document.getElementById("kycSteps");
+
+  // Toggle visibility
+  const isVisible = kycSteps.style.display === "block";
+  kycSteps.style.display = isVisible ? "none" : "block";
+
+  if (!isVisible) {
+    // Simulate uploaded document status
+    document.getElementById("step-document").querySelector(".uploaded").style.display = "inline";
+    document.getElementById("step-aadhar").querySelector(".uploaded").style.display = "inline";
+    document.getElementById("step-status").querySelector(".uploaded").style.display = "inline";
+  }
+}
+
 
     </script>
   </body>
