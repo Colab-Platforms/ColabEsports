@@ -1734,13 +1734,231 @@ We believe in building a community-driven, transparent, and competitive gaming s
       <!-- Twin Section End -->
       <!-- Video Area Start -->
       <section class="video video--layout3 m-0 z-index-common">
-        <div class="video__bg z-index-common">
+        <!-- <div class="video__bg z-index-common">
           <div data-vs-gsap-parallax-speed="5" data-vs-gsap-parallax-zoom>
             <img class="video__img" src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/video_cover_2.jpg?v=1750232106" alt="colabesports--about us">
-          </div>
+          </div> -->
          
       <!-- Testimonials End -->
+    <!-- </div> -->
+
+    <section>
+<section style="padding: 60px 20px; background: #12151f; font-style:Poppins, sans-serif; 
+border-color: #a6d719;">
+  <style>
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #a6d719;
+      font-weight: bold;
+    }
+
+    .accordion-container {
+      max-width: 1100px;
+      margin: auto;
+      border-radius: 12px;
+    }
+
+    .accordion-item {
+      background: #a6d719;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 20px 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #12151f ;
+              border: 3px solid #a6d719; /* 💚 Green border */
+  padding: 20px; /* Optional: space inside border */
+    }
+    
+
+    .accordion-header h3 {
+      font-size: 1.3rem;
+      color: white;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .accordion-header .icon {
+      font-size: 1.4rem;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-body {
+      display: none;
+      padding: 30px;
+      background:  #12151f ;
+              border: 3px solid #a6d719; /* 💚 Green border */
+  padding: 20px; /* Optional: space inside border */
+    }
+
+    .accordion-body img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .accordion-body h4 {
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 10px;
+      font-weight:bold;
+    }
+
+    .accordion-body p {
+      color: white;
+      line-height: 1.6;
+      font-size:20px;
+    }
+
+    .accordion-item.active .accordion-body {
+      display: block;
+    }
+
+    .accordion-item.active .icon {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <h2 class="section-title">FAQ</h2>
+
+  <div class="accordion-container">
+
+    <!-- Item 1 -->
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q1. What is Colab Esports?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>Colab Esports is a skill-based competitive gaming platform where players can participate in real-money matches and tournaments. We reward players based on their in-game performance, XP, and leaderboard rankings.</p>
+      </div>
     </div>
+
+    <!-- Item 2 -->
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q2. How do I join a match?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>Register or log in, choose your game mode (Free to Win or Pro), select your match format (1v1 or 5v5), and join an available pool. Once the pool fills, the match auto-generates, and match credentials are shared.</p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q3. What is the difference between Free to Win and Pro Mode?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>Free to Win: No entry fee, play hourly matches, and win Prize rewards.
+Pro Mode: Paid entry matches with higher prize pools, auto matchmaking.
+</p>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q4. How does the XP system work?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>XP is earned through gameplay: wins, kills, assists, headshots, and more. XP contributes to your Monthly and Career Leaderboards. Top XP earners win cash and skins.</p>
+      </div>
+    </div>
+
+
+   <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3> Q5. What happens if I leave a match mid-way?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>You lose your entry fee, all earned XP for that match, and may be penalized with temporary bans or leaderboard disqualification.</p>
+      </div>
+    </div>
+
+     <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q6. How do I earn cash rewards?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>Win matches in either Free to Win or Pro Mode. Cash is instantly credited to your in-platform wallet. Additional earnings can be made via referral bonuses and leaderboard rewards.</p>
+      </div>
+    </div>
+
+     <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q7. Is KYC mandatory for all users?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>KYC is optional at sign-up but mandatory before making any withdrawals to ensure legal compliance and prevent fraud.</p>
+      </div>
+    </div>
+
+    
+     <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q8. Can I refer my friends?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>Yes! You earn ₹50 wallet bonus once your referred friend registers and plays their first match.</p>
+      </div>
+    </div>
+
+     <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q9. How do I withdraw my winnings?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>We deliver exceptional outcomes through a structured, client-focused approach. Our strategies are rooted in deep market understanding and innovative thinking. From ideation to execution, we manage investments and business structuring with precision and integrity.</p>
+      </div>
+    </div>
+
+     
+     <div class="accordion-item" onclick="toggleAccordion(this)">
+      <div class="accordion-header">
+        <h3>Q10. What are the rules for leaderboard ranking?</h3>
+        <div class="icon">⌄</div>
+      </div>
+      <div class="accordion-body">
+        <p>Leaderboard rankings are based on total XP earned in a month. Ties are broken by matches played, win/loss ratio, and K/D ratio. Top 10 players win cash and exclusive skins each month.</p>
+      </div>
+    </div>
+      </div>
+
+  <script>
+    function toggleAccordion(item) {
+      const items = document.querySelectorAll('.accordion-item');
+      items.forEach(i => {
+        if (i !== item) i.classList.remove('active');
+      });
+      item.classList.toggle('active');
+    }
+  </script>
+</section>
+
+</section>
+
     <!-- Main Layouts End -->
    <!-- Footer Start -->
      <!-- Footer Start -->
