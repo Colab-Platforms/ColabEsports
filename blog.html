@@ -6,8 +6,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>ColabEsports  </title>
   <meta name="author" content="vecuro">
-  <meta name="description" content="ColabEsports">
-  <meta name="keywords" content="ColabEsports">
+  <meta name="description" content="Roda - Gaming Store & eCommerce HTML5 Template">
+  <meta name="keywords" content="Roda - Gaming Store & eCommerce HTML5 Template">
   <meta name="robots" content="INDEX,FOLLOW">
   <!-- Mobile Specific Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,305 +53,357 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* Profile Picture Trigger */
-      .profile-trigger {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 3px solid var(--vs-theme-color);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        overflow: hidden;
-        z-index: 1000;
-      }
-
-      .profile-trigger:hover {
-        border-color: var(--vs-theme-color2);
-        transform: scale(1.1);
-      }
-
-      .profile-trigger img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* Sidemenu Styles */
       .sidemenu-wrapper {
-        position: fixed;
-        z-index: 999999;
-        right: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.75);
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.3s ease;
-      }
+  position: fixed;
+  z-index: 999999;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
 
-      .sidemenu-wrapper.show {
-        visibility: visible;
-        opacity: 1;
-      }
+.sidemenu-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+}
 
-      .sidemenu-content {
-        --sidebarPosition: 400px;
-        background-color: var(--vs-theme-color);
-        width: var(--sidebarPosition);
-        margin-left: auto;
-        padding: 40px 30px 30px 30px;
-        height: 100%;
-        overflow-y: auto;
-        position: relative;
-        right: calc(-1 * var(--sidebarPosition));
-        cursor: auto;
-        transform-origin: right;
-        transition: right 0.3s ease;
-      }
+.sidemenu-content {
+  --sidebarPosition: 400px;
+  background-color: var(--vs-theme-color);
+  width: var(--sidebarPosition);
+  margin-left: auto;
+  padding: 40px 30px 30px 30px;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  right: calc(-1 * var(--sidebarPosition));
+  cursor: auto;
+  transform-origin: right;
+  transition: right 0.3s ease;
+}
 
-      .sidemenu-wrapper.show .sidemenu-content {
-        right: 0;
-      }
+.sidemenu-wrapper.show .sidemenu-content {
+  right: 0;
+}
 
-      @media (max-width: 768px) {
-        .sidemenu-content {
-          --sidebarPosition: 300px;
-          padding: 20px 15px;
-        }
-      }
+@media (max-width: 768px) {
+  .sidemenu-content {
+    --sidebarPosition: 300px;
+    padding: 20px 15px;
+  }
+}
 
-      /* Scrollbar Styles */
-      .sidemenu-content::-webkit-scrollbar {
-        width: 5px;
-      }
+/* Scrollbar Styles */
+.sidemenu-content::-webkit-scrollbar {
+  width: 5px;
+}
 
-      .sidemenu-content::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px var(--bg-color);
-        border-radius: 0px;
-      }
+.sidemenu-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--bg-color);
+  border-radius: 0px;
+}
 
-      .sidemenu-content::-webkit-scrollbar-thumb {
-        background: var(--bg-color);
-        border-radius: 10px;
-      }
+.sidemenu-content::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border-radius: 10px;
+}
 
-      .sidemenu-content::-webkit-scrollbar-thumb:hover {
-        background: var(--vs-theme-color2);
-      }
+.sidemenu-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vs-theme-color2);
+}
 
-      .sidemenu-logo {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 30px;
-      }
+.sidemenu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
 
-      .closeButton {
-        display: inline-block;
-        border: none;
-        color: var(--bg-color);
-        background-color: transparent;
-        font-size: 40px;
-        padding: 0;
-        border-radius: 50%;
-        transform: rotate(0);
-        transition: all ease 0.4s;
-        font-family: var(--title-font);
-        font-weight: 700;
-        cursor: pointer;
-      }
+.closeButton {
+  display: inline-block;
+  border: none;
+  color: var(--bg-color);
+  background-color: transparent;
+  font-size: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transform: rotate(0);
+  transition: all ease 0.4s;
+  font-family: var(--title-font);
+  font-weight: 700;
+  cursor: pointer;
+}
 
-      .closeButton:hover {
-        color: var(--white-color);
-        transform: rotate(180deg);
-      }
+.closeButton:hover {
+  color: var(--white-color);
+  transform: rotate(180deg);
+}
 
-      .sidemenu-hr {
-        height: 4px;
-        border-top: 1px solid var(--bg-color);
-        border-bottom: 1px solid var(--bg-color);
-        opacity: 1;
-        margin: 30px 0 35px;
-      }
+.sidemenu-hr {
+  height: 4px;
+  border-top: 1px solid var(--bg-color);
+  border-bottom: 1px solid var(--bg-color);
+  opacity: 1;
+  margin: 30px 0 35px;
+}
 
-      .sidemenu-inner {
-        display: flex;
-        flex-direction: column;
-        height: calc(100vh - 150px);
-        justify-content: space-between;
-      }
+.sidemenu-inner {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  justify-content: space-between;
+}
 
-      /* Profile Menu Options */
-      .profile-menu {
-        margin-bottom: 40px;
-      }
+/* Authentication Section in Sidemenu */
+.auth-section {
+  margin-bottom: 30px;
+}
 
-      .menu-option {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 15px 20px;
-        margin-bottom: 15px;
-        background-color: rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        color: var(--bg-color);
-        font-weight: 600;
-        font-size: 16px;
-      }
+.auth-form-side {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
 
-      .menu-option:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-        transform: translateX(-5px);
-      }
+.auth-title {
+  color: var(--bg-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-      .menu-option i {
-        font-size: 20px;
-        width: 25px;
-        text-align: center;
-      }
+.side-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-      .auth-options {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
+.form-group-side {
+  display: flex;
+  flex-direction: column;
+}
 
-      .auth-btn {
-        flex: 1;
-        padding: 12px 20px;
-        border: 2px solid var(--bg-color);
-        background-color: transparent;
-        color: var(--bg-color);
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 14px;
-      }
+.form-group-side label {
+  color: var(--bg-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
 
-      .auth-btn:hover {
-        background-color: var(--bg-color);
-        color: var(--vs-theme-color);
-      }
+.form-group-side input {
+  padding: 12px 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  font-size: 14px;
+  transition: all 0.3s;
+}
 
-      .auth-btn.primary {
-        background-color: var(--bg-color);
-        color: var(--vs-theme-color);
-      }
+.form-group-side input:focus {
+  outline: none;
+  border-color: var(--bg-color);
+  background-color: white;
+}
 
-      .auth-btn.primary:hover {
-        background-color: transparent;
-        color: var(--bg-color);
-      }
+.form-group-side input::placeholder {
+  color: #666;
+}
 
-      /* Subscription Section */
-      .subscription-section {
-        margin-top: auto;
-      }
+.auth-btn-side {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
 
-      .sidemenu-subtitle {
-        font-size: 1.1rem;
-        color: var(--bg-color);
-        letter-spacing: 0.2px;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-      }
+.auth-btn-side.primary {
+  background-color: var(--bg-color);
+  color: var(--vs-theme-color);
+}
 
-      .email-subscription__form {
-        background-color: var(--bg-color);
-        border-radius: 10px;
-        display: flex;
-        overflow: hidden;
-        margin-bottom: 15px;
-      }
+.auth-btn-side.primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
 
-      .email-subscription__input {
-        flex: 1;
-        color: var(--body-color);
-        font-family: var(--title-font);
-        padding: 12px 20px;
-        border: none;
-        outline: none;
-        background-color: transparent;
-      }
+.auth-btn-side.logout {
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 30px;
+}
 
-      .email-subscription__input::placeholder {
-        color: var(--body-color);
-      }
+.auth-btn-side.logout:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
 
-      .email-subscription__btn {
-        /* background-color: var(--bg-color); */
-        border: none;
-        padding: 12px 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
 
-      .email-subscription__btn:hover svg path {
-        fill: var(--vs-theme-color);
-      }
+.auth-switch p {
+  color: var(--bg-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
 
-      .sidemenu-text {
-        color: var(--bg-color);
-        font-size: 13px;
-        font-weight: 600;
-        font-family: var(--title-font);
-        margin-bottom: 0;
-        line-height: 1.4;
-      }
+.auth-switch a {
+  color: var(--bg-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--bg-color);
+}
 
-      /* Demo Content */
-      .demo-content {
-        text-align: center;
-        padding: 50px 20px;
-      }
+.auth-switch a:hover {
+  color: var(--white-color);
+  border-bottom-color: var(--white-color);
+}
 
-      .demo-content h1 {
-        color: var(--vs-theme-color);
-        margin-bottom: 20px;
-      }
+/* Logged In State */
+.logged-in-state {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
 
-      .demo-content p {
-        color: var(--body-color);
-        margin-bottom: 30px;
-      }
+.user-profile {
+  margin-bottom: 20px;
+}
 
-      /* Animation Classes */
-      .sidemenu-item {
-        opacity: 0;
-        transform: translateX(30px);
-        transition: all 0.3s ease;
-      }
+.user-avatar {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
 
-      .sidemenu-wrapper.show .sidemenu-item {
-        opacity: 1;
-        transform: translateX(0);
-      }
+.user-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-color);
+  object-fit: cover;
+}
 
-      .sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
-        transition-delay: 0.1s;
-      }
-      .sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
-        transition-delay: 0.2s;
-      }
-      .sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
-        transition-delay: 0.3s;
-      }
-      .sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
-        transition-delay: 0.4s;
-      }
-      .sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
-        transition-delay: 0.5s;
-      }
-      .sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
-        transition-delay: 0.6s;
-      }
+.user-details h4 {
+  color: var(--bg-color);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.user-details p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Profile Menu Options */
+.profile-menu {
+  margin-bottom: 40px;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--bg-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu-option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-5px);
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.menu-option i {
+  font-size: 20px;
+  width: 25px;
+  text-align: center;
+}
+
+/* Animation Classes */
+.sidemenu-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+
+
+.game-card__stats-row {
+  display: flex;
+  justify-content: space-evenly; /* or use center/start as per design */
+  gap: 20px; /* spacing between items */
+  flex-wrap: wrap; /* optional: wrap on small screens */
+}
+
+.game-card__stats-row p {
+  margin: 0;
+  font-size: 14px; /* optional */
+  color: black;     /* if you want white text */
+}
+
+.slot-text{
+  color:black;
+}
+
+.slot-text {
+  color: black !important;
+}
+
 
       .user-info {
   display: flex;
@@ -1161,6 +1213,224 @@
       </div>
     </div>
   </div>
+
+
+      <div class="sidemenu-wrapper" id="sidemenuWrapper">
+  <div class="sidemenu-content">
+    <div class="sidemenu-logo sidemenu-item">
+      <a href="index.html">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-Black_KB.png?v=1750316527"
+          alt="Colab Esports"
+          class="logo"
+          width="105px"
+          height="auto"
+        />
+      </a>
+      <button class="closeButton" onclick="closeSidemenu()">×</button>
+    </div>
+
+    <hr class="sidemenu-hr sidemenu-item" />
+
+    <div class="sidemenu-inner">
+      <div class="sidemenu-body">
+        
+        <!-- Authentication Section -->
+        <div class="auth-section sidemenu-item">
+          
+          <!-- Login Form -->
+          <div id="loginFormSide" class="auth-form-side">
+            <h3 class="auth-title">Login to Your Account</h3>
+            <form onsubmit="handleSidemenuLogin(event)" class="side-form">
+              <div class="form-group-side">
+                <label for="sideLoginEmail">Email Address</label>
+                <input type="email" id="sideLoginEmail" name="email" required placeholder="Enter your email">
+              </div>
+              <div class="form-group-side">
+                <label for="sideLoginPassword">Password</label>
+                <input type="password" id="sideLoginPassword" name="password" required placeholder="Enter your password">
+              </div>
+              <button type="submit" class="auth-btn-side primary">Login</button>
+            </form>
+            
+            <div class="auth-switch">
+              <p>Don't have an account? <a href="#" onclick="showSideSignupForm()">Please Sign Up</a></p>
+            </div>
+          </div>
+
+          <!-- Signup Form -->
+          <div id="signupFormSide" class="auth-form-side" style="display: none;">
+            <h3 class="auth-title">Create New Account</h3>
+            <form onsubmit="handleSidemenuSignup(event)" class="side-form">
+              <div class="form-group-side">
+                <label for="sideSignupName">Full Name</label>
+                <input type="text" id="sideSignupName" name="name" required placeholder="Enter your full name">
+              </div>
+              <div class="form-group-side">
+                <label for="sideSignupEmail">Email Address</label>
+                <input type="email" id="sideSignupEmail" name="email" required placeholder="Enter your email">
+              </div>
+              <div class="form-group-side">
+                <label for="sideSignupPassword">Password</label>
+                <input type="password" id="sideSignupPassword" name="password" required placeholder="Create a password">
+              </div>
+              <div class="form-group-side">
+                <label for="sideConfirmPassword">Confirm Password</label>
+                <input type="password" id="sideConfirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+              </div>
+              <button type="submit" class="auth-btn-side primary">Sign Up</button>
+            </form>
+            
+            <div class="auth-switch">
+              <p>Already have an account? <a href="#" onclick="showSideLoginForm()">Login here</a></p>
+            </div>
+          </div>
+
+          <!-- Logged In State -->
+          <div id="loggedInState" class="logged-in-state" style="display: none;">
+            <div class="user-profile">
+              <div class="user-avatar">
+                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/avtar.jpg?v=1750160660" alt="User Avatar" id="userAvatarImg">
+              </div>
+              <div class="user-details">
+                <h4 id="sideUserName">Welcome User!</h4>
+                <p id="sideUserEmail">@username</p>
+              </div>
+              <br>
+                       <div class="game-card__stats-row">
+  <p class="game-card__players">
+    Rank
+    <span class="slot-container">
+      <span class="game-card__players-count slot">
+        <span class="slot-text" data-slot-text="05">01</span>
+      </span>
+    </span>
+  </p>
+  <p class="game-card__region">
+    XP
+    <span class="slot-container">
+      <span class="game-card__region-name slot">
+        <span class="slot-text" data-slot-text="UAE">7000</span>
+      </span>
+    </span>
+  </p>
+  <p class="game-card__players">
+    KD
+    <span class="slot-container">
+      <span class="game-card__players-count slot">
+        <span class="slot-text" data-slot-text="KD 3.5">
+          10
+        </span>
+      </span>
+    </span>
+  </p>
+  <p class="game-card__region">
+    Win Ratio
+    <span class="slot-container">
+      <span class="game-card__region-name slot">
+        <span class="slot-text" data-slot-text="UAE">89%</span>
+      </span>
+    </span>
+  </p>
+</div>
+
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- Profile Menu Options -->
+        <div class="profile-menu" id="profileMenuOptions" style="display: none;">
+          <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
+            <i class="fas fa-wallet"></i>
+            <span>Transactions</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
+            <i class="fas fa-id-card"></i>
+            <span>KYC Verification</span>
+          </a>
+          <!-- KYC Steps Section (initially hidden) -->
+<div id="kycSteps" style="display: none; padding: 10px 20px;">
+  <div class="kyc-step" id="step-document">
+    <i class="fas fa-file-alt step-icon"></i>
+    <span>Document</span>
+    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
+  </div>
+  <div class="kyc-step" id="step-aadhar">
+    <i class="fas fa-id-card step-icon"></i>
+    <span>Aadhar</span>
+    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
+  </div>
+  <div class="kyc-step" id="step-status">
+    <i class="fas fa-tasks step-icon"></i>
+    <span>Status</span>
+    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
+  </div>
+</div>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleXP()">
+            <i class="fas fa-star"></i>
+            <span>Match History</span>
+          </a>
+
+           <a href="#" class="menu-option sidemenu-item" onclick="handleRefer()">
+            <i class="fas fa-user-plus"></i>
+            <span>Refer a Friend</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleSupport()">
+            <i class="fas fa-headset"></i>
+            <span>Support</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleSettings()">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+           <button class="auth-btn-side logout" onclick="handleLogout()">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+      </div>
+
+      <!-- Rest of sidebar content (subscription section, etc.) -->
+      <div class="subscription-section" style="margin-bottom: 150px;">
+            <h4 class="sidemenu-subtitle sidemenu-item" style="padding-left: 150px;">Disclaimer</h4>
+            
+            <p class="sidemenu-text sidemenu-item">
+  By logging in or using Colab Esports, you agree to our 
+  <a href="terms.html" target="_blank">Terms & Conditions</a>, 
+  <a href="privacy" target="_blank">Privacy Policy</a>, and 
+  <a href="refund.html" target="_blank">all platform rules</a>. 
+  This is a skill-based platform. Participation involves financial risk and may be addictive. Play responsibly.
+</p>
+          </div>
+          <div class="vs-footer__social" style="margin-left: 180px;">
+                  
+                    <a href="https://x.com/colabesports"
+                      ><i class="fa-brands fa-x-twitter"></i
+                    ></a>
+                    <a href="https://www.instagram.com/colabesports/"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a
+                      href="https://www.youtube.com/channel/UCPq_-QWa4TcuKP7OQozotOA"
+                      ><i class="fab fa-youtube"></i
+                    ></a>
+                    <a href="https://discord.com/channels/1384163322303348947/1384163323397935217"
+                      ><i class="fab fa-discord"></i
+                    ></a>
+                    <a href="https://steamcommunity.com/profiles/76561199867149445/"
+                      ><i class="fab fa-steam"></i
+                    ></a>
+                    <a href="https://www.reddit.com/user/ColabEsports/"
+                      ><i class="fab fa-reddit-alien"></i
+                    ></a>
+                  </div>
+    </div>
+  </div>
+</div>
   <!--==============================
 		Offcanvas
 	============================== -->
@@ -1451,87 +1721,53 @@
               </div>
             </div>
             <div class="col-xl-auto col-lg-auto col-md-auto col-auto flex-grow-1 d-none d-lg-block">
-              <nav class="main-menu d-none d-lg-block">
-                <ul>
-                  <li class="menu-item-has-children">
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="index.html">HOME</a>
-                    <!-- <ul class="sub-menu">
-                      <li><a href="index.html">Home 01</a></li>
-                      <li><a href="index-2.html">Home 02</a></li>
-                      <li><a href="index-3.html">Home 03</a></li>
-                    </ul> -->
-                  </li>
-                  <li>
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="about.html">About</a>
-                  </li>
-                  <li class="menu-item-has-children mega-menu-wrap">
-                    <!-- <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="javascript:void(0)">Pages</a> -->
-                    <!-- <ul class="mega-menu">
-                      <li><a href="javascript:void(0)">Page List 1</a>
-                        <ul>
-                          <li><a href="index.html">Home 01</a></li>
-                          <li><a href="index-2.html">Home 02</a></li>
-                          <li><a href="index-3.html">Home 03</a></li>
-                          <li><a href="about.html">About Us</a></li>
-                          <li><a href="service.html">Services</a></li>
-                          <li><a href="single-service.html">Service Details</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="javascript:void(0)">Page List 2</a>
-                        <ul>
-                          <li><a href="team.html">Our Team</a></li>
-                          <li><a href="team-details.html">Team Details</a></li>
-                          <li><a href="tournament-list.html">Tournament</a></li>
-                          <li><a href="single-match.html">Match Details</a></li>
-                          <li><a href="blog.html">Blog</a></li>
-                          <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="javascript:void(0)">Page List 3</a>
-                        <ul>
-                          <li><a href="faq.html">FAQ's</a></li>
-                          <li><a href="shop.html">Main Shop</a></li>
-                          <li><a href="shop-details.html">Shop Details</a></li>
-                          <li><a href="shop-nft.html">Shop NFT</a></li>
-                          <li><a href="nft-shop.html">Shop NFT Details</a></li>
-                          <li><a href="cart.html">Cart</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="javascript:void(0)">Page List 4</a>
-                        <ul>
-                          <li><a href="checkout.html">Checkout</a></li>
-                          <li><a href="wishlist.html">Wishlist</a></li>
-                          <li><a href="comming-soon.html">Coming Soon</a></li>
-                          <li><a href="contact.html">Contact Us</a></li>
-                          <li><a href="404.html">404 Page</a></li>
-                        </ul>
-                      </li>
-                    </ul> -->
-                  </li>
-                  <!-- <li class="menu-item-has-children">
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="shop.html">shop</a>
-                    <ul class="sub-menu">
-                      <li><a href="shop.html">Main Shop</a></li>
-                      <li><a href="shop-details.html">Shop Details</a></li>
-                      <li><a href="shop-nft.html">NFT Shop</a></li>
-                      <li><a href="nft-shop.html">NFT Details</a></li>
-                    </ul>
-                  </li> -->
-                  <li class="menu-item-has-children">
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="blog.html">blog</a>
-                    <!-- <ul class="sub-menu">
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul> -->
-                  </li>
-                  <!-- <li>
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="contact.html">contact</a>
-                  </li> -->
-			 <li>
-                    <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" href="how-to-play.html">How To Play</a>
-                  </li>
-                </ul>
-              </nav>
+                <nav class="main-menu d-none d-lg-block">
+                  <ul>
+                    <li class="menu-item-has-children">
+                      <a
+                        class="vs-svg-assets"
+                        data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg"
+                        href="index.html"
+                        >HOME</a
+                      >
+                      
+                    </li>
+                    <li>
+                      <a
+                        class="vs-svg-assets"
+                        data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg"
+                        href="about.html"
+                        >About</a
+                      >
+                    </li>
+                    
+                    <li class="menu-item-has-children">
+                      <a
+                        class="vs-svg-assets"
+                        data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg"
+                        href="blog.html"
+                        >blog</a
+                      >
+                     
+                    </li>
+                    <!-- <li>
+                      <a
+                        class="vs-svg-assets"
+                        data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg"
+                        href="contact.html"
+                        >contact</a
+                      >
+                    </li> -->
+			   <li>
+              <a
+                class="vs-svg-assets"
+                data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg"
+                href="how-to-play.html"
+                >How  To  Play</a
+              >
+            </li>
+                  </ul>
+                </nav>
             </div>
             <div class="col-xl-auto col-lg-auto col-md-auto col-auto">
               <div class="vs-header__right">
@@ -2059,6 +2295,245 @@
   <script src="assets/js/custom-cursor.js"></script>
   <!-- Main Js File -->
   <script src="assets/js/main.js"></script>
+   <script>
+  // Global variables
+let isLoggedIn = false;
+
+// Sidemenu functions
+function openSidemenu() {
+  document.getElementById('sidemenuWrapper').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSidemenu() {
+  document.getElementById('sidemenuWrapper').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+// Authentication functions - FIXED VERSION
+function handleSidemenuLogin(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('sideLoginEmail').value;
+  const password = document.getElementById('sideLoginPassword').value;
+  
+  // Accept any input as valid login
+  if (email && password) {
+    // Extract username from email (part before @)
+    const username = email.split('@')[0];
+    
+    // Show logged in state
+    document.getElementById('loginFormSide').style.display = 'none';
+    document.getElementById('signupFormSide').style.display = 'none';
+    document.getElementById('loggedInState').style.display = 'block';
+    document.getElementById('profileMenuOptions').style.display = 'block';
+    
+    // Update user info
+    document.getElementById('sideUserName').textContent = username;
+    document.getElementById('sideUserEmail').textContent = '@' + username;
+    
+    isLoggedIn = true;
+    
+    // Clear form
+    document.getElementById('sideLoginEmail').value = '';
+    document.getElementById('sideLoginPassword').value = '';
+    
+    // Show success message
+    alert('Login successful! Welcome to ColabEsports!');
+  } else {
+    alert('Please enter both email and password');
+  }
+}
+
+function handleSidemenuSignup(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('sideSignupName').value;
+  const email = document.getElementById('sideSignupEmail').value;
+  const password = document.getElementById('sideSignupPassword').value;
+  const confirmPassword = document.getElementById('sideConfirmPassword').value;
+  
+  // Accept any input as valid signup
+  if (name && email && password && confirmPassword) {
+    if (password === confirmPassword) {
+      // Extract username from email (part before @)
+      const username = email.split('@')[0];
+      
+      // Show logged in state
+      document.getElementById('loginFormSide').style.display = 'none';
+      document.getElementById('signupFormSide').style.display = 'none';
+      document.getElementById('loggedInState').style.display = 'block';
+      document.getElementById('profileMenuOptions').style.display = 'block';
+      
+      // Update user info
+      document.getElementById('sideUserName').textContent = name;
+      document.getElementById('sideUserEmail').textContent = '@' + username;
+      
+      isLoggedIn = true;
+      
+      // Clear form
+      document.getElementById('sideSignupName').value = '';
+      document.getElementById('sideSignupEmail').value = '';
+      document.getElementById('sideSignupPassword').value = '';
+      document.getElementById('sideConfirmPassword').value = '';
+      
+      // Show success message
+      alert('Account created successfully! Welcome to ColabEsports!');
+    } else {
+      alert('Passwords do not match');
+    }
+  } else {
+    alert('Please fill in all fields');
+  }
+}
+
+function handleLogout() {
+  // Hide logged in state and profile menu
+  document.getElementById('loggedInState').style.display = 'none';
+  document.getElementById('profileMenuOptions').style.display = 'none';
+  
+  // Show login form
+  document.getElementById('loginFormSide').style.display = 'block';
+  
+  isLoggedIn = false;
+  
+  alert('Logged out successfully!');
+}
+
+function showSideSignupForm() {
+  document.getElementById('loginFormSide').style.display = 'none';
+  document.getElementById('signupFormSide').style.display = 'block';
+}
+
+function showSideLoginForm() {
+  document.getElementById('signupFormSide').style.display = 'none';
+  document.getElementById('loginFormSide').style.display = 'block';
+}
+
+// Profile menu handlers
+function handleWallet() {
+  alert('Wallet feature - Manage your transactions and balance');
+}
+
+function handleKYC() {
+  alert('KYC Verification - Complete your identity verification');
+}
+
+function handleXP() {
+  alert('XP Points - View your experience points and achievements');
+}
+
+function handleSupport() {
+  alert('Support - Contact our customer support team');
+}
+
+function handleSettings() {
+  alert('Settings - Manage your account settings');
+}
+
+// Initialize sidebar menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const sideMenuToggler = document.querySelector('.sideMenuToggler');
+  if (sideMenuToggler) {
+    sideMenuToggler.addEventListener('click', function() {
+      openSidemenu();
+    });
+  }
+
+  // Close sidemenu when clicking outside
+  document.getElementById('sidemenuWrapper').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeSidemenu();
+    }
+  });
+});
+
+
+
+
+
+function showGamePool(mode) {
+  document.getElementById("gameModeSelection").style.display = "none";
+  document.getElementById("gamePool").classList.add("show");
+  document.querySelector('.modal-title').textContent = `${mode} Game Pool`;
+
+  // Generate sample games with ₹0 entry and ₹20 winnings
+  const poolList = document.getElementById("poolList");
+  poolList.innerHTML = "";
+
+  for (let i = 1; i <= 5; i++) {
+    const timerId = `timer-${i}`; // Unique timer ID
+
+    const poolItem = document.createElement("div");
+    poolItem.className = "pool-item";
+    poolItem.innerHTML = `
+      <div class="pool-timer">
+        <div class="timer-display" id="${timerId}">60:00</div>
+        <div class="timer-label">LEFT</div>
+      </div>
+      <div class="pool-details">
+        <div class="pool-info">
+          <div class="pool-fee">
+            <div class="pool-fee-label">Entry Fee</div>
+            <div class="pool-fee-amount">₹0</div>
+          </div>
+          <div class="pool-winning">
+            <div class="pool-winning-label">Winnings</div>
+            <div class="pool-winning-amount">₹20</div>
+          </div>
+        </div>
+        <div class="pool-action">
+          <button class="pool-join-btn" onclick="joinGame(${i})">
+            JOIN NOW
+          </button>
+        </div>
+      </div>
+    `;
+    poolList.appendChild(poolItem);
+
+    // Start 1-hour countdown (3600 seconds)
+    startCountdown(timerId, 60 * 60);
+  }
+}
+
+// Reusable countdown function
+function startCountdown(elementId, duration) {
+  let timer = duration;
+  const display = document.getElementById(elementId);
+
+  const interval = setInterval(() => {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+
+    display.textContent = 
+      `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    if (--timer < 0) {
+      clearInterval(interval);
+      display.textContent = "00:00";
+    }
+  }, 1000);
+}
+
+
+
+function handleKYC() {
+  const kycSteps = document.getElementById("kycSteps");
+
+  // Toggle visibility
+  const isVisible = kycSteps.style.display === "block";
+  kycSteps.style.display = isVisible ? "none" : "block";
+
+  if (!isVisible) {
+    // Simulate uploaded document status
+    document.getElementById("step-document").querySelector(".uploaded").style.display = "inline";
+    document.getElementById("step-aadhar").querySelector(".uploaded").style.display = "inline";
+    document.getElementById("step-status").querySelector(".uploaded").style.display = "inline";
+  }
+}
+
+
+    </script>
 </body>
 
 </html>
