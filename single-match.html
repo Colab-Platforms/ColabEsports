@@ -989,7 +989,7 @@
   .game-card__thumbnail {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
   }
 
@@ -1149,6 +1149,464 @@
     background-size: 200px 100%;
     animation: shimmer 1.5s infinite;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Payment Modal Styles */
+.payment-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.payment-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid #A6D719;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.payment-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  color: #A6D719;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.payment-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.payment-title {
+  color: #A6D719;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.payment-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+.game-info-card {
+  background: rgba(166, 215, 25, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(166, 215, 25, 0.3);
+}
+
+.game-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.game-info-row:last-child {
+  margin-bottom: 0;
+}
+
+.game-info-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.game-info-value {
+  color: #A6D719;
+  font-weight: 600;
+}
+
+.payment-methods {
+  margin-bottom: 25px;
+}
+
+.payment-method {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.payment-method:hover,
+.payment-method.selected {
+  border-color: #A6D719;
+  background: rgba(166, 215, 25, 0.1);
+}
+
+.payment-method-icon {
+  width: 40px;
+  height: 40px;
+  background: #A6D719;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a2e;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.payment-method-info h4 {
+  color: #fff;
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.payment-method-info p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.payment-button {
+  width: 100%;
+  background: linear-gradient(135deg, #A6D719 0%, #8BC34A 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.payment-button:hover {
+  background: linear-gradient(135deg, #8BC34A 0%, #A6D719 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(166, 215, 25, 0.4);
+}
+
+.payment-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success Modal Styles */
+.success-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.success-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 450px;
+  width: 90%;
+  border: 2px solid #A6D719;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  animation: slideIn 0.3s ease;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: #A6D719;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 40px;
+  color: #1a1a2e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.success-title {
+  color: #A6D719;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.success-message {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.game-code-display {
+  background: rgba(166, 215, 25, 0.1);
+  border: 2px solid #A6D719;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.code-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.game-code {
+  color: #A6D719;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 8px;
+  margin-bottom: 10px;
+}
+
+.copy-code-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.copy-code-btn:hover {
+  background: rgba(166, 215, 25, 0.2);
+  border-color: #A6D719;
+}
+
+/* Server Join Modal Styles */
+.server-join-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.server-join-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.server-join-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 35px;
+  max-width: 500px;
+  width: 90%;
+  border: 2px solid #A6D719;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease;
+}
+
+.server-join-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.server-join-title {
+  color: #A6D719;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.code-input-section {
+  margin-bottom: 25px;
+}
+
+.code-input-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.code-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #A6D719;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 4px;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #A6D719;
+  background: rgba(166, 215, 25, 0.1);
+}
+
+.code-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+}
+
+.server-info {
+  background: rgba(166, 215, 25, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(166, 215, 25, 0.3);
+}
+
+.server-info h4 {
+  color: #A6D719;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.server-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.server-detail:last-child {
+  margin-bottom: 0;
+}
+
+.server-detail-value {
+  color: #A6D719;
+  font-weight: 600;
+}
+
+.join-server-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #A6D719 0%, #8BC34A 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.join-server-btn:hover {
+  background: linear-gradient(135deg, #8BC34A 0%, #A6D719 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(166, 215, 25, 0.4);
+}
+
+.join-server-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid #A6D719;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payment-content,
+  .success-content,
+  .server-join-content {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .game-code {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .code-input {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+}
   </style>
 </head>
 
@@ -1179,7 +1637,7 @@
 
     <div class="vs-menu-area text-center">
       <div class="mobile-logo">
-        <a href="index.html"><img src="assets/img/logo.svg" alt="roda" class="logo"></a>
+        <a href="index.html"><img src="assets/img/logo.svg" alt="ColabEsports" class="logo"></a>
         <button class="vs-menu-toggle">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -1312,7 +1770,7 @@
             </button>
           </div>
         </form>
-        <p class="sidemenu-text text-start">Copyright © 2024 <a class="vs-theme-color" href="index.html">roda</a>. All rights reserved.
+        <p class="sidemenu-text text-start">Copyright © 2024 <a class="vs-theme-color" href="index.html">ColabEsports</a>. All rights reserved.
         </p>
         <div class="footer-social">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1521,110 +1979,7 @@
         <button class="cart-close-button">X</button>
       </div>
       <!-- Shopping Cart Widget -->
-      <div class="shopping-cart-widget">
-        <div class="shopping-cart-content">
-          <div class="cart-items">
-            <div class="cart-item cart-animation-item">
-              <img class="cart-item__image" src="assets/img/nft/nft-shop-sidebar-1-1.jpg" alt="Premium Headphones">
-              <div class="item-details">
-                <h3><a href="shop-nft.html">NFT Game</a></h3>
-                <div class="item-controls">
-                  <div class="quantity">
-                    <div class="quantity__field quantity-container">
-                      <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <div class="quantity__buttons">
-                        <button class="quantity-plus qty-btn"><i
-														class="fa-solid fa-angle-up"></i></button>
-                        <button class="quantity-minus qty-btn"><i
-														class="fa-solid fa-angle-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="item-price">× $100.00</span>
-                </div>
-              </div>
-              <button class="remove-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="cart-item cart-animation-item">
-              <img class="cart-item__image" src="assets/img/products/side-product-1-2.png" alt="Premium Headphones">
-              <div class="item-details">
-                <h3><a href="shop-nft.html">Game Controller</a></h3>
-                <div class="item-controls">
-                  <div class="quantity">
-                    <div class="quantity__field quantity-container">
-                      <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <div class="quantity__buttons">
-                        <button class="quantity-plus qty-btn"><i
-														class="fa-solid fa-angle-up"></i></button>
-                        <button class="quantity-minus qty-btn"><i
-														class="fa-solid fa-angle-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="item-price">× $100.00</span>
-                </div>
-              </div>
-              <button class="remove-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="cart-item cart-animation-item">
-              <img class="cart-item__image" src="assets/img/nft/nft-shop-sidebar-1-2.jpg" alt="Premium Headphones">
-              <div class="item-details">
-                <h3><a href="shop-nft.html">NFT Game Two</a></h3>
-                <div class="item-controls">
-                  <div class="quantity">
-                    <div class="quantity__field quantity-container">
-                      <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <div class="quantity__buttons">
-                        <button class="quantity-plus qty-btn"><i
-														class="fa-solid fa-angle-up"></i></button>
-                        <button class="quantity-minus qty-btn"><i
-														class="fa-solid fa-angle-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="item-price">× $100.00</span>
-                </div>
-              </div>
-              <button class="remove-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="cart-footer">
-            <div class="subtotal cart-animation-item">
-              <span>Subtotal:</span>
-              <span class="total-amount">$110.00</span>
-            </div>
-            <div class="cart-actions">
-              <a href="cart.html" class="vs-btn cart-animation-item">View Cart</a>
-              <a href="checkout.html" class="vs-btn vs-btn--style3 cart-animation-item">Checkout</a>
-            </div>
-          </div>
-          <!-- Social Media Links -->
-          <div class="footer-social social-style">
-            <h4 class="social-style__title mb-0 cart-animation-item">Follow Us :</h4>
-            <ul class="cart-animation-item">
-              <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    
     </div>
   </div>
   <!-- Header Layout1 -->
@@ -1675,6 +2030,11 @@
                     <i class="fas fa-trophy"></i> Leaderboard
                   </a>
                 </li>
+                <li>
+  <a class="vs-svg-assets" href="News.html">
+    <i class="fas fa-newspaper"></i> News
+  </a>
+</li>
               </ul>
             </nav>
           </div>
@@ -1686,10 +2046,11 @@
 
               <!-- Profile Button -->
               <button class="sideMenuToggler d-none d-md-flex">
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" />
-                  <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4Z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#df2a00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-circle">
+  <circle cx="12" cy="12" r="10" fill="#121212" />
+  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
+  <path d="M6 18.3C6.9 16.4 9.2 15 12 15s5.1 1.4 6 3.3" />
+</svg>
               </button>
 
               <!-- Mobile Menu Icon -->
@@ -1713,11 +2074,11 @@
     <div class="breadcumb-wrapper" data-bg-src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/CES_website_banner.png?v=1750924156">
       <div class="container">
         <div class="breadcumb-content">
-          <h1 class="breadcumb-title wow animate__fadeInUp" data-wow-delay="0.35s">Free To Win </h1>
+          <h1 class="breadcumb-title wow animate__fadeInUp" data-wow-delay="0.35s">Play To Win </h1>
           <div class="breadcumb-menu-wrap">
             <ul class="breadcumb-menu wow animate__fadeInUp" data-wow-delay="0.45s">
               <li><a href="index.html">Home</a></li>
-              <li>Free To Win</li>
+              <li>Play To Win</li>
             </ul>
           </div>
         </div>
@@ -1739,7 +2100,7 @@
             <div class="vs-service__footer vs-game__footer">
               <div class="game-card__content">
                 <div class="game-card__image" width="61" height="60">
-                  <img src="https://cdn.storifyme.xyz/accounts/cashify-in-0561312/assets/f-7ee27e3c7ca9b2434381b2728cedb5a4csgo-operation-10-details-54041678098282117.jpeg?t=1678099344000" alt="Game Thumbnail" class="game-card__thumbnail" width="141px" height="128px">
+                  <img src="data:image/png;base64,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" alt="Game Thumbnail" class="game-card__thumbnail" width="141px" height="128px">
                 </div>
                 <div class="game-card__details">
                   <h2 class="game-card__title">
@@ -1747,29 +2108,6 @@
                   </h2>
                  <p class="game-card__time" id="realTimeDisplay"></p>
 
-<script>
-  function updateDateTime() {
-    const now = new Date();
-
-    const options = {
-      year: 'numeric',
-      month: 'short',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true,
-    };
-
-    const formattedDate = now.toLocaleString('en-US', options);
-    document.getElementById("realTimeDisplay").textContent = formattedDate;
-  }
-
-  // Update once on load
-  updateDateTime();
-
-  // Optional: Keep it updated every 30 seconds
-  setInterval(updateDateTime, 30000);
-</script>
 
                 </div>
               </div>
@@ -1778,192 +2116,26 @@
   <i class="fa-solid fa-money-bill-wave" style="margin-left: 10px;"></i> <!-- Money Icon -->
   <div class="vs-game__winning--bonus__info">
     <span class="vs-game__winning--bonus__text">Entry Fee</span>
-    <span class="vs-game__winning--bonus__value">Free</span>
+    <span class="vs-game__winning--bonus__value">₹ 1 = 1 Hour</span>
   </div>
 </div>
 
                 </div>
-                <div class="vs-game__winning--bonus">
+                <!-- <div class="vs-game__winning--bonus">
                   <i class="fa-solid fa-trophy"></i>
                   <div class="vs-game__winning--bonus__info">
                     <span class="vs-game__winning--bonus__text">winning price</span>
-                    <span class="vs-game__winning--bonus__value">20</span>
+                    <span class="vs-game__winning--bonus__value">₹ 00</span>
                   </div>
-                </div>
+                </div> -->
                 
-                   <a href="#" class="vs-btn" >Join Now</a>
+                  <a href="#" class="vs-btn" onclick="handlePayAndJoin(); return false;">Pay & Join</a>
               </div>
             </div>
           </div>
           <div class="row gx-40">
             
-            <div class="col-lg-12 mb-30">
-              <div class="sidebar-area">
-                <div class="next-match-table-container">
-                  <!-- Sticky Header -->
-                  <div class="next-match-table-header">
-                    <h2>Next Match</h2>
-                  </div>
-                  
-                  <!-- Scrollable Content -->
-                  <div class="next-match-scroll-container" id="nextMatchScrollContainer">
-                    <div class="next-match-scroll-content" id="nextMatchScrollContent">
-                      <ul class="next-match-list">
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">12:06 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">14:30 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">16:45 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">18:15 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">20:00 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">21:30 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">23:00 Aug 19, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">10:00 Aug 20, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">11:30 Aug 20, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                        
-                        <li class="next-match-item">
-                          <div class="game-card__content">
-                            <div class="game-card__image">
-                              <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/icon.jpg?v=1750939797" alt="Game Thumbnail" class="game-card__thumbnail" width="68" height="69">
-                            </div>
-                            <div class="game-card__details">
-                              <h2 class="game-card__title">
-                                <a href="">CS2</a>
-                              </h2>
-                              <p class="game-card__time">13:00 Aug 20, 2025</p>
-                            </div>
-                            <a href="#" class="vs-btn">Join Now</a>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -2184,7 +2356,32 @@
   <script src="assets/js/custom-cursor.js"></script>
   <!-- Main Js File -->
   <script src="assets/js/main.js"></script>
+
   <script>
+  function updateDateTime() {
+    const now = new Date();
+
+    const options = {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+      
+    };
+
+    const formattedDate = now.toLocaleString('en-US', options);
+    document.getElementById("realTimeDisplay").textContent = formattedDate;
+  }
+
+ 
+  updateDateTime();
+
+  
+  setInterval(updateDateTime, 30000);
+</script>
+
+
+
+<script>
   const scrollContainer = document.getElementById('scrollableContainer');
   const scrollContent = scrollContainer.querySelector('.custom-scroll-content');
   let scrollTop = 0;
@@ -2201,7 +2398,8 @@
   }, { passive: false });
 </script>
 
-     <script>
+
+<script>
   // Global variables
 let isLoggedIn = false;
 
@@ -2216,7 +2414,7 @@ function closeSidemenu() {
   document.body.style.overflow = 'auto';
 }
 
-// Authentication functions - FIXED VERSION
+// Authentication functions 
 function handleSidemenuLogin(event) {
   event.preventDefault();
   
@@ -2365,142 +2563,578 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-function showGamePool(mode) {
-  document.getElementById("gameModeSelection").style.display = "none";
-  document.getElementById("gamePool").classList.add("show");
-  document.querySelector('.modal-title').textContent = `${mode} Game Pool`;
 
-  // Generate sample games with ₹0 entry and ₹20 winnings
-  const poolList = document.getElementById("poolList");
-  poolList.innerHTML = "";
 
-  for (let i = 1; i <= 5; i++) {
-    const timerId = `timer-${i}`; // Unique timer ID
 
-    const poolItem = document.createElement("div");
-    poolItem.className = "pool-item";
-    poolItem.innerHTML = `
-      <div class="pool-timer">
-        <div class="timer-display" id="${timerId}">60:00</div>
-        <div class="timer-label">LEFT</div>
-      </div>
-      <div class="pool-details">
-        <div class="pool-info">
-          <div class="pool-fee">
-            <div class="pool-fee-label">Entry Fee</div>
-            <div class="pool-fee-amount">₹0</div>
-          </div>
-          <div class="pool-winning">
-            <div class="pool-winning-label">Winnings</div>
-            <div class="pool-winning-amount">₹20</div>
-          </div>
-        </div>
-        <div class="pool-action">
-          <button class="pool-join-btn" onclick="joinGame(${i})">
-            JOIN NOW
-          </button>
-        </div>
-      </div>
-    `;
-    poolList.appendChild(poolItem);
 
-    // Start 1-hour countdown (3600 seconds)
-    startCountdown(timerId, 60 * 60);
+
+// Global variables for payment flow
+let selectedPaymentMethod = 'upi';
+let gameCode = '';
+
+// Main function to handle Pay & Join button click
+function handlePayAndJoin() {
+  // Check if user is logged in
+  if (!isLoggedIn) {
+    alert("Please login first to join the tournament");
+    openSidemenu(); // Open the sidebar for login
+    return;
+  }
+
+  // Start the payment flow
+  initPayment();
+}
+
+// Initialize payment flow
+function initPayment() {
+  // Update match time
+  updateMatchTime();
+  
+  // Set up payment method selection
+  setupPaymentMethods();
+  
+  // Show payment modal
+  document.getElementById('paymentModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateMatchTime() {
+  const now = new Date();
+  const options = {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  };
+  const formattedDate = now.toLocaleString('en-US', options);
+  document.getElementById("matchTime").textContent = formattedDate;
+}
+
+function setupPaymentMethods() {
+  const paymentMethods = document.querySelectorAll('.payment-method');
+  paymentMethods.forEach(method => {
+    method.addEventListener('click', function() {
+      // Remove selected class from all methods
+      paymentMethods.forEach(m => m.classList.remove('selected'));
+      // Add selected class to clicked method
+      this.classList.add('selected');
+      selectedPaymentMethod = this.dataset.method;
+    });
+  });
+}
+
+function closePaymentModal() {
+  document.getElementById('paymentModal').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+function processPayment() {
+  const paymentBtn = document.querySelector('.payment-button');
+  const btnText = document.getElementById('paymentButtonText');
+  
+  // Disable button and show loading
+  paymentBtn.disabled = true;
+  btnText.innerHTML = '<div class="loading-spinner"></div>Processing Payment...';
+  
+  // Simulate payment processing
+  setTimeout(() => {
+    // Generate 6-digit code
+    gameCode = Math.floor(100000 + Math.random() * 900000).toString();
+    
+    // Close payment modal
+    closePaymentModal();
+    
+    // Show success modal
+    showSuccessModal();
+    
+    // Reset button
+    paymentBtn.disabled = false;
+    btnText.textContent = 'PAY ₹1 & JOIN';
+  }, 3000);
+
+  //  backend payment API
+  
+  fetch('/api/process-payment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      amount: 1,
+      method: selectedPaymentMethod,
+      gameId: 'cs2_tournament_001',
+      userId: getCurrentUserId()
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      gameCode = data.gameCode;
+      closePaymentModal();
+      showSuccessModal();
+    } else {
+      alert('Payment failed. Please try again.');
+    }
+  })
+  .catch(error => {
+    console.error('Payment error:', error);
+    alert('Payment failed. Please try again.');
+  })
+  .finally(() => {
+    paymentBtn.disabled = false;
+    btnText.textContent = 'PAY ₹1 & JOIN';
+  });
+   
+}
+// backend payment API end here
+
+function showSuccessModal() {
+  document.getElementById('generatedGameCode').textContent = gameCode;
+  document.getElementById('successModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function copyGameCode() {
+  navigator.clipboard.writeText(gameCode).then(() => {
+    const copyBtn = document.querySelector('.copy-code-btn');
+    const originalText = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    copyBtn.style.background = 'rgba(166, 215, 25, 0.3)';
+    
+    setTimeout(() => {
+      copyBtn.innerHTML = originalText;
+      copyBtn.style.background = 'rgba(255, 255, 255, 0.1)';
+    }, 2000);
+  });
+}
+
+function proceedToServer() {
+  document.getElementById('successModal').classList.remove('show');
+  document.getElementById('serverJoinModal').classList.add('show');
+  
+  // Pre-fill the code input
+  document.getElementById('serverCodeInput').value = gameCode;
+  validateCode(document.getElementById('serverCodeInput'));
+}
+
+function validateCode(input) {
+  const code = input.value;
+  const joinBtn = document.getElementById('joinServerBtn');
+  const btnText = document.getElementById('joinServerBtnText');
+  
+  // Allow only numbers
+  input.value = code.replace(/\D/g, '');
+  
+  if (input.value.length === 6) {
+    joinBtn.disabled = false;
+    btnText.textContent = 'JOIN CS2 SERVER';
+    joinBtn.style.background = 'linear-gradient(135deg, #A6D719 0%, #8BC34A 100%)';
+  } else {
+    joinBtn.disabled = true;
+    btnText.textContent = 'ENTER CODE TO JOIN';
+    joinBtn.style.background = 'rgba(166, 215, 25, 0.5)';
   }
 }
 
-// Reusable countdown function
-function startCountdown(elementId, duration) {
-  let timer = duration;
-  const display = document.getElementById(elementId);
+function joinCS2Server() {
+  const enteredCode = document.getElementById('serverCodeInput').value;
+  const joinBtn = document.getElementById('joinServerBtn');
+  const btnText = document.getElementById('joinServerBtnText');
+  
+  if (enteredCode.length !== 6) {
+    alert('Please enter a valid 6-digit code');
+    return;
+  }
+  
+  // Disable button and show loading
+  joinBtn.disabled = true;
+  btnText.innerHTML = '<div class="loading-spinner"></div>Connecting to Server...';
+  
+  // Simulate server connection
+  setTimeout(() => {
+    
+    
+    // Close modal
+    document.getElementById('serverJoinModal').classList.remove('show');
+    document.body.style.overflow = 'auto';
+    
+    // Show success message
+    alert('Successfully connected to CS2 server! Game code verified. You can now launch CS2 and join the match.');
+    
+    // Reset button
+    joinBtn.disabled = false;
+    btnText.textContent = 'JOIN CS2 SERVER';
+    
+    // Optionally redirect to game lobby or show further instructions
+    showGameInstructions();
+  }, 2000);
 
-  const interval = setInterval(() => {
-    const minutes = Math.floor(timer / 60);
-    const seconds = timer % 60;
-
-    display.textContent = 
-      `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-    if (--timer < 0) {
-      clearInterval(interval);
-      display.textContent = "00:00";
+  // Backend integration start
+  
+  fetch('/api/verify-game-code', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      gameCode: enteredCode,
+      userId: getCurrentUserId()
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // Code verified, connect to server
+      window.location.href = `steam://connect/${data.serverIP}:${data.serverPort}`;
+      document.getElementById('serverJoinModal').classList.remove('show');
+      document.body.style.overflow = 'auto';
+    } else {
+      alert('Invalid game code. Please check and try again.');
     }
-  }, 1000);
+  })
+  .catch(error => {
+    console.error('Server connection error:', error);
+    alert('Failed to connect to server. Please try again.');
+  })
+  .finally(() => {
+    joinBtn.disabled = false;
+    btnText.textContent = 'JOIN CS2 SERVER';
+  });
+  
+   //Here it will end  Backend integration
 }
 
-// Next Match Table Custom Scroll Functionality - IMPROVED
-document.addEventListener('DOMContentLoaded', function() {
-  const nextMatchScrollContainer = document.getElementById('nextMatchScrollContainer');
-  const nextMatchScrollContent = document.getElementById('nextMatchScrollContent');
+function showGameInstructions() {
+  const instructions = `
+🎮 GAME INSTRUCTIONS:
+
+1. Launch Counter-Strike 2
+2. Open Console (~ key)
+3. Type: connect 192.168.1.100:27015
+4. Enter your game code when prompted: ${gameCode}
+5. Wait for other players to join
+6. Match will start automatically
+
+📋 RULES:
+• Be respectful to other players
+• No cheating or exploits
+• Follow server commands
+• Have fun and play fair!
+
+Good luck in your match! 🏆
+  `;
   
-  if (nextMatchScrollContainer && nextMatchScrollContent) {
-    let scrollTop = 0;
-    
-    // Improved wheel event handling with better prevention
-    nextMatchScrollContainer.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      scrollTop -= e.deltaY * 0.5; // Reduce scroll speed for better control
-      const maxScroll = nextMatchScrollContent.scrollHeight - nextMatchScrollContainer.clientHeight;
+  alert(instructions);
+}
 
-      if (scrollTop < 0) scrollTop = 0;
-      if (scrollTop > maxScroll) scrollTop = maxScroll;
-
-      nextMatchScrollContent.style.transform = `translateY(-${scrollTop}px)`;
-    }, { passive: false, capture: true });
-    
-    // Prevent scroll events from bubbling up
-    nextMatchScrollContainer.addEventListener('scroll', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-    }, { passive: false });
-    
-    // Touch support for mobile devices with better isolation
-    let startY = 0;
-    let currentY = 0;
-    let isDragging = false;
-    
-    nextMatchScrollContainer.addEventListener('touchstart', (e) => {
-      e.stopPropagation();
-      startY = e.touches[0].clientY;
-      isDragging = true;
-    }, { passive: false });
-    
-    nextMatchScrollContainer.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      e.stopPropagation();
-      
-      currentY = e.touches[0].clientY;
-      const deltaY = startY - currentY;
-      scrollTop += deltaY * 0.5; // Reduce touch scroll speed
-      
-      const maxScroll = nextMatchScrollContent.scrollHeight - nextMatchScrollContainer.clientHeight;
-      if (scrollTop < 0) scrollTop = 0;
-      if (scrollTop > maxScroll) scrollTop = maxScroll;
-      
-      nextMatchScrollContent.style.transform = `translateY(-${scrollTop}px)`;
-      startY = currentY;
-    }, { passive: false });
-    
-    nextMatchScrollContainer.addEventListener('touchend', (e) => {
-      e.stopPropagation();
-      isDragging = false;
-    });
-    
-    // Add mouse enter/leave for better focus control
-    nextMatchScrollContainer.addEventListener('mouseenter', () => {
-      document.body.style.overflow = 'hidden';
-    });
-    
-    nextMatchScrollContainer.addEventListener('mouseleave', () => {
-      document.body.style.overflow = 'auto';
-    });
+// Close modals when clicking outside
+window.addEventListener('click', function(event) {
+  const paymentModal = document.getElementById('paymentModal');
+  const successModal = document.getElementById('successModal');
+  const serverJoinModal = document.getElementById('serverJoinModal');
+  
+  if (event.target === paymentModal) {
+    closePaymentModal();
+  }
+  if (event.target === successModal) {
+    successModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  }
+  if (event.target === serverJoinModal) {
+    serverJoinModal.classList.remove('show');
+    document.body.style.overflow = 'auto';
   }
 });
 
+// Helper functions for backend integration
+function getCurrentUserId() {
+  // Return the current logged-in user ID
+  return localStorage.getItem("userId") || "user123";
+}
+
+function getCurrentUserEmail() {
+  // Return the current logged-in user email
+  return localStorage.getItem("userEmail") || "user@example.com";
+}
+
+function getUserToken() {
+  // Return the authentication token
+  return localStorage.getItem("authToken") || "dummy-token";
+}
     </script>
+
+
+
+
+
+
+<!-- script for login/signup-->
+ <script>
+  // Show Signup Form
+  function showSideSignupForm() {
+    document.getElementById('loginFormSide').style.display = 'none';
+    document.getElementById('signupFormSide').style.display = 'block';
+  }
+
+  // Show Login Form
+  function showSideLoginForm() {
+    document.getElementById('signupFormSide').style.display = 'none';
+    document.getElementById('loginFormSide').style.display = 'block';
+  }
+
+  // Update UI after successful login
+  function updateUserUI(user) {
+    document.getElementById('loginFormSide').style.display = 'none';
+    document.getElementById('signupFormSide').style.display = 'none';
+    document.getElementById('loggedInState').style.display = 'block';
+
+    document.getElementById('sideUserName').textContent = `Welcome ${user.name}`;
+    document.getElementById('sideUserEmail').textContent = user.email;
+  }
+
+  // Password Strength Checker
+  function isStrongPassword(password) {
+    const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    return strongPattern.test(password);
+  }
+
+  // Handle Login
+  async function handleSidemenuLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('sideLoginEmail').value.trim();
+    const password = document.getElementById('sideLoginPassword').value;
+
+    if (!email || !password) {
+      alert('Please fill in both email and password.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const contentType = response.headers.get('content-type') || '';
+      let data = {};
+      if (contentType.includes('application/json')) {
+        data = await response.json();
+      }
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        updateUserUI(data.user);
+      } else {
+        // Show message for wrong password 
+        alert(data.message || 'Incorrect email or password.');
+      }
+    } catch (err) {
+      console.error('Login error:', err);
+      alert('Login failed due to network or server error.');
+    }
+  }
+
+  // Handle Signup
+  async function handleSidemenuSignup(event) {
+    event.preventDefault();
+    const name = document.getElementById('sideSignupName').value.trim();
+    const email = document.getElementById('sideSignupEmail').value.trim();
+    const password = document.getElementById('sideSignupPassword').value;
+    const confirmPassword = document.getElementById('sideConfirmPassword').value;
+
+    if (!name || !email || !password || !confirmPassword) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    if (!isStrongPassword(password)) {
+      alert(
+        'Password is weak.\nIt must be at least 8 characters and include:\n• Uppercase\n• Lowercase\n• Number\n• Special character'
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+      });
+
+      const contentType = response.headers.get('content-type') || '';
+      let data = {};
+      if (contentType.includes('application/json')) {
+        data = await response.json();
+      }
+
+      if (response.ok) {
+        alert('Signup successful. You can now log in.');
+        showSideLoginForm();
+      } else {
+        alert(data.message || 'Signup failed. Try a different email.');
+      }
+    } catch (err) {
+      console.error('Signup error:', err);
+      alert('Signup failed due to network or server error.');
+    }
+  }
+
+  // Handle Logout
+  function handleLogout() {
+    localStorage.removeItem('token');
+    document.getElementById('loggedInState').style.display = 'none';
+    showSideLoginForm();
+  }
+</script>
+
+
+<!-- Model of payment -->
+
+<div id="paymentModal" class="payment-modal">
+  <div class="payment-content">
+    <button class="payment-close" onclick="closePaymentModal()">&times;</button>
+    
+    <div class="payment-header">
+      <h2 class="payment-title">Complete Payment</h2>
+      <p class="payment-subtitle">Secure your spot in the CS2 tournament</p>
+    </div>
+
+    <div class="game-info-card">
+      <div class="game-info-row">
+        <span class="game-info-label">Game:</span>
+        <span class="game-info-value">Counter Strike 2 </span>
+      </div>
+      <div class="game-info-row">
+        <span class="game-info-label">Entry Fee:</span>
+        <span class="game-info-value">₹1</span>
+      </div>
+      <div class="game-info-row">
+        <span class="game-info-label">Winning Prize:</span>
+        <span class="game-info-value">₹ 00</span>
+      </div>
+      <div class="game-info-row">
+        <span class="game-info-label">Match Time:</span>
+        <span class="game-info-value" id="matchTime">Loading...</span>
+      </div>
+    </div>
+
+    <div class="payment-methods">
+      <div class="payment-method selected" data-method="upi">
+        <div class="payment-method-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="payment-method-info">
+          <h4>UPI Payment</h4>
+          <p>Pay using UPI apps like PhonePe, GooglePay, Paytm</p>
+        </div>
+      </div>
+
+      <div class="payment-method" data-method="card">
+        <div class="payment-method-icon">
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <div class="payment-method-info">
+          <h4>Card Payment</h4>
+          <p>Debit/Credit cards accepted</p>
+        </div>
+      </div>
+
+      <div class="payment-method" data-method="wallet">
+        <div class="payment-method-icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <div class="payment-method-info">
+          <h4>Digital Wallet</h4>
+          <p>Paytm, PhonePe, Amazon Pay</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="payment-button" onclick="processPayment()">
+      <span id="paymentButtonText">PAY ₹1 & JOIN</span>
+    </button>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="success-modal">
+  <div class="success-content">
+    <div class="success-icon">
+      <i class="fas fa-check"></i>
+    </div>
+    
+    <h2 class="success-title">Payment Successful!</h2>
+    <p class="success-message">
+      Your payment has been processed successfully. Here's your game code to join the CS2 server:
+    </p>
+
+    <div class="game-code-display">
+      <div class="code-label">Your Game Code:</div>
+      <div class="game-code" id="generatedGameCode">123456</div>
+      <button class="copy-code-btn" onclick="copyGameCode()">
+        <i class="fas fa-copy"></i> Copy Code
+      </button>
+    </div>
+
+    <button class="payment-button" onclick="proceedToServer()">
+      PROCEED TO JOIN SERVER
+    </button>
+  </div>
+</div>
+
+<!-- Server Join Modal -->
+<div id="serverJoinModal" class="server-join-modal">
+  <div class="server-join-content">
+    <div class="server-join-header">
+      <h2 class="server-join-title">Join CS2 Server</h2>
+      <p class="success-message">Enter your game code to connect to the server</p>
+    </div>
+
+    <div class="code-input-section">
+      <label class="code-input-label">Enter Your 6-Digit Game Code:</label>
+      <input 
+        type="text" 
+        class="code-input" 
+        id="serverCodeInput" 
+        placeholder="123456"
+        maxlength="6"
+        oninput="validateCode(this)"
+      >
+    </div>
+
+    <div class="server-info">
+      <h4><i class="fas fa-server"></i> Server Details</h4>
+      <div class="server-detail">
+        <span>Server Name:</span>
+        <span class="server-detail-value">ColabEsports CS2 #1</span>
+      </div>
+      <div class="server-detail">
+        <span>Server IP:</span>
+        <span class="server-detail-value">192.168.1.100:27015</span>
+      </div>
+      <div class="server-detail">
+        <span>Region:</span>
+        <span class="server-detail-value">Asia Pacific</span>
+      </div>
+      <div class="server-detail">
+        <span>Players:</span>
+        <span class="server-detail-value">8/10</span>
+      </div>
+    </div>
+
+    <button class="join-server-btn" id="joinServerBtn" onclick="joinCS2Server()" disabled>
+      <span id="joinServerBtnText">ENTER CODE TO JOIN</span>
+    </button>
+  </div>
+</div>
 </body>
 
 </html>
