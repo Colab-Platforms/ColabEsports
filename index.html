@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>ColabEsports </title>
-  <meta name="author" content="vecuro">
+  <meta name="author" content="ColabEsports">
   <meta name="description" content="ColabEsports">
   <meta name="keywords" content="ColabEsports">
   <meta name="robots" content="INDEX,FOLLOW">
@@ -740,15 +740,15 @@
 
 .game-card__stats-row {
   display: flex;
-  justify-content: space-between; /* or use center/start as per design */
-  gap: 20px; /* spacing between items */
-  flex-wrap: wrap; /* optional: wrap on small screens */
+  justify-content: space-between; 
+  gap: 20px; 
+  flex-wrap: wrap; 
 }
 
 .game-card__stats-row p {
   margin: 0;
-  font-size: 14px; /* optional */
-  color: black;     /* if you want white text */
+  font-size: 14px;
+  color: black;    
 }
 
 
@@ -759,90 +759,303 @@
 
 
 
-
-
-
-
-
-/* Modal Container */
-.modal {
+/* CS2 Setup Modal Styles  */
+.cs2-setup-modal {
   display: none;
   position: fixed;
-  z-index: 999;
-  padding-top: 100px;
+  z-index: 999999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-  margin-top: 2600px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 }
 
-/* Modal Box */
-.modal-content {
-  background-color: #0a0a12;
-  color: white;
-  margin: auto;
-  padding: 70px;
-  border: 2px solid #b1ff00;
-  border-radius: 10px;
-  width: 60%;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Header */
-.modal-header {
+.cs2-setup-modal.show {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
-/* Close Button */
-.close-btn {
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
+.cs2-setup-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  border: 2px solid #a6d719;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: slideIn 0.3s ease;
+  margin-bottom: 3000px;
 }
 
-/* Game Modes Layout */
-.game-modes {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  gap: 20px;
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-/* Mode Card */
-.mode-card {
-  background: #1e1e2f;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px solid #b1ff00;
-  text-align: center;
-  flex: 1;
-  max-width: 500px;
-}
-
-/* Icons */
-.mode-card i {
-  font-size: 40px;
-  margin-bottom: 10px;
-  color: #b1ff00;
-}
-
-/* Buttons */
-.mode-btn {
-  background-color: #b1ff00;
+.cs2-setup-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
   border: none;
-  color: black;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 50px;
-  margin-top: 10px;
+  color: #a6d719;
+  font-size: 24px;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
+.cs2-setup-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.cs2-setup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cs2-setup-title {
+  color: #a6d719;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cs2-setup-title i {
+  font-size: 2.5rem;
+  color: #a6d719;
+}
+
+.cs2-setup-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cs2-setup-steps {
+  margin-bottom: 30px;
+}
+
+.setup-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: rgba(166, 215, 25, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #a6d719;
+  transition: all 0.3s ease;
+}
+
+.setup-step:hover {
+  background: rgba(166, 215, 25, 0.15);
+  transform: translateX(5px);
+}
+
+.setup-step-number {
+  background: #a6d719;
+  color: #1a1a2e;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.setup-step-content {
+  flex: 1;
+}
+
+.setup-step-title {
+  color: #a6d719;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.setup-step-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cs2-play-now-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #a6d719 0%, #8bc34a 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cs2-play-now-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cs2-play-now-btn:hover:before {
+  left: 100%;
+}
+
+.cs2-play-now-btn:hover {
+  background: linear-gradient(135deg, #8bc34a 0%, #a6d719 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(166, 215, 25, 0.4);
+}
+
+.cs2-play-now-btn:active {
+  transform: translateY(-1px);
+}
+
+.cs2-play-now-btn i {
+  font-size: 1.3rem;
+}
+
+.cs2-requirements {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs2-requirements h4 {
+  color: #a6d719;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs2-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs2-requirements li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs2-requirements li:before {
+  content: "✓";
+  color: #a6d719;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cs2-setup-content {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  .cs2-setup-title {
+    font-size: 1.6rem;
+  }
+
+  .cs2-setup-title i {
+    font-size: 2rem;
+  }
+
+  .setup-step {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .setup-step-number {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+
+  .cs2-play-now-btn {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .setup-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .setup-step-number {
+    align-self: center;
+  }
+}
+
+
+
+
+.vs-btn.vs-btn--style2 {
+ 
+  display: inline-block;
+  color: #fff;
+  background-color: #ff4b2b; /* Or any vibrant color */
+  border: none;
+  border-radius: 8px;
+  text-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff4b2b;
+  animation: glowPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff4b2b;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff4b2b, 0 0 30px #ff4b2b;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff4b2b, 0 0 20px #ff4b2b;
+  }
+}
 
 </style>
 
@@ -869,7 +1082,7 @@
   <div class="vs-menu-wrapper">
     <div class="vs-menu-area text-center">
       <div class="mobile-logo">
-        <a href="index.html"><img src="assets/img/logo.svg" alt="roda" class="logo"></a>
+        <a href="index.html"><img src="assets/img/logo.svg" alt="ColabEsports" class="logo"></a>
         <button class="vs-menu-toggle">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -980,14 +1193,13 @@
         <div class="sidemenu-contact style2">
           <ul>
             <li>
-              <a href="tel:+95552247849" class="sidemenu-link">+9 555 224 7849</a>
+              <a href="tel:+95552247849" class="sidemenu-link">+91 xxxxxxxxxxx</a>
             </li>
             <li>
-              <a href="mailto:info@luxrio.com" class="sidemenu-link">info@luxrio.com</a>
+              <a href="mailto:info@luxrio.com" class="sidemenu-link">colabesports@gmail.com</a>
             </li>
             <li>
-              <a href="index.html">munich
-                Expresswa 70 Germany, TX 7859</a>
+              <a href="index.html"></a>
             </li>
           </ul>
         </div>
@@ -1181,110 +1393,7 @@
         <button class="cart-close-button">X</button>
       </div>
       <!-- Shopping Cart Widget -->
-      <div class="shopping-cart-widget">
-        <div class="shopping-cart-content">
-          <div class="cart-items">
-            <div class="cart-item cart-animation-item">
-              <img class="cart-item__image" src="assets/img/nft/nft-shop-sidebar-1-1.jpg" alt="Premium Headphones">
-              <div class="item-details">
-                <h3><a href="shop-nft.html">NFT Game</a></h3>
-                <div class="item-controls">
-                  <div class="quantity">
-                    <div class="quantity__field quantity-container">
-                      <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <div class="quantity__buttons">
-                        <button class="quantity-plus qty-btn"><i
-														class="fa-solid fa-angle-up"></i></button>
-                        <button class="quantity-minus qty-btn"><i
-														class="fa-solid fa-angle-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="item-price">× $100.00</span>
-                </div>
-              </div>
-              <button class="remove-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="cart-item cart-animation-item">
-              <img class="cart-item__image" src="assets/img/products/side-product-1-2.png" alt="Premium Headphones">
-              <div class="item-details">
-                <h3><a href="shop-nft.html">Game Controller</a></h3>
-                <div class="item-controls">
-                  <div class="quantity">
-                    <div class="quantity__field quantity-container">
-                      <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <div class="quantity__buttons">
-                        <button class="quantity-plus qty-btn"><i
-														class="fa-solid fa-angle-up"></i></button>
-                        <button class="quantity-minus qty-btn"><i
-														class="fa-solid fa-angle-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="item-price">× $100.00</span>
-                </div>
-              </div>
-              <button class="remove-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-            <div class="cart-item cart-animation-item">
-              <img class="cart-item__image" src="assets/img/nft/nft-shop-sidebar-1-2.jpg" alt="Premium Headphones">
-              <div class="item-details">
-                <h3><a href="shop-nft.html">NFT Game Two</a></h3>
-                <div class="item-controls">
-                  <div class="quantity">
-                    <div class="quantity__field quantity-container">
-                      <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="01" title="Qty">
-                      <div class="quantity__buttons">
-                        <button class="quantity-plus qty-btn"><i
-														class="fa-solid fa-angle-up"></i></button>
-                        <button class="quantity-minus qty-btn"><i
-														class="fa-solid fa-angle-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="item-price">× $100.00</span>
-                </div>
-              </div>
-              <button class="remove-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="cart-footer">
-            <div class="subtotal cart-animation-item">
-              <span>Subtotal:</span>
-              <span class="total-amount">$110.00</span>
-            </div>
-            <div class="cart-actions">
-              <a href="cart.html" class="vs-btn cart-animation-item">View Cart</a>
-              <a href="checkout.html" class="vs-btn vs-btn--style3 cart-animation-item">Checkout</a>
-            </div>
-          </div>
-          <!-- Social Media Links -->
-          <div class="footer-social social-style">
-            <h4 class="social-style__title mb-0 cart-animation-item">Follow Us :</h4>
-            <ul class="cart-animation-item">
-              <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+     
     </div>
   </div>
   <!-- Header Layout1 -->
@@ -1335,6 +1444,11 @@
                     <i class="fas fa-trophy"></i> Leaderboard
                   </a>
                 </li>
+                <li>
+  <a class="vs-svg-assets" href="News.html">
+    <i class="fas fa-newspaper"></i> News
+  </a>
+</li>
               </ul>
             </nav>
           </div>
@@ -1398,27 +1512,10 @@
                       </h1>  
                       <h3 class="vs-hero__text">COLAB Esports is where <span>skill meets opportunity.</span> </h3>
                       <div class="vs-hero__buttons">
-                        <a href="#" class="vs-btn vs-btn--style2">
-                          discover
-                          <span class="vs-btn__inner">
-                                                <span class="vs-btn__blobs">
-                                                    <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          </span>
-                          </span>
-                          <svg class="vs-btn__animation" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                            <defs>
-                              <filter>
-                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo">
-                                </feColorMatrix>
-                                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-                              </filter>
-                            </defs>
-                          </svg>
-                        </a>
+                       <a href="#" onclick="openCS2SetupModal(); return false;" class="vs-btn vs-btn--style2" style="padding: 26px 42px; font-size: 18px; min-width: 280px;">
+  Play CS2
+  <!-- ... rest of button content ... -->
+</a>
                         <!-- <a href="https://www.youtube.com/watch?v=zX-jSCDsJ8E" class="vs-hero__play play-btn popup-video">
                           <i class="fa-solid fa-play"></i>
                         </a> -->
@@ -1461,27 +1558,10 @@
                       </h1>   
                       <h3 class="vs-hero__text">India’s Platform <span>for Gamers</span> Who Want More Than Just a Game</h3>
                       <div class="vs-hero__buttons">
-                        <a href="about.html" class="vs-btn vs-btn--style2">
-                          discover
-                          <span class="vs-btn__inner">
-                                                <span class="vs-btn__blobs">
-                                                    <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          <span class="vs-btn__blob"></span>
-                          </span>
-                          </span>
-                          <svg class="vs-btn__animation" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                            <defs>
-                              <filter>
-                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo">
-                                </feColorMatrix>
-                                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-                              </filter>
-                            </defs>
-                          </svg>
-                        </a>
+                     <a href="#" onclick="openCS2SetupModal(); return false;" class="vs-btn vs-btn--style2" style="padding: 26px 42px; font-size: 18px; min-width: 280px;">
+  Play CS2
+  <!-- ... rest of button content ... -->
+</a>
                         <!-- <a href="https://www.youtube.com/watch?v=zX-jSCDsJ8E" class="vs-hero__play play-btn popup-video">
                           <i class="fa-solid fa-play"></i>
                         </a> -->
@@ -1501,39 +1581,77 @@
             </div>
           </div>
         </div>
-      </section>
-      <!-- Hero Area End -->
-      <!-- Brand Section -->
-      <!-- <div class="brand brand--bg" data-bg-src="assets/img/bg/brand-bg.png">
-        <div class="container-fluid">
-          <div class="brand__row">
-            <div class="brand__col brand__left">
-              <div class="brand__carousel" data-slide-show="2">
-                <div class="brand__item">
-                  <img src="assets/img/brand/brand-1-1.png" alt="Roda Brand">
-                </div>
-                <div class="brand__item">
-                  <img src="assets/img/brand/brand-1-2.png" alt="Roda Brand">
-                </div>
-              </div>
-            </div>
-            <div class="brand__col brand__middle">
-              <img src="assets/img/brand/Brand-circle-1.png" alt="Brand Circle">
-            </div>
-            <div class="brand__col brand__right">
-              <div class="brand__carousel" data-slide-show="2">
-                <div class="brand__item">
-                  <img src="assets/img/brand/brand-1-3.png" alt="Roda Brand">
-                </div>
-                <div class="brand__item">
-                  <img src="assets/img/brand/brand-1-4.png" alt="Roda Brand">
-                </div>
-              </div>
-            </div>
+
+
+
+        <!-- CS2 Setup Modal  -->
+<div id="cs2SetupModal" class="cs2-setup-modal">
+  <div class="cs2-setup-content">
+    <button class="cs2-setup-close" onclick="closeCS2SetupModal()">&times;</button>
+    
+    <div class="cs2-setup-header">
+      <h2 class="cs2-setup-title">
+        <i class="fab fa-steam"></i>
+        Get Ready to Play CS2
+      </h2>
+      <p class="cs2-setup-subtitle">
+        Follow these simple steps to start your Counter-Strike 2 journey with ColabEsports
+      </p>
+    </div>
+
+    
+
+    <div class="cs2-setup-steps">
+      <div class="setup-step">
+        <div class="setup-step-number">1</div>
+        <div class="setup-step-content">
+          <div class="setup-step-title">Install Steam</div>
+          <div class="setup-step-description">
+            Download and install Steam from <strong>store.steampowered.com</strong> if you haven't already. It's completely free!
           </div>
         </div>
-      </div> -->
-      <!-- Brand Section end -->
+      </div>
+
+      <div class="setup-step">
+        <div class="setup-step-number">2</div>
+        <div class="setup-step-content">
+          <div class="setup-step-title">Create Steam Account</div>
+          <div class="setup-step-description">
+            Sign up for a new Steam account or log in to your existing account. You'll need this to access CS2.
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <div class="setup-step-number">3</div>
+        <div class="setup-step-content">
+          <div class="setup-step-title">Download Counter-Strike 2</div>
+          <div class="setup-step-description">
+            Search for "Counter-Strike 2" in Steam and download it. CS2 is free-to-play and available to all Steam users.
+          </div>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <div class="setup-step-number">4</div>
+        <div class="setup-step-content">
+          <div class="setup-step-title">Join ColabEsports</div>
+          <div class="setup-step-description">
+            Once CS2 is installed, click "PLAY NOW" below to join our gaming community and start competing!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="cs2-play-now-btn" onclick="redirectToGamePage()">
+      <i class="fas fa-gamepad"></i>
+      PLAY NOW
+    </button>
+  </div>
+</div>
+      </section>
+      <!-- Hero Area End -->
+      
           <!-- Game Open Registration -->
       <section class="game space space-extra-bottom z-index-common">
         <div class="game__bg--image" data-bg-src="assets/img/bg/game-bg-1-1.png" style="background-color: #0a0a0a;"></div>
@@ -1554,11 +1672,14 @@
           </div>
           <div class="row vs-carousel" data-autoplay="true" data-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-xs-slide-show="1">
             <div class="col-lg-4">
-              <div class="game-card">
+              <a href="single-match.html"></a>
+              <div class="game-card" >
                 <div class="game-card__content">
+                 <a href="single-match.html">
                   <div class="game-card__image">
                     <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/wp12817914-cs2-wallpapers.png?v=1750919735" alt="Game Thumbnail" class="game-card__thumbnail">
                   </div>
+                  </a>
                   <div class="game-card__details">
                     <h2 class="game-card__title">
                       <a class="game-card__title--link" href="single-match.html">
@@ -1609,13 +1730,16 @@
                 <div class="game-card__footer">
                   <div class="game-card__organizer">
                     <img src="assets/img/game/game-item-organized-avatar.jpg" alt="Organizer Avatar" class="game-card__organizer-avatar">
-                    <p class="game-card__organizer-name">Organized By: <span>ColabEsports</span></p>
+                    <p class="game-card__organizer-name"><span>Enter CS2</span></p>
                   </div>
-                  <button class="game-card__action">
-                    <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 5.66001C14.812 5.66001 12.59 3.439 12.59 1V0H10.59V1C10.59 2.774 11.368 4.438 12.589 5.66001H0.25V7.66001H12.589C11.368 8.88201 10.59 10.546 10.59 12.32V13.32H12.59V12.32C12.59 9.88101 14.812 7.66001 17.25 7.66001H18.25V5.66001H17.25Z" fill="#A6D719" />
-                    </svg>
-                  </button>
+                 <a href="single-match.html">
+  <button class="game-card__action">
+    <svg width="19" height="14" viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.25 5.66001C14.812 5.66001 12.59 3.439 12.59 1V0H10.59V1C10.59 2.774 11.368 4.438 12.589 5.66001H0.25V7.66001H12.589C11.368 8.88201 10.59 10.546 10.59 12.32V13.32H12.59V12.32C12.59 9.88101 14.812 7.66001 17.25 7.66001H18.25V5.66001H17.25Z" fill="#A6D719" />
+    </svg>
+  </button>
+</a>
+
                 </div>
               </div>
             </div>
@@ -1627,7 +1751,7 @@
                   </div>
                   <div class="game-card__details">
                     <h2 class="game-card__title">
-                      <a class="game-card__title--link" href="single-match.html">
+                      <a class="game-card__title--link" href="#">
                         Vallorant
                       </a>
                       <svg width="33" height="21" viewBox="0 0 33 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1693,7 +1817,7 @@
                   </div>
                   <div class="game-card__details">
                     <h2 class="game-card__title">
-                      <a class="game-card__title--link" href="single-match.html">
+                      <a class="game-card__title--link" href="#">
                         BGMI
                       </a>
                       <svg width="33" height="21" viewBox="0 0 33 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1822,38 +1946,14 @@
                 <h3 class="creator-item__title">
                   <a class="creator-item__title--link" href="game-details.html">Play Loud. Get noticed</a>
                 </h3>
-                <p class="creator-item__text">Turn your skills into a brand.</p>
+                <p class="creator-item__text">Turn your skills into a brand.Become Star</p>
               </div>
             </div>
           </div>
          
         </div>
 
-        <div class="image-gallery" style="padding-top: 20px;">
-          <div class="image-gallery__col image-gallery__one" >
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options_2_0a0006ae-1d47-4c70-8c5e-0b048362a8e9.png?v=1751012370" alt="image gallery" />
-                <div class="image-gallery__col--popup" onclick="redirectToPage1()" style="cursor: pointer;">
-                 
-                    <i class="fa-solid fa-gamepad"></i>
-                </div>
-            </div>
-
-            <div class="image-gallery__col image-gallery__two" style="--vs-theme-color: none !important;">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/model_pro_casual_2.png?v=1751012373" alt="image gallery" style="transition:none !important; transform:none !important" />
-            </div>
-
-            <div class="image-gallery__col image-gallery__three" style="--vs-theme-color: none !important;">
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/casual_11_2.png?v=1751012375" alt="image gallery" style="transition:none !important; transform:none !important" />
-            </div>
-
-            <!-- Fourth Gallery Item - Paid 1v1 and 5v5 Modes with 1 match each -->
-            <div class="image-gallery__col image-gallery__four" >
-                <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/game_options_2_1.png?v=1751012373" alt="image gallery" />
-                <div class="image-gallery__col--popup" onclick="redirectToPage()" style="cursor: pointer;">
-                    <i class="fa-solid fa-gamepad"></i>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Game Mode Modal -->
 <div id="gameModeModal" class="modal">
@@ -1924,148 +2024,7 @@
       <!-- Video Area End -->
      
       
-      <!-- Team Area -->
-      <section class="team-layout space space-extra-bottom" data-bg-src="assets/img/bg/team-page-layout-bg-1.png">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-auto">
-              <div class="title-style text-center">
-                <span class="title-style__small justify-content-center">
-                            This MOnth Stars
-                        </span>
-                <h2 class="title-style__big">Meet The Top Performers</h2>
-                <svg width="79" height="6" viewBox="0 0 79 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 0L0 3.2L4 6H38L39.5 3.4L41.5 6H75L78.5 3.2L75 0H41.5L39.5 2.2L38 0H4Z" fill="#A6D719" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-3 col-md-6 wow animate__fadeInUp" data-wow-delay="0.25s">
-              <div class="team-member team-member--style2">
-                <div class="team-member__image-container">
-                  <div class="team-member__image-bg" data-bg-src="assets/img/svg/team-svg-circle-1.svg"></div>
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRatVo3mHD1ESqqu70_3vhqTWm33EZiVZxlMCS7_Emw-VTh2NPYK-ERSW9nT43_fpDqfkw&usqp=CAU" alt="sverker lind From Roda" class="team-member__image">
-                </div>
-                <div class="team-member__details">
-                  <h3 class="team-member__name">
-                    <a href="team-details.html">Gamer-1</a>
-                  </h3>
-                  <span class="team-member__role">Player</span>
-                  <div class="team-member__social--media">
-                    <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                    <a href="javascript:void(0)"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow animate__fadeInUp" data-wow-delay="0.45s">
-              <div class="team-member team-member--style2">
-                <div class="team-member__image-container">
-                  <div class="team-member__image-bg" data-bg-src="assets/img/svg/team-svg-circle-1.svg"></div>
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRatVo3mHD1ESqqu70_3vhqTWm33EZiVZxlMCS7_Emw-VTh2NPYK-ERSW9nT43_fpDqfkw&usqp=CAU" alt="sverker lind From Roda" class="team-member__image">
-                </div>
-                <div class="team-member__details">
-                  <h3 class="team-member__name">
-                    <a href="team-details.html">Gamer-2</a>
-                  </h3>
-                  <span class="team-member__role">Player</span>
-                  <div class="team-member__social--media">
-                    <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                    <a href="javascript:void(0)"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow animate__fadeInUp" data-wow-delay="0.65s">
-              <div class="team-member team-member--style2">
-                <div class="team-member__image-container">
-                  <div class="team-member__image-bg" data-bg-src="assets/img/svg/team-svg-circle-1.svg"></div>
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnczuPzZIG8hctqL4sOFKyzmJ41gm_IMHQvaE9hWbpqBNvJsYU11i3dnW1Fk8Q8BMMaHY&usqp=CAU" alt="sverker lind From Roda" class="team-member__image">
-                </div>
-                <div class="team-member__details">
-                  <h3 class="team-member__name">
-                    <a href="team-details.html">Gamer-3</a>
-                  </h3>
-                  <span class="team-member__role">Player</span>
-                  <div class="team-member__social--media">
-                    <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                    <a href="javascript:void(0)"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 wow animate__fadeInUp" data-wow-delay="0.85s">
-              <div class="team-member team-member--style2">
-                <div class="team-member__image-container">
-                  <div class="team-member__image-bg" data-bg-src="assets/img/svg/team-svg-circle-1.svg"></div>
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv-gWS_n43EKO8LTIiahcQ90qT2mkBeCsQA8FXMvnA8crshd1cVKdHhRlWDZN_A7oUk3w&usqp=CAU" alt="sverker lind From Roda" class="team-member__image">
-                </div>
-                <div class="team-member__details">
-                  <h3 class="team-member__name">
-                    <a href="team-details.html">Gamer-4</a>
-                  </h3>
-                  <span class="team-member__role">Player</span>
-                  <div class="team-member__social--media">
-                    <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
-                    <a href="javascript:void(0)"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Team Area End -->
-      <!-- marquee Start -->
-      <!-- <div class="vs-marquee">
-        <div class="marqueeOne">
-          <div class="marqueeOne__wrapper px-3">
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-1.svg" alt="svg-star"></span><span
-                    class="marqueeOne__text-style1"><a href="#">web3 gaming</a></span>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-2.svg" alt="svg-star"></span><a href="#">auctions</a>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-1.svg" alt="svg-star"></span><span
-                    class="marqueeOne__text-style1"><a href="#">sell NFT</a></span>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-1.svg" alt="svg-star"></span><span
-                    class="marqueeOne__text-style1"><a href="#">crypto market</a></span>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-2.svg" alt="svg-star"></span><a href="#">auctions</a>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-1.svg" alt="svg-star"></span><span
-                    class="marqueeOne__text-style1"><a href="#">metaverse</a></span>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-2.svg" alt="svg-star"></span><a href="#">blockchain</a>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-1.svg" alt="svg-star"></span><span
-                    class="marqueeOne__text-style1"><a href="#">art gallery</a></span>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-1.svg" alt="svg-star"></span><span
-                    class="marqueeOne__text-style1"><a href="#">virtual reality</a></span>
-            </div>
-            <div class="marqueeOne__single">
-              <span class="spinningStar"><img src="assets/img/svg/svg-star-2.svg" alt="svg-star"></span><a href="#">play-to-earn</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- marquee End -->
-      <!-- Testimonials Start -->
+      
       
       <!-- Testimonials End -->
     </div>
@@ -2495,6 +2454,185 @@ function handleKYC() {
 </script>
 
 
+
+
+
+
+
+
+
+
+<script>
+  // CS2 Setup Modal JavaScript Functions
+
+// Function to open the CS2 setup modal
+function openCS2SetupModal() {
+  document.getElementById("cs2SetupModal").classList.add("show")
+  document.body.style.overflow = "hidden"
+}
+
+// Function to close the CS2 setup modal
+function closeCS2SetupModal() {
+  document.getElementById("cs2SetupModal").classList.remove("show")
+  document.body.style.overflow = "auto"
+}
+
+// Function to redirect to game page when PLAY NOW is clicked
+function redirectToGamePage() {
+  // Close the modal first
+  closeCS2SetupModal()
+
+  // Add a small delay for smooth transition
+  setTimeout(() => {
+    // Redirect to your game page (change this URL as needed)
+    window.location.href = "single-match.html"
+  }, 300)
+}
+
+// Close modal when clicking outside
+window.addEventListener("click", (event) => {
+  const cs2SetupModal = document.getElementById("cs2SetupModal")
+
+  if (event.target === cs2SetupModal) {
+    closeCS2SetupModal()
+  }
+})
+
+// Close modal with Escape key
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const cs2SetupModal = document.getElementById("cs2SetupModal")
+    if (cs2SetupModal.classList.contains("show")) {
+      closeCS2SetupModal()
+    }
+  }
+})
+
+</script>
+
+<script>
+  // Show Signup Form
+  function showSideSignupForm() {
+    document.getElementById('loginFormSide').style.display = 'none';
+    document.getElementById('signupFormSide').style.display = 'block';
+  }
+
+  // Show Login Form
+  function showSideLoginForm() {
+    document.getElementById('signupFormSide').style.display = 'none';
+    document.getElementById('loginFormSide').style.display = 'block';
+  }
+
+  // Update UI after successful login
+  function updateUserUI(user) {
+    document.getElementById('loginFormSide').style.display = 'none';
+    document.getElementById('signupFormSide').style.display = 'none';
+    document.getElementById('loggedInState').style.display = 'block';
+
+    document.getElementById('sideUserName').textContent = `Welcome ${user.name}`;
+    document.getElementById('sideUserEmail').textContent = user.email;
+  }
+
+  // Password Strength Checker
+  function isStrongPassword(password) {
+    const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    return strongPattern.test(password);
+  }
+
+  // Handle Login
+  async function handleSidemenuLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('sideLoginEmail').value.trim();
+    const password = document.getElementById('sideLoginPassword').value;
+
+    if (!email || !password) {
+      alert('Please fill in both email and password.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const contentType = response.headers.get('content-type') || '';
+      let data = {};
+      if (contentType.includes('application/json')) {
+        data = await response.json();
+      }
+
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        updateUserUI(data.user);
+      } else {
+        // Show message for wrong password or other issues
+        alert(data.message || 'Incorrect email or password.');
+      }
+    } catch (err) {
+      console.error('Login error:', err);
+      alert('Login failed due to network or server error.');
+    }
+  }
+
+  // Handle Signup
+  async function handleSidemenuSignup(event) {
+    event.preventDefault();
+    const name = document.getElementById('sideSignupName').value.trim();
+    const email = document.getElementById('sideSignupEmail').value.trim();
+    const password = document.getElementById('sideSignupPassword').value;
+    const confirmPassword = document.getElementById('sideConfirmPassword').value;
+
+    if (!name || !email || !password || !confirmPassword) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    if (!isStrongPassword(password)) {
+      alert(
+        'Password is weak.\nIt must be at least 8 characters and include:\n• Uppercase\n• Lowercase\n• Number\n• Special character'
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+      });
+
+      const contentType = response.headers.get('content-type') || '';
+      let data = {};
+      if (contentType.includes('application/json')) {
+        data = await response.json();
+      }
+
+      if (response.ok) {
+        alert('Signup successful. You can now log in.');
+        showSideLoginForm();
+      } else {
+        alert(data.message || 'Signup failed. Try a different email.');
+      }
+    } catch (err) {
+      console.error('Signup error:', err);
+      alert('Signup failed due to network or server error.');
+    }
+  }
+
+  // Handle Logout
+  function handleLogout() {
+    localStorage.removeItem('token');
+    document.getElementById('loggedInState').style.display = 'none';
+    showSideLoginForm();
+  }
+</script>
 </body>
 
 </html>
