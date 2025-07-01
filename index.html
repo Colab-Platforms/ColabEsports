@@ -2635,19 +2635,14 @@ document.addEventListener("keydown", (event) => {
 </script>
 <!-- sound effect -->
 	<script>
-  // Load the bullet sound
-  const bulletSound = new Audio('/assets/gun.mp3');
+  const bulletSoundPath = '/assets/gun.mp3';
 
-  // Add click event to all buttons and clickable elements
-  document.addEventListener('click', function(e) {
-    const isClickable = e.target.closest('button, a, .clickable, .vs-btn, .menu-option, .game-card__action');
-    if (isClickable) {
-      bulletSound.currentTime = 0; // rewind to start
-      bulletSound.play().catch(err => {
-        // Handle autoplay restriction errors if any
-        console.log("Autoplay blocked or user hasn't interacted yet.");
-      });
-    }
+  document.addEventListener('click', function () {
+    // Always create a new audio instance
+    const sound = new Audio(bulletSoundPath);
+    sound.play().catch(err => {
+      console.log("Autoplay blocked or user hasn't interacted yet.", err);
+    });
   });
 </script>
 </body>
