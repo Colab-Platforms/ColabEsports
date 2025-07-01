@@ -47,8 +47,9 @@
   <link rel="stylesheet" href="assets/css/slick.min.css">
   <!-- Animation CSS -->
   <link rel="stylesheet" href="assets/css/animate.min.css">
-  <!-- Custom Cursor CSS -->
-  <link rel="stylesheet" href="assets/css/custom-cursor.min.css">
+ <!-- Custom Cursor CSS -->
+ <link rel="stylesheet" href="assets/css/customcursor.css">
+
   <!-- Theme Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   
@@ -1345,6 +1346,44 @@
      margin: 16px 0;
      font-size: 1.1em;
    }
+
+
+   /*xp modal css */
+   .modal {
+     display: none;
+     position: fixed;
+     z-index: 1000;
+     left: 0; top: -371px;
+     width: 100%; height: 100%;
+     overflow: auto;
+     background: rgba(24,30,42,0.95);
+     justify-content: center; align-items: center;
+   }
+   .modal-content {
+     background: #23283a;
+     margin-bottom: 1500px;
+     border-radius: 16px;
+     width: 120%;
+     max-width: 520px;
+     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+     color: #fff;
+     position: relative;
+     font-size: 1.2em;
+     text-align: left;
+   }
+   .close-modal {
+     color: #fff;
+     position: absolute;
+     top: 18px; right: 28px;
+     font-size: 2em;
+     cursor: pointer;
+     transition: color 0.2s;
+   }
+   .close-modal:hover { color: #ffa700; }
+   .modal-points-details div {
+     margin: 16px 0;
+     font-size: 1.1em;
+   }
   </style>
 </head>
 
@@ -2113,13 +2152,21 @@
    </div>
  </div>-->
 
+
+<div id="points-modal" class="modal">
+  
+     <span class="close-modal">&times;</span>
+    
+      <div id="xp-table-container"></div>
+   </div>
+ </div>
 <div class="leaderboard-container">
    <div class="leaderboard-header">
      <div class="leaderboard-header-content">
        <div class="leaderboard-title">🏆  LEADERBOARD</div>
        <div class="leaderboard-desc">Compete with players and level up your rank using the rating system! The seasonal leaderboard is updated on the 1st of each month.</div>
        <div class="info-buttons">
-         <button id="open-points-modal">🏅 How to earn points?</button>
+         <button id="open-points-modal">🏅 How XP Points Work?</button>
          <a href="how-to-play.html" target="_blank">
             <button>📖 How to play </button>
          </a>
@@ -2841,6 +2888,98 @@ function handleKYC() {
     document.getElementById('loggedInState').style.display = 'none';
     showSideLoginForm();
   }
+</script>
+
+<!-- XP modal script-->
+ <script>
+   // Table data as per your image
+const xpTableData = [
+  ["Sr. No", "Action/Event", "XP Reward 1v1", "XP Reward 5v5"],
+  [1, "Win the Match", "+100 XP", "+100 XP"],
+  [2, "Lose the Match", "+50 XP", "+50 XP"],
+  [3, "1 Kill", "+20 XP each", "+20 XP each"],
+  [4, "Headshot Kill", "+5 XP per headshot", "+5 XP per headshot"],
+  [5, "Assist", "NA", "+2 XP each"],
+  [6, "Never Die (Zero Deaths)", "+15 XP", "+15 XP"],
+  [7, "Below 5 Deaths (1-4)", "+5 XP", "+5 XP"],
+  [8, "Knife Kill", "+20 XP", "+20 XP"],
+  [9, "Single Kill with Utility (Nade or Mol)", "+10 XP", "+10 XP"],
+  [10, "Utility Damage > 100 HP", "+15 XP", "+15 XP"],
+  [11, "Match MVP (Most XP Earned)", "NA", "+15 XP"]
+];
+
+function createXPTable() {
+  const table = document.createElement('table');
+  table.className = 'xp-table-modal';
+  xpTableData.forEach((row, i) => {
+    const tr = document.createElement('tr');
+    row.forEach((cell, j) => {
+      const cellElem = document.createElement(i === 0 ? 'th' : 'td');
+      cellElem.textContent = cell;
+      if (i === 0) cellElem.style.background = '#23243a';
+      tr.appendChild(cellElem);
+    });
+    table.appendChild(tr);
+  });
+  return table;
+}
+
+function showXPTable() {
+  const container = document.getElementById('xp-table-container');
+  container.innerHTML = '';
+  container.appendChild(createXPTable());
+}
+function hideXPTable() {
+  const container = document.getElementById('xp-table-container');
+  container.innerHTML = '';
+}
+
+// Modal open/close logic
+const pointsModal = document.getElementById('points-modal');
+const openBtn = document.getElementById('open-points-modal');
+const closeBtn = document.querySelector('.close-modal');
+
+openBtn.addEventListener('click', function() {
+  pointsModal.style.display = 'flex';
+  showXPTable();
+});
+closeBtn.addEventListener('click', function() {
+  pointsModal.style.display = 'none';
+  hideXPTable();
+});
+window.onclick = function(event) {
+  if (event.target === pointsModal) {
+    pointsModal.style.display = 'none';
+    hideXPTable();
+  }
+};
+
+// Minimal styling for modal table
+const style = document.createElement('style');
+style.textContent = `
+  .xp-table-modal {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background: #18192a;
+    color: #fff;
+    font-size: 1em;
+    box-shadow: 0 2px 8px #0003;
+  }
+  .xp-table-modal th, .xp-table-modal td {
+    border: 1px solid #33354a;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  .xp-table-modal th {
+    background: #23243a;
+    font-weight: bold;
+  }
+  .xp-table-modal tr:nth-child(even) td {
+    background: #20213a;
+  }
+`;
+document.head.appendChild(style);
 </script>
 </body>
 
