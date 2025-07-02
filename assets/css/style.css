@@ -7416,6 +7416,7 @@ blockquote.vs-quote .quote-author {
   border-radius: 20px;
   transform: scale(1);
   transition: all ease 0.4s;
+   width: 100%;
 }
 .vs-blog .wp-block-image,
 .vs-blog figure {
