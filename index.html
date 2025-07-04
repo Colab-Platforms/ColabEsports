@@ -2746,7 +2746,18 @@ padding-top: 100px;
     showSideLoginForm();
   }
 </script>
+<!-- sound effect-->
+<script>
+  const bulletSoundPath = '/assets/gun.mp3';
 
+  document.addEventListener('click', function () {
+    // Always create a new audio instance
+    const sound = new Audio(bulletSoundPath);
+    sound.play().catch(err => {
+      console.log("Autoplay blocked or user hasn't interacted yet.", err);
+    });
+  });
+</script>
 </body>
 
 </html>
