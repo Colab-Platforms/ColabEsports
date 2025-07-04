@@ -11848,7 +11848,7 @@ Version: 1.0.0
 }
 
 .form-style2 .form-control {
-  background-color: var(--bg-color9);
+  background-color:#141414;
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 20px 20px;
@@ -12020,7 +12020,7 @@ Version: 1.0.0
   min-width: var(--icon-size);
   width: var(--icon-size);
   height: var(--icon-size);
-  background-color: var(--vs-theme-color);
+  background-color: white;
   font-size: 24px;
   border-radius: 50%;
   color: var(--bg-color);
