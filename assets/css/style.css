@@ -2697,7 +2697,7 @@ Version: 1.0.0
   border: none;
   text-transform: uppercase;
   text-align: center;
-  background-color: var(--vs-theme-color);
+  background-color: #FFA700;
   color: var(--text-black-color);
   font-family: var(--title-font);
   font-size: 14px;
@@ -2734,7 +2734,7 @@ Version: 1.0.0
   margin-left: 8px;
 }
 .vs-btn:hover {
-  color: var(--text-black-color);
+  color: #DA2A00;
 }
 .vs-btn:hover:before {
   transform: rotateX(0);
