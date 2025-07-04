@@ -103,6 +103,8 @@
   
   <!-- Theme Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+	<!-- auth welcome modal CSS -->
+  <link rel="stylesheet" href="assets/css/auth.css">
   <style>
   body{
     background-color: #000000;
@@ -1296,6 +1298,117 @@ padding-top: 100px;
   <!--********************************
    		Code Start From Here 
 	******************************** -->
+	<!-- Welcome Modal -->
+  <div id="welcomeModal" class="welcome-modal">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeWelcomeModal()">&times;</button>
+      
+      <div class="modal-left">
+        <div class="feature-item">
+          <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div class="feature-content">
+            <h3>Skill-Based Competition</h3>
+            <p>Join India's premier esports platform where skill meets opportunity. Compete in organized tournaments and leagues.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div class="feature-content">
+            <h3>Real Cash Prizes</h3>
+            <p>Win substantial cash prizes in daily tournaments and seasonal championships. Turn your gaming skills into earnings.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012-2v-1a2 2 0 012-2h1.945M11 6.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm-1.5 2.5a4 4 0 01-8 0v-1a6 6 0 1112 0v1a4 4 0 01-8 0z"/>
+          </svg>
+          <div class="feature-content">
+            <h3>Professional Infrastructure</h3>
+            <p>Experience lag-free gaming with our advanced servers and anti-cheat systems designed for competitive play.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <svg class="feature-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+          <div class="feature-content">
+            <h3>Gaming Community</h3>
+            <p>Connect with like-minded gamers, form teams, and build lasting friendships in our vibrant esports community.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-right">
+        <div class="modal-player-silhouette"></div>
+        <div class="modal-cta">
+          <div class="modal-subtitle">Join Now</div>
+          <h2 class="modal-main-title">The Complete<br>Esports Experience</h2>
+          <p class="modal-description">Create a ColabEsports account to get started.</p>
+          
+          <div class="modal-buttons"> 
+            <button class="sideMenuToggler d-none d-md-flex" onclick="closeWelcomeModal()"  style="
+    padding: 15px 30px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    background: #ffa200;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(252, 209, 117, 0.4);
+    text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 70px;
+
+  "
+  onmouseover="this.style.background='#ffa200'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 255, 136, 0.6)'"
+  onmouseout="this.style.background='#ffa200'; this.style.transform='none'; this.style.boxShadow='0 4px 15px rgba(0, 255, 136, 0.4)'">
+                Signup
+              </button>
+            <button class="sideMenuToggler d-none d-md-flex" onclick="closeWelcomeModal()"   style="
+    padding: 15px 30px;
+    border: 2px solid #ffa200;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    background: transparent;
+    color: #ffa200;
+    text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 70px;
+
+  "
+  onmouseover="this.style.background='rgba(0, 255, 136, 0.1)'; this.style.transform='translateY(-2px)'"
+  onmouseout="this.style.background='transparent'; this.style.transform='none'">
+                Login
+              </button>
+          </div>         
+        </div>
+      </div>
+    </div>
+  </div>
   <!--==============================
 	Preloader
 	==============================-->
@@ -2621,190 +2734,11 @@ padding-top: 100px;
   <script src="assets/js/custom-cursor.js"></script>
   <!-- Main Js File -->
   <script src="assets/js/main.js"></script>
+	<!-- script for login/signup-->
+ <script src="assets/js/auth.js"></script>
 
-<!-- script for login/signup-->
- <script>
-  // Show Signup Form
-  function showSideSignupForm() {
-    document.getElementById('loginFormSide').style.display = 'none';
-    document.getElementById('signupFormSide').style.display = 'block';
-  }
 
-  // Show Login Form
-  function showSideLoginForm() {
-    document.getElementById('signupFormSide').style.display = 'none';
-    document.getElementById('loginFormSide').style.display = 'block';
-  }
 
-  // Update UI after successful login
-  function updateUserUI(user) {
-    document.getElementById('loginFormSide').style.display = 'none';
-    document.getElementById('signupFormSide').style.display = 'none';
-    document.getElementById('loggedInState').style.display = 'block';
-
-    document.getElementById('sideUserName').textContent = `Welcome ${user.name}`;
-    document.getElementById('sideUserEmail').textContent = user.email;
-  }
-
-  // Password Strength Checker
-  function isStrongPassword(password) {
-    const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-    return strongPattern.test(password);
-  }
-
-  // Handle Login
-  async function handleSidemenuLogin(event) {
-    event.preventDefault();
-    const email = document.getElementById('sideLoginEmail').value.trim();
-    const password = document.getElementById('sideLoginPassword').value;
-
-    if (!email || !password) {
-      alert('Please fill in both email and password.');
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-
-      const contentType = response.headers.get('content-type') || '';
-      let data = {};
-      if (contentType.includes('application/json')) {
-        data = await response.json();
-      }
-
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        updateUserUI(data.user);
-      } else {
-        // Show message for wrong password 
-        alert(data.message || 'Incorrect email or password.');
-      }
-    } catch (err) {
-      console.error('Login error:', err);
-      alert('Login failed due to network or server error.');
-    }
-  }
-
-  // Handle Signup
-  async function handleSidemenuSignup(event) {
-    event.preventDefault();
-    const name = document.getElementById('sideSignupName').value.trim();
-    const email = document.getElementById('sideSignupEmail').value.trim();
-    const password = document.getElementById('sideSignupPassword').value;
-    const confirmPassword = document.getElementById('sideConfirmPassword').value;
-
-    if (!name || !email || !password || !confirmPassword) {
-      alert('Please fill in all fields.');
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-
-    if (!isStrongPassword(password)) {
-      alert(
-        'Password is weak.\nIt must be at least 8 characters and include:\n• Uppercase\n• Lowercase\n• Number\n• Special character'
-      );
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password })
-      });
-
-      const contentType = response.headers.get('content-type') || '';
-      let data = {};
-      if (contentType.includes('application/json')) {
-        data = await response.json();
-      }
-
-      if (response.ok) {
-        alert('Signup successful. You can now log in.');
-        showSideLoginForm();
-      } else {
-        alert(data.message || 'Signup failed. Try a different email.');
-      }
-    } catch (err) {
-      console.error('Signup error:', err);
-      alert('Signup failed due to network or server error.');
-    }
-  }
-
-  // Handle Logout
-  function handleLogout() {
-    localStorage.removeItem('token');
-    document.getElementById('loggedInState').style.display = 'none';
-    showSideLoginForm();
-  }
-</script>
-<!-- sound effect-->
-<script>
-  const bulletSoundPath = '/assets/gun.mp3';
-
-  document.addEventListener('click', function () {
-    // Always create a new audio instance
-    const sound = new Audio(bulletSoundPath);
-    sound.play().catch(err => {
-      console.log("Autoplay blocked or user hasn't interacted yet.", err);
-    });
-  });
-</script>
-	<script>
-  // CS2 Setup Modal JavaScript Functions
-
-// Function to open the CS2 setup modal
-function openCS2SetupModal() {
-  document.getElementById("cs2SetupModal").classList.add("show")
-  document.body.style.overflow = "hidden"
-}
-
-// Function to close the CS2 setup modal
-function closeCS2SetupModal() {
-  document.getElementById("cs2SetupModal").classList.remove("show")
-  document.body.style.overflow = "auto"
-}
-
-// Function to redirect to game page when PLAY NOW is clicked
-function redirectToGamePage() {
-  // Close the modal first
-  closeCS2SetupModal()
-
-  // Add a small delay for smooth transition
-  setTimeout(() => {
-    // Redirect to your game page (change this URL as needed)
-    window.location.href = "single-match.html"
-  }, 300)
-}
-
-// Close modal when clicking outside
-window.addEventListener("click", (event) => {
-  const cs2SetupModal = document.getElementById("cs2SetupModal")
-
-  if (event.target === cs2SetupModal) {
-    closeCS2SetupModal()
-  }
-})
-
-// Close modal with Escape key
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    const cs2SetupModal = document.getElementById("cs2SetupModal")
-    if (cs2SetupModal.classList.contains("show")) {
-      closeCS2SetupModal()
-    }
-  }
-})
-
-</script>
 </body>
 
 </html>
