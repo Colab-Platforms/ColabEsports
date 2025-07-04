@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -83,8 +83,8 @@ Version: 1.0.0
 ==================================*/
 /*------------------- 1.1. Mixin -------------------*/
 :root {
-  --vs-theme-color: #a6d719;
-  --vs-theme-color2: #e2ba2b;
+  --vs-theme-color: #DF2A00;
+  --vs-theme-color2: #ffa200;
   --title-color: #ffffff;
   --body-color: #d1caca;
   --smoke-color: #eff1f5;
@@ -141,9 +141,9 @@ Version: 1.0.0
 /*------------------- 1.3. Variable-------------------*/
 /*------------------- 1.5. Reset -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -231,7 +231,7 @@ body {
   font-size: 16px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--bg-color);
+  background-color: #000000;
   font-family: var(--body-font);
   color: var(--body-color);
   font-weight: 400;
@@ -421,9 +421,9 @@ html.lenis body {
 /*------------------- 1.6. Responsive -------------------*/
 /*------------------- 1.7. Wordpress Default -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -690,7 +690,7 @@ figure.wp-block-gallery {
 }
 .wp-block-button .wp-block-button__link:hover {
   color: #fff;
-  background-color: #a6d719;
+  background-color: #DF2A00;
 }
 .wp-block-button.is-style-outline .wp-block-button__link {
   background-color: transparent;
@@ -699,8 +699,8 @@ figure.wp-block-gallery {
 }
 .wp-block-button.is-style-outline .wp-block-button__link:hover {
   color: #fff;
-  background-color: #a6d719;
-  border-color: #a6d719;
+  background-color: #DF2A00;
+  border-color: #DF2A00;
 }
 .wp-block-button.is-style-squared .wp-block-button__link {
   border-radius: 0;
@@ -719,7 +719,7 @@ ul.wp-block-latest-posts a {
   color: inherit;
 }
 ul.wp-block-latest-posts a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 ul.wp-block-latest-posts li {
   margin: 15px 0;
@@ -864,7 +864,7 @@ ul.wp-block-rss a {
   border: none;
   height: 50px;
   color: #fff;
-  background-color: #a6d719;
+  background-color: #DF2A00;
 }
 .post-password-form .theme-input-group .submit-btn:hover {
   background-color: var(--title-color);
@@ -892,12 +892,12 @@ ul.wp-block-rss a {
 .page-links > a:hover {
   opacity: 0.8;
   color: var(--white-color);
-  background-color: #a6d719;
+  background-color: #DF2A00;
   border-color: transparent;
 }
 .page-links > span:not(.page-links-title):not(.screen-reader-text).current,
 .page-links > a.current {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
   border-color: transparent;
 }
@@ -929,7 +929,7 @@ ul.wp-block-rss a {
   right: 15px;
   line-height: 1;
   top: 15px;
-  color: #a6d719;
+  color: #DF2A00;
   z-index: 1;
 }
 .blog-single.tag-sticky-2::before, .blog-single.sticky::before {
@@ -938,7 +938,7 @@ ul.wp-block-rss a {
   top: 0;
   font-size: 18px;
   color: var(--white-color);
-  background-color: #a6d719;
+  background-color: #DF2A00;
   font-family: var(--title-font);
   opacity: 1;
   text-transform: capitalize;
@@ -1000,7 +1000,7 @@ ul.wp-block-rss a {
   color: inherit;
 }
 .vs-search .search-grid-title a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .vs-search .search-grid-meta > * {
   display: inline-block;
@@ -1177,9 +1177,9 @@ ul.wp-block-rss a {
 }
 /*------------------- 2.3. Input -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -1330,8 +1330,8 @@ Version: 1.0.0
 .form-input[type=checkbox]:checked ~ label:before {
   content: "\f00c";
   color: var(--white-color);
-  background-color: #a6d719;
-  border-color: #a6d719;
+  background-color: #DF2A00;
+  border-color: #DF2A00;
 }
 .form-input[type=checkbox] ~ label {
   position: relative;
@@ -1385,7 +1385,7 @@ Version: 1.0.0
   font-size: 0.6em;
   line-height: 19px;
   text-align: center;
-  border: 1px solid #a6d719;
+  border: 1px solid #DF2A00;
   border-radius: 100%;
   font-weight: 700;
   background: var(--white-color);
@@ -1393,8 +1393,8 @@ Version: 1.0.0
   transition: all 0.2s ease;
 }
 .form-input[type=radio]:checked ~ label::before {
-  border-color: #a6d719;
-  background-color: #a6d719;
+  border-color: #DF2A00;
+  background-color: #DF2A00;
   color: var(--white-color);
 }
 
@@ -1508,9 +1508,9 @@ Version: 1.0.0
 
 /*------------------- 2.4. Slick Slider -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -1637,7 +1637,7 @@ Version: 1.0.0
   position: relative;
 }
 .slick-dots button:hover {
-  border-color: #a6d719;
+  border-color: #DF2A00;
 }
 .slick-dots button:before {
   content: "";
@@ -1647,14 +1647,14 @@ Version: 1.0.0
   width: 30px;
   height: 30px;
   margin: -15px 0 0 -15px;
-  border: 2px solid #a6d719;
+  border: 2px solid #DF2A00;
   border-radius: 50%;
   transition: all ease 0.4s;
   opacity: 0;
   visibility: hidden;
 }
 .slick-dots .slick-active button {
-  background-color: #a6d719;
+  background-color: #DF2A00;
 }
 .slick-dots .slick-active button::before {
   opacity: 1;
@@ -1686,7 +1686,7 @@ Version: 1.0.0
   left: auto;
 }
 .slick-arrow:hover {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
   border-color: transparent;
 }
@@ -1712,7 +1712,7 @@ Version: 1.0.0
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background-color: #a6d719;
+  background-color: #DF2A00;
 }
 .dot-style2 .slick-dots button:before {
   display: none;
@@ -1795,9 +1795,9 @@ Version: 1.0.0
 
 /*------------------- 2.5. Mobile Menu -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -2245,9 +2245,9 @@ Version: 1.0.0
 ==================================*/
 /*------------------- 3.6. Font -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -2426,9 +2426,9 @@ h6 {
 }
 /*------------------- 3.1. Preloader -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -2515,7 +2515,7 @@ Version: 1.0.0
   top: 0;
   bottom: 0;
   z-index: 999;
-  background-color: var(--bg-color);
+  background-color: #000000;
   transform: translateY(0); /* Default position at the start */
 }
 .preloader .vs-btn {
@@ -2555,12 +2555,12 @@ Version: 1.0.0
 .loader:before {
   animation: ball1 1.5s infinite;
   background-color: var(--title-color);
-  box-shadow: 30px 0 0 #a6d719;
+  box-shadow: 30px 0 0 #DF2A00;
   margin-bottom: 10px;
 }
 .loader:after {
   animation: ball2 1.5s infinite;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   box-shadow: 30px 0 0 var(--title-color);
 }
 
@@ -2577,15 +2577,15 @@ Version: 1.0.0
 }
 @keyframes ball1 {
   0% {
-    box-shadow: 30px 0 0 #a6d719;
+    box-shadow: 30px 0 0 #DF2A00;
   }
   50% {
-    box-shadow: 0 0 0 #a6d719;
+    box-shadow: 0 0 0 #DF2A00;
     margin-bottom: 0;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 #a6d719;
+    box-shadow: 30px 0 0 #DF2A00;
     margin-bottom: 10px;
   }
 }
@@ -2605,9 +2605,9 @@ Version: 1.0.0
 }
 /*------------------- 3.2. Buttons -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -2905,7 +2905,7 @@ Version: 1.0.0
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   z-index: -1;
   border-radius: 50%;
   transition: all ease 0.4s;
@@ -2939,11 +2939,11 @@ Version: 1.0.0
   bottom: 0;
   width: 0;
   height: 1px;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   transition: all ease 0.4s;
 }
 .link-btn:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .link-btn:hover::before {
   width: 100%;
@@ -2962,7 +2962,7 @@ Version: 1.0.0
 }
 .scroll-btn i {
   display: inline-block;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
   text-align: center;
   font-size: 16px;
@@ -2984,7 +2984,7 @@ Version: 1.0.0
   background-color: transparent;
   border-radius: inherit;
   z-index: 1;
-  border: 2px dashed #a6d719;
+  border: 2px dashed #DF2A00;
   animation: spin 13s infinite linear;
 }
 .scroll-btn:focus i, .scroll-btn:hover i {
@@ -3041,9 +3041,9 @@ Version: 1.0.0
 }
 /*------------------- 3.3. Titles -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -3265,9 +3265,9 @@ Version: 1.0.0
 
 /*------------------- 3.4. Common -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -3387,7 +3387,7 @@ Version: 1.0.0
   width: fit-content;
   display: inline-block;
   text-align: center;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
   padding: 0.35em 0.55em;
   border-radius: 50%;
@@ -3524,9 +3524,9 @@ Version: 1.0.0
 
 /*------------------- 3.7. Background -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -3632,7 +3632,7 @@ Version: 1.0.0
 }
 
 .bg-color2 {
-  background-color: var(--bg-color10);
+  background-color: #000000;
 }
 
 .bg-gradient1::before {
@@ -3649,9 +3649,9 @@ Version: 1.0.0
 
 /*------------------- 3.8. Text Color -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -3732,7 +3732,7 @@ Version: 1.0.0
 ==================================*/
 /*------------------- 1.1. Mixin -------------------*/
 .vs-primary {
-  color: #a6d719;
+  color: #DF2A00;
 }
 
 /*------------------- 3.9. Overlay -------------------*/
@@ -3930,9 +3930,9 @@ Version: 1.0.0
 }
 /*------------------- 3.11. Back To Top -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -4086,9 +4086,9 @@ Version: 1.0.0
 ==================================*/
 /*------------------- 4.1. Widget  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -4203,14 +4203,14 @@ Version: 1.0.0
   top: 0;
   font-family: var(--icon-font);
   font-weight: 400;
-  color: #a6d719;
+  color: #DF2A00;
 }
 .widget_nav_menu a:hover,
 .widget_meta a:hover,
 .widget_pages a:hover,
 .widget_archive a:hover,
 .widget_categories a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .widget_nav_menu li,
 .widget_meta li,
@@ -4244,7 +4244,7 @@ Version: 1.0.0
 .widget_pages li:hover > span,
 .widget_archive li:hover > span,
 .widget_categories li:hover > span {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .widget_nav_menu .children,
 .widget_meta .children,
@@ -4330,9 +4330,9 @@ Version: 1.0.0
   }
 }
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -4534,7 +4534,7 @@ Version: 1.0.0
 }
 .widget .search-form button {
   border: none;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
   height: 55px;
   width: 55px;
@@ -4562,7 +4562,7 @@ Version: 1.0.0
 }
 .wp-block-tag-cloud a:hover,
 .tagcloud a:hover {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color) !important;
 }
 
@@ -4769,7 +4769,7 @@ Version: 1.0.0
 }
 .wp-block-calendar #today,
 .calendar_wrap #today {
-  color: #a6d719;
+  color: #DF2A00;
   background-color: var(--white-color);
   border-color: #ededed;
 }
@@ -4828,7 +4828,7 @@ Version: 1.0.0
   font-size: 18px;
 }
 .widget_shopping_cart .remove:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .widget_shopping_cart .img {
   position: absolute;
@@ -4908,7 +4908,7 @@ Version: 1.0.0
 .widget_shopping_cart .total .amount {
   font-size: inherit;
   display: inline-block;
-  color: #a6d719;
+  color: #DF2A00;
 }
 .widget_shopping_cart .vs-btn {
   border: 1px solid var(--title-color);
@@ -5259,9 +5259,9 @@ Version: 1.0.0
   }
 }
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -5370,7 +5370,7 @@ Version: 1.0.0
 }
 .footer-widget.widget_meta a:hover, .footer-widget.widget_pages a:hover, .footer-widget.widget_archive a:hover, .footer-widget.widget_categories a:hover, .footer-widget.widget_nav_menu a:hover {
   background-color: transparent;
-  color: #a6d719;
+  color: #DF2A00;
 }
 .footer-widget.widget_meta a:before, .footer-widget.widget_pages a:before, .footer-widget.widget_archive a:before, .footer-widget.widget_categories a:before, .footer-widget.widget_nav_menu a:before {
   display: none;
@@ -5452,7 +5452,7 @@ Version: 1.0.0
   color: inherit;
 }
 .footer-info_link a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 
 .footer-number {
@@ -5477,7 +5477,7 @@ Version: 1.0.0
   display: inline-block;
 }
 .footer-number .info:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .footer-number .title {
   margin: 0 0 7px 0;
@@ -5526,11 +5526,11 @@ Version: 1.0.0
   margin-right: 0;
 }
 .footer-social a:hover {
-  border-color: #a6d719;
+  border-color: #DF2A00;
   color: var(--white-color);
 }
 .footer-social a:hover::before {
-  border-color: #a6d719;
+  border-color: #DF2A00;
   animation: spin 10s linear infinite;
 }
 .footer-social.style2 a {
@@ -5541,7 +5541,7 @@ Version: 1.0.0
   box-shadow: 8px 13.856px 30px 0px rgba(132, 137, 154, 0.1);
 }
 .footer-social.style2 a:hover {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
   outline-color: transparent;
 }
@@ -5567,7 +5567,7 @@ Version: 1.0.0
   border-radius: 0 5px 5px 0;
 }
 .footer-newsletter .vs-btn:hover {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   color: var(--white-color);
 }
 .footer-newsletter .vs-btn:after, .footer-newsletter .vs-btn::before {
@@ -5634,7 +5634,7 @@ Version: 1.0.0
   position: absolute;
   left: 0;
   top: 4px;
-  color: #a6d719;
+  color: #DF2A00;
 }
 
 .newsletter-form2 .form_text {
@@ -5730,9 +5730,9 @@ Version: 1.0.0
 }
 /*------------------- 4.2. Header  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -5851,7 +5851,7 @@ Version: 1.0.0
   letter-spacing: 0.4px;
 }
 .main-menu a:hover {
-  color: #a6d719;
+  color: #ffa200;
 }
 .main-menu > ul > li {
   margin: 0 18px;
@@ -5864,7 +5864,7 @@ Version: 1.0.0
 }
 .main-menu > ul > li > a {
   padding: 34px 0;
-  color: #df2a00;
+  color: #DF2A00;
 }
 .main-menu > ul > li > a .new-label {
   position: absolute;
@@ -5877,7 +5877,7 @@ Version: 1.0.0
   position: relative;
 }
 .main-menu > ul > li.active > a.vs-svg-assets.active {
-  color: var(--vs-theme-color);
+  color: #ffa200;
 }
 .main-menu > ul > li.active > a.vs-svg-assets.active svg path {
   stroke-dashoffset: 0;
@@ -5931,7 +5931,7 @@ Version: 1.0.0
   stroke-dashoffset: 100;
 }
 .main-menu ul li.menu-item-has-children.menu-item-has-children.mega-menu-wrap.active > a:hover {
-  color: #a6d719;
+  color: #FFA700;
 }
 .main-menu ul li.menu-item-has-children.menu-item-has-children.mega-menu-wrap.active > a:hover svg path {
   stroke: var(--vs-theme-color);
@@ -5950,7 +5950,7 @@ Version: 1.0.0
   transition: all 0.6s ease;
 }
 .main-menu ul li.menu-item-has-children.menu-item-has-children.mega-menu-wrap.active .mega-menu li ul a:hover {
-  color: var(--vs-theme-color);
+  color: #FFA700;
 }
 .main-menu ul li:last-child {
   margin-right: 0;
@@ -5992,7 +5992,7 @@ Version: 1.0.0
 }
 .main-menu ul.sub-menu:hover,
 .main-menu ul.mega-menu:hover {
-  border-color: rgba(166, 215, 25, 0.5);
+  border-color:#FFA700;
 }
 .main-menu ul.sub-menu {
   top: 85%;
@@ -6050,7 +6050,7 @@ Version: 1.0.0
 }
 .main-menu ul.sub-menu li a:hover, .main-menu ul.sub-menu li a.active {
   transform: translateX(10px);
-  color: var(--vs-theme-color);
+  color: #FFA700;
 }
 .main-menu ul.sub-menu li a:hover::after, .main-menu ul.sub-menu li a.active::after {
   width: 100%;
@@ -6124,7 +6124,7 @@ Version: 1.0.0
   left: 0;
   width: 15px;
   height: 1px;
-  background-color: #a6d719;
+  background-color: #DF2A00;
 }
 .main-menu ul.mega-menu > li > a::after {
   width: calc(100% - 20px);
@@ -6349,7 +6349,7 @@ Version: 1.0.0
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
-  border-bottom: 3px solid rgba(166, 215, 25, 0.5);
+  border-bottom: 3px solid rgba(215, 164, 25, 0.788);
 }
 .vs-sticky-header.sticky ul.mega-menu,
 .vs-sticky-header.sticky ul.sub-menu {
@@ -6358,9 +6358,9 @@ Version: 1.0.0
 
 /*------------------- 4.3. Footer  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -6482,7 +6482,7 @@ Version: 1.0.0
   letter-spacing: 0.48px;
 }
 .vs-footer__title--sub span {
-  color: var(--vs-theme-color);
+  color: #FFA700;
 }
 .vs-footer__menu {
   list-style: none;
@@ -6542,10 +6542,10 @@ Version: 1.0.0
   letter-spacing: 0.7px;
   font-family: var(--title-font);
   padding: 30px 0;
-  background-color: var(--bg-color6);
+  background-color: #000000;
 }
 .vs-footer__copyright a {
-  color: var(--vs-theme-color);
+  color: #FFA700;
 }
 .vs-footer__copyright a:hover {
   color: var(--white-color);
@@ -6570,7 +6570,7 @@ Version: 1.0.0
 }
 .vs-footer__divider {
   opacity: 0.7;
-  border: 4px solid #121720;
+  border: 4px solid linear-gradient( #FFA700 60%, #ffffff  110%);
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   height: 4px;
   margin: 5px 0 47px 0;
@@ -6663,7 +6663,7 @@ Version: 1.0.0
   }
 }
 .vs-footer--style2 .vs-footer__widgets {
-  background-color: var(--bg-color);
+  background-color: #141414;
   min-height: 560px;
   clip-path: polygon(34.79% 0px, 65.31% 0px, 70.15% 4.82%, 100% 5%, 100% 100%, 0px 100%, 0px 5%, 30% 5%);
 }
@@ -6737,9 +6737,9 @@ Version: 1.0.0
 
 /*------------------- 4.4. Breadcumb  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -6945,9 +6945,9 @@ Version: 1.0.0
 
 /*------------------- 4.5. Pagination  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -7118,7 +7118,7 @@ Version: 1.0.0
   color: var(--vs-theme-color);
 }
 .post-pagi-box > a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .post-pagi-box img {
   width: 80px;
@@ -7161,9 +7161,9 @@ Version: 1.0.0
 }
 /*------------------- 4.6. Blog  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -7252,7 +7252,7 @@ blockquote {
   font-family: var(--title-font);
   color: var(--title-color);
   background-color: var(--bg-color3);
-  border-left: 4px solid #a6d719;
+  border-left: 4px solid #DF2A00;
   padding: 43px 50px 42px 35px;
   margin: 35px 0;
 }
@@ -7284,7 +7284,7 @@ blockquote p a {
   color: inherit;
 }
 blockquote cite {
-  color: #a6d719;
+  color: #DF2A00;
   font-family: var(--title-font);
   font-size: 18px;
   font-weight: 600;
@@ -7302,7 +7302,7 @@ blockquote cite:before {
   bottom: 8px;
   width: 30px;
   height: 2px;
-  border-top: 2px solid #a6d719;
+  border-top: 2px solid #DF2A00;
 }
 
 blockquote.vs-quote {
@@ -7360,10 +7360,10 @@ blockquote.vs-quote .quote-author {
 .blog-meta span i,
 .blog-meta a i {
   margin-right: 10px;
-  color: #a6d719;
+  color: #DF2A00;
 }
 .blog-meta a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 
 .blog-category {
@@ -7376,19 +7376,19 @@ blockquote.vs-quote .quote-author {
   margin-right: 5px;
   margin-bottom: 10px;
   border: 1px solid transparent;
-  background-color: #a6d719;
+  background-color: #DF2A00;
 }
 .blog-category a:hover {
   background-color: var(--white-color);
   color: var(--body-color);
-  border-color: #a6d719;
+  border-color: #DF2A00;
 }
 
 .blog-title a {
   color: inherit;
 }
 .blog-title a:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 
 .vs-blog {
@@ -7416,7 +7416,6 @@ blockquote.vs-quote .quote-author {
   border-radius: 20px;
   transform: scale(1);
   transition: all ease 0.4s;
-   width: 100%;
 }
 .vs-blog .wp-block-image,
 .vs-blog figure {
@@ -7507,7 +7506,7 @@ blockquote.vs-quote .quote-author {
   display: inline-block;
 }
 .vs-blog__title_link:hover {
-  color: var(--vs-theme-color);
+  color: #FFA700;
 }
 .vs-blog__footer {
   display: flex;
@@ -7614,7 +7613,7 @@ blockquote.vs-quote .quote-author {
   margin: -0.3em 0 0px 0;
 }
 .blog-author .author-degi {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .blog-author .author-text {
   margin: 0 0 -0.1em 0;
@@ -7954,9 +7953,9 @@ blockquote.vs-quote .quote-author {
 
 /*------------------- 4.7. Comments  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -8086,7 +8085,7 @@ Version: 1.0.0
   border-radius: 5px;
 }
 .comment-respond input[type=checkbox]:checked ~ label:before {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   border-color: transparent;
 }
 .comment-respond .blog-inner-title {
@@ -8264,7 +8263,7 @@ Version: 1.0.0
   color: var(--vs-theme-color);
 }
 .vs-comments-wrap .replay-btn:hover {
-  color: #a6d719;
+  color: #DF2A00;
 }
 .vs-comments-wrap .star-rating {
   font-size: 12px;
@@ -8317,9 +8316,9 @@ Version: 1.0.0
 }
 /*------------------- 4.8. Hero Area  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -8440,7 +8439,7 @@ Version: 1.0.0
   display: block;
   letter-spacing: 0;
   font-size: clamp(3rem, 0.675rem + 4.13vw, 5.625rem);
-  background: linear-gradient(270deg, #a6d719 0%, #eeffbd 100%);
+   background: linear-gradient(270deg, #FFA700 60%, #ffffff  110%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -8507,7 +8506,7 @@ Version: 1.0.0
   }
 }
 .vs-hero__text span {
-  color: var(--vs-theme-color);
+  color: #DA2A00;
 }
 .vs-hero__loading {
   display: inline-flex;
@@ -8755,9 +8754,9 @@ Version: 1.0.0
 
 /*------------------- 4.9. Error  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -8892,9 +8891,9 @@ Version: 1.0.0
 
 /*------------------- 4.10. Feature  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -9168,7 +9167,7 @@ Version: 1.0.0
   }
 }
 .creator-item--style2:hover .creator-item__icon {
-  background: #a6d719;
+  background: #DF2A00;
   border: 6px solid #88a927;
 }
 .creator-item--style2:hover .creator-item__icon svg path {
@@ -9183,9 +9182,9 @@ Version: 1.0.0
 
 /*------------------- 4.11. About  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -9449,9 +9448,9 @@ Version: 1.0.0
 
 /*------------------- 4.12. Service  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -9835,9 +9834,9 @@ Version: 1.0.0
 
 /*------------------- 4.13. Counter  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -9992,9 +9991,9 @@ Version: 1.0.0
 
 /*------------------- 4.14. Team  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -10119,7 +10118,7 @@ Version: 1.0.0
   width: var(--circle-size);
   height: var(--circle-size);
   transform: translate(-50%, -50%);
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) padding-box, linear-gradient(to bottom, #a6d719 0%, #1d2833 70%) border-box;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) padding-box, linear-gradient(to bottom, #DF2A00 0%, #1d2833 70%) border-box;
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--border)), #fff calc(100% - var(--border) + 1px));
           mask: radial-gradient(farthest-side, transparent calc(100% - var(--border)), #fff calc(100% - var(--border) + 1px));
   --border: 6px;
@@ -10400,7 +10399,7 @@ Version: 1.0.0
 }
 .progress-box__bar {
   height: 100%;
-  background-color: #a6d719;
+  background-color: #FFA700;
   box-shadow: 0px 10px 31px rgba(169, 177, 193, 0.17);
   border-radius: 5px;
 }
@@ -10408,9 +10407,9 @@ Version: 1.0.0
 /*------------------- 4.15. Process  -------------------*/
 /*------------------- 4.16. Accordion  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -10568,8 +10567,8 @@ Version: 1.0.0
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
-  background: rgba(17, 20, 30, 0.5);
-  border: 2px dashed #686868;
+  background: #141414;
+  border: 2px dashed #000000;
   border-radius: 50%;
   /* Small devices */
 }
@@ -10681,9 +10680,9 @@ Version: 1.0.0
 
 /*------------------- 4.18. Testimonial  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -10867,9 +10866,9 @@ Version: 1.0.0
 
 /*------------------- 4.19. Popup Side Menu  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -11492,9 +11491,9 @@ Version: 1.0.0
 /*------------------- 4.20. Price Plan  -------------------*/
 /*------------------- 4.21. Forms Style  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -11575,7 +11574,7 @@ Version: 1.0.0
 ==================================*/
 /*------------------- 1.1. Mixin -------------------*/
 .form-style1 {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   --bs-gutter-x: 20px;
   padding: 70px 80px 80px 80px;
 }
@@ -11644,7 +11643,7 @@ Version: 1.0.0
 .email-subscription__form {
   display: flex;
   align-items: stretch;
-  border: 3px solid #a6d719;
+  border: 3px solid #FFA700;
   padding: 3px;
   background-color: transparent;
   flex-wrap: wrap;
@@ -11723,7 +11722,7 @@ Version: 1.0.0
   content: "";
   width: 1px;
   height: 52px;
-  background-color: #a6d719;
+  background-color: #DF2A00;
   display: inline-block;
   left: -4px;
   top: 50%;
@@ -11842,7 +11841,7 @@ Version: 1.0.0
 .woocommerce-shipping-methods input[type=radio]:checked ~ label:before,
 #ship-to-different-address input[type=checkbox]:checked ~ label:before,
 #ship-to-different-address input[type=radio]:checked ~ label:before {
-  background-color: #a6d719;
+  background-color: #DF2A00;
   border-color: transparent;
   font-size: 16px;
   transition: all 0.3s ease-in-out;
@@ -11901,9 +11900,9 @@ Version: 1.0.0
 /*------------------- 4.22. Projects  -------------------*/
 /*------------------- 4.23. Contact  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -12111,9 +12110,9 @@ Version: 1.0.0
 /*------------------- 4.25. CTA  -------------------*/
 /*------------------- 4.26. popupsearch  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -12317,9 +12316,9 @@ Version: 1.0.0
 
 /*------------------- 4.27. carouselTicker  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -12475,9 +12474,9 @@ Version: 1.0.0
 
 /*------------------- 4.28. game  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -12572,7 +12571,7 @@ Version: 1.0.0
   z-index: -2;
 }
 .game-card {
-  background: var(--bg-color);
+  background: #141414;
   border: 2px solid rgba(50, 52, 65, 0.6);
   border-radius: 40px;
   overflow: hidden;
@@ -12617,7 +12616,7 @@ Version: 1.0.0
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(166, 215, 25, 0.3), transparent);
+  background: linear-gradient(45deg, transparent, rgba(228, 18, 18, 0.3), transparent);
   top: -100%;
   left: -100%;
   transition: all 0.5s ease;
@@ -12657,7 +12656,8 @@ Version: 1.0.0
   border-radius: 4px;
 }
 .game-card__progress-fill {
-  background: linear-gradient(90deg, #292c3a 0%, #a6d719 100%);
+  background: linear-gradient(270deg, #FFA700 60%, #DA2A00 110%);
+
   border-radius: 4px;
 }
 .game-card__info {
@@ -12687,7 +12687,7 @@ Version: 1.0.0
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--bg-color7);
+  background-color: #3d2f2f;
   padding: 18px 28px;
 }
 .game-card__organizer {
@@ -12892,9 +12892,9 @@ Version: 1.0.0
 }
 /*------------------- 4.29. video  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -13046,9 +13046,9 @@ Version: 1.0.0
 
 /*------------------- 4.30. brand  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -13309,9 +13309,9 @@ Version: 1.0.0
 
 /*------------------- 4.31. product  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -13839,9 +13839,9 @@ Version: 1.0.0
 
 /*------------------- 4.32. schedule  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -14007,9 +14007,9 @@ Version: 1.0.0
 
 /*------------------- 4.33. woocommerce  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -14134,7 +14134,7 @@ Version: 1.0.0
 }
 .star-rating:before {
   content: "\f005\f005\f005\f005\f005";
-  color: #a6d719;
+  color: #DF2A00;
   float: left;
   letter-spacing: 3px;
   font-weight: 700;
@@ -14152,7 +14152,7 @@ Version: 1.0.0
   top: 0;
   position: absolute;
   left: 0;
-  color: #a6d719;
+  color: #DF2A00;
   letter-spacing: 3px;
   font-weight: 700;
 }
@@ -14278,7 +14278,7 @@ Version: 1.0.0
 }
 .quantity .qty-btn:hover {
   background-color: transparent;
-  color: #a6d719;
+  color: #DF2A00;
 }
 .quantity .quantity-plus {
   bottom: 30px;
@@ -14323,7 +14323,7 @@ Version: 1.0.0
   content: "\f005";
   font-weight: 400;
   text-indent: 0;
-  color: #a6d719;
+  color: #DF2A00;
 }
 .rating-select p.stars a:hover ~ a::before {
   content: "\f005";
@@ -15083,9 +15083,9 @@ Version: 1.0.0
 
 /*------------------- 4.34. nft  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -15677,9 +15677,9 @@ Version: 1.0.0
 
 /*------------------- 4.35. discount  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -16038,9 +16038,9 @@ Version: 1.0.0
 
 /*------------------- 4.36. gallery  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -16225,11 +16225,19 @@ Version: 1.0.0
 .vsn-gallery--slider .slick-dots li.slick-active button {
   background-color: var(--vs-theme-color);
 }
-.vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__title, .vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__img--shape1, .vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__img--shape2 {
+.vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__title,
+.vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__img--shape1,
+.vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__img--shape2,
+.vsn-gallery--slider .slick-slide.slick-current.slick-active.slick-center .vs-nft-gallery__img--shape3 {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.3s ease-in-out, visibility 0s ease-in-out;
+  transition: opacity 0.1s ease-in-out, visibility 0s ease-in-out;
 }
+
+.vs-carousel .slick-slide {
+  transition: opacity 0.1s linear !important;
+}
+
 
 .gallery--layout2 {
   padding-top: 140px;
@@ -16238,9 +16246,9 @@ Version: 1.0.0
 
 /*------------------- 4.37. cart  -------------------*/
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Templateyes 
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -17925,9 +17933,9 @@ span.select2-selection.select2-selection--single:focus {
 }
 
 /*
-Template Name: Roda
-Template URL: https://html.vecuro.com/roda
-Description: Roda - Gaming Store & eCommerce HTML5 Template
+Template Name:colabEsports
+Template URL: https://html.vecuro.com/colabEsports
+Description: ColabEsports - Gaming Store & eCommerce HTML5 Template
 Author: vecuro
 Author URI: https://themeforest.net/user/vecuro_themes
 Version: 1.0.0
@@ -18056,3 +18064,1330 @@ Version: 1.0.0
   }
 }
 /*# sourceMappingURL=style.css.map */
+/* Every thing copied here of the profile and everything */
+
+ 
+   .profile-trigger {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid var(--vs-theme-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        z-index: 1000;
+      }
+
+      .profile-trigger:hover {
+        border-color: var(--vs-theme-color2);
+        transform: scale(1.1);
+      }
+
+      .profile-trigger img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Sidemenu Styles */
+      .sidemenu-wrapper {
+        position: fixed;
+        z-index: 999999;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .sidemenu-content {
+        --sidebarPosition: 400px;
+        background-color: var(--vs-theme-color);
+        width: var(--sidebarPosition);
+        margin-left: auto;
+        padding: 40px 30px 30px 30px;
+        height: 100%;
+        overflow-y: auto;
+        position: relative;
+        right: calc(-1 * var(--sidebarPosition));
+        cursor: auto;
+        transform-origin: right;
+        transition: right 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show .sidemenu-content {
+        right: 0;
+      }
+
+      @media (max-width: 768px) {
+        .sidemenu-content {
+          --sidebarPosition: 300px;
+          padding: 20px 15px;
+        }
+      }
+
+      /* Scrollbar Styles */
+      .sidemenu-content::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px var(--bg-color);
+        border-radius: 0px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-thumb {
+        background: var(--bg-color);
+        border-radius: 10px;
+      }
+
+      .sidemenu-content::-webkit-scrollbar-thumb:hover {
+        background: var(--vs-theme-color2);
+      }
+
+      .sidemenu-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .closeButton {
+        display: inline-block;
+        border: none;
+        color: var(--bg-color);
+        background-color: transparent;
+        font-size: 40px;
+        padding: 0;
+        border-radius: 50%;
+        transform: rotate(0);
+        transition: all ease 0.4s;
+        font-family: var(--title-font);
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .closeButton:hover {
+        color: var(--white-color);
+        transform: rotate(180deg);
+      }
+
+      .sidemenu-hr {
+        height: 4px;
+        border-top: 1px solid var(--bg-color);
+        border-bottom: 1px solid var(--bg-color);
+        opacity: 1;
+        margin: 30px 0 35px;
+      }
+
+      .sidemenu-inner {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 150px);
+        justify-content: space-between;
+      }
+
+      /* Profile Menu Options */
+      .profile-menu {
+        margin-bottom: 40px;
+      }
+
+      .menu-option {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--bg-color);
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .menu-option:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        transform: translateX(-5px);
+      }
+
+      .menu-option i {
+        font-size: 20px;
+        width: 25px;
+        text-align: center;
+      }
+
+      .auth-options {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .auth-btn {
+        flex: 1;
+        padding: 12px 20px;
+        border: 2px solid var(--bg-color);
+        background-color: transparent;
+        color: var(--bg-color);
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+
+      .auth-btn:hover {
+        background-color: var(--bg-color);
+        color: var(--vs-theme-color);
+      }
+
+      .auth-btn.primary {
+        background-color: var(--bg-color);
+        color: var(--vs-theme-color);
+      }
+
+      .auth-btn.primary:hover {
+        background-color: transparent;
+        color: var(--bg-color);
+      }
+
+      /* Subscription Section */
+      .subscription-section {
+        margin-top: auto;
+      }
+
+      .sidemenu-subtitle {
+        font-size: 1.1rem;
+        color: var(--bg-color);
+        letter-spacing: 0.2px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .email-subscription__form {
+        background-color: var(--bg-color);
+        border-radius: 10px;
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+
+      .email-subscription__input {
+        flex: 1;
+        color: var(--body-color);
+        font-family: var(--title-font);
+        padding: 12px 20px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+
+      .email-subscription__input::placeholder {
+        color: var(--body-color);
+      }
+
+      .email-subscription__btn {
+        /* background-color: var(--bg-color); */
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .email-subscription__btn:hover svg path {
+        fill: var(--vs-theme-color);
+      }
+
+      .sidemenu-text {
+        color: var(--bg-color);
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--title-font);
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+
+      /* Demo Content */
+      .demo-content {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      .demo-content h1 {
+        color: var(--vs-theme-color);
+        margin-bottom: 20px;
+      }
+
+      .demo-content p {
+        color: var(--body-color);
+        margin-bottom: 30px;
+      }
+
+      /* Animation Classes */
+      .sidemenu-item {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.3s ease;
+      }
+
+      .sidemenu-wrapper.show .sidemenu-item {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+  
+
+
+
+
+
+      .sidemenu-wrapper {
+  position: fixed;
+  z-index: 999999;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidemenu-content {
+  --sidebarPosition: 400px;
+  background-color: var(--vs-theme-color);
+  width: var(--sidebarPosition);
+  margin-left: auto;
+  padding: 40px 30px 30px 30px;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  right: calc(-1 * var(--sidebarPosition));
+  cursor: auto;
+  transform-origin: right;
+  transition: right 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-content {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .sidemenu-content {
+    --sidebarPosition: 300px;
+    padding: 20px 15px;
+  }
+}
+
+/* Scrollbar Styles */
+.sidemenu-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidemenu-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--bg-color);
+  border-radius: 0px;
+}
+
+.sidemenu-content::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border-radius: 10px;
+}
+
+.sidemenu-content::-webkit-scrollbar-thumb:hover {
+  background: var(--vs-theme-color2);
+}
+
+.sidemenu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  display: inline-block;
+  border: none;
+  color: var(--bg-color);
+  background-color: transparent;
+  font-size: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transform: rotate(0);
+  transition: all ease 0.4s;
+  font-family: var(--title-font);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: var(--white-color);
+  transform: rotate(180deg);
+}
+
+.sidemenu-hr {
+  height: 4px;
+  border-top: 1px solid var(--bg-color);
+  border-bottom: 1px solid var(--bg-color);
+  opacity: 1;
+  margin: 30px 0 35px;
+}
+
+.sidemenu-inner {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  justify-content: space-between;
+}
+
+/* Authentication Section in Sidemenu */
+.auth-section {
+  margin-bottom: 30px;
+}
+
+.auth-form-side {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.auth-title {
+  color: var(--bg-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.side-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-side label {
+  color: var(--bg-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.form-group-side input {
+  padding: 12px 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-group-side input:focus {
+  outline: none;
+  border-color: var(--bg-color);
+  background-color: white;
+}
+
+.form-group-side input::placeholder {
+  color: #666;
+}
+
+.auth-btn-side {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.auth-btn-side.primary {
+  background-color: var(--bg-color);
+  color: var(--vs-theme-color);
+}
+
+.auth-btn-side.primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.auth-btn-side.logout {
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 30px;
+}
+
+.auth-btn-side.logout:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.auth-switch p {
+  color: var(--bg-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-switch a {
+  color: var(--bg-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.auth-switch a:hover {
+  color: var(--white-color);
+  border-bottom-color: var(--white-color);
+}
+
+/* Logged In State */
+.logged-in-state {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
+
+.user-profile {
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-color);
+  object-fit: cover;
+}
+
+.user-details h4 {
+  color: var(--bg-color);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.user-details p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Profile Menu Options */
+.profile-menu {
+  margin-bottom: 40px;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--bg-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu-option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-5px);
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.menu-option i {
+  font-size: 20px;
+  width: 25px;
+  text-align: center;
+}
+
+/* Animation Classes */
+.sidemenu-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+
+.game-card__stats-row {
+  display: flex;
+  justify-content: space-between; /* or use center/start as per design */
+  gap: 20px; /* spacing between items */
+  flex-wrap: wrap; /* optional: wrap on small screens */
+}
+
+.game-card__stats-row p {
+  margin: 0;
+  font-size: 14px; /* optional */
+  color: black;     /* if you want white text */
+}
+
+
+.slot-text {
+  color: rgb(255, 255, 255) !important;
+}
+
+
+
+
+
+
+
+
+
+/* Modal Container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  margin-top: 2600px;
+}
+
+/* Modal Box */
+.modal-content {
+  background-color: #0a0a12;
+  color: white;
+  margin: auto;
+  padding: 70px;
+  border: 2px solid #b1ff00;
+  border-radius: 10px;
+  width: 60%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Close Button */
+.close-btn {
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Game Modes Layout */
+.game-modes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Mode Card */
+.mode-card {
+  background: #1e1e2f;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #b1ff00;
+  text-align: center;
+  flex: 1;
+  max-width: 500px;
+}
+
+/* Icons */
+.mode-card i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #b1ff00;
+}
+
+/* Buttons */
+.mode-btn {
+  background-color: #b1ff00;
+  border: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* CS2 Setup Modal Styles - Add this to your existing CSS */
+.cs2-setup-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.cs2-setup-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs2-setup-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  border: 2px solid #a6d719;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cs2-setup-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  color: #a6d719;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cs2-setup-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.cs2-setup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cs2-setup-title {
+  color: #a6d719;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cs2-setup-title i {
+  font-size: 2.5rem;
+  color: #a6d719;
+}
+
+.cs2-setup-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cs2-setup-steps {
+  margin-bottom: 30px;
+}
+
+.setup-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: rgba(166, 215, 25, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #a6d719;
+  transition: all 0.3s ease;
+}
+
+.setup-step:hover {
+  background: rgba(166, 215, 25, 0.15);
+  transform: translateX(5px);
+}
+
+.setup-step-number {
+  background: #a6d719;
+  color: #1a1a2e;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.setup-step-content {
+  flex: 1;
+}
+
+.setup-step-title {
+  color: #a6d719;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.setup-step-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cs2-play-now-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #a6d719 0%, #8bc34a 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cs2-play-now-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cs2-play-now-btn:hover:before {
+  left: 100%;
+}
+
+.cs2-play-now-btn:hover {
+  background: linear-gradient(135deg, #8bc34a 0%, #a6d719 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(166, 215, 25, 0.4);
+}
+
+.cs2-play-now-btn:active {
+  transform: translateY(-1px);
+}
+
+.cs2-play-now-btn i {
+  font-size: 1.3rem;
+}
+
+.cs2-requirements {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs2-requirements h4 {
+  color: #a6d719;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs2-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs2-requirements li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs2-requirements li:before {
+  content: "✓";
+  color: #a6d719;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cs2-setup-content {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  .cs2-setup-title {
+    font-size: 1.6rem;
+  }
+
+  .cs2-setup-title i {
+    font-size: 2rem;
+  }
+
+  .setup-step {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .setup-step-number {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+
+  .cs2-play-now-btn {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .setup-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .setup-step-number {
+    align-self: center;
+  }
+}
+
+
+
+
+/* CS2 Setup Modal Styles  */
+.cs2-setup-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.cs2-setup-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs2-setup-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  border: 2px solid #DF2A00;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: slideIn 0.3s ease;
+  margin-bottom: 3000px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cs2-setup-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  color: #DF2A00;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cs2-setup-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.cs2-setup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cs2-setup-title {
+  color: #DF2A00;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cs2-setup-title i {
+  font-size: 2.5rem;
+  color: #DF2A00;
+}
+
+.cs2-setup-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cs2-setup-steps {
+  margin-bottom: 30px;
+}
+
+.setup-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: rgba(166, 215, 25, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #DF2A00;
+  transition: all 0.3s ease;
+}
+
+.setup-step:hover {
+  background: rgba(166, 215, 25, 0.15);
+  transform: translateX(5px);
+}
+
+.setup-step-number {
+  background: #DF2A00;
+  color: #1a1a2e;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.setup-step-content {
+  flex: 1;
+}
+
+.setup-step-title {
+  color: #DF2A00;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.setup-step-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cs2-play-now-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #DF2A00 0%, #8bc34a 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 18px 30px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cs2-play-now-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cs2-play-now-btn:hover:before {
+  left: 100%;
+}
+
+.cs2-play-now-btn:hover {
+  background: linear-gradient(135deg, #8bc34a 0%, #DF2A00 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(166, 215, 25, 0.4);
+}
+
+.cs2-play-now-btn:active {
+  transform: translateY(-1px);
+}
+
+.cs2-play-now-btn i {
+  font-size: 1.3rem;
+}
+
+.cs2-requirements {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs2-requirements h4 {
+  color: #DF2A00;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs2-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs2-requirements li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs2-requirements li:before {
+  content: "✓";
+  color: #DF2A00;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cs2-setup-content {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  .cs2-setup-title {
+    font-size: 1.6rem;
+  }
+
+  .cs2-setup-title i {
+    font-size: 2rem;
+  }
+
+  .setup-step {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .setup-step-number {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+
+  .cs2-play-now-btn {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .setup-step {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .setup-step-number {
+    align-self: center;
+  }
+}
+
+
+
+
+.vs-btn.vs-btn--style2 {
+ 
+  display: inline-block;
+  color: #fff;
+ 
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(270deg, #DA2A00 60%, #FFA700  110%);
+  box-shadow: 0 0 10px #DF2A00, 0 0 20px #DF2A00;
+  animation: glowPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px #DF2A00, 0 0 20px #DF2A00;
+  }
+  50% {
+    box-shadow: 0 0 20px #DF2A00, 0 0 30px #DF2A00;
+  }
+  100% {
+    box-shadow: 0 0 10px #DF2A00, 0 0 20px #DF2A00;
+  }
+}
+
+
+
+  
