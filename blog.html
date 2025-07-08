@@ -103,6 +103,7 @@
   
   <!-- Theme Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/auth.css">
   <style>
  .esports-hero-section {
   position: relative;
@@ -324,6 +325,38 @@ padding-top: 100px;
         @media (max-width: 700px) {
             .site-title { font-size: 1.5rem; }
         }
+
+       
+        
+
+
+
+        .vs-blog {
+  width: 100%;
+  background: #181a20;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px #0005;
+  padding: 0;
+}
+
+.vs-blog__img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.vs-blog__img_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
     </style>
 
 </head>
@@ -335,6 +368,8 @@ padding-top: 100px;
   <!--********************************
    		Code Start From Here 
 	******************************** -->
+
+  
   <!--==============================
 	Preloader
 	==============================-->
@@ -906,75 +941,15 @@ padding-top: 100px;
     </div>
     <!-- Breadcrumb Style End -->
     
-    <section class="vs-blog-wrapper space-top space-extra-bottom" width="1214px" height="809.99">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="vs-blog">
-                <div class="vs-blog__img">
-                  <a class="vs-blog__img_link" href="blog-details.html">
-                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/E-sports_World_Cup_2025_Blog_1.png?v=1750327344" alt="ColabEsports Blog Image" class="vs-blog__img_img">
-                  </a>
-                </div>
-                <div class="vs-blog__content">
-                  <div class="vs-blog__meta">
-                    <span class="vs-blog__meta_text vs-blog__meta_admin">Written by: <a class="vs-blog__meta_link"
-                    href="blog-details.html">ColabEsports</a></span>
-                    <span class="vs-blog__meta_text">June 20, 2025</span>
-                  </div>
-                  <h2 class="vs-blog__title">
-                    <a class="vs-blog__title_link" href="blog-details.html">Esports World Cup 2025: Everything You Need to Know About the $70 Million Gaming Showdown in Riyadh</a>
-                  </h2>
-                  <p class="vs-blog__desc">
-                    Saudi Arabia’s capital, Riyadh, is once again gearing up to host the world’s most prestigious esports tournament the Esports World Cup 2025. 
-                  </p>
-                  <div class="vs-blog__footer">
-                    <a class="vs-blog__link" href="#">read more<i class="fa-solid fa-angles-right"></i></a>
-                    <div class="vs-blog__share">
-                      <span>Share</span>
-                      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                      <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                      <a href="https://youtube.com/@InJourneyOfficial" target="_blank"><i class="fab fa-youtube"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="vs-blog">
-                <div class="vs-blog__img">
-                  <a class="vs-blog__img_link" href="blog-details.html">
-                    <img src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Cristiano_Brand_Ambassador_ESP.png?v=1750326562" alt="colabEsports Blog Image" class="vs-blog__img_img">
-                  </a>
-                </div>
-                <div class="vs-blog__content">
-                  <div class="vs-blog__meta">
-                    <span class="vs-blog__meta_text vs-blog__meta_admin">Written by: <a class="vs-blog__meta_link"
-                    href="blog-details.html">frenk</a></span>
-                    <span class="vs-blog__meta_text">June 20, 2025</span>
-                  </div>
-                  <h2 class="vs-blog__title">
-                    <a class="vs-blog__title_link" href="blog-details.html">Cristiano Ronaldo Named Global Ambassador for Esports World Cup 2025</a>
-                  </h2>
-                  <p class="vs-blog__desc">
-                    In a landmark announcement that bridges the gap between traditional sports and digital competition, the Esports World Cup Foundation (EWCF)
-                  </p>
-                  <div class="vs-blog__footer">
-                    <a class="vs-blog__link" href="#">read more<i class="fa-solid fa-angles-right"></i></a>
-                    <div class="vs-blog__share">
-                      <span>Share</span>
-                      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                      <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                      <a href="https://youtube.com/@InJourneyOfficial" target="_blank"><i class="fab fa-youtube"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             
-          </div>
-        </div>
-      </section>
-    
+    <section class="vs-blog-wrapper space-top space-extra-bottom">
+  <div class="container">
+    <!-- <div class="row"> -->
+      <div class="col-lg-8" id="blogContainer">
+        <!-- All dynamic blogs from Firestore will be rendered here -->
+      </div>
+    <!-- </div> -->
+  </div>
+</section>
     <!-- Footer Start -->
    <footer
         class="vs-footer vs-footer--style2 vs-footer--fixed wow animate__fadeInUp"
@@ -1191,129 +1166,95 @@ padding-top: 100px;
   <script src="assets/js/main.js"></script>
 
 <!-- script for login/signup-->
- <script>
-  // Show Signup Form
-  function showSideSignupForm() {
-    document.getElementById('loginFormSide').style.display = 'none';
-    document.getElementById('signupFormSide').style.display = 'block';
-  }
 
-  // Show Login Form
-  function showSideLoginForm() {
-    document.getElementById('signupFormSide').style.display = 'none';
-    document.getElementById('loginFormSide').style.display = 'block';
-  }
+<script src="assets/js/auth.js"></script>
 
-  // Update UI after successful login
-  function updateUserUI(user) {
-    document.getElementById('loginFormSide').style.display = 'none';
-    document.getElementById('signupFormSide').style.display = 'none';
-    document.getElementById('loggedInState').style.display = 'block';
 
-    document.getElementById('sideUserName').textContent = `Welcome ${user.name}`;
-    document.getElementById('sideUserEmail').textContent = user.email;
-  }
+<script type="module">
+  import {
+    db,
+    collection,
+    getDocs,
+    query,
+    orderBy
+  } from './assets/firebase/firebase.js';  // <-- adjust path if needed
 
-  // Password Strength Checker
-  function isStrongPassword(password) {
-    const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-    return strongPattern.test(password);
-  }
+  const blogQuery = query(collection(db, "blogs"), orderBy("createdAt", "desc"));
+const snapshot = await getDocs(blogQuery);
 
-  // Handle Login
-  async function handleSidemenuLogin(event) {
-    event.preventDefault();
-    const email = document.getElementById('sideLoginEmail').value.trim();
-    const password = document.getElementById('sideLoginPassword').value;
+  let html = '';
 
-    if (!email || !password) {
-      alert('Please fill in both email and password.');
+snapshot.forEach(docSnap => {
+  const blog = docSnap.data();
+  const id = docSnap.id;
+
+  html += `
+    <div class="blog-card">
+      <h2><a href="blog-details.html?id=${id}">${blog.title}</a></h2>
+      <small>By ${blog.author} • ${new Date(blog.createdAt?.seconds * 1000).toLocaleDateString()}</small>
+      <p>${blog.description.substring(0, 120)}...</p>
+      <a href="blog-details.html?id=${id}">Read More →</a>
+    </div>
+  `;
+});
+
+  const blogContainer = document.getElementById("blogContainer");
+
+  async function renderBlogs() {
+    const blogRef = collection(db, "blogs");
+    const q = query(blogRef, orderBy("createdAt", "desc"));
+    const snapshot = await getDocs(q);
+    
+    if (snapshot.empty) {
+      blogContainer.innerHTML = `<p style="color: white;">No blog posts found.</p>`;
       return;
     }
 
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
+    let html = '';
 
-      const contentType = response.headers.get('content-type') || '';
-      let data = {};
-      if (contentType.includes('application/json')) {
-        data = await response.json();
-      }
+    snapshot.forEach((doc) => {
+      const blog = doc.data();
+      html += `
+      <div class="vs-blog">
+        <div class="vs-blog__img">
+          <a class="vs-blog__img_link" href="${blog.detailLink || '#'}">
+            <img src="${blog.imageUrl}" alt="${blog.title}" class="vs-blog__img_img" href="blog-details.html?id=${doc.id}">
+          </a>
+        </div>
+        <div class="vs-blog__content">
+          <div class="vs-blog__meta">
+            <span class="vs-blog__meta_text vs-blog__meta_admin">Written by: 
+              <a class="vs-blog__meta_link" href="#">${blog.author}</a>
+            </span>
+            <span class="vs-blog__meta_text">
+              ${blog.createdAt?.seconds ? new Date(blog.createdAt.seconds * 1000).toLocaleDateString() : ''}
+            </span>
+          </div>
+          <h2 class="vs-blog__title">
+            <a class="vs-blog__title_link" href="${blog.detailLink || '#'}">${blog.title}</a>
+          </h2>
+          <p class="vs-blog__desc">${blog.description}</p>
+          <div class="vs-blog__footer">
+            <a class="vs-blog__link" href="blog-details.html?id=${doc.id}">read more <i class="fa-solid fa-angles-right"></i></a>
+            <div class="vs-blog__share">
+              <span>Share</span>
+              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
+    });
 
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        updateUserUI(data.user);
-      } else {
-        // Show message for wrong password 
-        alert(data.message || 'Incorrect email or password.');
-      }
-    } catch (err) {
-      console.error('Login error:', err);
-      alert('Login failed due to network or server error.');
-    }
+    blogContainer.innerHTML = html;
   }
 
-  // Handle Signup
-  async function handleSidemenuSignup(event) {
-    event.preventDefault();
-    const name = document.getElementById('sideSignupName').value.trim();
-    const email = document.getElementById('sideSignupEmail').value.trim();
-    const password = document.getElementById('sideSignupPassword').value;
-    const confirmPassword = document.getElementById('sideConfirmPassword').value;
-
-    if (!name || !email || !password || !confirmPassword) {
-      alert('Please fill in all fields.');
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-
-    if (!isStrongPassword(password)) {
-      alert(
-        'Password is weak.\nIt must be at least 8 characters and include:\n• Uppercase\n• Lowercase\n• Number\n• Special character'
-      );
-      return;
-    }
-
-    try {
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password })
-      });
-
-      const contentType = response.headers.get('content-type') || '';
-      let data = {};
-      if (contentType.includes('application/json')) {
-        data = await response.json();
-      }
-
-      if (response.ok) {
-        alert('Signup successful. You can now log in.');
-        showSideLoginForm();
-      } else {
-        alert(data.message || 'Signup failed. Try a different email.');
-      }
-    } catch (err) {
-      console.error('Signup error:', err);
-      alert('Signup failed due to network or server error.');
-    }
-  }
-
-  // Handle Logout
-  function handleLogout() {
-    localStorage.removeItem('token');
-    document.getElementById('loggedInState').style.display = 'none';
-    showSideLoginForm();
-  }
+  renderBlogs();
 </script>
+ 
 </body>
 
 </html>
