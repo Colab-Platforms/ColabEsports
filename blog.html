@@ -846,7 +846,7 @@ padding-top: 100px;
               <a class="vs-header__logo-link" href="/">
                 <img
                   src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/Coloab_Esports_log-White_KB_1.png?v=1750315800"
-                  alt="ColabEsports Logo - Gaming store"
+                  alt="ColabEsports Logo "
                   loading="lazy"
                   width="105"
                   height="auto"
@@ -1212,13 +1212,13 @@ snapshot.forEach(docSnap => {
 
     let html = '';
 
-    snapshot.forEach((doc) => {
+   snapshot.forEach((doc) => {
       const blog = doc.data();
       html += `
       <div class="vs-blog">
         <div class="vs-blog__img">
-          <a class="vs-blog__img_link" href="${blog.detailLink || '#'}">
-            <img src="${blog.imageUrl}" alt="${blog.title}" class="vs-blog__img_img" href="blog-details.html?id=${doc.id}">
+          <a class="vs-blog__img_link" href="blog-details.html?id=${doc.id}">
+            <img src="${blog.imageUrl}"  alt="${blog.title}" class="vs-blog__img_img" ">
           </a>
         </div>
         <div class="vs-blog__content">
@@ -1231,7 +1231,7 @@ snapshot.forEach(docSnap => {
             </span>
           </div>
           <h2 class="vs-blog__title">
-            <a class="vs-blog__title_link" href="${blog.detailLink || '#'}">${blog.title}</a>
+            <a class="vs-blog__title_link" href="blog-details.html?id=${doc.id}">${blog.title}</a>
           </h2>
           <p class="vs-blog__desc">${blog.description}</p>
           <div class="vs-blog__footer">
