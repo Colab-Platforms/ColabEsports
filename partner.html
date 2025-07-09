@@ -1,0 +1,61 @@
+<div id="referModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+  <div style="width: 90%; max-width: 900px; background-color: #fff; padding: 2rem; border-radius: 10px; position: relative;">
+    
+    <!-- Close Button -->
+    <button onclick="closeReferModal()" 
+            style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 28px; font-weight: bold; cursor: pointer; color: #333;">
+      &times;
+    </button>
+
+    <!-- Header -->
+    <h2 style="text-align: center; margin-bottom: 1rem;">🏢 Register Your Gaming Café</h2>
+
+    <!-- Embedded Google Form -->
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLScMpoMImkBUv2LTJxQafo6ncMPY_wPnwQijykqI_8WTTv_rjA/viewform?embedded=true" 
+      width="100%" 
+      height="800" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0" 
+      style="border-radius: 8px; background: #f9f9f9;">
+      Loading…
+    </iframe>
+  </div>
+</div
+
+
+
+
+ <!--  Script here for cafe -->
+
+<script>
+  document.getElementById('openReferModal').addEventListener('click', function () {
+    document.getElementById('referModal').style.display = 'flex';
+  });
+
+  function closeReferModal() {
+    document.getElementById('referModal').style.display = 'none';
+  }
+</script>
+
+
+
+<script>
+  // Open the modal
+  document.getElementById('refer-cafe-btn').addEventListener('click', function () {
+    document.getElementById('refer-cafe-modal').classList.remove('hidden');
+  });
+
+  // Close modal and go to index.html
+  document.querySelector('.close').addEventListener('click', function () {
+    document.getElementById('refer-cafe-modal').classList.add('hidden');
+
+    // ✅ Redirect to index.html after slight delay
+    setTimeout(function () {
+      window.location.href = "http://127.0.0.1:5500/index.html";
+    },); // 300ms delay for smoother experience
+  });
+</script>
+
+
