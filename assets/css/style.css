@@ -6639,7 +6639,7 @@ Version: 1.0.0
   font-size: 15px;
 }
 .vs-footer__social a:hover {
-  color: var(--vs-theme-color);
+  color: #DF2A00;
 }
 .vs-footer__newsletter--bottom {
   /* Small devices */
@@ -10960,7 +10960,7 @@ Version: 1.0.0
 }
 .sidemenu-wrapper .sidemenu-content {
   --sidebarPosition: 589px;
-  background-color: var(--vs-theme-color);
+  background-color: #000000;
   width: var(--sidebarPosition);
   margin-left: auto;
   padding: 40px 55px 55px 55px;
@@ -11004,7 +11004,7 @@ Version: 1.0.0
 .sidemenu-wrapper .closeButton {
   display: inline-block;
   border: none;
-  color: var(--bg-color);
+  color: #DA2A00;
   background-color: transparent;
   font-size: 40px;
   padding: 0;
@@ -11138,9 +11138,10 @@ Version: 1.0.0
 }
 .sidemenu-wrapper.show .sidemenu-content {
   right: 0;
-  opacity: 1;
-  visibility: visible;
+  background-color: #000000;
+  border: 2px solid #DA2A00; /* Change this color as needed */
 }
+
 
 .sidemenu-contact {
   margin: 0 0 40px 0;
@@ -12067,7 +12068,7 @@ Version: 1.0.0
   color: var(--body-color);
 }
 .social-style ul a:hover {
-  color: var(--vs-theme-color);
+  color: #DA2A00;
 }
 
 .contact-divider {
@@ -18128,6 +18129,7 @@ Version: 1.0.0
 
       .sidemenu-wrapper.show .sidemenu-content {
         right: 0;
+        background-color: #000000;
       }
 
       @media (max-width: 768px) {
@@ -18350,9 +18352,11 @@ Version: 1.0.0
 
       .sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
         transition-delay: 0.1s;
+        color:white;
       }
       .sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
         transition-delay: 0.2s;
+         color:white;
       }
       .sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
         transition-delay: 0.3s;
@@ -18483,14 +18487,15 @@ Version: 1.0.0
 }
 
 .auth-form-side {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #141414;
   border-radius: 15px;
+  border-color: #DA2A00;
   padding: 25px;
   margin-bottom: 20px;
 }
 
 .auth-title {
-  color: var(--bg-color);
+  color: white;
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -18509,7 +18514,7 @@ Version: 1.0.0
 }
 
 .form-group-side label {
-  color: var(--bg-color);
+  color: white;
   font-weight: 500;
   margin-bottom: 5px;
   font-size: 0.9rem;
@@ -18547,12 +18552,12 @@ Version: 1.0.0
 }
 
 .auth-btn-side.primary {
-  background-color: var(--bg-color);
-  color: var(--vs-theme-color);
+  background-color: #FFA700;
+  color: #000000;
 }
 
 .auth-btn-side.primary:hover {
-  background-color: #333;
+  background-color: #DA2A00;
   transform: translateY(-2px);
 }
 
@@ -18579,20 +18584,20 @@ Version: 1.0.0
 }
 
 .auth-switch p {
-  color: var(--bg-color);
+  color: white;
   font-size: 0.9rem;
   margin: 0;
 }
 
 .auth-switch a {
-  color: var(--bg-color);
+  color:white;
   text-decoration: none;
   font-weight: 600;
   border-bottom: 1px solid var(--bg-color);
 }
 
 .auth-switch a:hover {
-  color: var(--white-color);
+  color: #DA2A00;
   border-bottom-color: var(--white-color);
 }
 
