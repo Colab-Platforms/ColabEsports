@@ -15,16 +15,16 @@
         }
 
         body {
-            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 101, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #0f0f0f 50%, #1a1a1a 75%, #0a0a0a 100%);
-            color: #ffffff;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: #000000;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--body-color);
+  font-weight: 400;
+  /* Small devices */
         }
+
 
         /* Animated Background Particles */
         .particles {
@@ -93,16 +93,16 @@
         }
 
         .lobby-title {
-            font-family: 'Orbitron', monospace;
+           
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(45deg, #ffa700, #ff8533, #ffaa66, #ff6500);
+           background: linear-gradient(45deg, #FFA700 0%, #DF2A00 100%);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(255, 101, 0, 0.5);
+            text-shadow: 0 0 30px rgb(255, 102, 0);
             animation: gradientShift 3s ease-in-out infinite;
             letter-spacing: 3px;
         }
@@ -121,8 +121,8 @@
         }
 
         .match-info {
-            background: rgba(255, 101, 0, 0.1);
-            border: 1px solid rgba(255, 101, 0, 0.3);
+            background: #141411;
+            border: 1px solid #DF2A00;
             border-radius: 15px;
             padding: 20px 40px;
             display: inline-block;
@@ -149,10 +149,10 @@
         }
 
         .match-type {
-            color: #ff6500;
+            color: #FFA700;
             font-weight: 700;
             font-size: 1.4rem;
-            font-family: 'Orbitron', monospace;
+              
             letter-spacing: 1px;
         }
 
@@ -184,20 +184,21 @@
         }
 
         .level-badge {
-            background: linear-gradient(135deg, #ff6500, #ff8533);
+           background: linear-gradient(90deg, #FFA700 0%, #DF2A00 100%);
+
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 0.9rem;
-            font-family: 'Orbitron', monospace;
+              
         }
 
         .xp-display {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #ffd700;
+            color: #FFA700;
             font-weight: 600;
         }
 
@@ -212,7 +213,7 @@
 
         .xp-fill {
             height: 100%;
-            background: linear-gradient(90deg, #ff6500, #ffd700);
+            background: linear-gradient(90deg, #FFA700, #FFA700);
             width: 65%;
             border-radius: 3px;
             animation: xpGlow 2s ease-in-out infinite alternate;
@@ -244,17 +245,18 @@
             padding: 35px;
             position: relative;
             overflow: hidden;
+            background-color: #141414;
         }
 
         .lobby-section-title {
-            color: #ff6500;
+            color: #FFA700;
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: 'Orbitron', monospace;
+              
             letter-spacing: 1px;
         }
 
@@ -297,8 +299,9 @@
         }
 
         .team.team-b {
-            border-color: rgba(226, 74, 74, 0.3);
-            color: #e24a4a;
+            border-color:#DF2A00;
+            color: #DF2A00;
+            background-color: #000000;
         }
 
         .team:hover {
@@ -318,7 +321,7 @@
         .team-name {
             font-weight: 700;
             font-size: 1.2rem;
-            font-family: 'Orbitron', monospace;
+              
             letter-spacing: 1px;
         }
 
@@ -327,7 +330,7 @@
             padding: 8px 16px;
             border-radius: 25px;
             font-weight: bold;
-            font-family: 'Orbitron', monospace;
+              
             backdrop-filter: blur(10px);
         }
 
@@ -367,28 +370,32 @@
         }
 
         .player-slot:hover {
-            background: rgba(255, 101, 0, 0.1);
+             background: #141411;
             border-color: rgba(255, 101, 0, 0.5);
             transform: translateX(8px);
             box-shadow: 0 5px 20px rgba(255, 101, 0, 0.2);
         }
 
         .player-slot.filled {
-            background: rgba(255, 101, 0, 0.1);
-            border-color: rgba(255, 101, 0, 0.3);
+             background: #141411;
+           border-color: #DF2A00;
+           color: #DF2A00;
+            
         }
 
         .player-slot.empty {
             border-style: dashed;
             justify-content: center;
             opacity: 0.7;
+            background: #141411;
+             color: #DF2A00;
         }
 
         .player-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff6500, #ff8533);
+            background: linear-gradient(135deg, #FFA700, #DF2A00);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -403,7 +410,7 @@
             position: absolute;
             inset: -2px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff6500, transparent, #ff8533);
+            background: linear-gradient(45deg, #FFA700, transparent, #DF2A00);
             z-index: -1;
             animation: rotate 3s linear infinite;
         }
@@ -439,7 +446,7 @@
         }
 
         .stat:hover {
-            color: #ff6500;
+            color: #FFA700;
         }
 
         .player-status {
@@ -476,7 +483,7 @@
         }
 
         .control-btn {
-            background: linear-gradient(135deg, #ff6500, #ff8533);
+            background: linear-gradient(135deg, #FFA700, #ff8533);
             color: white;
             border: none;
             padding: 18px 35px;
@@ -491,7 +498,7 @@
             box-shadow: 0 6px 20px rgba(255, 101, 0, 0.3);
             position: relative;
             overflow: hidden;
-            font-family: 'Orbitron', monospace;
+              
             letter-spacing: 1px;
         }
 
@@ -516,7 +523,7 @@
         }
 
         .control-btn.secondary {
-            background: rgba(255, 255, 255, 0.1);
+            background:#141411;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
@@ -538,6 +545,7 @@
             border-radius: 20px;
             padding: 30px;
             position: relative;
+            background:#141414;
         }
 
         .setting-group {
@@ -599,18 +607,18 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 30%, rgba(255, 101, 0, 0.1) 0%, transparent 50%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+              #000000
+                
+
         }
 
         .map-name {
             font-size: 1.3rem;
             font-weight: bold;
-            color: #ff6500;
+            color: #FFA700;
             z-index: 1;
             position: relative;
-            font-family: 'Orbitron', monospace;
+              
             letter-spacing: 1px;
         }
 
@@ -637,7 +645,7 @@
             padding: 12px 16px;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid #ff6500;
+            border-left: 3px solid #FFA700;
             transition: all 0.3s ease;
             animation: messageSlide 0.3s ease;
         }
@@ -654,16 +662,16 @@
         }
 
         .chat-message:hover {
-            background: rgba(255, 101, 0, 0.1);
+             background: #141411;
             transform: translateX(5px);
         }
 
         .message-author {
-            color: #ff6500;
+            color: #FFA700;
             font-weight: 700;
             font-size: 0.9rem;
             margin-bottom: 5px;
-            font-family: 'Orbitron', monospace;
+              
         }
 
         .message-text {
@@ -699,13 +707,13 @@
         }
 
         .chat-input:focus {
-            border-color: #ff6500;
+            border-color: #FFA700;
             background: rgba(255, 101, 0, 0.05);
             box-shadow: 0 0 20px rgba(255, 101, 0, 0.2);
         }
 
         .chat-send {
-            background: linear-gradient(135deg, #ff6500, #ff8533);
+            background: linear-gradient(135deg, #FFA700, #ff8533);
             border: none;
             border-radius: 10px;
             padding: 15px 20px;
@@ -730,6 +738,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            background-color:#141414;
         }
 
         .status-bar::before {
@@ -739,7 +748,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, #ff6500, #4a90e2, #ff6500);
+           background: linear-gradient(90deg, #FFA700 0%, #DF2A00 100%);
             animation: statusGlow 3s ease-in-out infinite;
         }
 
@@ -765,19 +774,19 @@
         }
 
         .status-item:hover {
-            color: #ff6500;
+            color: #FFA700;
         }
 
         .status-item i {
-            color: #ff6500;
+            color: #FFA700;
             font-size: 1.1rem;
         }
 
         .countdown {
             font-size: 1.4rem;
             font-weight: bold;
-            color: #ff6500;
-            font-family: 'Orbitron', monospace;
+            color: #FFA700;
+              
             letter-spacing: 1px;
             text-shadow: 0 0 10px rgba(255, 101, 0, 0.5);
         }
@@ -795,7 +804,7 @@
 
         .bar {
             width: 4px;
-            background: linear-gradient(to top, #ff6500, #ff8533);
+            background: linear-gradient(to top, #FFA700, #ff8533);
             border-radius: 2px;
             animation: visualizer 1s ease-in-out infinite;
         }
@@ -822,7 +831,7 @@
         }
 
         .chat-messages::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #ff6500, #ff8533);
+            background: linear-gradient(135deg, #FFA700, #ff8533);
             border-radius: 4px;
         }
 
@@ -1110,7 +1119,7 @@
                     <div class="setting-group">
                         <label class="setting-label">Server Region</label>
                         <div class="setting-value">
-                            Southeast Asia
+                            India
                             <i class="fas fa-globe"></i>
                         </div>
                     </div>
@@ -1358,7 +1367,7 @@
                 } else {
                     this.isReady = false;
                     readyBtn.innerHTML = '<i class="fas fa-check"></i> READY UP';
-                    readyBtn.style.background = 'linear-gradient(135deg, #ff6500, #ff8533)';
+                    readyBtn.style.background = 'linear-gradient(135deg, #FFA700, #ff8533)';
                     this.showNotification('Ready status cancelled', 'info');
                 }
                 
