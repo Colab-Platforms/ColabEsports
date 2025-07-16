@@ -2882,18 +2882,18 @@ margin-left: 70px;
             <i class="fas fa-user"></i>
             <span>View Profile</span>
           </a>
+    <a href="profile.html?tab=myteam" class="menu-option sidemenu-item">
+  <i class="fas fa-users"></i>
+  <span>My Team</span>
+</a>
+
           
-          <a href="#" class="menu-option sidemenu-item" onclick="handleMyTeam()">
-            <i class="fas fa-users"></i>
-            <span>My Team</span>
-          </a>
-          
-          <a href="#" class="menu-option sidemenu-item" onclick="handleSettings()">
+          <a href="update.html" class="menu-option sidemenu-item" onclick="handleSettings()">
             <i class="fas fa-cog"></i>
             <span>Settings</span>
           </a>
           
-          <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
+          <a href="payment.html" class="menu-option sidemenu-item" onclick="handleWallet()">
             <i class="fas fa-wallet"></i>
             <span>Wallet</span>
           </a>
@@ -3133,7 +3133,7 @@ margin-left: 70px;
                   </a>
                 </li>
   <li class="menu-item-has-children">
-            <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" >Media</a>
+            <a class="vs-svg-assets1" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" >Media</a>
             <ul class="sub-menu">
               <li><a href="News.html">NEWS</a></li>
               <li><a href="blog.html">Blogs</a></li>
@@ -4436,8 +4436,10 @@ function handleViewProfile() {
 }
 
 function handleMyTeam() {
-  alert('My Team feature coming soon!');
+  window.location.href = 'profile.html#teamsTab';
 }
+
+
 
 function handleSettings() {
   alert('Settings feature coming soon!');
