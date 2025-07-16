@@ -105,16 +105,6 @@
   <link rel="stylesheet" href="assets/css/style.css">
 	<!-- auth welcome modal CSS -->
   <link rel="stylesheet" href="assets/css/auth.css">
-	<! -- Microsoft Clarity -->
-	
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "sf99mxn1s7");
-</script>
-	
   <style>
   body{
     background-color: #000000;
@@ -609,7 +599,7 @@
 }
 
 .auth-btn-side.logout {
-  background-color: #dc3545;
+  background-color: #df2a00;
   color: white;
   display: flex;
   align-items: center;
@@ -619,7 +609,7 @@
 }
 
 .auth-btn-side.logout:hover {
-  background-color: #c82333;
+  background-color: #FFA700;
   transform: translateY(-2px);
 }
 
@@ -1298,7 +1288,8 @@ padding-top: 100px;
             .site-title { font-size: 1.5rem; }
         }
 
-	     /* images */
+
+        /* images */
         .slider-bottom-images {
   display: flex;
   justify-content: center;
@@ -1325,6 +1316,1197 @@ padding-top: 100px;
   height: 400px; /* Adjust as needed */
 }
  /* images */
+
+
+ /* Friends List Section */
+.friends-list-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-left: 30px;
+}
+
+.friends-title {
+  color: var(--bg-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.friends-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  margin-bottom: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.friend-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.friend-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.friend-info {
+  flex: 1;
+}
+
+.friend-name {
+  color: var(--bg-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.friend-status {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.friend-status.online {
+  color: #4CAF50;
+}
+
+/* Find Friend Modal */
+.find-friend-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.find-friend-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.find-friend-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 2px solid #DF2A00;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.find-friend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.find-friend-header h2 {
+  color: #DF2A00;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.find-friend-close {
+  background: none;
+  border: none;
+  color: #DF2A00;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+  line-height: 1;
+}
+
+.find-friend-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.find-friend-search {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.find-friend-search input {
+  width: 100%;
+  padding: 15px 45px 15px 20px;
+  border: 2px solid rgba(223, 42, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.find-friend-search input:focus {
+  outline: none;
+  border-color: #DF2A00;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.find-friend-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #DF2A00;
+  font-size: 18px;
+}
+
+.find-friend-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-result-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.search-result-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-result-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #DF2A00;
+}
+
+.search-result-details h4 {
+  color: #fff;
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.search-result-details p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.add-friend-btn {
+  padding: 8px 20px;
+  background-color: #DF2A00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-friend-btn:hover {
+  background-color: #ff3a00;
+  transform: translateY(-2px);
+}
+
+.add-friend-btn.added {
+  background-color: #4CAF50;
+  cursor: default;
+}
+
+.add-friend-btn.added:hover {
+  transform: none;
+}
+
+.no-results {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 40px 20px;
+}
+
+/* Scrollbar for results */
+.find-friend-results::-webkit-scrollbar,
+.friends-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.find-friend-results::-webkit-scrollbar-track,
+.friends-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.find-friend-results::-webkit-scrollbar-thumb,
+.friends-container::-webkit-scrollbar-thumb {
+  background: #DF2A00;
+  border-radius: 5px;
+}
+
+.find-friend-results::-webkit-scrollbar-thumb:hover,
+.friends-container::-webkit-scrollbar-thumb:hover {
+  background: #ff3a00;
+}
+
+/* Update sidemenu scrolling */
+.sidemenu-content {
+  --sidebarPosition: 400px;
+  background-color: var(--vs-theme-color);
+  width: var(--sidebarPosition);
+  margin-left: auto;
+  padding: 40px 30px 30px 30px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  right: calc(-1 * var(--sidebarPosition));
+  cursor: auto;
+  transform-origin: right;
+  transition: right 0.3s ease;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidemenu-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Update find friend modal scrolling */
+.find-friend-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 2px solid #DF2A00;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.find-friend-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Update find friend results scrolling */
+.find-friend-results {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.find-friend-results::-webkit-scrollbar {
+  display: none;
+}
+
+/* Update friends container scrolling */
+.friends-container {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.friends-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Update friend item styling for invite button */
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.friend-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.friend-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.friend-info {
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.friend-name {
+  color: var(--bg-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friend-status {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.friend-status.online {
+  color: #4CAF50;
+}
+
+/* Invite button styling */
+.invite-btn {
+  padding: 5px 12px;
+  background-color: #DF2A00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.invite-btn:hover {
+  background-color: #ff3a00;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(223, 42, 0, 0.3);
+}
+
+.invite-btn:active {
+  transform: translateY(0);
+}
+
+.invite-btn.invited {
+  background-color: #4CAF50;
+  cursor: default;
+}
+
+.invite-btn.invited:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Add smooth scroll behavior */
+.sidemenu-content,
+.find-friend-content,
+.find-friend-results,
+.friends-container {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add visual indicator for scrollable areas */
+.scroll-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  pointer-events: none;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Main Sidemenu Styles */
+.sidemenu-wrapper {
+  position: fixed;
+  z-index: 999999;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  isolation: isolate;
+}
+
+.sidemenu-wrapper.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidemenu-content {
+  --sidebarPosition: 400px;
+  background-color: var(--vs-theme-color);
+  width: var(--sidebarPosition);
+  margin-left: auto;
+  padding: 40px 30px 30px 30px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  right: calc(-1 * var(--sidebarPosition));
+  cursor: auto;
+  transform-origin: right;
+  transition: right 0.3s ease;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidemenu-content::-webkit-scrollbar {
+  display: none;
+}
+
+.sidemenu-wrapper.show .sidemenu-content {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .sidemenu-content {
+    --sidebarPosition: 300px;
+    padding: 20px 15px;
+  }
+}
+
+.sidemenu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.closeButton {
+  display: inline-block;
+  border: none;
+  color: var(--bg-color);
+  background-color: transparent;
+  font-size: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transform: rotate(0);
+  transition: all ease 0.4s;
+  font-family: var(--title-font);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: var(--white-color);
+  transform: rotate(180deg);
+}
+
+.sidemenu-hr {
+  height: 4px;
+  border-top: 1px solid var(--bg-color);
+  border-bottom: 1px solid var(--bg-color);
+  opacity: 1;
+  margin: 30px 0 35px;
+}
+
+.sidemenu-inner {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  justify-content: space-between;
+}
+
+/* Authentication Section in Sidemenu */
+.auth-section {
+  margin-bottom: 30px;
+}
+
+.auth-form-side {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.auth-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.side-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-side label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.form-group-side input {
+  padding: 12px 15px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-group-side input:focus {
+  outline: none;
+  border-color: var(--bg-color);
+  background-color: white;
+}
+
+.form-group-side input::placeholder {
+  color: #666;
+}
+
+.auth-btn-side {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.auth-btn-side.primary {
+  background-color: #FFA700;
+  color: var(--vs-theme-color);
+}
+
+.auth-btn-side.primary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.auth-btn-side.logout {
+  background-color: #df2a00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.auth-btn-side.logout:hover {
+  background-color: #ffa700;
+  transform: translateY(-2px);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.auth-switch p {
+  color: white;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-switch a {
+  color: #FFA700;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.auth-switch a:hover {
+  color: var(--white-color);
+  border-bottom-color: var(--white-color);
+}
+
+/* Logged In State */
+.logged-in-state {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
+
+.user-profile {
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-color);
+  object-fit: cover;
+}
+
+.user-details h4 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.user-details p {
+  color: white;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Profile Menu Options */
+.profile-menu {
+  margin-bottom: 40px;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.menu-option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-5px);
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.menu-option i {
+  font-size: 20px;
+  width: 25px;
+  text-align: center;
+}
+
+/* Friends List Section */
+.friends-list-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.friends-title {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.friends-container {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.friends-container::-webkit-scrollbar {
+  display: none;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background-color: #141414;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.friend-item:hover {
+  background-color:#DA2A00;
+}
+
+.friend-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.friend-info {
+  flex: 1;
+  min-width: 0; /* Allow text truncation */
+}
+
+.friend-name {
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friend-status {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.friend-status.online {
+  color: #ffa700;
+}
+
+/* Invite button styling */
+.invite-btn {
+  padding: 5px 12px;
+  background-color: #DF2A00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.invite-btn:hover {
+  background-color: #FFA700;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(223, 42, 0, 0.3);
+}
+
+.invite-btn:active {
+  transform: translateY(0);
+}
+
+.invite-btn.invited {
+  background-color: #4CAF50;
+  cursor: default;
+}
+
+.invite-btn.invited:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Animation Classes */
+.sidemenu-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.3s ease;
+}
+
+.sidemenu-wrapper.show .sidemenu-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.sidemenu-wrapper.show .sidemenu-item:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+/* Find Friend Modal */
+.find-friend-modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  isolation: isolate;
+}
+
+.find-friend-modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.find-friend-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 2px solid #DF2A00;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.find-friend-content::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.find-friend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.find-friend-header h2 {
+  color: #DF2A00;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.find-friend-close {
+  background: none;
+  border: none;
+  color: #DF2A00;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+  line-height: 1;
+}
+
+.find-friend-close:hover {
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.find-friend-search {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.find-friend-search input {
+  width: 100%;
+  padding: 15px 45px 15px 20px;
+  border: 2px solid rgba(223, 42, 0, 0.3);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.find-friend-search input:focus {
+  outline: none;
+  border-color: #DF2A00;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.find-friend-search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #DF2A00;
+  font-size: 18px;
+}
+
+.find-friend-results {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.find-friend-results::-webkit-scrollbar {
+  display: none;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-result-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.search-result-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-result-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #DF2A00;
+}
+
+.search-result-details h4 {
+  color: #fff;
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.search-result-details p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.add-friend-btn {
+  padding: 8px 20px;
+  background-color: #DF2A00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-friend-btn:hover {
+  background-color: #ff3a00;
+  transform: translateY(-2px);
+}
+
+.add-friend-btn.added {
+  background-color: #4CAF50;
+  cursor: default;
+}
+
+.add-friend-btn.added:hover {
+  transform: none;
+}
+
+.no-results {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 40px 20px;
+}
+
+/* Add visual indicator for scrollable areas (optional) */
+.scroll-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  pointer-events: none;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Body scroll lock */
+body.scroll-locked {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Notification styles */
+.notification, .error-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999999;
+  animation: slideIn 0.3s ease;
+}
+
+.notification {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.error-notification {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
     </style>
 
 </head>
@@ -1610,7 +2792,8 @@ margin-left: 70px;
   <!--==============================
 		Offcanvas
 	============================== -->
-   <div class="sidemenu-wrapper" id="sidemenuWrapper">
+    <!-- Sidemenu -->
+<div class="sidemenu-wrapper" id="sidemenuWrapper">
   <div class="sidemenu-content">
     <div class="sidemenu-logo sidemenu-item">
       <a href="index.html">
@@ -1624,9 +2807,7 @@ margin-left: 70px;
       </a>
       <button class="closeButton" onclick="closeSidemenu()">×</button>
     </div>
-
     <hr class="sidemenu-hr sidemenu-item" />
-
     <div class="sidemenu-inner">
       <div class="sidemenu-body">
         
@@ -1652,7 +2833,7 @@ margin-left: 70px;
               <p>Don't have an account? <a href="#" onclick="showSideSignupForm()">Please Sign Up</a></p>
             </div>
           </div>
-
+          
           <!-- Signup Form -->
           <div id="signupFormSide" class="auth-form-side" style="display: none;">
             <h3 class="auth-title">Create New Account</h3>
@@ -1680,7 +2861,7 @@ margin-left: 70px;
               <p>Already have an account? <a href="#" onclick="showSideLoginForm()">Login here</a></p>
             </div>
           </div>
-
+          
           <!-- Logged In State -->
           <div id="loggedInState" class="logged-in-state" style="display: none;">
             <div class="user-profile">
@@ -1689,97 +2870,93 @@ margin-left: 70px;
               </div>
               <div class="user-details">
                 <h4 id="sideUserName">Welcome User!</h4>
-                <p id="sideUserEmail">@username</p>
+                <p id="sideUserEmail">user@example.com</p>
               </div>
             </div>
-           
           </div>
         </div>
-
+        
         <!-- Profile Menu Options -->
         <div class="profile-menu" id="profileMenuOptions" style="display: none;">
-          <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
-            <i class="fas fa-wallet"></i>
-            <span>Transactions</span>
+          <a href="index4.html" class="menu-option sidemenu-item" onclick="handleViewProfile()">
+            <i class="fas fa-user"></i>
+            <span>View Profile</span>
           </a>
           
-          <a href="#" class="menu-option sidemenu-item" onclick="handleKYC()">
-            <i class="fas fa-id-card"></i>
-            <span>KYC Verification</span>
-          </a>
-          <!-- KYC Steps Section (initially hidden) -->
-<div id="kycSteps" style="display: none; padding: 10px 20px;">
-  <div class="kyc-step" id="step-document">
-    <i class="fas fa-file-alt step-icon"></i>
-    <span>Document</span>
-    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
-  </div>
-  <div class="kyc-step" id="step-aadhar">
-    <i class="fas fa-id-card step-icon"></i>
-    <span>Aadhar</span>
-    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
-  </div>
-  <div class="kyc-step" id="step-status">
-    <i class="fas fa-tasks step-icon"></i>
-    <span>Status</span>
-    <i class="fas fa-check-circle status-icon uploaded" style="display: none;"></i>
-  </div>
-</div>
-          
-          <a href="#" class="menu-option sidemenu-item" onclick="handleXP()">
-            <i class="fas fa-star"></i>
-            <span>XP Points</span>
-          </a>
-          
-          <a href="#" class="menu-option sidemenu-item" onclick="handleSupport()">
-            <i class="fas fa-headset"></i>
-            <span>Support</span>
+          <a href="#" class="menu-option sidemenu-item" onclick="handleMyTeam()">
+            <i class="fas fa-users"></i>
+            <span>My Team</span>
           </a>
           
           <a href="#" class="menu-option sidemenu-item" onclick="handleSettings()">
             <i class="fas fa-cog"></i>
             <span>Settings</span>
           </a>
-           <button class="auth-btn-side logout" onclick="handleLogout()">
-              <i class="fas fa-sign-out-alt"></i> Logout
-            </button>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="handleWallet()">
+            <i class="fas fa-wallet"></i>
+            <span>Wallet</span>
+          </a>
+          
+          <a href="#" class="menu-option sidemenu-item" onclick="openFindFriendModal()">
+            <i class="fas fa-user-plus"></i>
+            <span>Find Friend</span>
+          </a>
+          
+          <!-- Friends List Section -->
+          <div id="friendsList" class="friends-list-section">
+            <h4 class="friends-title">My Friends</h4>
+            <div id="friendsContainer" class="friends-container">
+              <!-- Friends will be dynamically added here -->
+            </div>
+          </div>
+          
+          <button class="auth-btn-side logout" onclick="handleLogout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
         </div>
       </div>
-
+      
       <!-- Rest of sidebar content (subscription section, etc.) -->
       <div class="subscription-section" style="margin-bottom: 150px;">
-            <h4 class="sidemenu-subtitle sidemenu-item" style="padding-left: 150px;">Disclaimer</h4>
-            
-            <p class="sidemenu-text sidemenu-item">
-  By logging in or using Colab Esports, you agree to our 
-  <a href="terms.html" target="_blank">Terms & Conditions</a>, 
-  <a href="privacy" target="_blank">Privacy Policy</a>, and 
-  <a href="refund.html" target="_blank">all platform rules</a>. 
-  This is a skill-based platform. Participation involves financial risk and may be addictive. Play responsibly.
-</p>
-          </div>
-          <div class="vs-footer__social" style="margin-left: 180px;">
-                  
-                    <a href="https://x.com/colabesports"
-                      ><i class="fa-brands fa-x-twitter"></i
-                    ></a>
-                    <a href="https://www.instagram.com/colabesports/"
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                    <a
-                      href="https://www.youtube.com/channel/UCPq_-QWa4TcuKP7OQozotOA"
-                      ><i class="fab fa-youtube"></i
-                    ></a>
-                    <a href="https://discord.com/channels/1384163322303348947/1384163323397935217"
-                      ><i class="fab fa-discord"></i
-                    ></a>
-                    <a href="https://steamcommunity.com/profiles/76561199867149445/"
-                      ><i class="fab fa-steam"></i
-                    ></a>
-                    <a href="https://www.reddit.com/user/ColabEsports/"
-                      ><i class="fab fa-reddit-alien"></i
-                    ></a>
-                  </div>
+        <h4 class="sidemenu-subtitle sidemenu-item" style="padding-left: 150px;">Disclaimer</h4>
+        
+        <p class="sidemenu-text sidemenu-item">
+          By logging in or using Colab Esports, you agree to our 
+          <a href="terms.html" target="_blank">Terms & Conditions</a>, 
+          <a href="privacy" target="_blank">Privacy Policy</a>, and 
+          <a href="refund.html" target="_blank">all platform rules</a>. 
+          This is a skill-based platform. Participation involves financial risk and may be addictive. Play responsibly.
+        </p>
+      </div>
+      
+      <div class="vs-footer__social" style="margin-left: 180px;">
+        <a href="https://x.com/colabesports"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/colabesports/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCPq_-QWa4TcuKP7OQozotOA"><i class="fab fa-youtube"></i></a>
+        <a href="https://discord.com/channels/1384163322303348947/1384163323397935217"><i class="fab fa-discord"></i></a>
+        <a href="https://steamcommunity.com/profiles/76561199867149445/"><i class="fab fa-steam"></i></a>
+        <a href="https://www.reddit.com/user/ColabEsports/"><i class="fab fa-reddit-alien"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Find Friend Modal -->
+<div id="findFriendModal" class="find-friend-modal">
+  <div class="find-friend-content">
+    <div class="find-friend-header">
+      <h2>Find Friends</h2>
+      <button class="find-friend-close" onclick="closeFindFriendModal()">&times;</button>
+    </div>
+    
+    <div class="find-friend-search">
+      <input type="text" id="friendSearchInput" placeholder="Search by username or email..." onkeyup="searchFriends()">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+    
+    <div class="find-friend-results" id="searchResults">
+      <!-- Search results will appear here -->
     </div>
   </div>
 </div>
@@ -1912,7 +3089,7 @@ margin-left: 70px;
   </div>
   <!-- Header Layout1 -->
     <!-- Header Layout1 -->
-     <header id="header" class="vs-header">
+  <header id="header" class="vs-header">
   <div id="sticky-placeholder"></div>
   <div class="vs-sticky-header">
     <div id="navbar-wrap">
@@ -1944,19 +3121,19 @@ margin-left: 70px;
                     <i class="fas fa-user-friends"></i> About
                   </a>
                 </li>
-               
+           
                 <li>
                   <a class="vs-svg-assets" href="how-to-play.html">
                     <i class="fas fa-gamepad"></i> How To Play
                   </a>
                 </li>
-                <li>
+               <li>
                   <a class="vs-svg-assets" href="leaderboard.html">
                     <i class="fas fa-trophy"></i> Leaderboard
                   </a>
                 </li>
   <li class="menu-item-has-children">
-            <a class="vs-svg-assetss" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" >Media</a>
+            <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" >Media</a>
             <ul class="sub-menu">
               <li><a href="News.html">NEWS</a></li>
               <li><a href="blog.html">Blogs</a></li>
@@ -1966,15 +3143,12 @@ margin-left: 70px;
           </li>
 
  <li class="menu-item-has-children">
-            <a class="vs-svg-assetss" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" >Business</a>
+            <a class="vs-svg-assets" data-svg-assets="assets/img/svg/svg-menu-bottom-line.svg" >Business</a>
             <ul class="sub-menu">
               <li><a href="patner.html">Patner with us </a></li>
               <li><a href="investor.html">Investor</a></li>
             </ul>
           </li>
-
-
-          
               </ul>
             </nav>
           </div>
@@ -2014,8 +3188,7 @@ margin-left: 70px;
   <div class="vs-page__main--layouts">
       <!-- Hero Area -->
        <section class="vs-hero">
-       
- <div class="vs-carousel" data-fade="true">
+        <div class="vs-carousel" data-fade="true">
            <div class="slick-slide">
             <div class="vs-hero__item" data-bg-src="https://cdn.shopify.com/s/files/1/0674/9614/9171/files/CS2_Banner_-_3_1.jpg?v=1752582343">
               <div class="container">
@@ -2183,6 +3356,7 @@ margin-left: 70px;
           </div>
          
         </div>
+
 
 
         <!-- CS2 Setup Modal  -->
@@ -2488,8 +3662,10 @@ margin-left: 70px;
           <div class="row justify-content-center">
             <div class="col-auto">
               <div class="title-style text-center">
-               
-                <h2 class="title-style__big">Built for Esports. Powered by Players</h2>
+                <span class="title-style__small justify-content-center">
+                            Our USP
+                        </span>
+                <h2 class="title-style__big">trusted by Many Gamer</h2>
                 <svg width="79" height="6" viewBox="0 0 79 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 0L0 3.2L4 6H38L39.5 3.4L41.5 6H75L78.5 3.2L75 0H41.5L39.5 2.2L38 0H4Z" fill="#DF2A00" />
                 </svg>
@@ -2510,9 +3686,9 @@ margin-left: 70px;
 </div>
 
                 <h3 class="creator-item__title">
-                  <a class="creator-item__title--link" href="game-details.html">Skill-Based Matchmaking</a>
+                  <a class="creator-item__title--link" href="game-details.html">Skill-Based Ranking</a>
                 </h3>
-                <p class="creator-item__text">Face players who match your grind. Win games. Earn respect.</p>
+                <p class="creator-item__text">Climb the leaderboard with every match.</p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -2527,9 +3703,9 @@ margin-left: 70px;
                   <img class="creator-item__icon--img" src="assets/img/svg/sports-mma-solid-svgrepo-com (1.1).svg" alt="svg-creator-icon"  width="80px">
                 </div>
                 <h3 class="creator-item__title">
-                  <a class="creator-item__title--link" href="game-details.html">Your Esports Journey Starts Here</a>
+                  <a class="creator-item__title--link" href="game-details.html">Esports Pathway</a>
                 </h3>
-                <p class="creator-item__text">From warm-up lobbies to leaderboards — make your way from casual to clutch.</p>
+                <p class="creator-item__text">From casual to pro—your journey starts here.</p>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -2543,9 +3719,9 @@ margin-left: 70px;
                   <img class="creator-item__icon--img" src="/assets/img/svg/science-svgrepo-com (1).svg" alt="svg-creator-icon" width="80px">
                 </div>
                 <h3 class="creator-item__title">
-                  <a class="creator-item__title--link" href="game-details.html">Play Loud. Get Noticed</a>
+                  <a class="creator-item__title--link" href="game-details.html">Play Loud. Get noticed</a>
                 </h3>
-                <p class="creator-item__text">Make highlight reels, earn your rep, and turn raw aim into real recognition.</p>
+                <p class="creator-item__text">Turn your skills into a brand.Become Star</p>
               </div>
             </div>
           </div>
@@ -2586,7 +3762,7 @@ margin-left: 70px;
   <section class="video video--layout3 z-index-common" style="background-color: #000000;">
   <div class="video__bg z-index-common">
     <video class="video__imgg" autoplay muted loop controls style="width: 100%; height: auto;">
-      <source src="https://cdn.shopify.com/videos/c/o/v/548ce4345124436998d87ede660bac6a.mp4" type="video/mp4">
+      <source src="/assets/img/video/CSGO (1).mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -2812,6 +3988,779 @@ margin-left: 70px;
  <script src="assets/js/auth.js"></script>
 
 
+
+ <!-- New Script -->
+
+
+ 
+<script>
+// Sample data for friends search
+const sampleUsers = [
+  { id: 1, name: "Alex Gaming", username: "@alexgamer", avatar: "https://i.pravatar.cc/150?img=1", status: "online" },
+  { id: 2, name: "Sarah Pro", username: "@sarahpro", avatar: "https://i.pravatar.cc/150?img=2", status: "offline" },
+  { id: 3, name: "Mike Sniper", username: "@mikesniper", avatar: "https://i.pravatar.cc/150?img=3", status: "online" },
+  { id: 4, name: "Emma Elite", username: "@emmaelite", avatar: "https://i.pravatar.cc/150?img=4", status: "online" },
+  { id: 5, name: "John Warrior", username: "@johnwarrior", avatar: "https://i.pravatar.cc/150?img=5", status: "offline" },
+  { id: 6, name: "Lisa Legend", username: "@lisalegend", avatar: "https://i.pravatar.cc/150?img=6", status: "online" },
+  { id: 7, name: "Tom Thunder", username: "@tomthunder", avatar: "https://i.pravatar.cc/150?img=7", status: "offline" },
+  { id: 8, name: "Nina Ninja", username: "@ninaninja", avatar: "https://i.pravatar.cc/150?img=8", status: "online" }
+];
+
+// Global variable for friends list
+let friendsList = [];
+
+// Body scroll lock utilities
+const bodyScrollLock = {
+  scrollTop: 0,
+  
+  // Lock body scrolling
+  lock() {
+    // Store current scroll position
+    this.scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add class to lock the body
+    document.body.classList.add('scroll-locked');
+    document.body.style.top = `-${this.scrollTop}px`;
+  },
+  
+  // Unlock body scrolling
+  unlock() {
+    // Remove class and restore scroll position
+    document.body.classList.remove('scroll-locked');
+    document.body.style.removeProperty('top');
+    window.scrollTo(0, this.scrollTop);
+  }
+};
+
+// User Management System
+class UserManager {
+  constructor() {
+    this.users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+  }
+
+  // Register new user
+  register(name, email, password) {
+    // Check if user already exists
+    if (this.users.find(user => user.email === email)) {
+      return { success: false, message: 'User with this email already exists!' };
+    }
+
+    // Create new user
+    const newUser = {
+      id: Date.now(),
+      name: name,
+      email: email,
+      password: password, // In real app, this should be hashed
+      createdAt: new Date().toISOString(),
+      friends: []
+    };
+
+    // Add to users array
+    this.users.push(newUser);
+    
+    // Save to localStorage
+    localStorage.setItem('registeredUsers', JSON.stringify(this.users));
+    
+    // Auto login after registration
+    this.login(email, password);
+    
+    return { success: true, message: 'Registration successful!' };
+  }
+
+  // Login user
+  login(email, password) {
+    const user = this.users.find(u => u.email === email && u.password === password);
+    
+    if (user) {
+      // Remove password from current user object for security
+      const { password, ...userWithoutPassword } = user;
+      this.currentUser = userWithoutPassword;
+      
+      // Save current user to localStorage
+      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+      
+      // Save userData for compatibility with existing code
+      localStorage.setItem('userData', JSON.stringify({
+        name: user.name,
+        email: user.email,
+        isLoggedIn: true
+      }));
+      
+      return { success: true, user: this.currentUser };
+    }
+    
+    return { success: false, message: 'Invalid email or password!' };
+  }
+
+  // Logout user
+  logout() {
+    this.currentUser = null;
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userData');
+    localStorage.removeItem('friendsList');
+  }
+
+  // Get current user
+  getCurrentUser() {
+    return this.currentUser;
+  }
+
+  // Update user's friends list
+  updateUserFriends(friends) {
+    if (this.currentUser) {
+      const userIndex = this.users.findIndex(u => u.id === this.currentUser.id);
+      if (userIndex !== -1) {
+        this.users[userIndex].friends = friends;
+        localStorage.setItem('registeredUsers', JSON.stringify(this.users));
+      }
+    }
+  }
+}
+
+// Initialize User Manager
+const userManager = new UserManager();
+
+// Sidemenu Functions
+function openSidemenu() {
+  document.getElementById('sidemenuWrapper').classList.add('show');
+  bodyScrollLock.lock();
+}
+
+function closeSidemenu() {
+  document.getElementById('sidemenuWrapper').classList.remove('show');
+  bodyScrollLock.unlock();
+}
+
+// Login/Signup Form Toggle Functions
+function showSideLoginForm() {
+  document.getElementById('loginFormSide').style.display = 'block';
+  document.getElementById('signupFormSide').style.display = 'none';
+}
+
+function showSideSignupForm() {
+  document.getElementById('signupFormSide').style.display = 'block';
+  document.getElementById('loginFormSide').style.display = 'none';
+}
+
+// Authentication Handlers
+function handleSidemenuLogin(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('sideLoginEmail').value;
+  const password = document.getElementById('sideLoginPassword').value;
+  
+  const result = userManager.login(email, password);
+  
+  if (result.success) {
+    showLoggedInState({
+      name: result.user.name,
+      email: result.user.email
+    });
+    
+    // Load user's friends
+    if (result.user.friends && result.user.friends.length > 0) {
+      friendsList = result.user.friends;
+    } else {
+      friendsList = [];
+    }
+    
+    localStorage.setItem('friendsList', JSON.stringify(friendsList));
+    updateFriendsList();
+    
+    showNotification('Login successful!');
+  } else {
+    showError('Invalid email or password!');
+  }
+}
+
+function handleSidemenuSignup(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('sideSignupName').value;
+  const email = document.getElementById('sideSignupEmail').value;
+  const password = document.getElementById('sideSignupPassword').value;
+  const confirmPassword = document.getElementById('sideConfirmPassword').value;
+  
+  // Validate passwords match
+  if (password !== confirmPassword) {
+    showError('Passwords do not match!');
+    return;
+  }
+  
+  // Validate password strength
+  if (password.length < 6) {
+    showError('Password must be at least 6 characters long!');
+    return;
+  }
+  
+  const result = userManager.register(name, email, password);
+  
+  if (result.success) {
+    showLoggedInState({
+      name: name,
+      email: email
+    });
+    
+    friendsList = [];
+    updateFriendsList();
+    
+    showNotification('Registration successful! Welcome to ColabEsports!');
+  } else {
+    showError(result.message);
+  }
+}
+
+function handleLogout() {
+  userManager.logout();
+  friendsList = [];
+  
+  // Reset UI
+  document.getElementById('loggedInState').style.display = 'none';
+  document.getElementById('profileMenuOptions').style.display = 'none';
+  document.getElementById('loginFormSide').style.display = 'block';
+  document.getElementById('signupFormSide').style.display = 'none';
+  
+  // Reset form fields
+  document.getElementById('sideLoginEmail').value = '';
+  document.getElementById('sideLoginPassword').value = '';
+  document.getElementById('sideSignupName').value = '';
+  document.getElementById('sideSignupEmail').value = '';
+  document.getElementById('sideSignupPassword').value = '';
+  document.getElementById('sideConfirmPassword').value = '';
+  
+  // Close sidemenu
+  closeSidemenu();
+  
+  showNotification('Logged out successfully!');
+}
+
+// Show logged in state function
+function showLoggedInState(userData) {
+  // Hide login/signup forms
+  document.getElementById('loginFormSide').style.display = 'none';
+  document.getElementById('signupFormSide').style.display = 'none';
+  
+  // Show logged in state
+  document.getElementById('loggedInState').style.display = 'block';
+  
+  // Show profile menu options
+  document.getElementById('profileMenuOptions').style.display = 'block';
+  
+  // Update user info
+  document.getElementById('sideUserName').textContent = userData.name;
+  document.getElementById('sideUserEmail').textContent = userData.email;
+  
+  // Load friends list
+  updateFriendsList();
+}
+
+// Find Friend Modal Functions
+function openFindFriendModal() {
+  document.getElementById('findFriendModal').classList.add('show');
+  document.getElementById('friendSearchInput').value = '';
+  displayAllUsers();
+  bodyScrollLock.lock();
+}
+
+function closeFindFriendModal() {
+  document.getElementById('findFriendModal').classList.remove('show');
+  bodyScrollLock.unlock();
+}
+
+function displayAllUsers() {
+  const resultsContainer = document.getElementById('searchResults');
+  const availableUsers = sampleUsers.filter(user => !friendsList.some(friend => friend.id === user.id));
+  
+  if (availableUsers.length === 0) {
+    resultsContainer.innerHTML = '<div class="no-results">No new friends to add</div>';
+    return;
+  }
+  
+  resultsContainer.innerHTML = availableUsers.map(user => createUserResultHTML(user)).join('');
+}
+
+function searchFriends() {
+  const searchTerm = document.getElementById('friendSearchInput').value.toLowerCase();
+  const resultsContainer = document.getElementById('searchResults');
+  
+  if (searchTerm === '') {
+    displayAllUsers();
+    return;
+  }
+  
+  const filteredUsers = sampleUsers.filter(user => 
+    !friendsList.some(friend => friend.id === user.id) &&
+    (user.name.toLowerCase().includes(searchTerm) || 
+     user.username.toLowerCase().includes(searchTerm))
+  );
+  
+  if (filteredUsers.length === 0) {
+    resultsContainer.innerHTML = '<div class="no-results">No users found</div>';
+  } else {
+    resultsContainer.innerHTML = filteredUsers.map(user => createUserResultHTML(user)).join('');
+  }
+}
+
+function createUserResultHTML(user) {
+  const isAdded = friendsList.some(friend => friend.id === user.id);
+  return `
+    <div class="search-result-item">
+      <div class="search-result-info">
+        <img src="${user.avatar}" alt="${user.name}" class="search-result-avatar">
+        <div class="search-result-details">
+          <h4>${user.name}</h4>
+          <p>${user.username}</p>
+        </div>
+      </div>
+      <button class="add-friend-btn ${isAdded ? 'added' : ''}" 
+              onclick="addFriend(${user.id})" 
+              ${isAdded ? 'disabled' : ''}>
+        ${isAdded ? 'Added' : 'Add Friend'}
+      </button>
+    </div>
+  `;
+}
+
+function addFriend(userId) {
+  const user = sampleUsers.find(u => u.id === userId);
+  if (user && !friendsList.some(friend => friend.id === userId)) {
+    // Add invited property to friend object
+    const friendWithInviteStatus = { ...user, invited: false };
+    friendsList.push(friendWithInviteStatus);
+    
+    localStorage.setItem('friendsList', JSON.stringify(friendsList));
+    userManager.updateUserFriends(friendsList);
+    
+    // Update the button to show "Added"
+    const button = event.target;
+    button.textContent = 'Added';
+    button.classList.add('added');
+    button.disabled = true;
+    
+    // Update friends list in sidemenu
+    updateFriendsList();
+    
+    // Show success message
+    showNotification(`${user.name} added to friends!`);
+  }
+}
+
+function updateFriendsList() {
+  const friendsContainer = document.getElementById('friendsContainer');
+  
+  if (!friendsList || friendsList.length === 0) {
+    friendsContainer.innerHTML = '<p style="color: rgba(0,0,0,0.5); text-align: center; padding: 20px;">No friends added yet</p>';
+    return;
+  }
+  
+  friendsContainer.innerHTML = friendsList.map(friend => `
+    <div class="friend-item">
+      <img src="${friend.avatar}" alt="${friend.name}" class="friend-avatar">
+      <div class="friend-info">
+        <p class="friend-name">${friend.name}</p>
+        <p class="friend-status ${friend.status}">${friend.status}</p>
+      </div>
+      <button class="invite-btn ${friend.invited ? 'invited' : ''}" 
+              onclick="inviteToTeam(${friend.id})"
+              ${friend.invited ? 'disabled' : ''}>
+        ${friend.invited ? 'Invited' : 'Invite'}
+      </button>
+    </div>
+  `).join('');
+}
+
+function inviteToTeam(friendId) {
+  const friendIndex = friendsList.findIndex(f => f.id === friendId);
+  
+  if (friendIndex !== -1) {
+    // Mark friend as invited
+    friendsList[friendIndex].invited = true;
+    
+    // Save updated friends list
+    localStorage.setItem('friendsList', JSON.stringify(friendsList));
+    userManager.updateUserFriends(friendsList);
+    
+    // Update UI
+    updateFriendsList();
+    
+    // Show notification
+    showNotification(`Team invite sent to ${friendsList[friendIndex].name}!`);
+    
+    // Simulate sending invite (in real app, this would be an API call)
+    console.log(`Sending team invite to friend ID: ${friendId}`);
+  }
+}
+
+// Notification Functions
+function showNotification(message) {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = 'notification';
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  // Remove after 3 seconds
+  setTimeout(() => {
+    notification.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+function showError(message) {
+  const notification = document.createElement('div');
+  notification.className = 'error-notification';
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// Menu Option Handlers
+function handleViewProfile() {
+  const user = userManager.getCurrentUser();
+  if (user) {
+    alert(`
+      Profile Information:
+      Name: ${user.name}
+      Email: ${user.email}
+      Member Since: ${new Date(user.createdAt).toLocaleDateString()}
+      Friends: ${friendsList.length}
+    `);
+  }
+}
+
+function handleMyTeam() {
+  alert('My Team feature coming soon!');
+}
+
+function handleSettings() {
+  alert('Settings feature coming soon!');
+}
+
+function handleWallet() {
+  alert('Wallet feature coming soon!');
+}
+
+// Improved scroll handling
+document.addEventListener('DOMContentLoaded', function() {
+  // Enable smooth scrolling for all scrollable containers
+  const scrollableElements = [
+    { selector: '.sidemenu-content', parent: '.sidemenu-wrapper' },
+    { selector: '.find-friend-content', parent: '.find-friend-modal' },
+    { selector: '.find-friend-results', parent: null },
+    { selector: '.friends-container', parent: null }
+  ];
+  
+  scrollableElements.forEach(({ selector, parent }) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      // Improved wheel event handler with proper propagation control
+      element.addEventListener('wheel', function(e) {
+        const delta = e.deltaY;
+        const contentHeight = this.scrollHeight;
+        const visibleHeight = this.offsetHeight;
+        const scrollTop = this.scrollTop;
+        
+        // Check if scroll is at the top or bottom
+        const isScrollingUp = delta < 0;
+        const isScrollingDown = delta > 0;
+        const isAtTop = scrollTop === 0;
+        const isAtBottom = scrollTop + visibleHeight >= contentHeight - 1;
+        
+        // Only prevent default if not at the edges or if at edges but scrolling inward
+        if ((isScrollingUp && !isAtTop) || (isScrollingDown && !isAtBottom) || 
+            (isScrollingUp && isAtTop && parent) || (isScrollingDown && isAtBottom && parent)) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Smooth scroll
+          this.scrollBy({
+            top: delta * 0.5, // Adjusted scroll speed
+            behavior: 'smooth'
+          });
+        }
+      }, { passive: false });
+      
+      // Prevent touch events from propagating when needed
+      let startY;
+      let startScrollTop;
+      
+      element.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].pageY;
+        startScrollTop = this.scrollTop;
+      }, { passive: true });
+      
+      element.addEventListener('touchmove', function(e) {
+        const currentY = e.touches[0].pageY;
+        const delta = startY - currentY;
+        const contentHeight = this.scrollHeight;
+        const visibleHeight = this.offsetHeight;
+        const scrollTop = this.scrollTop;
+        
+        // Check if scroll is at the top or bottom
+        const isScrollingUp = delta < 0;
+        const isScrollingDown = delta > 0;
+        const isAtTop = scrollTop <= 0;
+        const isAtBottom = scrollTop + visibleHeight >= contentHeight - 1;
+        
+        // Only prevent default if not at the edges or if at edges but scrolling inward
+        if ((isScrollingUp && !isAtTop) || (isScrollingDown && !isAtBottom)) {
+          e.preventDefault();
+        }
+        
+        this.scrollTop = startScrollTop + delta;
+      }, { passive: false });
+    }
+  });
+  
+  // Close modals when clicking outside
+  document.getElementById('findFriendModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeFindFriendModal();
+    }
+  });
+  
+  document.getElementById('sidemenuWrapper').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeSidemenu();
+    }
+  });
+  
+  // Close modals with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (document.getElementById('sidemenuWrapper').classList.contains('show')) {
+        closeSidemenu();
+      }
+      if (document.getElementById('findFriendModal').classList.contains('show')) {
+        closeFindFriendModal();
+      }
+    }
+  });
+  
+  // Set up sidemenu toggles
+  const togglers = document.querySelectorAll('.sideMenuToggler');
+  togglers.forEach(toggler => {
+    toggler.addEventListener('click', function(e) {
+      e.preventDefault();
+      openSidemenu();
+    });
+  });
+  
+  // Check login state on page load
+  const currentUser = userManager.getCurrentUser();
+  if (currentUser) {
+    showLoggedInState({
+      name: currentUser.name,
+      email: currentUser.email
+    });
+    
+    // Load user's friends
+    const savedFriends = localStorage.getItem('friendsList');
+    if (savedFriends) {
+      friendsList = JSON.parse(savedFriends);
+      updateFriendsList();
+    }
+  }
+  
+  // Input validation for signup form
+  const signupPassword = document.getElementById('sideSignupPassword');
+  const confirmPassword = document.getElementById('sideConfirmPassword');
+  
+  if (confirmPassword) {
+    confirmPassword.addEventListener('input', function() {
+      if (this.value !== signupPassword.value) {
+        this.style.borderColor = '#f44336';
+      } else {
+        this.style.borderColor = '#4CAF50';
+      }
+    });
+  }
+  
+  // Add Enter key support for forms
+  document.getElementById('sideLoginPassword')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      handleSidemenuLogin(e);
+    }
+  });
+
+  document.getElementById('sideConfirmPassword')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      handleSidemenuSignup(e);
+    }
+  });
+});
+
+// Close welcome modal function
+function closeWelcomeModal() {
+  document.getElementById('welcomeModal').style.display = 'none';
+}
+
+// Optional: Create test users for demo
+function createTestUsers() {
+  userManager.register('John Doe', 'john@example.com', 'password123');
+  userManager.register('Jane Smith', 'jane@example.com', 'password123');
+  userManager.logout(); // Logout after creating test users
+}
+
+// Uncomment the line below to create test users (run once, then comment out)
+// createTestUsers();
+</script>
+
+<script>
+  // Update the updateFriendsList function to include invite buttons
+function updateFriendsList() {
+  const friendsContainer = document.getElementById('friendsContainer');
+  
+  if (friendsList.length === 0) {
+    friendsContainer.innerHTML = '<p style="color: white; text-align: center; padding: 20px;">No friends added yet</p>';
+    return;
+  }
+  
+  friendsContainer.innerHTML = friendsList.map(friend => `
+    <div class="friend-item">
+      <img src="${friend.avatar}" alt="${friend.name}" class="friend-avatar">
+      <div class="friend-info">
+        <p class="friend-name">${friend.name}</p>
+        <p class="friend-status ${friend.status}">${friend.status}</p>
+      </div>
+      <button class="invite-btn ${friend.invited ? 'invited' : ''}" 
+              onclick="inviteToTeam(${friend.id})"
+              ${friend.invited ? 'disabled' : ''}>
+        ${friend.invited ? 'Invited' : 'Invite'}
+      </button>
+    </div>
+  `).join('');
+}
+
+// Add invite to team function
+function inviteToTeam(friendId) {
+  const friendIndex = friendsList.findIndex(f => f.id === friendId);
+  
+  if (friendIndex !== -1) {
+    // Mark friend as invited
+    friendsList[friendIndex].invited = true;
+    
+    // Save updated friends list
+    localStorage.setItem('friendsList', JSON.stringify(friendsList));
+    userManager.updateUserFriends(friendsList);
+    
+    // Update UI
+    updateFriendsList();
+    
+    // Show notification
+    showNotification(`Team invite sent to ${friendsList[friendIndex].name}!`);
+    
+    // Simulate sending invite (in real app, this would be an API call)
+    console.log(`Sending team invite to friend ID: ${friendId}`);
+  }
+}
+
+// Add smooth scrolling with mouse wheel
+document.addEventListener('DOMContentLoaded', function() {
+  // Enable smooth scrolling for all scrollable containers
+  const scrollableElements = [
+    document.querySelector('.sidemenu-content'),
+    document.querySelector('.find-friend-content'),
+    document.querySelector('.find-friend-results'),
+    document.querySelector('.friends-container')
+  ];
+  
+  scrollableElements.forEach(element => {
+    if (element) {
+      // Add mouse wheel smooth scrolling
+      element.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        const scrollAmount = e.deltaY * 2; // Adjust scroll speed
+        element.scrollBy({
+          top: scrollAmount,
+          behavior: 'smooth'
+        });
+      }, { passive: false });
+      
+      // Add touch scrolling for mobile
+      let startY;
+      let startScrollTop;
+      
+      element.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].pageY;
+        startScrollTop = element.scrollTop;
+      }, { passive: true });
+      
+      element.addEventListener('touchmove', function(e) {
+        const y = e.touches[0].pageY;
+        const walk = (startY - y) * 2; // Adjust scroll speed
+        element.scrollTop = startScrollTop + walk;
+      }, { passive: true });
+    }
+  });
+});
+
+// Update the addFriend function to initialize invited status
+function addFriend(userId) {
+  const user = sampleUsers.find(u => u.id === userId);
+  if (user && !friendsList.some(friend => friend.id === userId)) {
+    // Add invited property to friend object
+    const friendWithInviteStatus = { ...user, invited: false };
+    friendsList.push(friendWithInviteStatus);
+    
+    localStorage.setItem('friendsList', JSON.stringify(friendsList));
+    userManager.updateUserFriends(friendsList);
+    
+    // Update the button to show "Added"
+    const button = event.target;
+    button.textContent = 'Added';
+    button.classList.add('added');
+    button.disabled = true;
+    
+    // Update friends list in sidemenu
+    updateFriendsList();
+    
+    // Show success message
+    showNotification(`${user.name} added to friends!`);
+  }
+}
+
+// Optional: Add scroll indicators for better UX
+function addScrollIndicators() {
+  const scrollContainers = [
+    { element: '.sidemenu-content', threshold: 100 },
+    { element: '.find-friend-results', threshold: 50 }
+  ];
+  
+  scrollContainers.forEach(({ element, threshold }) => {
+    const container = document.querySelector(element);
+    if (container) {
+      container.addEventListener('scroll', function() {
+        const maxScroll = this.scrollHeight - this.clientHeight;
+        const currentScroll = this.scrollTop;
+        
+        // Add/remove classes based on scroll position
+        if (currentScroll > threshold) {
+          this.classList.add('scrolled');
+        } else {
+          this.classList.remove('scrolled');
+        }
+        
+        if (currentScroll >= maxScroll - threshold) {
+          this.classList.add('scrolled-bottom');
+        } else {
+          this.classList.remove('scrolled-bottom');
+        }
+      });
+    }
+  });
+}
+
+// Initialize scroll indicators
+document.addEventListener('DOMContentLoaded', addScrollIndicators);
+</script>
 
 </body>
 
