@@ -7403,7 +7403,7 @@ blockquote.vs-quote .quote-author {
   left: 0;
   width: 100%;
   min-height: 100%;
-  background-color: #141414;
+  background-color: var(--bg-color3);
   border: 1px solid var(--vs-stroke-color);
   z-index: -1;
   border-radius: 26px;
