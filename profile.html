@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+
+
     :root {
       --primary: #DA2700;
       --secondary: #FFA700;
@@ -312,7 +314,7 @@
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      background: linear-gradient(135deg, rgba(218, 39, 0, 0.1), rgba(255, 167, 0, 0.1));
+      background: #141414;
     }
 
     .team-modal-title {
@@ -343,6 +345,7 @@
       padding: 30px;
       max-height: 70vh;
       overflow-y: auto;
+      background-color: #000000;
     }
 
     .team-info-grid {
@@ -518,7 +521,7 @@
     }
 
     .player-invite-content {
-      background: #1a1a1a;
+      background: #141414;
       border: 2px solid var(--primary);
       border-radius: 20px;
       width: 90%;
@@ -810,6 +813,68 @@
 
 </style>
 
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+     
+        
+        .card {
+            background: #0f0101;
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width:25vw;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #DA2700;
+        }
+        
+        .card-header {
+            background: #141414;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #FFA700 0%, #DF2A00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-icon {
+            transition: all 0.2s ease;
+            fill: #64748b;
+        }
+        
+        .social-icon:hover {
+            fill: #60a5fa;
+            transform: scale(1.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #FFA700 0%, #DF2A00 100%);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #DF2A00 0%, #DF2A00 100%);
+            transform: translateY(-2px);
+        }
+        
+        .comment-avatar {
+            border: 2px solid #FFA700;
+        }
+    </style>
+
 </head>
 
 <body class="text-gray-300 min-h-screen flex flex-col" style="background-color: #000000;">
@@ -828,17 +893,17 @@
   <header class="header p-4 flex items-center justify-end sticky top-0 z-30 shadow-lg">       
     <div class="flex items-center space-x-6 relative">
       <!-- Add Tournament Button -->
-      <button id="btn-create-tournament" title="Create Tournament" class="p-2 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition-colors">
+      <button id="btn-create-tournament" title="Create Tournament" class="p-2 rounded-full hover:bg-[#FFA700] hover:text-gray-900 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12 5v14m7-7H5"/></svg>
       </button>
 
       <!-- Notifications Bell -->
-      <button title="Notifications" class="p-2 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition-colors">
+      <button title="Notifications" class="p-2 rounded-full hover:bg-[#FFA700] hover:text-gray-900 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
       </button>
 
       <!-- Wallet Balance -->
-      <div class="flex items-center space-x-1 px-3 py-1 rounded-md border border-yellow-400 text-yellow-400 font-semibold select-none">
+      <div class="flex items-center space-x-1 px-3 py-1 rounded-md border border-yellow-400 text-[#FFA700] font-semibold select-none">
         <span>0</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 8c-1.104 0-2 .895-2 2s.896 2 2 2 2-.895 2-2-1.077-2-2-2zM6 18v-4a6 6 0 0112 0v4"/></svg>
       </div>
@@ -847,14 +912,14 @@
       <div class="relative" id="profileDropdown" tabindex="0">
         <button id="profileDropdownToggle" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-2 rounded-full focus:outline-yellow-400 focus:ring-2 focus:ring-yellow-400 hover:ring yellow-400 transition-colors">
           <img id="profileIcon" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b8fc95b2-db78-439d-b2e7-db04a184e21b.png" alt="User profile avatar with black suit, friendly smile, dark hair" class="w-10 h-10 rounded-full object-cover border-2 border-yellow-400" data-user-avatar />
-          <span  styleclass="hidden md:inline-block text-yellow-400 font-semibold" id="profileEmail">Loading...</span>
+          <span  styleclass="hidden md:inline-block text-[#FFA700] font-semibold" id="profileEmail">Loading...</span>
         </button>
 
         <div id="profileMenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 invisible opacity-0 transition-opacity scrollable max-h-72 overflow-y-auto scrollbar-thin z-50" role="menu" aria-orientation="vertical" aria-labelledby="profileDropdownToggle" tabindex="-1">
-          <a href="#generalTab" class="block px-4 py-2 text-sm hover:bg-yellow-400 hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-general">My Profile</a>
-          <a href="#teamsTab" class="block px-4 py-2 text-sm hover:bg-yellow-400 hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-teams">My Team</a>
-         <a href="update.html" class="block px-4 py-2 text-sm hover:bg-yellow-400 hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-wallet">Settings</a>
-          <a href="payment.html" class="block px-4 py-2 text-sm hover:bg-yellow-400 hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-wallet">Wallet</a>
+          <a href="#generalTab" class="block px-4 py-2 text-sm hover:bg-[#FFA700] hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-general">My Profile</a>
+          <a href="#teamsTab" class="block px-4 py-2 text-sm hover:bg-[#FFA700] hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-teams">My Team</a>
+         <a href="update.html" class="block px-4 py-2 text-sm hover:bg-[#FFA700] hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-wallet">Settings</a>
+          <a href="payment.html" class="block px-4 py-2 text-sm hover:bg-[#FFA700] hover:text-gray-900 cursor-pointer" role="menuitem" tabindex="-1" id="menu-wallet">Wallet</a>
           <button id="btn-logout" class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-500 hover:text-white cursor-pointer" role="menuitem" tabindex="-1">Log Out</button>
         </div>
       </div>
@@ -875,7 +940,7 @@
         <p class="text-white-800" id="profileJoinDate">Date of joining: Loading...</p>
         <p class="text-white-800" id="profileBio">Description: Loading...</p>
         <a href="update.html">
-          <button id="btnUpdateProfile" class="primary-btn bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-1 px-4 rounded text-sm font-semibold transition mt-5" style="background-color: #ffa700;">
+          <button id="btnUpdateProfile" class="primary-btn bg-[#FFA700] hover:bg-[#DF2A00] text-gray-900 py-1 px-4 rounded text-sm font-semibold transition mt-20 " style="background-color: #ffa700;">
             Update Profile
           </button>
         </a>
@@ -884,73 +949,138 @@
 
     <!-- Tabs -->
     <nav class="flex justify-center text-sm font-semibold text-gray-400 border-b border-gray-700">
-      <button data-tab="general" aria-selected="true" class="tab-btn px-5 py-3 hover:text-yellow-400 focus:outline-none focus:text-yellow-400 border-b-2 border-yellow-400">General</button>
-      <button data-tab="teams" aria-selected="false" class="tab-btn px-5 py-3 hover:text-yellow-400 focus:outline-none focus:text-yellow-400">My Teams</button>
+      <button data-tab="general" aria-selected="true" class="tab-btn px-5 py-3 hover:text-[#FFA700] focus:outline-none focus:text-[#FFA700] border-b-2 border-yellow-400">General</button>
+      <button data-tab="teams" aria-selected="false" class="tab-btn px-5 py-3 hover:text-[#FFA700] focus:outline-none focus:text-[#FFA700]">My Teams</button>
     </nav>
 
     <!-- Content Panels -->
     <section id="generalTab" class="tab-panel py-6">
-      <h3 class="text-lg font-bold mb-4 text-yellow-400">Statistics</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-        <div class="stat-card bg-gray-800 rounded-lg p-6 text-center w-full h-56">
-          <div class="text-yellow-400 text-5xl mb-2">🏆</div>
-          <div class="uppercase text-base font-semibold text-gray-400 mb-1">Total Matches</div>
-          <div id="statPlayedTournaments" class="text-4xl font-bold">0</div>
-        </div>
-        <div class="stat-card bg-gray-800 rounded-lg p-6 text-center w-full h-56">
-          <div class="text-yellow-400 text-5xl mb-2">🎮</div>
-          <div class="uppercase text-base font-semibold text-gray-400 mb-1">Win & Losses</div>
-          <div id="statPlayedMatches" class="text-4xl font-bold">0</div>
-        </div>
-        <div class="stat-card bg-gray-800 rounded-lg p-6 text-center w-full h-56">
-          <div class="text-yellow-400 text-5xl mb-2">🔥</div>
-          <div class="uppercase text-base font-semibold text-gray-400 mb-1">Commend</div>
-          <div id="statWonMatches" class="text-4xl font-bold">0</div>
-        </div>
-      </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+     
+         <!-- Card 1: Total Players -->
+                <div class="card">
+                <div class="card-header">
+                    <h2 class="text-xl font-semibold text-white">Total Players</h2>
+                </div>
+                <div class="p-6 flex flex-col items-center">
+                    <div class="stat-value" id="total-players">Loading...</div>
+                    <p class="text-sm text-gray-400 mt-2">Active worldwide</p>
+                    <div class="mt-4 w-full bg-gray-700 rounded-full h-2.5">
+                        <div class="bg-blue-500 h-2.5 rounded-full" id="growth-bar" style="width: 0%"></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">+14% from last month</p>
+                </div>
+            </div>
+            
+            <!-- Card 2: Win & Losses -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-xl font-semibold text-white">Win/Loss Ratio</h2>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between mb-4">
+                        <div class="text-center">
+                            <div class="stat-value" id="win-rate">0%</div>
+                            <p class="text-sm text-gray-400">Win Rate</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stat-value" id="loss-rate">0%</div>
+                            <p class="text-sm text-gray-400">Loss Rate</p>
+                        </div>
+                    </div>
+                    <div class="relative w-full h-6 bg-gray-700 rounded-full">
+                        <div class="absolute top-0 left-0 h-6 bg-blue-500 rounded-l-full" style="width: 64%"></div>
+                        <div class="absolute top-0 right-0 h-6 bg-red-500 rounded-r-full" style="width: 36%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+                <!-- Card 3: Commends -->
+            <div class="card mt-[50px] h-[27vh] w-[53vw]">
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-10">
-        <!-- Linked Game Account Card -->
-        <section class="stat-card bg-gray-800 rounded-lg p-6 text-center w-full h-56">
-          <div class="mb-3 text-yellow-400 text-3xl">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-              <path d="M12 7v6l4 2" />
-              <circle cx="12" cy="12" r="10" />
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold mb-1">No game accounts linked</p>
-            <p class="text-sm text-gray-400 mb-3">You have not added any game accounts yet.</p>
-            <button id="openGamesModalBtn" class="primary-btn bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-1 px-4 rounded text-sm font-semibold transition mt-2">
-              Create Account
-            </button>
-          </div>
-        </section>
+                    <div class="card-header">
+                     <h2 class="text-xl font-semibold text-white mt-5">Player Commends</h2>
 
-        <!-- Social Accounts Card -->
-        <section class="stat-card bg-gray-800 rounded-lg p-6 text-center w-full h-56">
-          <p class="font-semibold mb-2">Social accounts</p>
-          <p class="text-sm text-gray-400 mb-3">No information</p>
-          <p class="text-xs opacity-80 mb-3">You have not added any social accounts yet.</p>
-        <button id="openSocialModalBtn" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-1 px-4 rounded text-sm font-semibold transition">
+                        <div class="flex justify-between text-sm mt-1">
+                            <span class="text-blue-300">Total Commends: <span class="text-white font-medium">216</span></span>
+                            <span class="text-black-400">Positive: <span class="text-black font-medium">89%</span></span>
+                        </div>
+                    </div>
+                    <div class="p-4 space-y-4" id="commends-container">
+                        <!-- Commends will be loaded dynamically -->
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <span>Commend Types:</span>
+                            <span class="px-2 py-1 bg-blue-900/50 rounded text-blue-300">Leadership</span>
+                            <span class="px-2 py-1 bg-green-900/50 rounded text-green-300">Teamwork</span>
+                            <span class="px-2 py-1 bg-yellow-900/50 rounded text-yellow-300">Teaching</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+         <div class="card mt-[50px] h-[35vh] w-[25vw]">
+                <div class="card-header">
+                    <h2 class="text-xl font-semibold text-white">Connect With Us</h2>
+                </div>
+                <div class="p-6 flex flex-col items-center"  style=" margin-top: 20px;">
+                    <div class="flex space-x-6 mb-6">
+                        <a href="#" class="social-link">
+                            <svg class="social-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg class="social-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg class="social-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg class="social-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-400 text-center">Join our community for latest updates</p>
+                    
+                </div>
+                           <button id="openSocialModalBtn" 
+  class="bg-[#FFA700] hover:bg-[#DF2A00] text-gray-900 py-1 px-4 rounded text-sm font-semibold transition" 
+  style="margin-left: 8rem ; margin-top: 60px;">
   Add Social Media
 </button>
-<!-- Profile Section Where Links Appear -->
-<div id="socialLinksDisplay" class="profile-links">
-  <!-- Saved social media links will appear here -->
-</div>
 
-
-
-        </section>
+            </div>
+            
+            
+            <!-- Card 5: Create Account -->
+            <div class="card mt-[50px] h-[35vh] w-[25vw]">
+                <div class="card-header">
+                    <h2 class="text-xl font-semibold text-white">Ready to Play?</h2>
+                </div>
+                <div class="p-6 flex flex-col items-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6a8574ec-e02b-4f9a-b595-13e4eefbef26.png" alt="CS2 logo with blue and orange gradient background" class="w-24 h-24 mb-4 rounded-lg">
+                    <p class="text-center text-gray-300 mb-6">Join millions of players worldwide in the ultimate competitive shooter experience</p>
+                   <button id="openGamesModalBtn" class="primary-btn bg-[#FFA700] hover:bg-[#DF2A00] text-gray-900 py-1 px-4 rounded text-sm font-semibold transition mt-2">
+              Create Account
+            </button>
+                   
+                </div>
+            </div>
       </div>
     </section>
 
     <section id="teamsTab" class="tab-panel hidden py-6">
       <div class="flex justify-between items-center mb-4">
-        <h3 class="text-lg font-bold text-yellow-400">My Teams</h3>
+        <h3 class="text-lg font-bold text-[#FFA700]">My Teams</h3>
         <div>
-          <select id="filterTeams" class="bg-gray-700 text-gray-200 px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400" style="back">
+          <select id="filterTeams" class="bg-gray-700 text-[#141414] px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 hover:bg-white">
             <option value="all" selected>All Games</option>
             <option value="bgmi">BGMI</option>
             <option value="cs2">CS-2</option>
@@ -960,13 +1090,13 @@
       </div>
 
      <div class="mb-6">
-        <button id="btnCreateTeam" class="primary-btn bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-2 px-4 rounded font-semibold transition">Create My Team</button>
+        <button id="btnCreateTeam" class="primary-btn bg-[#FFA700] hover:bg-[#DA2700] text-gray-900 py-2 px-4 rounded font-semibold transition">Create My Team</button>
       </div>
 
 
        <!-- Create Team Form Modal -->
 <!-- Team Creation Form -->
-<div id="createTeamForm" class="team-form-modal" style="display: none;">
+<!-- <div id="createTeamForm" class="team-form-modal style= display: none;">
   <div class="team-form-content">
     <span class="close-form-btn" id="closeForm">&times;</span>
     <h2>createTeam</h2>
@@ -1003,13 +1133,14 @@
       <button type="button" class="cancel-btn" id="cancelForm">Cancel</button>
     </form>
   </div>
-</div>
+</div> -->
 
-      <div id="teamCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+     <div id="teamCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[390px]"></div>
+
     </section>
 
     <!-- Wallet Section -->
-    <section id="walletSection" class="hidden max-w-3xl mx-auto p-6 rounded-lg bg-gray-800 text-yellow-400 text-center">
+    <section id="walletSection" class="hidden max-w-3xl mx-auto p-6 rounded-lg bg-gray-800 text-[#FFA700] text-center">
       <h3 class="text-xl font-bold mb-4">Wallet</h3>
       <p>This is the wallet section. API integration required to display wallet balance and transactions.</p>
     </section>
@@ -1048,17 +1179,17 @@
           </div>
         </div>
        <!-- 🧱 Flex container added to arrange both cards side-by-side -->
-              <h3 class="text-lg font-bold mb-4 text-yellow-400">Statistics</h3>
+              <h3 class="text-lg font-bold mb-4 text-[#FFA700]">Statistics</h3>
 <div style ="display: ruby-text;" class="flex flex-wrap gap-4">
 
-  <div class="stat-card bg-gray-800 rounded-lg p-6 text-center h-50 w-1/2">
-    <div class="text-yellow-400 text-5xl mb-2">🏆</div>
+  <div class="stat-card bg-[#141414] rounded-lg p-6 text-center h-50 w-1/2">
+    <div class="text-[#FFA700] text-5xl mb-2">🏆</div>
     <div class="uppercase text-base font-semibold text-gray-400 mb-1">Total Matches</div>
     <div id="statPlayedTournaments" class="text-4xl font-bold">0</div>
   </div>
 
-  <div class="stat-card bg-gray-800 rounded-lg p-6 text-center h-50 w-1/2">
-    <div class="text-yellow-400 text-5xl mb-2">🎮</div>
+  <div class="stat-card bg-[#141414] rounded-lg p-6 text-center h-50 w-1/2">
+    <div class="text-[#FFA700] text-5xl mb-2">🎮</div>
     <div class="uppercase text-base font-semibold text-gray-400 mb-1">Win & Losses</div>
     <div id="statPlayedMatches" class="text-4xl font-bold">0</div>
   </div>
@@ -1103,8 +1234,8 @@
 
   <!-- Modal Background -->
   <div id="modalBg" class="modal-bg fixed inset-0 hidden items-center justify-center z-50" aria-hidden="true" role="dialog" aria-modal="true">
-    <div id="modalContent" class="bg-gray-900 rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative border border-yellow-400">
-      <button id="modalCloseBtn" class="absolute top-2 right-4 text-yellow-400 hover:text-yellow-600 text-2xl font-bold close-btn" aria-label="Close">&times;</button>
+    <div id="modalContent" class="bg-[#000000] rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative border border-[#DA2700]">
+      <button id="modalCloseBtn" class="absolute top-2 right-4 text-[#FFA700] hover:text-yellow-600 text-2xl font-bold close-btn" aria-label="Close">&times;</button>
       <div id="modalBody" class="space-y-6"></div>
     </div>
   </div>
@@ -1114,7 +1245,7 @@
     <div class="bg-gray-800 rounded-lg max-w-5xl w-full max-h-[90vh] flex flex-col shadow-lg border border-yellow-400">
  <header class="flex justify-between items-center p-4 border-b border-gray-700 bg-[#141414]">
         <h2 class="text-xl font-bold text-[#DA2700]">Select a Game</h2>
-        <button id="closeGamesModal" aria-label="Close Games Modal" class="text-gray-400 hover:text-yellow-400 transition close-btn">
+        <button id="closeGamesModal" aria-label="Close Games Modal" class="text-gray-400 hover:text-[#FFA700] transition close-btn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </header>
@@ -1156,13 +1287,13 @@
       <header class="relative p-4 border-b border-gray-700 flex items-center justify-center">
         <img id="gameLogo" src="" alt="" class="h-12 object-contain" />
         <button id="closeAddAccountModal" aria-label="Close Add Account Modal" 
-          class="absolute right-4 top-4 text-gray-400 hover:text-yellow-400 transition close-btn">
+          class="absolute right-4 top-4 text-gray-400 hover:text-[#FFA700] transition close-btn">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </header>
 
       <form id="accountForm" class="px-6 py-6 flex flex-col space-y-5">
-        <h2 class="text-2xl font-bold text-yellow-400 mb-4">Add Game Account</h2>
+        <h2 class="text-2xl font-bold text-[#FFA700] mb-4">Add Game Account</h2>
         
         <label class="flex flex-col text-gray-300 text-sm">
           Select platform
@@ -1190,7 +1321,7 @@
         </label>
 
         <button type="submit" id="connectAccountBtn" disabled
-          class="primary-btn bg-[#DF2A00] disabled:bg-[#DA2700] text-gray-900 font-semibold py-2 rounded transition hover:bg-yellow-500 disabled:text-gray-300"
+          class="primary-btn bg-[#DF2A00] disabled:bg-[#DA2700] text-gray-900 font-semibold py-2 rounded transition hover:bg-[#DF2A00] disabled:text-gray-300"
         >
           Connect account
         </button>
@@ -1202,34 +1333,34 @@
   <!-- Social Links Model -->
    <!-- Modal Overlay -->
 <div id="socialModal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-center z-50">
-  <div class="bg-gray-900 rounded-xl p-6 w-full max-w-md relative shadow-2xl border border-yellow-500">
-    <h2 class="text-2xl font-bold text-yellow-400 mb-4 text-center">Add Your Social Links</h2>
+  <div class="bg-[#000000] rounded-xl p-6 w-full max-w-md relative shadow-2xl border border-[#FFA700]">
+    <h2 class="text-2xl font-bold text-[#ffa700] mb-4 text-center">Add Your Social Links</h2>
 
     <!-- Social Input Fields -->
-    <div class="space-y-4 text-sm">
+    <div class="space-y-4 text-sm ">
       <div>
         <label class="text-gray-300 font-medium">🎮 Discord</label>
-        <input type="url" placeholder="https://discord.gg/yourchannel" class="w-full mt-1 px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="url" placeholder="https://discord.gg/yourchannel" class="w-full mt-1 px-4 py-2 bg-[#141414]  border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
       <div>
         <label class="text-gray-300 font-medium">📘 Facebook</label>
-        <input type="url" placeholder="https://facebook.com/yourprofile" class="w-full mt-1 px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="url" placeholder="https://facebook.com/yourprofile" class="w-full mt-1 px-4 py-2 bg-[#141414]  border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
       <div>
         <label class="text-gray-300 font-medium">🐦 Twitter</label>
-        <input type="url" placeholder="https://twitter.com/yourhandle" class="w-full mt-1 px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="url" placeholder="https://twitter.com/yourhandle" class="w-full mt-1 px-4 py-2 bg-[#141414]  border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
       <div>
         <label class="text-gray-300 font-medium">📸 Instagram</label>
-        <input type="url" placeholder="https://instagram.com/yourprofile" class="w-full mt-1 px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="url" placeholder="https://instagram.com/yourprofile" class="w-full mt-1 px-4 py-2 bg-[#141414]  border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
       <div>
         <label class="text-gray-300 font-medium">🎮 Twitch</label>
-        <input type="url" placeholder="https://twitch.tv/yourchannel" class="w-full mt-1 px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="url" placeholder="https://twitch.tv/yourchannel" class="w-full mt-1 px-4 py-2 bg-[#141414]  border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
       <div>
         <label class="text-gray-300 font-medium">▶️ YouTube</label>
-        <input type="url" placeholder="https://youtube.com/yourchannel" class="w-full mt-1 px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input type="url" placeholder="https://youtube.com/yourchannel" class="w-full mt-1 px-4 py-2 bg-[#141414]  border border-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
       </div>
     </div>
 
@@ -1240,7 +1371,7 @@
     </div>
 
     <!-- Close Icon -->
-    <button id="closeSocialModalX" class="absolute top-3 right-4 text-gray-400 hover:text-yellow-400 text-xl">&times;</button>
+    <button id="closeSocialModalX" class="absolute top-3 right-4 text-gray-400 hover:text-[#FFA700] text-xl">&times;</button>
   </div>
 </div>
 
@@ -1611,9 +1742,9 @@ function switchTab(tabName) {
     const selected = btn.dataset.tab === tabName
     btn.setAttribute("aria-selected", selected)
     if (selected) {
-      btn.classList.add("border-b-2", "border-yellow-400", "text-yellow-400")
+      btn.classList.add("border-b-2", "border-yellow-400", "text-[#FFA700]")
     } else {
-      btn.classList.remove("border-b-2", "border-yellow-400", "text-yellow-400")
+      btn.classList.remove("border-b-2", "border-yellow-400", "text-[#FFA700]")
     }
   })
 
@@ -1658,12 +1789,13 @@ function createTeamCard(team) {
   card.className =
   "card rounded-lg p-4 shadow-md flex flex-col border border-gray-700 hover:border-yellow-400 transition-all duration-300";
 card.style.backgroundColor = "#141414";
+card.style.marginleft="90px";
 
   card.tabIndex = 0
   card.setAttribute("role", "article")
   card.innerHTML = `
         <img src="${team.image}" alt="Team banner for ${team.name}" class="rounded-md w-full h-40 object-cover mb-3" onerror="this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e6e8d664-e8df-4d08-b3e4-8184c53a0d5f.png'"/>
-        <h4 class="text-yellow-400 font-semibold mb-1">${team.name}</h4>
+        <h4 class="text-[#FFA700] font-semibold mb-1">${team.name}</h4>
         <p class="text-gray-300 text-sm flex-grow">${team.description}</p>
         <div class="mt-3 flex justify-between items-center">
             <span class="text-xs text-gray-400">${team.game.toUpperCase()}</span>
@@ -1808,19 +1940,19 @@ function openCreateTeamModal() {
   const form = document.createElement("form")
   form.className = "space-y-4"
   form.innerHTML = `
-        <h3 class="text-yellow-400 text-xl font-bold mb-4">Create My Team</h3>
-        <label class="block text-gray-200 font-semibold">Team Name <input required name="name" type="text" class="w-full mt-1 px-3 py-2 rounded bg-gray-700 focus:ring-yellow-400 focus:outline-none text-gray-200" /></label>
-        <label class="block text-gray-200 font-semibold">Game <select required name="game" class="w-full mt-1 px-3 py-2 rounded bg-gray-700 focus:ring-yellow-400 focus:outline-none text-gray-200">
+        <h3 class="text-[#FFA700] text-xl font-bold mb-4">Create My Team</h3>
+        <label class="block text-gray-200 font-semibold">Team Name <input required name="name" type="text" class="w-full mt-1 px-3 py-2 rounded bg-[#141414] focus:ring-yellow-400 focus:outline-none text-gray-200" /></label>
+        <label class="block text-gray-200 font-semibold">Game <select required name="game" class="w-full mt-1 px-3 py-2 rounded bg-[#141414] focus:ring-yellow-400 focus:outline-none text-gray-200">
           <option value="">Select game</option>
           <option value="BGMI">BGMI</option>
           <option value="cs2">CS-2</option>
           <option value="valorant">Valorant</option>
         </select></label>
-        <label class="block text-gray-200 font-semibold">Description <textarea required name="description" rows="3" class="w-full mt-1 px-3 py-2 rounded bg-gray-700 focus:ring-yellow-400 focus:outline-none text-gray-200"></textarea></label>
-        <label class="block text-gray-200 font-semibold">Image URL <input name="image" type="url" placeholder="https://example.com/image.png" class="w-full mt-1 px-3 py-2 rounded bg-gray-700 focus:ring-yellow-400 focus:outline-none text-gray-200" /></label>
+        <label class="block text-gray-200 font-semibold">Description <textarea required name="description" rows="3" class="w-full mt-1 px-3 py-2 rounded bg-[#141414] focus:ring-yellow-400 focus:outline-none text-gray-200"></textarea></label>
+        <label class="block text-gray-200 font-semibold">Image URL <input name="image" type="url" placeholder="https://example.com/image.png" class="w-full mt-1 px-3 py-2 rounded bg-[#141414] focus:ring-yellow-400 focus:outline-none text-gray-200" /></label>
         <div class="flex justify-end space-x-2">
-          <button type="submit" class="primary-btn bg-yellow-400 hover:bg-yellow-500 px-4 py-2 rounded font-semibold transition">Create</button>
-          <button type="button" id="cancelCreateTeam" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded font-semibold transition">Cancel</button>
+          <button type="submit" class="primary-btn bg-[#FFa700] hover:bg-[#DF2A00] px-4 py-2 rounded font-semibold transition">Create</button>
+          <button type="button" id="cancelCreateTeam" class="bg-[#FFa700] hover:bg-[#DF2A00] px-4 py-2 rounded font-semibold transition">Cancel</button>
         </div>
     `
 
@@ -2081,7 +2213,7 @@ function init() {
     {
       id: "dota2",
       name: "DOTA 2",
-      logo: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51b34267-b54c-4a51-88bf-59b83ef92c87.png",
+      logo: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51b34267-b54c-4a51-88bf-59b83ef92c87.png " ,
       alt: "DOTA 2 game logo in black background with stylized white text and icon",
     },
     {
