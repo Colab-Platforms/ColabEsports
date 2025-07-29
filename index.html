@@ -811,7 +811,67 @@
   <!-- leaderboard script -->
   <script src="assets/js/indexscript.js"></script>
 
-  
+   <!-- Gaming Chatbot UI - Add this at the end of your body tag -->
+<div id="chatbot-container">
+  <div id="chatbot-button">
+    <div class="chatbot-button-inner">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <div class="pulse-ring"></div>
+    </div>
+  </div>
+  <div id="chatbot-window" class="hidden">
+    <div id="chatbot-header">
+      <div class="chatbot-header-content">
+        <div class="chatbot-status-indicator"></div>
+        <div class="chatbot-header-title">
+          <div class="chatbot-avatar">
+            <img src="https://cdn.shopify.com/s/files/1/0653/9830/9053/files/Colab_Cloud_Logo_1-09_1.png?v=1733726989" alt="Colab">
+          </div>
+          <div class="chatbot-title-text">
+            <h3>COLAB ESPORTS</h3>
+            <span class="chatbot-subtitle">Gaming Support</span>
+          </div>
+        </div>
+      </div>
+      <button id="chatbot-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="message bot-message">
+        <div class="message-avatar">
+          <div class="bot-avatar-icon">🎮</div>
+        </div>
+        <div class="message-content">
+          <span class="message-author">ColabEsports Bot</span>
+          Welcome to Colab Esports! Ready to dominate? How can I help you today?
+        </div>
+      </div>
+    </div>
+    <div class="quick-actions">
+      <button class="quick-action-btn" data-message="How do I join a match?">Join Match</button>
+      <button class="quick-action-btn" data-message="How much does it cost?">Pricing</button>
+      <button class="quick-action-btn" data-message="Support contact?">Contact</button>
+      <button class="quick-action-btn" data-message="What all match format available?">Match Format</button>
+    </div>
+    <div id="chatbot-input-container">
+      <form id="chatbot-form">
+        <input type="text" id="chatbot-input" placeholder="Type your message..." autocomplete="off">
+        <button type="submit" id="chatbot-submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
