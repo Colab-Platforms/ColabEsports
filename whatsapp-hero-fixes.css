@@ -1,0 +1,131 @@
+/* WhatsApp Float Button Styles */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  transform: scale(1.1);
+  color: white;
+  text-decoration: none;
+}
+
+.whatsapp-float i {
+  margin-top: 2px;
+}
+
+/* Responsive adjustments for WhatsApp button */
+@media screen and (max-width: 768px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+}
+
+/* Hero Section Responsive Styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  display: block;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Ensure container and shapes are above the image */
+.hero-section .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+}
+
+.breadcumb-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Responsive hero section - simplified approach */
+@media screen and (max-width: 1200px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* For very large screens, limit the height */
+@media screen and (min-width: 1920px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+  }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 320px) {
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .whatsapp-float {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 20px;
+  }
+}
