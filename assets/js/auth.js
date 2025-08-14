@@ -1,384 +1,414 @@
+// ===========================================
+// SIMPLE AUTHENTICATION SYSTEM
+// ===========================================
 
+// API Configuration - PUT YOUR API URL HERE
+const API_URL = 'https://your-api-url.com'; // CHANGE THIS TO YOUR API URL
 
-    // Global variables
-    let isLoggedIn = false;
+// Global variables
+let isLoggedIn = false;
 
-    // Modal Functions
-    function showWelcomeModal() {
-      const modal = document.getElementById('welcomeModal');
-      if (modal) {
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-      }
-    }
+// ===========================================
+// UTILITY FUNCTIONS
+// ===========================================
 
-    function closeWelcomeModal() {
-      const modal = document.getElementById('welcomeModal');
-      if (modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-      }
-    }
-
-    // Sidemenu Functions - FIXED
-    function openSidemenu() {
-      console.log('Opening sidemenu...');
-      const sidemenuWrapper = document.getElementById('sidemenuWrapper');
-      if (sidemenuWrapper) {
-        sidemenuWrapper.classList.add('show');
-        document.body.style.overflow = 'hidden';
-        console.log('Sidemenu opened successfully');
-      } else {
-        console.error('Sidemenu wrapper not found');
-      }
-    }
-
-    function closeSidemenu() {
-      console.log('Closing sidemenu...');
-      const sidemenuWrapper = document.getElementById('sidemenuWrapper');
-      if (sidemenuWrapper) {
-        sidemenuWrapper.classList.remove('show');
-        document.body.style.overflow = 'auto';
-        console.log('Sidemenu closed successfully');
-      }
-    }
-
-    function openSidemenuLogin() {
-      console.log('Opening sidemenu for login...');
-      closeWelcomeModal();
-      setTimeout(() => {
-        openSidemenu();
-        showSideLoginForm();
-      }, 300);
-    }
-
-    function openSidemenuSignup() {
-      console.log('Opening sidemenu for signup...');
-      closeWelcomeModal();
-      setTimeout(() => {
-        openSidemenu();
-        showSideSignupForm();
-      }, 300);
-    }
-
-    // Show Signup Form
-    function showSideSignupForm() {
-      console.log('Showing signup form...');
-      const loginForm = document.getElementById('loginFormSide');
-      const signupForm = document.getElementById('signupFormSide');
-      if (loginForm && signupForm) {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-        console.log('Signup form displayed');
-      }
-    }
-
-    // Show Login Form
-    function showSideLoginForm() {
-      console.log('Showing login form...');
-      const loginForm = document.getElementById('loginFormSide');
-      const signupForm = document.getElementById('signupFormSide');
-      if (loginForm && signupForm) {
-        signupForm.style.display = 'none';
-        loginForm.style.display = 'block';
-        console.log('Login form displayed');
-      }
-    }
-
-    // Update UI after successful login
-    function updateUserUI(user) {
-      const loginForm = document.getElementById('loginFormSide');
-      const signupForm = document.getElementById('signupFormSide');
-      const loggedInState = document.getElementById('loggedInState');
-      const profileMenuOptions = document.getElementById('profileMenuOptions');
-      const sideUserName = document.getElementById('sideUserName');
-      const sideUserEmail = document.getElementById('sideUserEmail');
-
-      if (loginForm) loginForm.style.display = 'none';
-      if (signupForm) signupForm.style.display = 'none';
-      if (loggedInState) loggedInState.style.display = 'block';
-      if (profileMenuOptions) profileMenuOptions.style.display = 'block';
-      if (sideUserName) sideUserName.textContent = `Welcome ${user.name}`;
-      if (sideUserEmail) sideUserEmail.textContent = user.email;
-
-      isLoggedIn = true;
-    }
-
-    // Password Strength Checker
-    function isStrongPassword(password) {
-      const strongPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-      return strongPattern.test(password);
-    }
-
-    // Handle Login - REAL LOGIN LOGIC
-    async function handleSidemenuLogin(event) {
-      event.preventDefault();
-      console.log('Login form submitted');
-      
-      const emailInput = document.getElementById('sideLoginEmail');
-      const passwordInput = document.getElementById('sideLoginPassword');
-      
-      if (!emailInput || !passwordInput) {
-        console.error('Login form inputs not found');
-        return;
-      }
-      
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-
-      if (!email || !password) {
-        alert('Please fill in both email and password.');
-        return;
-      }
-
-      try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        });
-
-        const contentType = response.headers.get('content-type') || '';
-        let data = {};
-
-        if (contentType.includes('application/json')) {
-          data = await response.json();
-        }
-
-        if (response.ok) {
-          localStorage.setItem('token', data.token);
-          updateUserUI(data.user);
-          alert('Login successful! Welcome to ColabEsports!');
-          
-          // Clear form
-          emailInput.value = '';
-          passwordInput.value = '';
-        } else {
-          alert(data.message || 'Incorrect email or password.');
-        }
-      } catch (err) {
-        console.error('Login error:', err);
-        alert('Login failed due to network or server error.');
-      }
-    }
-
-    // Handle Signup - REAL SIGNUP LOGIC
-    async function handleSidemenuSignup(event) {
-      event.preventDefault();
-      console.log('Signup form submitted');
-      
-      const nameInput = document.getElementById('sideSignupName');
-      const emailInput = document.getElementById('sideSignupEmail');
-      const passwordInput = document.getElementById('sideSignupPassword');
-      const confirmPasswordInput = document.getElementById('sideConfirmPassword');
-      
-      if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
-        console.error('Signup form inputs not found');
-        return;
-      }
-      
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-      const confirmPassword = confirmPasswordInput.value;
-
-      if (!name || !email || !password || !confirmPassword) {
-        alert('Please fill in all fields.');
-        return;
-      }
-
-      if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-      }
-
-      if (!isStrongPassword(password)) {
-        alert(
-          'Password is weak.\nIt must be at least 8 characters and include:\n• Uppercase\n• Lowercase\n• Number\n• Special character'
-        );
-        return;
-      }
-
-      try {
-        const response = await fetch('/api/signup', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password })
-        });
-
-        const contentType = response.headers.get('content-type') || '';
-        let data = {};
-
-        if (contentType.includes('application/json')) {
-          data = await response.json();
-        }
-
-        if (response.ok) {
-          alert('Signup successful. You can now log in.');
-          showSideLoginForm();
-          
-          // Clear form
-          nameInput.value = '';
-          emailInput.value = '';
-          passwordInput.value = '';
-          confirmPasswordInput.value = '';
-        } else {
-          alert(data.message || 'Signup failed. Try a different email.');
-        }
-      } catch (err) {
-        console.error('Signup error:', err);
-        alert('Signup failed due to network or server error.');
-      }
-    }
-
-    // Handle Logout
-    function handleLogout() {
-      localStorage.removeItem('token');
-      const loggedInState = document.getElementById('loggedInState');
-      const profileMenuOptions = document.getElementById('profileMenuOptions');
-      
-      if (loggedInState) loggedInState.style.display = 'none';
-      if (profileMenuOptions) profileMenuOptions.style.display = 'none';
-      
-      isLoggedIn = false;
-      showSideLoginForm();
-      alert('Logged out successfully!');
-    }
-
-    // Placeholder functions for menu options
-    function handleWallet() {
-      alert('Wallet/Transactions feature coming soon!');
-    }
-
-    function handleKYC() {
-      const kycSteps = document.getElementById('kycSteps');
-      if (kycSteps) {
-        if (kycSteps.style.display === 'none' || kycSteps.style.display === '') {
-          kycSteps.style.display = 'block';
-        } else {
-          kycSteps.style.display = 'none';
-        }
-      }
-    }
-
-    function handleXP() {
-      alert('XP Points feature coming soon!');
-    }
-
-    function handleSupport() {
-      alert('Support feature coming soon!');
-    }
-
-    function handleSettings() {
-      alert('Settings feature coming soon!');
-    }
-
-    // Initialize everything when DOM is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM loaded, initializing...');
-
-      // Show modal after 3 seconds when page loads
-      setTimeout(function() {
-        const token = localStorage.getItem('token');
-        if (!token && !isLoggedIn) {
-          console.log('Showing welcome modal...');
-          showWelcomeModal();
-        }
-      }, 3000);
-
-      // Set up sidemenu toggle functionality
-      const sideMenuToggler = document.querySelector('.sideMenuToggler');
-      if (sideMenuToggler) {
-        sideMenuToggler.addEventListener('click', function() {
-          console.log('Sidemenu toggler clicked');
-          openSidemenu();
-        });
-      }
-
-      // Close modal when clicking outside
-      const welcomeModal = document.getElementById('welcomeModal');
-      if (welcomeModal) {
-        welcomeModal.addEventListener('click', function(e) {
-          if (e.target === this) {
-            closeWelcomeModal();
-          }
-        });
-      }
-
-      // Close sidemenu when clicking outside
-      const sidemenuWrapper = document.getElementById('sidemenuWrapper');
-      if (sidemenuWrapper) {
-        sidemenuWrapper.addEventListener('click', function(e) {
-          if (e.target === this) {
-            closeSidemenu();
-          }
-        });
-      }
-
-      // Set current year in footer
-      const currentYearElement = document.getElementById('currentYear');
-      if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
-      }
-
-      console.log('Initialization complete');
-    });
-
-    // Close modals with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeWelcomeModal();
-        closeSidemenu();
-      }
-    });
-
-
-
-
-
-// CS2 Setup Modal JavaScript Functions
-
-// Function to open the CS2 setup modal
-function openCS2SetupModal() {
-  document.getElementById("cs2SetupModal").classList.add("show")
-  document.body.style.overflow = "hidden"
-}
-
-// Function to close the CS2 setup modal
-function closeCS2SetupModal() {
-  document.getElementById("cs2SetupModal").classList.remove("show")
-  document.body.style.overflow = "auto"
-}
-
-// Function to redirect to game page when PLAY NOW is clicked
-function redirectToGamePage() {
-  // Close the modal first
-  closeCS2SetupModal()
-
-  // Add a small delay for smooth transition
+// Show notification
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed; top: 20px; right: 20px; z-index: 10001;
+    background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+    color: white; padding: 15px 20px; border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: slideIn 0.3s ease;
+  `;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  
   setTimeout(() => {
-    // Redirect to your game page (change this URL as needed)
-    window.location.href = "single-match.html"
-  }, 300)
+    notification.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
 }
 
-// Close modal when clicking outside
-window.addEventListener("click", (event) => {
-  const cs2SetupModal = document.getElementById("cs2SetupModal")
+// ===========================================
+// FORM FUNCTIONS
+// ===========================================
 
-  if (event.target === cs2SetupModal) {
-    closeCS2SetupModal()
+// Show/Hide Forms
+function showSideLoginForm() {
+  document.getElementById('loginFormSide').style.display = 'block';
+  document.getElementById('signupFormSide').style.display = 'none';
+  document.getElementById('forgotPasswordFormSide').style.display = 'none';
+}
+
+function showSideSignupForm() {
+  document.getElementById('loginFormSide').style.display = 'none';
+  document.getElementById('signupFormSide').style.display = 'block';
+  document.getElementById('forgotPasswordFormSide').style.display = 'none';
+}
+
+function showForgotPasswordForm() {
+  document.getElementById('loginFormSide').style.display = 'none';
+  document.getElementById('signupFormSide').style.display = 'none';
+  document.getElementById('forgotPasswordFormSide').style.display = 'block';
+}
+
+// ===========================================
+// SIDEMENU FUNCTIONS
+// ===========================================
+
+function openSidemenu() {
+  document.getElementById('sidemenuWrapper').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSidemenu() {
+  document.getElementById('sidemenuWrapper').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+// ===========================================
+// API FUNCTIONS
+// ===========================================
+
+// LOGIN API
+async function handleSidemenuLogin(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('sideLoginEmail').value.trim();
+  const password = document.getElementById('sideLoginPassword').value;
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  
+  if (!email || !password) {
+    showNotification('Please fill in all fields', 'error');
+    return;
   }
-})
+  
+  // Show loading
+  submitBtn.textContent = 'Logging in...';
+  submitBtn.disabled = true;
+  
+  try {
+    const response = await fetch(`${API_URL}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+      // Store user data
+      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      
+      // Update UI
+      showLoggedInState(data.user);
+      showNotification('Login successful!', 'success');
+      
+      // Clear form
+      document.getElementById('sideLoginEmail').value = '';
+      document.getElementById('sideLoginPassword').value = '';
+      
+    } else {
+      showNotification(data.message || 'Login failed', 'error');
+    }
+    
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error');
+  } finally {
+    submitBtn.textContent = 'Login';
+    submitBtn.disabled = false;
+  }
+}
 
-// Close modal with Escape key
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    const cs2SetupModal = document.getElementById("cs2SetupModal")
-    if (cs2SetupModal.classList.contains("show")) {
-      closeCS2SetupModal()
+// SIGNUP API
+async function handleSidemenuSignup(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById('sideSignupName').value.trim();
+  const email = document.getElementById('sideSignupEmail').value.trim();
+  const password = document.getElementById('sideSignupPassword').value;
+  const confirmPassword = document.getElementById('sideConfirmPassword').value;
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  
+  if (!name || !email || !password || !confirmPassword) {
+    showNotification('Please fill in all fields', 'error');
+    return;
+  }
+  
+  if (password !== confirmPassword) {
+    showNotification('Passwords do not match', 'error');
+    return;
+  }
+  
+  // Show loading
+  submitBtn.textContent = 'Creating Account...';
+  submitBtn.disabled = true;
+  
+  try {
+    const response = await fetch(`${API_URL}/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password })
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+      showNotification('Account created successfully!', 'success');
+      showSideLoginForm();
+      
+      // Clear form
+      document.getElementById('sideSignupName').value = '';
+      document.getElementById('sideSignupEmail').value = '';
+      document.getElementById('sideSignupPassword').value = '';
+      document.getElementById('sideConfirmPassword').value = '';
+      
+    } else {
+      showNotification(data.message || 'Signup failed', 'error');
+    }
+    
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error');
+  } finally {
+    submitBtn.textContent = 'Sign Up';
+    submitBtn.disabled = false;
+  }
+}
+
+// FORGOT PASSWORD API
+async function handleForgotPassword(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('sideForgotEmail').value.trim();
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  
+  if (!email) {
+    showNotification('Please enter your email', 'error');
+    return;
+  }
+  
+  // Show loading
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+  
+  try {
+    const response = await fetch(`${API_URL}/forgot-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    
+    const data = await response.json();
+    
+    if (response.ok) {
+      showNotification('Reset link sent to your email!', 'success');
+      document.getElementById('sideForgotEmail').value = '';
+      setTimeout(() => showSideLoginForm(), 2000);
+    } else {
+      showNotification(data.message || 'Failed to send reset email', 'error');
+    }
+    
+  } catch (error) {
+    showNotification('Network error. Please try again.', 'error');
+  } finally {
+    submitBtn.textContent = 'Send Reset Link';
+    submitBtn.disabled = false;
+  }
+}
+
+// ===========================================
+// UI UPDATE FUNCTIONS
+// ===========================================
+
+function showLoggedInState(user) {
+  // Hide auth forms
+  document.getElementById('loginFormSide').style.display = 'none';
+  document.getElementById('signupFormSide').style.display = 'none';
+  document.getElementById('forgotPasswordFormSide').style.display = 'none';
+  
+  // Show logged in state
+  document.getElementById('loggedInState').style.display = 'block';
+  document.getElementById('profileMenuOptions').style.display = 'block';
+  
+  // Update user info
+  document.getElementById('sideUserName').textContent = `Welcome ${user.name}`;
+  document.getElementById('sideUserEmail').textContent = user.email;
+  
+  isLoggedIn = true;
+}
+
+function handleLogout() {
+  // Clear data
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('user');
+  
+  // Reset UI
+  document.getElementById('loggedInState').style.display = 'none';
+  document.getElementById('profileMenuOptions').style.display = 'none';
+  
+  showSideLoginForm();
+  closeSidemenu();
+  showNotification('Logged out successfully!', 'success');
+  
+  isLoggedIn = false;
+}
+
+// ===========================================
+// MENU HANDLERS
+// ===========================================
+
+function handleViewProfile() {
+  window.location.href = 'profile.html';
+}
+
+function handleWallet() {
+  window.location.href = 'payment.html';
+}
+
+function handleSettings() {
+  window.location.href = 'update.html';
+}
+
+// ===========================================
+// CS2 MODAL FUNCTIONS
+// ===========================================
+
+function openCS2SetupModal() {
+  const token = localStorage.getItem('authToken');
+  
+  if (!token) {
+    // Use custom notification instead of alert
+    showNotification('Please login or create an account to join matches!', 'info');
+    setTimeout(() => {
+      openSidemenu();
+      showSideLoginForm();
+    }, 500);
+    return;
+  }
+  
+  document.getElementById('cs2SetupModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCS2SetupModal() {
+  document.getElementById('cs2SetupModal').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+function redirectToGamePage() {
+  closeCS2SetupModal();
+  setTimeout(() => {
+    window.open('https://store.steampowered.com/app/730/CounterStrike_2/', '_blank');
+  }, 300);
+}
+
+// ===========================================
+// MODAL FUNCTIONS
+// ===========================================
+
+function showWelcomeModal() {
+  const modal = document.getElementById('welcomeModal');
+  if (modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeWelcomeModal() {
+  const modal = document.getElementById('welcomeModal');
+  if (modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// ===========================================
+// GLOBAL WINDOW FUNCTIONS
+// ===========================================
+
+window.openSidemenu = openSidemenu;
+window.closeSidemenu = closeSidemenu;
+window.showSideLoginForm = showSideLoginForm;
+window.showSideSignupForm = showSideSignupForm;
+window.showForgotPasswordForm = showForgotPasswordForm;
+window.handleSidemenuLogin = handleSidemenuLogin;
+window.handleSidemenuSignup = handleSidemenuSignup;
+window.handleForgotPassword = handleForgotPassword;
+window.handleLogout = handleLogout;
+window.handleViewProfile = handleViewProfile;
+window.handleWallet = handleWallet;
+window.handleSettings = handleSettings;
+window.openCS2SetupModal = openCS2SetupModal;
+window.closeCS2SetupModal = closeCS2SetupModal;
+window.redirectToGamePage = redirectToGamePage;
+window.showWelcomeModal = showWelcomeModal;
+window.closeWelcomeModal = closeWelcomeModal;
+
+// ===========================================
+// INITIALIZATION
+// ===========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if user is already logged in
+  const token = localStorage.getItem('authToken');
+  const user = localStorage.getItem('user');
+  
+  if (token && user) {
+    try {
+      const userData = JSON.parse(user);
+      showLoggedInState(userData);
+    } catch (error) {
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('user');
     }
   }
-})
+  
+  // Set up sidemenu toggle
+  const sideMenuToggler = document.querySelector('.sideMenuToggler');
+  if (sideMenuToggler) {
+    sideMenuToggler.addEventListener('click', openSidemenu);
+  }
+  
+  // Close sidemenu when clicking outside
+  const sidemenuWrapper = document.getElementById('sidemenuWrapper');
+  if (sidemenuWrapper) {
+    sidemenuWrapper.addEventListener('click', function(e) {
+      if (e.target === this) closeSidemenu();
+    });
+  }
+  
+  // Show welcome modal after 3 seconds if not logged in
+  setTimeout(() => {
+    if (!isLoggedIn) showWelcomeModal();
+  }, 3000);
+  
+  // Set current year
+  const currentYearElement = document.getElementById('currentYear');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  }
+});
 
+// Close modals with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeWelcomeModal();
+    closeSidemenu();
+  }
+});
 
+// Add CSS for notifications
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
