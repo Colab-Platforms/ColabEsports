@@ -117,7 +117,7 @@
 }
 
 .auth-title {
-  color: var(--bg-color);
+  color: white;
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -486,7 +486,7 @@
 }
 
 .auth-title {
-  color: var(--bg-color);
+  color: White;
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 20px;
