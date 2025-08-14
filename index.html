@@ -117,6 +117,9 @@
     <!-- Chatbot CSS -->
     <link rel="stylesheet" href="assets/css/chatbot.css" />
 
+    <!-- WhatsApp & Hero Fixes CSS -->
+    <link rel="stylesheet" href="assets/css/whatsapp-hero-fixes.css" />
+
     <!-- Meta Pixel Code -->
     <script>
       !(function (f, b, e, v, n, t, s) {
@@ -871,13 +874,15 @@
     </header>
 
     <main class="vs-page__main">
-      <!-- Breadcrumb Style -->
-      <div
-        class="breadcumb-wrapper"
-        style="
-          background-image: url('https://cdn.shopify.com/s/files/1/0636/5226/6115/files/CES_website_banner_new_size.jpg?v=1752753465');
-        "
-      >
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-image-container">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0636/5226/6115/files/CES_website_banner_new_size.jpg?v=1752753465"
+            alt="ColabEsports Hero Banner"
+            class="hero-image"
+          />
+        </div>
         <div class="container"></div>
         <div class="breadcumb-shape">
           <span class="breadcumb-shape__one"></span>
@@ -885,7 +890,7 @@
           <span class="breadcumb-shape__three"></span>
         </div>
       </div>
-      <!-- Breadcrumb Style End -->
+      <!-- Hero Section End -->
       <!-- Main Layouts -->
       <div
         class="vs-page__main--layouts"
@@ -1169,15 +1174,15 @@
     <!--********************************
       End Main Content
   ******************************** -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
-      <span class="progress-circle">
-        <svg viewBox="0 0 100 100">
-          <circle class="bg" cx="50" cy="50" r="40"></circle>
-          <circle class="progress" cx="50" cy="50" r="40"></circle>
-        </svg>
-        <span class="progress-percentage" id="progressPercentage">0%</span>
-      </span>
-    </button>
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/918976968900"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Contact us on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!--==============================
         All Js File
@@ -1222,7 +1227,7 @@
     <script src="assets/js/auth.js"></script>
 
     <!-- Gaming Chatbot UI -->
-    <div id="chatbot-container">
+    <!-- <div id="chatbot-container">
       <div id="chatbot-button">
         <div class="chatbot-button-inner">
           <svg
@@ -1339,6 +1344,6 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
