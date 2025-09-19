@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGMI Tournaments - Colab Esports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --secondary: #f7931e;
+            --bg-dark: #0a0a12;
+            --bg-darker: #07070d;
+            --text-light: #ffffff;
+            --text-muted: #8892b0;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-darker); color: var(--text-light); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: rgba(10, 10, 18, 0.9); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; text-decoration: none; font-size: 1.5rem; font-weight: 700; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('https://res.cloudinary.com/dlmcpmdpn/image/upload/v1/tournaments/tournament-images/hhplqzudnsrdmwssrtkz.png');
+            background-size: cover; 
+            height: 400px; 
+            display: flex; 
+            align-items: center; 
+            margin-top: 60px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+        
+        /* Tournaments Section */
+        .tournaments-section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-title { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary); }
+        .section-subtitle { color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+        
+        .tournament-filters { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-btn { 
+            padding: 10px 25px; 
+            border: none; 
+            border-radius: 30px; 
+            background: rgba(255,255,255,0.05); 
+            color: var(--text-muted); 
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .tournament-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+            gap: 30px; 
+        }
+        
+        .tournament-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .tournament-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .tournament-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .tournament-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .tournament-content { padding: 25px; }
+        .tournament-title { font-size: 1.5rem; margin-bottom: 10px; }
+        .tournament-meta { display: flex; justify-content: space-between; color: var(--text-muted); margin-bottom: 20px; }
+        .tournament-prize { color: #00d4ff; font-weight: 600; }
+        
+        .tournament-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .detail-item {
+            background: rgba(255,255,255,0.03);
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .detail-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,107,53,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+        
+        .detail-label { font-size: 0.7rem; color: var(--text-muted); }
+        .detail-value { font-size: 0.9rem; font-weight: 600; }
+        
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+        }
+        
+        /* Footer */
+        footer { background: var(--bg-dark); padding: 50px 0; margin-top: 50px; text-align: center; }
+        footer p { color: var(--text-muted); }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { height: 300px; margin-top: 60px; }
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .tournament-grid { grid-template-columns: 1fr; }
+            .tournament-details { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Colab Esports</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="tournaments.html" class="active">Tournaments</a>
+                    <a href="#">Results</a>
+                    <a href="#">Teams</a>
+                    <a href="#">About</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>BGMI Tournaments</h1>
+            <p>Compete in the most exciting BGMI tournaments and win amazing prizes</p>
+        </div>
+    </section>
+
+    <!-- Tournaments Section -->
+    <section class="tournaments-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Tournaments</h2>
+                <p class="section-subtitle">Join the most competitive BGMI tournaments and showcase your skills</p>
+            </div>
+
+            <div class="tournament-filters">
+                <button class="filter-btn active" data-filter="all">All Tournaments</button>
+                <button class="filter-btn" data-filter="solo">Solo</button>
+                <button class="filter-btn" data-filter="duo">Duo</button>
+                <button class="filter-btn" data-filter="squad">Squad</button>
+            </div>
+
+            <div id="tournamentContainer" class="tournament-grid">
+                <!-- Tournaments will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Colab Esports. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/tournaments.js"></script>
+</body>
+</html>
