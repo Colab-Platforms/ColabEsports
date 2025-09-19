@@ -557,7 +557,7 @@
   </head>
   <body>
     <!-- Admin Header -->
-    <div class="admin-header">
+    <div class="admin-header"></div>
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
           <h1><i class="fas fa-cog"></i> Admin Dashboard</h1>
@@ -1401,18 +1401,9 @@
       let resultsAdminCurrentPage = 1;
       let performersAdminCurrentPage = 1;
       const itemsPerPage = 10;
-      // Check authentication
-      auth.onAuthStateChanged((user) => {
-        if (!user) {
-          window.location.href = "login.html";
-          return;
-        }
-
-        document.getElementById(
-          "adminEmail"
-        ).textContent = `Welcome, ${user.email}`;
-        initializeDashboard();
-      });
+      // Initialize Dashboard without authentication
+      document.getElementById("adminEmail").textContent = "Welcome, Admin";
+      initializeDashboard();
       // Initialize Dashboard
       async function initializeDashboard() {
         initializeCloudinary();
@@ -2790,9 +2781,8 @@
         }, 3000);
       }
       function logout() {
-        auth.signOut().then(() => {
-          window.location.href = "login.html";
-        });
+        // Simple redirect to login page
+        window.location.href = "login.html";
       }
 
       // Create sample tournament for testing
