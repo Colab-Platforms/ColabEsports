@@ -764,6 +764,11 @@
             <div class="col-lg-6">
               <div class="admin-card">
                 <h3><i class="fas fa-list"></i> Existing Tournaments</h3>
+                <div style="margin-bottom: 15px;">
+                  <button class="btn btn-info btn-sm" onclick="syncTournamentTeamCounts()" title="Sync team counts with actual registrations">
+                    <i class="fas fa-sync-alt"></i> Sync Team Counts
+                  </button>
+                </div>
                 <div id="tournamentsList">
                   <!-- Tournaments will be loaded here -->
                 </div>
@@ -2425,9 +2430,13 @@
           status: document.getElementById("tournamentStatus").value,
           description: document.getElementById("description").value,
           imageUrl: document.getElementById("tournamentImageUrl").value,
-          registeredTeams: 0,
           createdAt: new Date().toISOString(),
         };
+
+        // Only set registeredTeams to 0 for new tournaments, preserve existing count for updates
+        if (!isEditMode) {
+          tournamentData.registeredTeams = 0;
+        }
         try {
           if (isEditMode) {
             const tournamentId =
@@ -2513,6 +2522,45 @@
         } catch (error) {
           console.error("Error deleting tournament:", error);
           showMessage("Error deleting tournament", "error");
+        }
+      }
+
+      // Sync registered teams count with actual team registrations
+      async function syncTournamentTeamCounts() {
+        if (!confirm("This will sync all tournament team counts with actual registrations. Continue?"))
+          return;
+        
+        try {
+          showMessage("Syncing tournament team counts...", "info");
+          
+          // Get all tournaments
+          const tournamentsSnapshot = await db.collection("tournaments").get();
+          
+          for (const tournamentDoc of tournamentsSnapshot.docs) {
+            const tournamentId = tournamentDoc.id;
+            
+            // Count actual team registrations for this tournament
+            const teamsSnapshot = await db
+              .collection("teamRegistrations")
+              .where("tournamentId", "==", tournamentId)
+              .get();
+            
+            const actualTeamCount = teamsSnapshot.size;
+            
+            // Update the tournament document with the correct count
+            await db.collection("tournaments").doc(tournamentId).update({
+              registeredTeams: actualTeamCount
+            });
+            
+            console.log(`Tournament ${tournamentId}: Updated count to ${actualTeamCount}`);
+          }
+          
+          showMessage("All tournament team counts synced successfully!", "success");
+          await loadTournaments();
+          await updateStats();
+        } catch (error) {
+          console.error("Error syncing tournament team counts:", error);
+          showMessage("Error syncing tournament team counts", "error");
         }
       }
       async function deleteTeam(teamId) {
