@@ -114,7 +114,7 @@
       
       try {
         // Call your backend API
-        const response = await fetch('https://esportschatbot-production.up.railway.app/chat', {
+        const response = await fetch('https://store-chatbot-wyp7.onrender.com/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
