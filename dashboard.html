@@ -531,6 +531,26 @@
           justify-content: center;
         }
       }
+
+      /* ...existing code... */
+.modal-content {
+  background: #222 !important;
+  color: #fff !important;
+  border-radius: 15px;
+  border: 2px solid #a6d719;
+}
+.modal-header, .modal-footer {
+  background: #1a1a1a !important;
+  color: #a6d719 !important;
+  border-bottom: 1px solid #333;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.modal-footer {
+  border-top: 1px solid #333;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
       @media (max-width: 480px) {
         .stats-grid {
           grid-template-columns: 1fr 1fr;
@@ -687,6 +707,7 @@
                       </select>
                     </div>
                     <div class="col-md-6">
+                        <small class="text-light">Match Date</small>
                       <input
                         type="datetime-local"
                         class="form-control"
@@ -704,7 +725,7 @@
                         placeholder="Registration Start"
                         required
                       />
-                      <small class="text-muted">Registration Start Date</small>
+                      <small class="text-light">Registration Start Date</small>
                     </div>
                     <div class="col-md-6">
                       <input
@@ -714,7 +735,7 @@
                         placeholder="Registration End"
                         required
                       />
-                      <small class="text-muted">Registration End Date</small>
+                      <small class="text-light">Registration End Date</small>
                     </div>
                   </div>
                   <div class="row">
@@ -846,6 +867,7 @@
               <table class="table table-dark">
                 <thead>
                   <tr>
+                    <th>P.No</th>
                     <th>Logo</th>
                     <th>Team Name</th>
                     <th>Leader</th>
@@ -960,6 +982,22 @@
                           name="prize"
                         />
                       </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Position Points"
+                          name="pospoint"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="chicken dinner"
+                          name="chicken"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="team-position">
@@ -998,6 +1036,38 @@
                           name="prize"
                         />
                       </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Position Points"
+                          name="pospoint"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="chicken dinner"
+                          name="chicken"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Position Points"
+                          name="pospoint"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="chicken dinner"
+                          name="chicken"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="team-position">
@@ -1034,6 +1104,22 @@
                           class="form-control"
                           placeholder="Prize (₹)"
                           name="prize"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Position Points"
+                          name="pospoint"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="chicken dinner"
+                          name="chicken"
                         />
                       </div>
                     </div>
@@ -1455,6 +1541,21 @@
           });
         });
       }
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
       // Excel Export Function
       async function exportToExcel() {
         try {
@@ -1579,14 +1680,40 @@
       function hideExportStatus() {
         document.getElementById("exportStatus").style.display = "none";
       }
-      // Initialize Admin Filters
+      // Initialize Admin Filters (with session persistence)
       function initializeAdminFilters() {
         const tournamentFilter = document.getElementById(
           "adminTournamentFilter"
         );
         const teamNameFilter = document.getElementById("adminTeamNameFilter");
-        tournamentFilter.addEventListener("change", applyAdminFilters);
-        teamNameFilter.addEventListener("change", applyAdminFilters);
+
+        // Restore saved values if any
+        try {
+          const savedTournament = sessionStorage.getItem("adminTournamentFilter") || "";
+          const savedTeamName = sessionStorage.getItem("adminTeamNameFilter") || "";
+          if (tournamentFilter && savedTournament) tournamentFilter.value = savedTournament;
+          if (teamNameFilter && savedTeamName) teamNameFilter.value = savedTeamName;
+        } catch (e) {
+          console.warn('Could not restore admin filters', e);
+        }
+
+        // Persist changes and apply filters
+        if (tournamentFilter) {
+          tournamentFilter.addEventListener("change", () => {
+            try { sessionStorage.setItem("adminTournamentFilter", tournamentFilter.value); } catch(e){}
+            teamsAdminCurrentPage = 1;
+            try { sessionStorage.setItem("teamsAdminCurrentPage", teamsAdminCurrentPage); } catch(e){}
+            applyAdminFilters();
+          });
+        }
+        if (teamNameFilter) {
+          teamNameFilter.addEventListener("change", () => {
+            try { sessionStorage.setItem("adminTeamNameFilter", teamNameFilter.value); } catch(e){}
+            teamsAdminCurrentPage = 1;
+            try { sessionStorage.setItem("teamsAdminCurrentPage", teamsAdminCurrentPage); } catch(e){}
+            applyAdminFilters();
+          });
+        }
       }
       function populateAdminFilterOptions() {
         const tournamentFilter = document.getElementById(
@@ -1626,6 +1753,21 @@
           option.textContent = teamName;
           teamNameFilter.appendChild(option);
         });
+        // Re-apply saved filter selections if any (ensure option exists then set)
+        try {
+          const savedTournament = sessionStorage.getItem("adminTournamentFilter");
+          const savedTeamName = sessionStorage.getItem("adminTeamNameFilter");
+          if (savedTournament) {
+            const opt = Array.from(tournamentFilter.options).find(o => o.value === savedTournament);
+            if (opt) tournamentFilter.value = savedTournament;
+          }
+          if (savedTeamName) {
+            const opt2 = Array.from(teamNameFilter.options).find(o => o.value === savedTeamName);
+            if (opt2) teamNameFilter.value = savedTeamName;
+          }
+        } catch (e) {
+          console.warn('Could not re-apply saved admin filters', e);
+        }
       }
       function applyAdminFilters() {
         const tournamentFilter = document.getElementById(
@@ -1634,6 +1776,10 @@
         const teamNameFilter = document.getElementById(
           "adminTeamNameFilter"
         ).value;
+        // persist selections
+        try { sessionStorage.setItem("adminTournamentFilter", tournamentFilter); } catch(e){}
+        try { sessionStorage.setItem("adminTeamNameFilter", teamNameFilter); } catch(e){}
+
         filteredAdminTeams = registeredTeams.filter((team) => {
           const tournament = tournaments.find(
             (t) => t.id === team.tournamentId
@@ -1646,6 +1792,7 @@
           return matchesTournament && matchesTeamName;
         });
         teamsAdminCurrentPage = 1; // Reset to first page
+        try { sessionStorage.setItem("teamsAdminCurrentPage", teamsAdminCurrentPage); } catch(e){}
         renderTeams();
       }
       function resetAdminFilters() {
@@ -1653,6 +1800,9 @@
         document.getElementById("adminTeamNameFilter").value = "";
         filteredAdminTeams = [...registeredTeams];
         teamsAdminCurrentPage = 1; // Reset to first page
+        try { sessionStorage.removeItem("adminTournamentFilter"); } catch(e){}
+        try { sessionStorage.removeItem("adminTeamNameFilter"); } catch(e){}
+        try { sessionStorage.setItem("teamsAdminCurrentPage", teamsAdminCurrentPage); } catch(e){}
         renderTeams();
       }
       // Pagination Functions for Admin
@@ -1678,6 +1828,7 @@
 
         if (newPage >= 1 && newPage <= totalPages) {
           teamsAdminCurrentPage = newPage;
+          try { sessionStorage.setItem("teamsAdminCurrentPage", teamsAdminCurrentPage); } catch(e){}
           renderTeams();
         }
       }
@@ -1685,6 +1836,7 @@
         const totalPages = Math.ceil(filteredAdminTeams.length / itemsPerPage);
         if (page >= 1 && page <= totalPages) {
           teamsAdminCurrentPage = page;
+          try { sessionStorage.setItem("teamsAdminCurrentPage", teamsAdminCurrentPage); } catch(e){}
           renderTeams();
         }
       }
@@ -2057,9 +2209,23 @@
               ...doc.data(),
             });
           });
-          filteredAdminTeams = [...registeredTeams];
+          // Populate filter options first (so saved values can match options)
           populateAdminFilterOptions();
-          renderTeams();
+
+          // Restore saved page
+          const savedPage = parseInt(sessionStorage.getItem("teamsAdminCurrentPage"), 10) || 1;
+          teamsAdminCurrentPage = savedPage;
+
+          // If saved filters exist, apply them; otherwise show all
+          const savedTournament = sessionStorage.getItem("adminTournamentFilter") || "";
+          const savedTeamName = sessionStorage.getItem("adminTeamNameFilter") || "";
+          if (savedTournament || savedTeamName) {
+            // applyAdminFilters will read the current select values and filter
+            applyAdminFilters();
+          } else {
+            filteredAdminTeams = [...registeredTeams];
+            renderTeams();
+          }
         } catch (error) {
           console.error("Error loading teams:", error);
         }
@@ -2071,6 +2237,341 @@
           .join("")
           .substring(0, 2);
       }
+
+
+      // Edit Team Functionality
+function editTeam(teamId) {
+// Make editTeam globally accessible for inline event handlers
+window.editTeam = editTeam;
+  const team = registeredTeams.find((t) => t.id === teamId);
+  if (!team) return;
+  // Remove any existing modal
+  let oldModal = document.getElementById('editTeamModal');
+  if (oldModal) oldModal.remove();
+  // Build modal HTML as a string
+  const modalHtml = `
+    <div class="modal fade" tabindex="-1" id="editTeamModalDialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Team</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="editTeamForm">
+            <div class="modal-body">
+              <input type="hidden" name="teamId" value="${team.id}">
+              <div class="mb-3">
+                <label class="form-label">Team Name</label>
+                <input type="text" class="form-control" name="teamName" value="${team.teamName}" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Team Leader Name</label>
+                <input type="text" class="form-control" name="teamLeaderName" value="${team.teamLeaderName}" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Team Leader Email</label>
+                <input type="email" class="form-control" name="teamLeaderEmail" value="${team.teamLeaderEmail || ''}" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" name="phoneNumber" value="${team.phoneNumber}" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Players (IGN, UUID)</label>
+                <div id="editPlayersContainer">
+                  ${team.players.map((player, idx) => `
+                    <div class="row mb-2">
+                      <div class="col">
+                        <input type="text" class="form-control" name="playerIGN" value="${player.ign || ''}" placeholder="IGN" />
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" name="playerName" value="${player.name || ''}" placeholder="UUID" />
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Tournament</label>
+                <select class="form-select" name="tournamentId" required>
+                  ${tournaments.map(t => `<option value="${t.id}" ${t.id === team.tournamentId ? 'selected' : ''}>${t.name}</option>`).join('')}
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  `;
+  // Create modal wrapper
+  const modalWrapper = document.createElement('div');
+  modalWrapper.id = 'editTeamModal';
+  modalWrapper.innerHTML = modalHtml;
+  document.body.appendChild(modalWrapper);
+  // Show modal
+  const modalDialog = new bootstrap.Modal(document.getElementById('editTeamModalDialog'));
+  modalDialog.show();
+  // Handle form submit
+  document.getElementById('editTeamForm').onsubmit = async function(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const updatedTeam = {
+      teamName: formData.get('teamName'),
+      teamLeaderName: formData.get('teamLeaderName'),
+      teamLeaderEmail: formData.get('teamLeaderEmail'),
+      phoneNumber: formData.get('phoneNumber'),
+      tournamentId: formData.get('tournamentId'),
+      players: []
+    };
+    // Collect players
+    const igns = formData.getAll('playerIGN');
+    const names = formData.getAll('playerName');
+    for (let i = 0; i < igns.length; i++) {
+      updatedTeam.players.push({ ign: igns[i], name: names[i] });
+    }
+    try {
+      await db.collection('teamRegistrations').doc(formData.get('teamId')).update(updatedTeam);
+      showMessage('Team updated successfully!', 'success');
+      bootstrap.Modal.getInstance(document.getElementById('editTeamModalDialog')).hide();
+      document.getElementById('editTeamModal').remove();
+      await loadTeams();
+    } catch (error) {
+      showMessage('Error updating team', 'error');
+      console.error('Error updating team:', error);
+    }
+  };
+}
+
+// Verification Modal and Handlers
+// Verification Modal and Handlers
+// Verification Modal and Handlers
+async function openVerificationModal(teamId) {
+  try {
+    // Fetch team document
+    const doc = await db.collection('teamRegistrations').doc(teamId).get();
+    if (!doc.exists) {
+      showMessage('Team not found', 'error');
+      return;
+    }
+    const team = { id: doc.id, ...doc.data() };
+
+    // Remove existing modal if present
+    const existing = document.getElementById('verificationModal');
+    if (existing) existing.remove();
+
+    // Screenshots data
+    const screenshots = team.screenshots || team.images || [];
+    console.log('Team screenshots:', screenshots);
+    const hasScreenshots = screenshots.length > 0;
+    const visibleImages = hasScreenshots ? screenshots.slice(0, 3) : [];
+
+    // Generate screenshot cards
+    const screenshotsHtml = hasScreenshots
+      ? visibleImages
+          .map(
+            (url, idx) => `
+        <div class="col-md-4 mb-3 verification-image-box" data-index="${idx}">
+          <div class="card shadow-sm border rounded position-relative">
+            <img src="${url}" alt="screenshot-${idx}"
+              class="card-img-top"
+              style="height:180px; object-fit:cover; border-radius:8px 8px 0 0;">
+            <button type="button"
+              class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2"
+              title="Delete"
+              onclick="deleteVerificationImage('${team.id}', '${url.replace(/'/g, "\\'")}')">
+              &times;
+            </button>
+          </div>
+        </div>`
+          )
+          .join('')
+      : `
+        <div class="col-md-4 mb-3">
+          <div class="card border-2 border-dashed text-center py-5 shadow-sm">
+            <i class="bi bi-image" style="font-size:40px; color:#aaa;"></i>
+            <p class="mt-2 text-muted">No Image</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card border-2 border-dashed text-center py-5 shadow-sm">
+            <i class="bi bi-image" style="font-size:40px; color:#aaa;"></i>
+            <p class="mt-2 text-muted">No Image</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card border-2 border-dashed text-center py-5 shadow-sm">
+            <i class="bi bi-image" style="font-size:40px; color:#aaa;"></i>
+            <p class="mt-2 text-muted">No Image</p>
+          </div>
+        </div>
+      `;
+
+    // Build modal HTML
+    const modalHtml = `
+    <div class="modal fade" id="verificationModalDialog" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">🔒 WhatsApp Verification</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="mb-2"><strong>Leader Name:</strong> ${team.teamLeaderName || 'N/A'}</div>
+            <div class="mb-3"><strong>Phone Number:</strong> ${team.phoneNumber || team.leaderPhone || 'N/A'}</div>
+
+            <hr>
+            <h6 class="mb-3 fw-bold">📸 Verification Screenshots</h6>
+            <div class="row" id="verificationScreenshotsContainer">
+              ${screenshotsHtml}
+            </div>
+
+            ${
+              hasScreenshots && screenshots.length > 3
+                ? `<div class="text-center mt-3">
+                    <button class="btn btn-outline-primary btn-sm" id="showMoreBtn">Show More</button>
+                  </div>`
+                : ''
+            }
+
+            <hr class="mt-4">
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+              <button id="btnVerified" class="btn btn-success px-4">✅ Verified</button>
+              <button id="btnNotVerified" class="btn btn-danger px-4">❌ Not Verified</button>
+              <button id="btnPending" class="btn btn-secondary px-4">⏳ Pending Verification</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    `;
+
+    // Append and show modal
+    const wrapper = document.createElement('div');
+    wrapper.id = 'verificationModal';
+    wrapper.innerHTML = modalHtml;
+    document.body.appendChild(wrapper);
+
+    const modal = new bootstrap.Modal(document.getElementById('verificationModalDialog'));
+    modal.show();
+
+    // Wire up verification buttons
+    document.getElementById('btnVerified').addEventListener('click', async () => {
+      await updateTeamVerificationStatus(team.id, 'verified');
+      modal.hide();
+    });
+    document.getElementById('btnNotVerified').addEventListener('click', async () => {
+      await updateTeamVerificationStatus(team.id, 'not_verified');
+      modal.hide();
+    });
+    document.getElementById('btnPending').addEventListener('click', async () => {
+      await updateTeamVerificationStatus(team.id, 'pending');
+      modal.hide();
+    });
+
+    // Show More functionality
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    if (showMoreBtn) {
+      let expanded = false;
+      showMoreBtn.addEventListener('click', () => {
+        const container = document.getElementById('verificationScreenshotsContainer');
+        if (!expanded) {
+          const moreHtml = screenshots
+            .slice(3)
+            .map(
+              (url, idx) => `
+                <div class="col-md-4 mb-3 verification-image-box" data-index="${idx}">
+                  <div class="card shadow-sm border rounded position-relative">
+                    <img src="${url}" alt="screenshot-${idx}"
+                      class="card-img-top"
+                      style="height:180px; object-fit:cover; border-radius:8px 8px 0 0;">
+                    <button type="button"
+                      class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2"
+                      title="Delete"
+                      onclick="deleteVerificationImage('${team.id}', '${url.replace(/'/g, "\\'")}')">
+                      &times;
+                    </button>
+                  </div>
+                </div>`
+            )
+            .join('');
+          container.insertAdjacentHTML('beforeend', moreHtml);
+          showMoreBtn.textContent = 'Show Less';
+          expanded = true;
+        } else {
+          const boxes = container.querySelectorAll('.verification-image-box');
+          boxes.forEach((box, idx) => {
+            if (idx >= 3) box.remove();
+          });
+          showMoreBtn.textContent = 'Show More';
+          expanded = false;
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Error opening verification modal:', error);
+    showMessage('Error loading verification data', 'error');
+  }
+}
+
+// Delete verification image
+async function deleteVerificationImage(teamId, imageUrl) {
+  if (!confirm('Delete this screenshot?')) return;
+  try {
+    await db.collection('teamRegistrations').doc(teamId).update({
+      screenshots: firebase.firestore.FieldValue.arrayRemove(imageUrl),
+      images: firebase.firestore.FieldValue.arrayRemove(imageUrl),
+    });
+    showMessage('Screenshot removed', 'success');
+    const container = document.getElementById('verificationScreenshotsContainer');
+    if (container) {
+      const boxes = container.querySelectorAll('.verification-image-box');
+      boxes.forEach((box) => {
+        const img = box.querySelector('img');
+        if (img && img.src === imageUrl) box.remove();
+      });
+      if (container.children.length === 0) {
+        container.innerHTML = `
+          <div class="col-md-4 mb-3"><div class="card border-2 border-dashed text-center py-5 shadow-sm"><i class="bi bi-image" style="font-size:40px; color:#aaa;"></i><p class="mt-2 text-muted">No Image</p></div></div>
+          <div class="col-md-4 mb-3"><div class="card border-2 border-dashed text-center py-5 shadow-sm"><i class="bi bi-image" style="font-size:40px; color:#aaa;"></i><p class="mt-2 text-muted">No Image</p></div></div>
+          <div class="col-md-4 mb-3"><div class="card border-2 border-dashed text-center py-5 shadow-sm"><i class="bi bi-image" style="font-size:40px; color:#aaa;"></i><p class="mt-2 text-muted">No Image</p></div></div>`;
+      }
+    }
+    await loadTeams();
+  } catch (error) {
+    console.error('Error deleting screenshot:', error);
+    showMessage('Error deleting screenshot', 'error');
+  }
+}
+
+// Update verification status
+async function updateTeamVerificationStatus(teamId, status) {
+  try {
+    await db.collection('teamRegistrations').doc(teamId).update({
+      verificationStatus: status,
+      verificationUpdatedAt: new Date().toISOString(),
+    });
+    showMessage('Verification status updated to ' + status, 'success');
+    await loadTeams();
+  } catch (error) {
+    console.error('Error updating verification status:', error);
+    showMessage('Error updating verification status', 'error');
+  }
+}
+
+
+
+
+
+
+
+
+
       function renderTeams() {
         const teamsTableBody = document.getElementById("teamsTableBody");
         if (filteredAdminTeams.length === 0) {
@@ -2097,58 +2598,55 @@
         const endIndex = startIndex + itemsPerPage;
         const paginatedTeams = filteredAdminTeams.slice(startIndex, endIndex);
         teamsTableBody.innerHTML = paginatedTeams
-          .map((team) => {
-            const tournament = tournaments.find(
-              (t) => t.id === team.tournamentId
-            );
+          .map((team, idx) => {
+            const tournament = tournaments.find((t) => t.id === team.tournamentId);
             return `
-          <tr>
-            <td>
-              ${
-                team.logoUrl
-                  ? `<img src="${team.logoUrl}" alt="${team.teamName}"
-                     style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div style="display: none; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(45deg, #ffd700, #ffb347); color: #000; font-weight: 700; font-size: 0.8rem; align-items: center; justify-content: center;">${getTeamInitials(
-                  team.teamName
-                )}</div>`
-                  : `<div style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(45deg, #ffd700, #ffb347); color: #000; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">${getTeamInitials(
-                      team.teamName
-                    )}</div>`
-              }
-            </td>
-            <td>${team.teamName}</td>
-            <td>${team.teamLeaderName}</td>
-            <td>${team.teamLeaderEmail || "N/A"}</td>
-            <td>${team.phoneNumber}</td>
-            <td>
-              <div class="tournament-badge">${
-                tournament ? tournament.name : "Unknown"
-              }</div>
-            </td>
-            <td>
-              ${team.players
-                .slice(0, 2)
-                .map((player, i) => `<small>${player.ign || player}</small>`)
-                .join("<br>")}
-              ${
-                team.players.length > 2
-                  ? `<small>+${team.players.length - 2} more</small>`
-                  : ""
-              }
-            </td>
-            <td>${new Date(team.registrationDate).toLocaleDateString()}</td>
-            <td>
-              <button class="btn btn-danger btn-sm" onclick="deleteTeam('${
-                team.id
-              }')">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        `;
+              <tr>
+                <td>${startIndex + idx + 1}</td>
+                <td>
+                  ${team.logoUrl
+                    ? `<img src="${team.logoUrl}" alt="${team.teamName}"
+                        style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` +
+                      `<div style="display: none; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(45deg, #ffd700, #ffb347); color: #000; font-weight: 700; font-size: 0.8rem; align-items: center; justify-content: center;">${getTeamInitials(team.teamName)}</div>`
+                    : `<div style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(45deg, #ffd700, #ffb347); color: #000; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;">${getTeamInitials(team.teamName)}</div>`
+                  }
+                </td>
+                <td>
+                  ${team.teamName}
+                  ${team.verificationStatus ? `<span class="badge" style="background:${team.verificationStatus==='verified'?'#28a745':team.verificationStatus==='not_verified'?'#dc3545':'#6c757d'}; color:#fff; margin-left:8px; text-transform:capitalize;">${team.verificationStatus.replace(/_/g,' ')}</span>` : ''}
+                </td>
+                <td>${team.teamLeaderName}</td>
+                <td>${team.teamLeaderEmail || "N/A"}</td>
+                <td>${team.phoneNumber}</td>
+                <td>
+                  <div class="tournament-badge">${tournament ? tournament.name : "Unknown"}</div>
+                </td>
+                <td>
+                  ${team.players
+                    .slice(0, 2)
+                    .map((player, i) => `<small>${player.ign || player}</small>`)
+                    .join("<br>")}
+                  ${team.players.length > 2 ? `<small>+${team.players.length - 2} more</small>` : ""}
+                </td>
+                <td>${new Date(team.registrationDate).toLocaleDateString()}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm me-1" onclick="editTeam('${team.id}')">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <!-- Verify button -->
+                  <button class="btn btn-warning btn-sm me-1" onclick="openVerificationModal('${team.id}')" title="Verify Team">
+                    <i class="fas fa-check-double"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" onclick="deleteTeam('${team.id}')">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>  
+              </tr>
+            `;
           })
           .join("");
+
         // Render pagination
         renderAdminPagination(
           "teams-admin-pagination",
@@ -2236,11 +2734,10 @@
                       (team, index) =>
                         `<p>${getPositionIcon(index + 1)} ${
                           index + 1
-                        }${getOrdinalSuffix(index + 1)}: ${team.teamName} (${
-                          team.points || 0
-                        }pts, ${team.kills || 0} kills, ₹${(
-                          team.prize || 0
-                        ).toLocaleString()})</p>`
+                        }${getOrdinalSuffix(index + 1)}: ${team.teamName} (
+                          ${team.points || 0} pts, ${team.kills || 0} kills, ₹${(team.prize || 0).toLocaleString()}, 
+                          Position Points: ${team.pospoint ?? team.pospoints ?? 0}, Chicken Dinner: ${team.chicken ?? 0}
+                        )</p>`
                     )
                     .join("")
                 : '<p class="text-muted">No team results available</p>'
@@ -2567,10 +3064,6 @@
         if (!confirm("Are you sure you want to delete this team registration?"))
           return;
         try {
-          // Store current filter values before deletion
-          const currentTournamentFilter = document.getElementById("adminTournamentFilter").value;
-          const currentTeamNameFilter = document.getElementById("adminTeamNameFilter").value;
-          
           const teamDoc = await db
             .collection("teamRegistrations")
             .doc(teamId)
@@ -2592,14 +3085,6 @@
 
           showMessage("Team deleted successfully!", "success");
           await loadTeams();
-          
-          // Restore filter values after loading teams
-          document.getElementById("adminTournamentFilter").value = currentTournamentFilter;
-          document.getElementById("adminTeamNameFilter").value = currentTeamNameFilter;
-          
-          // Apply filters to maintain the current view
-          applyAdminFilters();
-          
           await loadTournaments();
           await updateStats();
         } catch (error) {
@@ -2656,12 +3141,16 @@
         const points = formData.getAll("points");
         const kills = formData.getAll("kills");
         const prizes = formData.getAll("prize");
+        const pospoints = formData.getAll("pospoint");
+        const chickens = formData.getAll("chicken");
 
         const teams = teamNames.map((name, index) => ({
           teamName: name,
           points: parseInt(points[index]) || 0,
           kills: parseInt(kills[index]) || 0,
           prize: parseInt(prizes[index]) || 0,
+          pospoint: parseInt(pospoints[index]) || 0,
+          chicken: parseInt(chickens[index]) || 0,
         }));
 
         const tournament = tournaments.find((t) => t.id === tournamentId);
@@ -2717,6 +3206,12 @@
               <div class="col-md-3">
                 <input type="number" class="form-control" placeholder="Prize (₹)" name="prize">
               </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="Position Point" name="pospoint">
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="chicken" name="chicken">
+              </div>
             </div>
           </div>
           <div class="team-position">
@@ -2734,6 +3229,12 @@
               <div class="col-md-3">
                 <input type="number" class="form-control" placeholder="Prize (₹)" name="prize">
               </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="Position Point" name="pospoint">
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="chicken" name="chicken">
+              </div>
             </div>
           </div>
           <div class="team-position">
@@ -2750,6 +3251,12 @@
               </div>
               <div class="col-md-3">
                 <input type="number" class="form-control" placeholder="Prize (₹)" name="prize">
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="Position Point" name="pospoint">
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="chicken" name="chicken">
               </div>
             </div>
           </div>
@@ -3022,6 +3529,8 @@
             <td style="padding: 15px; text-align: center; color: #00d4ff; font-weight: 600;">${team.points || 0}</td>
             <td style="padding: 15px; text-align: center; color: #ff6b35; font-weight: 600;">${team.kills || 0}</td>
             <td style="padding: 15px; text-align: center; color: #28a745; font-weight: 600;">₹${(team.prize || 0).toLocaleString()}</td>
+            <td style="padding: 15px; text-align: center; color: #ffc107; font-weight: 600;">${team.pospoint ?? team.pospoints ?? 0}</td>
+            <td style="padding: 15px; text-align: center; color: #e83e8c; font-weight: 600;">${team.chicken ?? 0}</td>
           </tr>
         `)
         .join("");
